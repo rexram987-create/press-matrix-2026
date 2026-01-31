@@ -3,66 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRESS MATRIX - מרכז בקרה 2026</title>
+    <title>PRESS MATRIX - מרכז בקרה ומחקר 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
-        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; height: 100vh; display: flex; flex-direction: column; }
-        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; padding: 2rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
-        .dashboard-card:hover { transform: translateY(-10px); border-color: #6366f1; box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.4); }
+        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.6; }
+        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; padding: 2rem; transition: all 0.4s ease; position: relative; }
+        .dashboard-card:hover { transform: translateY(-5px); border-color: #6366f1; box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3); }
         .title-main { background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .about-section { background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 2rem; padding: 2rem; margin-bottom: 3rem; }
         .status-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; display: inline-block; margin-left: 8px; box-shadow: 0 0 10px #34d399; }
+        .feature-badge { background: #1e293b; color: #818cf8; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(129, 140, 248, 0.2); }
     </style>
 </head>
-<body class="p-6 md:p-12">
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
 
-    <header class="text-center mb-16">
-        <h1 class="text-5xl md:text-7xl italic title-main mb-4">PRESS MATRIX</h1>
+    <header class="text-center mb-12">
+        <h1 class="text-6xl md:text-8xl italic title-main mb-4">PRESS MATRIX</h1>
         <div class="flex justify-center items-center gap-4 text-slate-400 text-sm italic">
-            <span><span class="status-dot"></span> מערכת פעילה (2026)</span>
+            <span><span class="status-dot"></span> מערכת מחקר פעילה</span>
             <span class="border-r border-slate-700 h-4 mx-2"></span>
-            <span>מודיעין תקשורת ערבית</span>
+            <span>מודיעין תקשורת ערבית 2026</span>
         </div>
     </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
+    <section class="about-section">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+            <div class="flex-1">
+                <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                    <i class="fas fa-info-circle ml-2 text-indigo-400"></i>
+                    סקירה כללית | Overview
+                </h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    פרויקט זה מהווה מרכז בקרה מודיעיני המרכז מחקר מעמיק על עמודי התווך של התקשורת בעולם הערבי. המחקר מתמקד בשלושה צירי ניתוח מרכזיים: אטימולוגיה לשונית של המותגים, ביוגרפיות של המייסדים המדגישות את שלבי הילדות ועיצוב הזהות, ומיפוי אידיאולוגי של הנרטיב החדשותי.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="feature-badge">ניתוח אטימולוגי</span>
+                    <span class="feature-badge">פרופיל מייסדים</span>
+                    <span class="feature-badge">מיפוי אידיאולוגי</span>
+                    <span class="feature-badge">S25 Ultra Optimized</span>
+                </div>
+            </div>
+            <div class="w-full md:w-64 bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
+                <h3 class="text-xs font-black text-slate-500 uppercase tracking-tighter mb-4">נתוני המערכת</h3>
+                <ul class="space-y-3 text-xs">
+                    <li class="flex justify-between text-slate-300"><span>עיתונות:</span> <span class="font-bold text-indigo-400">8 יחידות</span></li>
+                    <li class="flex justify-between text-slate-300"><span>טלוויזיה:</span> <span class="font-bold text-emerald-400">7 יחידות</span></li>
+                    <li class="flex justify-between text-slate-300"><span>דירוג אמינות:</span> <span class="text-yellow-400 font-bold">VERIFIED</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-16">
         
         <a href="newspapers.html" class="dashboard-card group">
             <div class="flex justify-between items-start mb-6">
                 <i class="fas fa-newspaper text-4xl text-indigo-400"></i>
-                <span class="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-xs font-bold">8 פריטים</span>
+                <i class="fas fa-chevron-left text-slate-700 group-hover:text-indigo-400 transition-colors"></i>
             </div>
-            <h2 class="text-3xl font-black mb-2 italic">PRESS EDITION</h2>
-            <p class="text-slate-400 text-sm mb-6">ניתוח אטימולוגי וביוגרפי מורחב של העיתונות הערבית הכתובה.</p>
-            <div class="flex items-center text-indigo-400 font-bold group-hover:translate-x-[-5px] transition-transform">
-                כניסה למחקר <i class="fas fa-arrow-left mr-2"></i>
-            </div>
+            <h3 class="text-2xl font-black mb-2 italic">PRESS EDITION</h3>
+            <p class="text-slate-400 text-xs">כניסה למחקר מורחב של העיתונות הערבית הכתובה, כולל אל-אהראם, אל-אח'באר ואחרים.</p>
         </a>
 
         <a href="tv_channels.html" class="dashboard-card group">
             <div class="flex justify-between items-start mb-6">
                 <i class="fas fa-tv text-4xl text-emerald-400"></i>
-                <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">7 ערוצים</span>
+                <i class="fas fa-chevron-left text-slate-700 group-hover:text-emerald-400 transition-colors"></i>
             </div>
-            <h2 class="text-3xl font-black mb-2 italic">BROADCAST INTEL</h2>
-            <p class="text-slate-400 text-sm mb-6">ניתוח רשתות שידור, אישים ואידיאולוגיה של ערוצי הטלוויזיה.</p>
-            <div class="flex items-center text-emerald-400 font-bold group-hover:translate-x-[-5px] transition-transform">
-                כניסה למחקר <i class="fas fa-arrow-left mr-2"></i>
-            </div>
+            <h3 class="text-2xl font-black mb-2 italic">BROADCAST INTEL</h3>
+            <p class="text-slate-400 text-xs">סקירה אסטרטגית של רשתות השידור, אל-ג'זירה, אל-ערביה וציר ההתנגדות.</p>
         </a>
 
     </main>
 
-    <footer class="mt-auto pt-12 text-center">
-        <div class="bg-slate-900/50 inline-block px-6 py-3 rounded-2xl border border-slate-800">
-            <div class="grid grid-cols-3 gap-8 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                <div>Device: <span class="text-slate-300">S25 Ultra</span></div>
-                <div>Status: <span class="text-emerald-400">Verified</span></div>
-                <div>Mode: <span class="text-indigo-400">Full Retention</span></div>
-            </div>
+    <footer class="text-center">
+        <div class="opacity-50 text-[10px] mb-4">
+            <p class="font-bold mb-2 uppercase tracking-widest text-slate-400">Legal Disclaimer</p>
+            <p class="max-w-xl mx-auto">כל הלוגואים והסימנים המסחריים שייכים לבעליהם המקוריים ומוצגים כאן למטרות מחקר וניתוח בלבד (Fair Use).</p>
         </div>
-        <p class="mt-6 text-slate-600 text-[10px] italic opacity-50">נערך עבור רם | ינואר 2026</p>
+        <div class="h-px bg-slate-800 w-full mb-6"></div>
+        <p class="text-slate-600 text-[10px] font-bold">נערך עבור רם | ינואר 2026 | מבוסס GitHub Pages</p>
     </footer>
 
 </body>
