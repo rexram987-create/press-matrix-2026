@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
         body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.6; }
-        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; padding: 2rem; transition: all 0.4s ease; position: relative; }
+        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 2rem; padding: 1.5rem; transition: all 0.4s ease; position: relative; }
         .dashboard-card:hover { transform: translateY(-5px); border-color: #6366f1; box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3); }
         .title-main { background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
         .about-section { background: rgba(30, 41, 59, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 2rem; padding: 2rem; margin-bottom: 3rem; }
@@ -24,7 +24,7 @@
         <div class="flex justify-center items-center gap-4 text-slate-400 text-sm italic">
             <span><span class="status-dot"></span> מערכת מחקר פעילה</span>
             <span class="border-r border-slate-700 h-4 mx-2"></span>
-            <span>מודיעין תקשורת ערבית 2026</span>
+            <span>מודיעין תקשורת גלובלי 2026</span>
         </div>
     </header>
 
@@ -36,55 +36,79 @@
                     סקירה כללית | Overview
                 </h2>
                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                    פרויקט זה מהווה מרכז בקרה מודיעיני המרכז מחקר מעמיק על עמודי התווך של התקשורת בעולם הערבי. המחקר מתמקד בשלושה צירי ניתוח מרכזיים: אטימולוגיה לשונית של המותגים, ביוגרפיות של המייסדים המדגישות את שלבי הילדות ועיצוב הזהות, ומיפוי אידיאולוגי של הנרטיב החדשותי.
+                    מרכז בקרה מודיעיני המרכז מחקר השוואתי על עמודי התווך של התקשורת העולמית. המטריצה מנתחת יחידות מחקר בצירי אטימולוגיה, ביוגרפיה (ילדות ועיצוב זהות), רקע היסטורי להקמה ומיפוי אידיאולוגי.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
                     <span class="feature-badge">ניתוח אטימולוגי</span>
-                    <span class="feature-badge">פרופיל מייסדים</span>
-                    <span class="feature-badge">מיפוי אידיאולוגי</span>
+                    <span class="feature-badge">ביוגרפיית מייסדים</span>
+                    <span class="feature-badge">רקע היסטורי</span>
                     <span class="feature-badge">S25 Ultra Optimized</span>
                 </div>
             </div>
             <div class="w-full md:w-64 bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
                 <h3 class="text-xs font-black text-slate-500 uppercase tracking-tighter mb-4">נתוני המערכת</h3>
                 <ul class="space-y-3 text-xs">
-                    <li class="flex justify-between text-slate-300"><span>עיתונות:</span> <span class="font-bold text-indigo-400">8 יחידות</span></li>
-                    <li class="flex justify-between text-slate-300"><span>טלוויזיה:</span> <span class="font-bold text-emerald-400">7 יחידות</span></li>
+                    <li class="flex justify-between text-slate-300"><span>יחידות עיתונות:</span> <span class="font-bold text-indigo-400">14 יחידות</span></li>
+                    <li class="flex justify-between text-slate-300"><span>יחידות שידור:</span> <span class="font-bold text-emerald-400">13 יחידות</span></li>
                     <li class="flex justify-between text-slate-300"><span>דירוג אמינות:</span> <span class="text-yellow-400 font-bold">VERIFIED</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-16">
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full mb-16">
         
-        <a href="newspapers.html" class="dashboard-card group">
-            <div class="flex justify-between items-start mb-6">
-                <i class="fas fa-newspaper text-4xl text-indigo-400"></i>
-                <i class="fas fa-chevron-left text-slate-700 group-hover:text-indigo-400 transition-colors"></i>
-            </div>
-            <h3 class="text-2xl font-black mb-2 italic">PRESS EDITION</h3>
-            <p class="text-slate-400 text-xs">כניסה למחקר מורחב של העיתונות הערבית הכתובה, כולל אל-אהראם, אל-אח'באר ואחרים.</p>
-        </a>
+        <!-- Arabic Section (MENA) -->
+        <div class="space-y-4">
+            <h3 class="text-xs font-bold text-indigo-400 uppercase tracking-widest mr-2">MENA INTELLIGENCE</h3>
+            <a href="mena_newspapers.html" class="dashboard-card group block">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-newspaper text-4xl text-indigo-400"></i>
+                    <i class="fas fa-chevron-left text-slate-700 group-hover:text-indigo-400 transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-2 italic">ARABIC PRESS</h3>
+                <p class="text-slate-400 text-xs">עיתונות ערבית כתובה: אל-אהראם, אל-אח'באר ומחקרים מורחבים נוספים.</p>
+            </a>
+            <a href="mena_tv_channels.html" class="dashboard-card group block">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-tv text-4xl text-emerald-400"></i>
+                    <i class="fas fa-chevron-left text-slate-700 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-2 italic">ARABIC BROADCAST</h3>
+                <p class="text-slate-400 text-xs">רשתות שידור: אל-ג'זירה, אל-ערביה וניתוח ציר ההתנגדות.</p>
+            </a>
+        </div>
 
-        <a href="tv_channels.html" class="dashboard-card group">
-            <div class="flex justify-between items-start mb-6">
-                <i class="fas fa-tv text-4xl text-emerald-400"></i>
-                <i class="fas fa-chevron-left text-slate-700 group-hover:text-emerald-400 transition-colors"></i>
-            </div>
-            <h3 class="text-2xl font-black mb-2 italic">BROADCAST INTEL</h3>
-            <p class="text-slate-400 text-xs">סקירה אסטרטגית של רשתות השידור, אל-ג'זירה, אל-ערביה וציר ההתנגדות.</p>
-        </a>
+        <!-- US Section -->
+        <div class="space-y-4">
+            <h3 class="text-xs font-bold text-fbbf24 uppercase tracking-widest mr-2">WESTERN INTELLIGENCE</h3>
+            <a href="us_newspapers.html" class="dashboard-card group block">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-flag-usa text-4xl text-indigo-400"></i>
+                    <i class="fas fa-chevron-left text-slate-700 group-hover:text-indigo-400 transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-2 italic">US NEWSPAPERS</h3>
+                <p class="text-slate-400 text-xs">6 עיתונים מובילים: NYT, WSJ, WP, USA Today, LA Times, Chicago Tribune.</p>
+            </a>
+            <a href="us_tv_channels.html" class="dashboard-card group block">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-satellite text-4xl text-emerald-400"></i>
+                    <i class="fas fa-chevron-left text-slate-700 group-hover:text-emerald-400 transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-black mb-2 italic">US TV NETWORKS</h3>
+                <p class="text-slate-400 text-xs">6 ערוצי חדשות גדולים: CNN, FOX News, MSNBC, ABC, CBS, NBC.</p>
+            </a>
+        </div>
 
     </main>
 
     <footer class="text-center">
         <div class="opacity-50 text-[10px] mb-4">
             <p class="font-bold mb-2 uppercase tracking-widest text-slate-400">Legal Disclaimer</p>
-            <p class="max-w-xl mx-auto">כל הלוגואים והסימנים המסחריים שייכים לבעליהם המקוריים ומוצגים כאן למטרות מחקר וניתוח בלבד (Fair Use).</p>
+            <p class="max-w-xl mx-auto">כל הלוגואים והסימנים המסחריים שייכים לבעליהם המקוריים ומוצגים כאן למטרות מחקר וניתוח בלבד.</p>
         </div>
         <div class="h-px bg-slate-800 w-full mb-6"></div>
-        <p class="text-slate-600 text-[10px] font-bold">נערך עבור רם | ינואר 2026 | מבוסס GitHub Pages</p>
+        <p class="text-slate-600 text-[10px] font-bold">נערך עבור רם | 2026 | ARCHITECTURE RESTRUCTURED</p>
     </footer>
 
 </body>
