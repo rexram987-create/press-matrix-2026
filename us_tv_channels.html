@@ -8,335 +8,395 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
-        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.6; }
-        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 1.5rem; margin-bottom: 2rem; border-right: 1px solid rgba(16, 185, 129, 0.2); }
-        .title-gradient { background: linear-gradient(to left, #34d399, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
-        .bio-section { background: rgba(30, 41, 59, 0.4); border-radius: 1.5rem; padding: 1.25rem; margin-top: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .label { color: #94a3b8; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; margin-top: 0.5rem; letter-spacing: 0.05em; }
-        .value { color: #f1f5f9; font-size: 0.9rem; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.03); padding-bottom: 4px; }
-        .sub-label { color: #34d399; font-size: 0.75rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; }
-        .background-box { background: rgba(52, 211, 153, 0.08); border-radius: 0.75rem; padding: 1rem; margin-bottom: 1.5rem; border: 1px dashed rgba(52, 211, 153, 0.3); }
+        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.8; }
+        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; margin-bottom: 4rem; border-right: 1px solid rgba(52, 211, 153, 0.2); transition: all 0.3s ease; }
+        .dashboard-card:hover { border-color: #34d399; box-shadow: 0 15px 45px -10px rgba(52, 211, 153, 0.2); }
+        .title-gradient { background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .bio-section { background: rgba(30, 41, 59, 0.4); border-radius: 1.5rem; padding: 2.5rem; margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .label { color: #94a3b8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-top: 1.5rem; letter-spacing: 0.1em; border-bottom: 1px solid rgba(148, 163, 184, 0.1); display: inline-block; }
+        .value { color: #f1f5f9; font-size: 1.1rem; margin-bottom: 1.5rem; margin-top: 0.5rem; }
+        .sub-label { color: #34d399; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+        .background-box { background: rgba(52, 211, 153, 0.08); border-radius: 1.25rem; padding: 2rem; margin-bottom: 3rem; border: 1px dashed rgba(52, 211, 153, 0.3); }
+        strong { color: #818cf8; font-weight: 900; }
+        .root-badge { background: #1e1b4b; color: #818cf8; padding: 3px 14px; border-radius: 6px; font-family: monospace; font-size: 1.1rem; margin-right: 8px; border: 1px solid rgba(129, 140, 248, 0.4); box-shadow: 0 0 10px rgba(129, 140, 248, 0.1); }
+        p { margin-bottom: 1.25rem; }
     </style>
 </head>
-<body class="p-4 md:p-8 max-w-4xl mx-auto">
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
 
-    <header class="mb-10 flex justify-between items-center border-b border-slate-800 pb-6">
-        <a href="index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-bold">
-            <i class="fas fa-arrow-right ml-2"></i> חזרה למרכז הבקרה
+    <header class="mb-20 flex justify-between items-center border-b border-slate-800 pb-12">
+        <a href="index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-bold flex items-center gap-3">
+            <i class="fas fa-arrow-right"></i> חזרה למרכז הבקרה
         </a>
         <div class="text-left">
-            <h1 class="text-3xl font-black title-gradient">US BROADCAST INTEL</h1>
-            <p class="text-[10px] text-slate-500 font-mono italic">DEEP BROADCAST ANALYSIS | MAXIMUM DETAIL LEVEL | 2026</p>
+            <h1 class="text-4xl md:text-6xl font-black title-gradient tracking-tighter">US BROADCAST INTEL</h1>
+            <p class="text-[14px] text-slate-500 font-mono italic tracking-widest uppercase mt-4">ENCYCLOPEDIC NETWORK MATRIX | US EDITION | 2026.V13</p>
         </div>
     </header>
 
-    <!-- CNN -->
+    <!-- 01. CNN -->
     <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">CNN (Cable News Network)</h2>
-                <span class="text-xs text-emerald-400 font-mono italic">The First 24-Hour News Network</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">01. CNN (Cable News Network)</h2>
+                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">The Global Narrative Architect</span>
             </div>
-            <i class="fas fa-satellite-dish text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-satellite-dish text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">ATLANTA, GA | EST. 1980</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">Cable News Network - מהפכת המעבר משידור אנטנה (Broadcasting) לכבלים רציפים.</div>
+                <div class="value leading-relaxed text-lg italic"><strong>Cable News Network:</strong> השם מסמל את פריצת הדרך המהותית של המעבר משידור אנטנה (Broadcasting) מסורתי ומוגבל בזמן, לשידור כבלים רציף ומקיף. המותג נועד להגדיר קטגוריה חדשה של "זרימת מידע" שאינה פוסקת, מעין זרם תודעתי המחובר 24/7 לבית הצרכן, ומבטל את מושג ה"מהדורה" לטובת ה"זמן אמת".</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1980. הוקמה כדי לספק זרימת מידע חדשותי ללא הפסקה, בניגוד למהדורות המוגבלות בזמן.</div>
+                <div class="value text-lg">1980. הוקמה כדי לשבור את הדומיננטיות המאובנת של שלוש הרשתות הגדולות (ABC, CBS, NBC) ולספק לציבור האמריקאי והעולמי מקור מידע שאינו נח לעולם.</div>
             </div>
             <div>
-                <div class="label">בונה/מייסד</div>
-                <div class="value">רוברט אדוארד "טד" טרנר השלישי</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">נולד 1938 (פעיל)</div>
+                <div class="label">בונה/מייסד ואיש החזון</div>
+                <div class="value text-2xl font-bold">רוברט אדוארד "טד" טרנר השלישי</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">נולד ב-1938. טייקון תקשורת, נדבן והאיש שחזה את הפיכת המידע למוצר גלובלי נגיש ללא גבולות.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-emerald-500 pr-3">ניתוח עומק: טד טרנר</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: טד טרנר</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">בשלהי שנות ה-70, ארה"ב הייתה שבויה במודל ה-"Big Three" - רשתות ABC, CBS ו-NBC ששידרו חדשות רק בחלון צר בשעות הערב. העולם הפך למהיר ודינמי יותר, וטד טרנר זיהה שהציבור זקוק למידע בזמן אמת. הרקע להקמה היה הניצול המהפכני של טכנולוגיית הלוויין שהפכה לנגישה; טרנר הבין שניתן להדפיס "עיתון טלוויזיוני" שרץ 24 שעות ביממה. הוא הימר על כל הונו האישי, מול לעג של התעשייה שצפתה לו כישלון ("The Chicken Noodle Network"), כדי לייצר את מותג החדשות הגלובלי הראשון שאיפשר לאנשים בכל העולם לראות אירועים היסטוריים בעודם מתרחשים.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    בסוף שנות ה-70, עולם התקשורת האמריקאי היה נתון לשליטה בלעדית של מודל ה-"Big Three" ששידרו חדשות רק בחלון צר בשעות הערב. טד טרנר, יזם הרפתקן מאטלנטה, זיהה שבעולם מהיר ודינמי הציבור זקוק למידע בזמן אמת. הרקע להקמה היה הניצול המהפכני של טכנולוגיית הלוויין שהפכה לנגישה; טרנר הבין שניתן להדפיס "עיתון טלוויזיוני" שרץ ללא הפסקה. הוא הימר על כל הונו האישי מול לעג כמעט מוחלט של התעשייה שצפתה לו כישלון ("The Chicken Noodle Network"), והצליח לייצר את המותג שהגדיר מחדש את הדיפלומטיה העולמית (אפקט CNN).
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>רוברט (Robert):</strong> מקורו בגרמנית עתיקה (Hrodebert), הלחם של "Hrod" שפירושו "תהילה" או "יוקרה" ו-"Berht" שפירושו "מבריק", "בוהק" או "מפורסם". השם מעיד על גורל שנועד להנהגה ופרסום רב. 
-                        <strong>אדוארד (Edward):</strong> ממקור אנגלו-סכסוני (Eadweard), מורכב מ-"Ead" שפירושו "עושר", "מזל" או "שפע" ו-"Weard" שפירושו "שומר" או "מגן". השם מסמל אדם המופקד על שימור וביצור של נכסים גדולים. 
-                        <strong>טרנר (Turner):</strong> שם משפחה תעסוקתי (Occupational) מהמקור הלטיני "Tornare" והצרפתי העתיק "Tornour", שפירושו "חרט" או "מעצב במחרטה". השם מסמל דינמיות, תנועה סיבובית (כמו גלי אתר) ויכולת עיבוד של חומר גלם למוצר מוגמר ובעל ערך. 
-                        <strong>השלישי (III):</strong> סיומת לטינית שושלתית המציינת שלושה דורות רצופים של נושאי השם, דבר המטיל משקל פסיכולוגי של מסורת מחייבת, ציפייה משפחתית גבוהה והצורך להתעלות על הישגי האב והסב כדי להצדיק את הירושה.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני ומבני</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>רוברט (Robert):</strong> מקורו בגרמנית עתיקה <span class="root-badge">Hrodebert</span>, הלחם של "Hrod" (תהילה) ו-"Berht" (מבריק). פירושו "תהילה מבריקה" – שם המנבא הנהגה ופרסום רב. 
+                        <strong>אדוארד (Edward):</strong> מהשורש האנגלו-סכסוני <span class="root-badge">Eadweard</span>, מורכב מ-"Ead" (עושר/מזל) ו-"Weard" (שומר). פירושו "שומר העושר" או "מגן המזל". 
+                        <strong>טרנר (Turner):</strong> שם משפחה תעסוקתי לטיני/צרפתי עתיק <span class="root-badge">Tornare</span>, שפירושו "מעצב במחרטה" או "חרט". השם מסמל דינמיות, תנועה סיבובית ויכולת לעבד חומר גלם לצורה מוגמרת. 
+                        <strong>השלישי (III):</strong> סיומת שושלתית המציינת שלושה דורות של הנושאים את השם, דבר המטיל משקל פסיכולוגי של ציפייה משפחתית גבוהה והמשכיות מחויבת שעיצבה את שאיפתו לעליונות.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד בסינסינטי למשפחה של אנשי עסקים תחרותיים. ילדותו עוצבה תחת צלו המאיים והתובעני של אביו, אדוארד טרנר השני, שהיה דמות דומיננטית שדגלה בחינוך ספרטני ובמשמעת צבאית קפדנית. אביו שלח אותו לפנימיות צבאיות נוקשות מגיל צעיר, שם למד טד לסמוך רק על עצמו ולפתח חוסן נפשי מול בדידות ותחושת ניכור. אביו נהג להכותו ולהענישו בחומרה על כל מה שנתפס כחולשה או ככישלון בלימודים, מה שיצר אצל טד "רעב" פתולוגי להכרה ולהצלחה. נקודת המפנה המעצבת ביותר הייתה התאבדותו של אביו כאשר טד היה בן 24; הטרגדיה הזו הותירה אותו עם צורך עז ובלתי פוסק להוכיח לאביו המנוח שהוא מסוגל לבנות אימפריה שתתעלה על עסק השלטים המשפחתי. הילדות בצל הלחץ למצוינות והאובדן המוקדם יצרו דמות הרפתקנית וחסרת פחד מול סיכונים כלכליים אדירים.</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        טד נולד בסינסינטי למשפחה של אנשי עסקים דומיננטיים. בילדותו הוא גדל בצל המאיים והתובעני של אביו, אדוארד, שהיה דמות קשוחה באופן קיצוני והטיל עליו משמעת צבאית מגיל אפס. אביו שלח אותו לפנימיות צבאיות נוקשות והעניש אותו בחומרה על כל מה שנתפס כחולשה או חוסר מצוינות, חוויה שנטעה בטד צורך פתולוגי להוכיח את ערכו. רגע המפנה הטראגי בחייו היה התאבדותו של אביו כאשר טד היה בן 24; האובדן הזה, יחד עם הרצון להציל את עסק השלטים הכושל של המשפחה, הפכו אותו למנהיג חסר פחד מול סיכונים כלכליים אדירים. הזהות שלו עוצבה כ"מורד נצחי" הנלחם בממסד הישן כדי להראות לעולם (ולאביו המנוח) שהוא מסוגל לבנות אימפריה שתשנה את האנושות. הילדות בצל הלחץ המתמיד יצרה אדם שהסיכון עבורו הוא מצב קיומי טבעי.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">הקמת CNN, הפיכת החדשות למוצר של 24 שעות ביממה, שינוי פני הדיפלומטיה העולמית (אפקט CNN) והפיכת המידע למוצר צריכה גלובלי נגיש.</p>
+                    <p class="text-lg text-slate-300">הפיכת החדשות למוצר של 24 שעות ביממה, יצירת המודל של "חדשות לווייניות" גלובליות, ומיצוב CNN כגורם המשפיע ביותר על החלטות המנהיגים בזמן מלחמת המפרץ.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOX NEWS -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+    <!-- 02. Fox News -->
+    <section class="dashboard-card" style="border-right-color: #10b981;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">Fox News Channel</h2>
-                <span class="text-xs text-blue-400 font-mono italic">Alternative Media Powerhouse</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">02. Fox News Channel</h2>
+                <span class="text-sm text-blue-400 font-mono italic uppercase tracking-widest">The Populist Power Center</span>
             </div>
-            <i class="fas fa-tv text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-tv text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1996</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">נגזר מחברת הסרטים Fox (ויליאם פוקס). מסמל עוצמה הוליוודית ובידור שהועברו לחדשות.</div>
+                <div class="value text-lg"><strong>Fox News:</strong> נגזר מהמותג הקולנועי ההוליוודי "20th Century Fox" (על שם ויליאם פוקס). השם מסמל עוצמה, בידור וקצב מהיר. המותג נועד להביא את הדינמיקה של עולם הקולנוע לתוך עולם החדשות, כדי לייצר חוויית צפייה רגשית וזהותית שפונה ללב הצופה ולא רק לשכלו.</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1996. הוקמה כדי להוות משקל נגד למה שנתפס כ"הטיה ליברלית" בתקשורת המרכזית (MSM).</div>
+                <div class="value text-lg">1996. הוקמה כדי להוות משקל נגד (Counterweight) למה שנתפס כ"הטיה ליברלית" בתקשורת המרכזית, ולתת קול לציבור השמרני בארה"ב דרך מודל של "Infotainment".</div>
             </div>
             <div>
-                <div class="label">בונה/מייסד</div>
-                <div class="value">קית' רופרט מרדוק</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">נולד 1931 (פעיל)</div>
+                <div class="label">בונה/מייסד ואיש המטריצה</div>
+                <div class="value text-2xl font-bold">רופרט מרדוק</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">נולד ב-1931. יו"ר News Corp, האיש שבנה את אימפריית התקשורת הגדולה והמשפיעה ביותר במאה ה-21 ועיצב מחדש את השיח הפוליטי במערב.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-blue-500 pr-3">ניתוח עומק: רופרט מרדוק</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-blue-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: רופרט מרדוק</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">באמצע שנות ה-90, ארצות הברית חוותה גל של קיטוב תרבותי ופוליטי. רופרט מרדוק, שכבר בנה אימפריית עיתונות עולמית, זיהה שתקשורת המיינסטרים הופכת להומוגנית מדי ונתפסת כליברלית ומנותקת מהציבור השמרני בארה"ב. הרקע להקמה היה ניצול הוואקום האידיאולוגי הזה כדי לייצר ערוץ חדשות שידבר בשפת "הרוב הדומם". יחד עם רוג'ר איילס, מרדוק פיתח מודל שבו החדשות הן לא רק מידע, אלא מוצר זהותי ורגשי. Fox News הוקמה כדי לשבש את השוק ולתת לקהל השמרני "בית תקשורתי" שנלחם באליטות של ניו יורק ובושינגטון, מה שהוביל לשינוי מבני בדרך שבה אמריקאים צורכים פוליטיקה.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light">
+                    באמצע שנות ה-90, הקיטוב הפוליטי בארה"ב החל להחריף, ומרדוק זיהה תחושת ניכור גוברת בקרב הציבור השמרני שחש שתקשורת המיינסטרים אינה מדברת בשפתו. הרקע להקמה היה זיהוי "שוק שבור": בעוד שכל הרשתות פנו למרכז-שמאל הליברלי, הקהל השמרני נותר ללא קול טלוויזיוני מובהק. מרדוק, יחד עם רוג'ר איילס, החליט להקים רשת שתשבור את המוסכמה של "אובייקטיביות יבשה" לטובת "חדשות דעתניות", מה שהפך את הרשת לכוח הפוליטי החזק ביותר במפלגה הרפובליקנית ולשינוי מהותי בשיח הציבורי האמריקאי.
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>קית' (Keith):</strong> שם ממקור סקוטי עתיק, נגזר מהמילה "Ceiteach" שפירושו "יער" או "מקום רחב וגדול". השם מעיד על שורשים טריטוריאליים וחיבור לשטח. 
-                        <strong>רופרט (Rupert):</strong> גרסה גרמנית מובהקת לשם רוברט (Hrodebert), הלחם של "Hrod" (תהילה) ו-"Berht" (מבריק/בהיר), ופירושו "תהילה מבריקה" – שם המסמל שאפתנות ורצון לבלוט. 
-                        <strong>מרדוק (Murdoch):</strong> שם משפחה ממוצא סקוטי וגאלי (Muireadhach), שפירושו המילולי הוא "שליט הים" או "לוחם ימי". השם מעיד על מורשת של כוח, סמכות ויכולת ניווט במים סוערים, תכונה שאפיינה את דרכו העסקית חסרת הפשרות.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני ומנהיגותי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>קית' (Keith):</strong> מקורו בשם סקוטי עתיק <span class="root-badge">Ceiteach</span>, שפירושו "יער" או "מקום רחב וגדול". השם מעיד על שורשים טריטוריאליים ועל חיבור לשטח. 
+                        <strong>רופרט (Rupert):</strong> גרסה גרמנית מובהקת לשם רוברט (<span class="root-badge">Hrodebert</span>), הלחם של "Hrod" (תהילה) ו-"Berht" (מבריק/בהיר). פירושו "תהילה מבריקה" – שם המבטא שאפתנות ורצון לבלוט מעל כולם. 
+                        <strong>מרדוק (Murdoch):</strong> שם משפחה סקוטי וגאלי <span class="root-badge">Muireadhach</span>, שפירושו "שליט הים" או "לוחם ימי". השם מעיד על מורשת של כוח, סמכות ויכולת ניווט במים סוערים ותחרותיים, תכונה שאפיינה את דרכו העסקית חסרת הרחמים לבניית אימפריה חובקת עולם.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד במלבורן, אוסטרליה, למשפחה שחיה בלב העשייה התקשורתית. אביו, סר קית' מרדוק, היה עיתונאי לוחמני ובעל עיתונים בעל השפעה פוליטית עצומה שבנה את רשת העיתונים הראשונה באוסטרליה. רופרט גדל בצל ציפיות אדירות; בילדותו הוא בילה שעות רבות במערכות עיתונים רועשות, לומד את הריח של הדיו ואת המשקל של המילים המודפסות לשנות גורלות. למרות העושר המשפחתי, הוא תמיד הרגיש "אאוטסיידר" אל מול האריסטוקרטיה הבריטית בבית הספר ובאוניברסיטת אוקספורד, שם כונה "רופרט האדום" בשל דעותיו המרדניות. תחושת הניכור הזו מהאליטות הממוסדות הפכה לדלק המנוע של חייו: הוא בנה את הזהות שלו כמי שמנפץ את המוסכמות של "מועדון הבוגרים הישן" לטובת כוח פופוליסטי המוני. מות אביו בצעירותו אילץ אותו לקחת פיקוד על העסק המשפחתי ולבנות אימפריה עולמית כדי להשפיע על המציאות.</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        רופרט נולד במלבורן, אוסטרליה, למשפחת אצולה תקשורתית. אביו, סר קית' מרדוק, היה מו"ל רב עוצמה שהחדיר בו את ההבנה המוקדמת שעיתונות היא כוח פוליטי ראשון במעלה. בילדותו הוא בילה שעות רבות במערכות העיתונים הרועשות, לומד את הריח של הדיו ואת המשקל של המילים המודפסות לשנות גורלות. למרות העושר, רופרט תמיד הרגיש "אאוטסיידר" אל מול האליטות הממוסדות של בריטניה וארה"ב (כפי שחווה בלימודיו באוקספורד), מה שעיצב את גישת ה"לוחם" שלו נגד הממסד (Anti-Establishment). תחושת הניכור הזו, יחד עם הצורך לבנות אימפריה שתתעלה על הישגי אביו, הפכה אותו לאדם שלא מהסס לנפץ מוסכמות תרבותיות כדי להגיע להמונים ולהשפיע על המציאות הפוליטית הגלובלית.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">בניית News Corp, הפיכת Fox News לערוץ החדשות הנצפה ביותר בארה"ב ושינוי פני התקשורת בבריטניה ובאוסטרליה דרך מודלים של דעתנות ובידור.</p>
+                    <p class="text-lg text-slate-300">בניית News Corp כאימפריית המדיה הגדולה בעולם, הפיכת Fox News לערוץ הנצפה ביותר בארה"ב, ועיצוב מחדש של הקיטוב הפוליטי המודרני במערב דרך מודל ה"Opinion News".</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CBS News -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+    <!-- 03. CBS News -->
+    <section class="dashboard-card" style="border-right-color: #818cf8;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">CBS News</h2>
-                <span class="text-xs text-indigo-400 font-mono italic">"The Tiffany Network"</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">03. CBS News</h2>
+                <span class="text-sm text-indigo-400 font-mono italic uppercase tracking-widest">"The Tiffany Network" - The Gold Standard</span>
             </div>
-            <i class="fas fa-broadcast-tower text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-broadcast-tower text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1927</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">Columbia Broadcasting System. על שם ה"קולומביה" - דמות אלגורית לארה"ב.</div>
+                <div class="value text-lg"><strong>Columbia Broadcasting System:</strong> השם "קולומביה" הוא דמות אלגורית נשית המייצגת את ארצות הברית (מקור המילה בשמו של קולומבוס). הבחירה בשם נועדה להעניק לרשת מעמד של מוסד לאומי פטריוטי, המחובר לשורשים ההיסטוריים והתרבותיים של האומה האמריקאית.</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1927. הוקמה כדי למסד את שידורי הרדיו והטלוויזיה כפלטפורמה לאומית לחדשות ובידור איכותיים.</div>
+                <div class="value text-lg">1927. הוקמה כדי למסד את שידורי הרדיו (ומאוחר יותר הטלוויזיה) כפלטפורמה לאומית לחדשות ובידור איכותי, ולהפוך את הטכנולוגיה החדשה לכלי לעיצוב תרבות הצריכה של אמריקה.</div>
             </div>
             <div>
-                <div class="label">בונה/מייסד</div>
-                <div class="value">ויליאם סמואל פיילי</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">1901 – 1990</div>
+                <div class="label">בונה/מייסד וארכיטקט היוקרה</div>
+                <div class="value text-2xl font-bold">ויליאם סמואל פיילי</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1901–1990. איש עסקים ופילנתרופ, האיש שהפך את ה-Broadcasting לתעשייה רווחית ומכובדת המבוססת על יוקרה ואמינות.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-indigo-500 pr-3">ניתוח עומק: ויליאם סמואל פיילי</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-indigo-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ויליאם סמואל פיילי</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">בשלהי שנות ה-20, הרדיו נתפס בעיקר כחידוש טכנולוגי עבור חובבים או ככלי להעברת מוזיקה בסיסית ללא מודל עסקי ברור. פיילי, בנו של תעשיין סיגרים מצליח, רכש רשת רדיו קטנה וכושלת בשם United Independent Broadcasters. הרקע להקמה (או לתחייה) של CBS היה ההבנה המהפכנית של פיילי שהשידור הוא פלטפורמה פרסומית חסרת תקדים לעיצוב תרבות צריכה המונית. הוא שינה את המודל: במקום שהתחנות המקומיות ישלמו לרשת, הרשת תשלם להן כדי שישדרו את תוכניותיה, ובכך תבטיח קהל ענק למפרסמים. הוא בנה את מחלקת החדשות היוקרתית ביותר באמריקה, מתוך אמונה שדיווח אמין הוא הבסיס ללגיטימציה של הרשת, מה שהעניק ל-CBS את הכינוי "רשת טיפאני" בשל איכותה.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    בשלהי שנות ה-20, הרדיו נתפס כחידוש טכנולוגי חובבני אך ללא מודל עסקי ברור. פיילי, בנו של תעשיין סיגרים מצליח, רכש רשת רדיו קטנה וכושלת וזיהה את הפוטנציאל הפרסומי העצום שלה. הרקע להקמה היה ההבנה המהפכנית ששידור אינו רק כלי להעברת מידע, אלא פלטפורמה לעיצוב תרבות צריכה המונית. הוא בנה את מחלקת החדשות היוקרתית ביותר באמריקה (יחד עם אדוארד מורו), מתוך אמונה שחדשות אמינות הן הבסיס ללגיטימציה של הרשת, מה שהעניק ל-CBS את הכינוי "רשת טיפאני" בשל איכותה הבלתי מתפשרת.
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>ויליאם (William):</strong> שם ממקור גרמני עתיק (Wilhelm), המורכב מ-"Wil" שפירושו "רצון", "תשוקה" או "נחישות" ו-"Helm" שפירושו "קסדה", "מגן" או "הגנה". פירושו המלא הוא "מגן נחוש" או "לוחם בעל רצון ברזל". 
-                        <strong>סמואל (Samuel):</strong> מקורו בשם העברי (שמואל), שפירושו "שמו של אל" או "שמע אל" (שאל מאל). השם מבטא קשר עמוק למסורת, לשמיעה וליכולת להקשיב לקולות התקופה – סמלי לאדם שבנה רשת שידור המבוססת על האזנה. 
-                        <strong>פיילי (Paley):</strong> שם משפחה ממקור אנגלו-סכסוני, נגזר מהמילה "Pale" שפירושו "גבול", "גדר" או "כלונסא". השם ציין במקור מגורים סמוך לקצה הישוב או המחוז, ומסמל את הגבול שבין המוכר לחדש.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>ויליאם (William):</strong> מקורו בגרמנית עתיקה <span class="root-badge">Wilhelm</span>, הלחם של "Wil" (רצון/נחישות) ו-"Helm" (קסדה/מגן). פירושו "מגן נחוש" – שם המסמל אדם בעל כוח רצון איתן המגן על נכסיו וערכיו. 
+                        <strong>סמואל (Samuel):</strong> מקורו בשם העברי <span class="root-badge">שמואל</span>, שפירושו "שמו של אל" או "שמע אל". השם מבטא קשר עמוק למסורת, ליכולת הקשבה (סמלי לרשת רדיו) ולסמכות מוסרית. 
+                        <strong>פיילי (Paley):</strong> שם אנגלו-סכסוני נגזר מהמילה "Pale", שפירושה <span class="root-badge">גבול</span> או "גדר". השם ציין במקור מגורים סמוך לקצה הישוב, ומסמל את הגבול שבין המוכר לחדש – אדם הפועל על קצה גבול החדשנות והקדמה.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד בשיקגו למשפחת מהגרים יהודים מאוקראינה שבנתה אימפריית טבק (Congress Cigar Co). ילדותו של ויליאם הייתה רוויה בעושר מופלג ובחשיפה מוקדמת לעולם הפרסום והשיווק דרך העסק המשפחתי; בילדותו הוא צפה באביו הופך מותג סיגרים פשוט להצלחה לאומית דרך פרסום חכם ותדמית יוקרתית. הוא גדל כ"נסיך" של משפחה שבנתה את עצמה בעשר אצבעות, מה שנטע בו ביטחון עצמי אופטימלי וטעם אסתטי גבוה במיוחד. בילדותו הוא נמשך למוזיקה ולבידור, אך אביו דחף אותו לעולם העסקים הקשוח. השילוב הזה – בין החושים העסקיים המושחזים שירש לבין אהבתו לביטוי תרבותי גבוה – עיצב אותו כאדם שידע להפוך את החדשות והשידור למוצר יוקרתי, ארוז היטב ומעורר כבוד. הוא לא רק בנה רשת, הוא בנה את הסטנדרט של ה"שידור המכובד".</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        ויליאם נולד בשיקגו למשפחת מהגרים יהודים מאוקראינה שבנתה אימפריית טבק מצליחה (Congress Cigar Co). ילדותו הייתה רוויה בעושר מופלג ובחשיפה מוקדמת לעולם הפרסום והשיווק דרך העסק המשפחתי; הוא ראה במו עיניו כיצד מותג נבנה מתוך דימוי של יוקרה והנאה. הוא גדל כ"נסיך" של משפחה שבנתה את עצמה בעשר אצבעות, מה שנטע בו ביטחון עצמי מופלג וטעם אסתטי גבוה במיוחד. השילוב בין החושים העסקיים המושחזים שירש לבין אהבתו לביטוי תרבותי גבוה איפשר לו להבין מוקדם מאוד שהקהל מחפש לא רק מידע, אלא גם מעמד, זהות וכבוד דרך מה שהוא צורך בתקשורת.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">מיסוד מודל הפרסום בשידור, הפיכת CBS לרשת האיכותית ביותר בארה"ב וביצור מעמד החדשות כרשות המבקרת של הדמוקרטיה האמריקאית.</p>
+                    <p class="text-lg text-slate-300">מיסוד מודל הפרסום המודרני בשידור, הפיכת CBS לרשת האיכותית ביותר בארה"ב, וביצור מעמד החדשות כרשות המבקרת והמכובדת ביותר של הדמוקרטיה האמריקאית.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABC News -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+    <!-- 04. ABC News -->
+    <section class="dashboard-card" style="border-right-color: #fbbf24;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">ABC News</h2>
-                <span class="text-xs text-fbbf24 font-mono italic">"The Modern Network"</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">04. ABC News</h2>
+                <span class="text-sm text-fbbf24 font-mono italic uppercase tracking-widest">"The Modern Network" - Breaking Barriers</span>
             </div>
-            <i class="fas fa-play text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-play text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1943</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">American Broadcasting Company. דגש על הזהות הלאומית האמריקאית הרחבה.</div>
+                <div class="value text-lg"><strong>American Broadcasting Company:</strong> שם פשוט, ישיר וקליט המדגיש את הזהות הלאומית האמריקאית הרחבה. הבחירה בשם ABC (האותיות הראשונות של האלף-בית) מסמלת התחלה, פשטות, נגישות ויסודיות – פנייה לציבור הרחב בשפה ברורה, מודרנית ופחות מעונבת מהרשתות הוותיקות.</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1943. הוקמה בעקבות החלטת רגולציה שחייבה את NBC למכור את אחת הרשתות שלה למניעת מונופול תקשורתי.</div>
+                <div class="value text-lg">1943. הוקמה בעקבות החלטת רגולציה שחייבה את NBC למכור את אחת הרשתות שלה (ה-"Blue Network") למניעת מונופול, מה שאיפשר ליזם אדוארד נובל לבנות כוח שלישי ודינמי בשוק.</div>
             </div>
             <div>
-                <div class="label">בונה/מייסד</div>
-                <div class="value">אדוארד ג'ון נובל</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">1882 – 1958</div>
+                <div class="label">בונה/מייסד ויזם החדשנות</div>
+                <div class="value text-2xl font-bold">אדוארד ג'ון נובל</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1882–1958. תעשיין מצליח (מייסד Life Savers), פילנתרופ ואיש עסקים שהוכיח שתמיד יש מקום לשחקן חדש ורענן בשוק רווי.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-fbbf24 pr-3">ניתוח עומק: אדוארד ג'ון נובל</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-fbbf24 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: אדוארד ג'ון נובל</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">ABC נולדה מתוך מאבק רגולטורי נגד ריכוזיות יתר בשוק המידע. בשנות ה-40 המוקדמות, NBC שלטה בשתי רשתות רדיו במקביל. ממשלת ארה"ב (ה-FCC) קבעה כי זהו מצב המונע תחרות הוגנת וחייבה את NBC למכור את ה-"Blue Network". אדוארד ג'ון נובל, יזם שחייו עוצבו סביב חדשנות ורעב להצלחה, רכש אותה והפך אותה ל-ABC. הרקע להקמה היה הצורך לייצר שחקן שלישי, צעיר ודינמי יותר, שיערער את הדומיננטיות של NBC ו-CBS הוותיקות. נובל השכיל לנצל את האווירה הלאומית של תקופת מלחמת העולם השנייה כדי למתג את הרשת כקול האמריקאי החדש והפחות מעונב.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    ABC נולדה מתוך מאבק רגולטורי נגד ריכוזיות יתר בשנות ה-40 המוקדמות. הממשל האמריקאי קבע כי שליטת NBC בשתי רשתות מונעת תחרות הוגנת. אדוארד ג'ון נובל, יזם שרעב להצלחה תקשורתית, רכש את הרשת הפחותה והפך אותה ל-ABC. הרקע להקמה היה הצורך לייצר שחקן שלישי, צעיר ודינמי יותר, שינצל את האווירה הלאומית של תקופת מלחמת העולם השנייה כדי למתג את הרשת כקול האמריקאי החדש, הנגיש והפחות פורמלי.
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>אדוארד (Edward):</strong> שם ממקור אנגלו-סכסוני (Eadweard), המורכב מ-"Ead" שפירושו "עושר" או "מזל" ו-"Weard" שפירושו "שומר". פירושו הוא "שומר העושר", המעיד על יכולת ניהול וביצור נכסים. 
-                        <strong>ג'ון (John):</strong> מקורו בשם העברי (יוחנן), שפירושו "ה' חנן" או "מתנת אל". שם המסמל חסד וברכה המלווים את האדם במעשיו. 
-                        <strong>נובל (Noble):</strong> שם משפחה ממקור לטיני (Nobilis) וצרפתי עתיק, שפירושו "אציל", "נכבד", "ידוע" או "בעל שם טוב". השם מציין מעמד חברתי גבוה או תכונות אופי של הגינות ומכובדות המקרינות על העסק שבנה.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>אדוארד (Edward):</strong> נגזר מהשורש השמי/אנגלי <span class="root-badge">Eadweard</span>, שפירושו "שומר העושר" (Ead=עושר, Weard=שומר). השם מעיד על יכולת ניהול וביצור של נכסים גדולים. 
+                        <strong>ג'ון (John):</strong> מקורו בשם העברי <span class="root-badge">יוחנן</span>, שפירושו "ה' חנן" או "מתנת אל". השם מסמל חסד וברכה המלווים את האדם במעשיו. 
+                        <strong>נובל (Noble):</strong> שם משפחה לטיני/צרפתי עתיק <span class="root-badge">Nobilis</span>, שפירושו "אציל", "נכבד" או "ידוע". השם מציין מעמד חברתי גבוה או תכונות אופי של הגינות ומכובדות שהמייסד ביקש להקרין על הרשת שלו כסמל לאיכות.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד בגוברנר, ניו יורק, למשפחה ששורשיה נטועים עמוק ביוזמה חופשית ובערכי העבודה הקשה. בילדותו גילה סקרנות טכנולוגית ועסקית יוצאת דופן; הוא לא היה רק תלמיד מצטיין אלא יזם מגיל אפס, שחיפש תמיד כיצד לשפר מוצרים קיימים ולהפוך אותם לנגישים להמונים. בילדותו הוא למד את ערכה של עבודה קשה והתמדה, ערכים שליוו אותו כשבנה את מותג הסוכריות Life Savers (שאותו רכש ב-1913 והפך להצלחה עולמית). הילדות בעיירה קטנה אך תחרותית עיצבה את הזהות שלו כמי שמחפש "פרצות" בשוק ובונה מהן אימפריות. הוא גדל עם ההבנה שגם כשיש ענקים בשטח (כמו NBC), תמיד יש מקום לשחקן חדש שיביא רעננות. התעוזה שלו לרכוש רשת שידור בעיצומה של מלחמת עולם היא תוצר ישיר של הילדות שבה חונך להאמין בכוחה של ההמצאה והחדשנות.</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        נובל נולד בניו יורק למשפחה שהאמינה ביוזמה חופשית ובעבודה קשה ללא תלונות. בילדותו גילה סקרנות טכנולוגית ועסקית נדירה; הוא לא היה רק תלמיד מצטיין אלא יזם מגיל אפס, שחיפש תמיד כיצד לשפר מוצרים קיימים ולהפוך אותם לנגישים להמונים (כפי שעשה מאוחר יותר עם סוכריות ה-Life Savers שהפכו למותג עולמי). הילדות בעיירה קטנה אך תחרותית עיצבה את הזהות שלו כמי שמחפש "פרצות" בשוק ובונה מהן אימפריות חדשות. הוא גדל עם ההבנה שגם כשיש ענקים בשטח (כמו NBC), תמיד יש מקום לשחקן חדש שיביא רעננות וחדשנות, זהות של "משבש שוק" שהובילה אותו להקים את ABC.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">הפיכת ABC לרשת שידור מודרנית וחדשנית, פיתוח פורמטים של תוכניות אירוח וחדשות קצביות וביסוס מעמדה כשחקנית שלישית שוות כוח בשוק האמריקאי.</p>
+                    <p class="text-lg text-slate-300">הפיכת ABC לרשת שידור מודרנית וחדשנית, ביסוס מעמדה כשחקנית שלישית שוות כוח בארה"ב, ושינוי הפורמטים של תוכניות האירוח והחדשות המהירות.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NBC News -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+    <!-- 05. NBC News -->
+    <section class="dashboard-card" style="border-right-color: #ef4444;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">NBC News</h2>
-                <span class="text-xs text-red-500 font-mono italic">"The Peacock Network"</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">05. NBC News</h2>
+                <span class="text-sm text-red-500 font-mono italic uppercase tracking-widest">"The Peacock Network" - The National Unifier</span>
             </div>
-            <i class="fas fa-globe text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-globe text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1926</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">National Broadcasting Company. הרשת הלאומית הראשונה של ארה"ב.</div>
+                <div class="value text-lg"><strong>National Broadcasting Company:</strong> השם מדגיש את היותה הרשת הלאומית הראשונה של ארה"ב. המותג "National" נבחר כדי לסמל אחדות ופריסה גאוגרפית רחבה, בניגוד לתחנות המקומיות המפוזרות. הלוגו המפורסם של הטווס הצבעוני מסמל את הגאווה בשידורי הצבע המהפכניים שהרשת הובילה.</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1926. הוקמה על ידי RCA כדי לאחד את היבשת האמריקאית דרך שידורי רדיו (ומאוחר יותר טלוויזיה) אחידים.</div>
+                <div class="value text-lg">1926. הוקמה על ידי תאגיד RCA כדי לאחד את היבשת האמריקאית דרך שידורי רדיו (ומאוחר יותר טלוויזיה) אחידים, ולהפוך את התקשורת לכוח לאומי מלכד ומתקדם.</div>
             </div>
             <div>
-                <div class="label">בונה/מייסד</div>
-                <div class="value">דיוויד סארנוף</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">1891 – 1971</div>
+                <div class="label">בונה/מייסד ואיש חזון הטכנולוגיה</div>
+                <div class="value text-2xl font-bold">דיוויד סארנוף</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1891–1971. "אבי השידור" האמריקאי, נשיא RCA והאיש שהפך את חזון הטלוויזיה בצבע למציאות יומיומית בכל בית באמריקה.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-red-500 pr-3">ניתוח עומק: דיוויד סארנוף</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-red-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: דיוויד סארנוף</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">NBC הוקמה בתקופה שבה הרדיו נחשב לצעצוע או לכלי קשר ימי וצבאי בלבד. סארנוף, שהיה איש חזון טכנולוגי נדיר, חזה ב"קופסת מוזיקה ברדיו" שתהפוך לרהיט חובה בכל בית. הרקע להקמה ב-1926 היה הניסיון לייצר תשתית לאומית מאוחדת של מידע, תרבות וחדשות שתגיע לכל פינה ביבשת האמריקאית. סארנוף ראה בטכנולוגיה שליחות לאומית; הוא השקיע משאבי עתק במעבדות RCA כדי לפתח את הטלוויזיה ואת השידור בצבע, מתוך אמונה שהמדע והתקשורת הם המפתחות לשוויון הזדמנויות ולאחדות חברתית במאה ה-20.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    NBC הוקמה בתקופה שבה הרדיו נחשב לצעצוע טכנולוגי או לכלי קשר ימי בלבד. סארנוף, שהיה איש חזון טכנולוגי נדיר, חזה ב"קופסת מוזיקה ברדיו" שתהפוך לרהיט חובה בכל בית. הרקע להקמה ב-1926 היה הניסיון לייצר תשתית לאומית מאוחדת של מידע, תרבות וחדשות שתגיע לכל פינה ביבשת האמריקאית. סארנוף ראה בטכנולוגיה שליחות לאומית; הוא השקיע משאבי עתק כדי לפתח את הטלוויזיה, מתוך אמונה עמוקה שהמדע והתקשורת הם המפתחות לשוויון הזדמנויות.
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>דיוויד (David):</strong> מקורו בשם העברי (דוד), שפירושו "אהוב", "ידיד" או "דוד". השם מסמל מנהיגות כריזמטית וקשר עמוק לאהדת הקהל. 
-                        <strong>סארנוף (Sarnoff):</strong> שם משפחה יהודי-רוסי, המקושר גיאוגרפית לעיר שרוֹן (Saron) או למוצא מהאזורים הכפריים של רוסיה הלבנה (בלארוס). השם מעיד על שורשים במזרח אירופה ועל מסע ההגירה שעיצב את דמותו כבונה אימפריה בעולם החדש.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני ושושלתי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>דיוויד (David):</strong> מקורו בשם העברי המקודש <span class="root-badge">דוד</span>, שפירושו "אהוב", "ידיד" או "דוד". השם מסמל מנהיגות כריזמטית וקשר עמוק לאהדת הקהל, בדומה לדמות המלך המקראי. 
+                        <strong>סארנוף (Sarnoff):</strong> שם משפחה יהודי-רוסי, המקושר גיאוגרפית לעיר <span class="root-badge">שרוֹן</span> (Saron) או למוצא מהאזורים הכפריים של רוסיה הלבנה (בלארוס). השם מעיד על שורשים עמוקים במזרח אירופה ועל מסע ההגירה המטלטל שעיצב את דמותו כבונה אימפריה בעולם החדש.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד בבלארוס למשפחה יהודית ענייה שחיה ב"תחום המושב". כילד, בילה ימים שלמים בלימוד גמרא ותלמוד, מה שפיתח אצלו חריפות מחשבתית ומשמעת עצמית של ברזל. בגיל 9 היגר עם משפחתו לארה"ב ונחת בעוני המחפיר של ה-Lower East Side בניו יורק. ילדותו נפסקה באחת כשהפך למפרנס העיקרי של משפחתו בגיל 10, מוכר עיתונים ברחובות ורץ כשליח. המעבר המטלטל מהעולם הישן של השטעטל לעולם החדש והטכנולוגי של ניו יורק הוליד בו נחישות בלתי מתפשרת לשלוט במזלו. בילדותו הוא הוקסם מהטלגרף ולמד אלחוט בכוחות עצמו; הנער שהיה פעם מוכר עיתונים הפך לאיש שקלט את אותות המצוקה של הטיטאניק. הילדות בצל המחסור עיצבה זהות של אדם שרואה בטכנולוגיה לא רק כלי עסקי, אלא דרך להישרדות ולהובלה חברתית אמיצה.</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        דיוויד נולד בבלארוס למשפחה יהודית ענייה שחיה ב"תחום המושב" תחת דיכוי. כילד בילה ימים שלמים בלימוד גמרא ותלמוד, מה שפיתח אצלו חריפות מחשבתית ומשמעת עצמית של ברזל. בגיל 9 היגר עם משפחתו לארה"ב ונחת בעוני המחפיר של ה-Lower East Side בניו יורק. ילדותו נפסקה באחת כשהפך למפרנס העיקרי בגיל 10, מוכר עיתונים ברחובות ורץ כשליח. המעבר המטלטל מהעולם הישן של השטעטל לעולם הטכנולוגי החדש הוליד בו נחישות לשלוט במזלו. בילדותו הוקסם מהטלגרף ולמד אלחוט בכוחות עצמו; הנער שהיה מוכר עיתונים הפך לאיש שקלט את אותות המצוקה של הטיטאניק ב-1912. הילדות בצל המחסור עיצבה זהות של אדם שרואה בטכנולוגיה דרך להישרדות ולהובלה חברתית אמיצה.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">אבי ה-Broadcasting האמריקאי, מייסד NBC, מי שהביא את הטלוויזיה בצבע לכל בית ומיסוד המחקר הטכנולוגי בתקשורת דרך RCA.</p>
+                    <p class="text-lg text-slate-300">הקמת NBC, מיסוד המחקר הטכנולוגי בתקשורת דרך RCA, והפיכת שידורי הטלוויזיה למוצר המוני ששינה את אורח החיים המודרני של המאה ה-20.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MSNBC -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-4 border-b border-slate-800 pb-4">
+    <!-- 06. MSNBC -->
+    <section class="dashboard-card" style="border-right-color: #a855f7;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
             <div>
-                <h2 class="text-2xl font-bold">MSNBC</h2>
-                <span class="text-xs text-purple-400 font-mono italic">"The Progressive Voice"</span>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">06. MSNBC</h2>
+                <span class="text-sm text-purple-400 font-mono italic uppercase tracking-widest">"The Progressive Voice" - Digital-Analog Fusion</span>
             </div>
-            <i class="fas fa-bolt text-3xl text-slate-700"></i>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-bolt text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1996</span>
+            </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
                 <div class="label">אטימולוגיית המותג</div>
-                <div class="value">הלחם של Microsoft (השותפה המקימה) ו-NBC. חיבור בין הייטק דיגיטלי לשידור מסורתי.</div>
+                <div class="value text-lg"><strong>MSNBC:</strong> הלחם של המילים <strong>Microsoft</strong> ו-<strong>NBC</strong>. השם מסמל את החיבור ההיסטורי שנוצר בראשית עידן האינטרנט בין ענקית התוכנה הדיגיטלית לבין ענקית השידור המסורתית, במטרה לייצר "חדשות אינטראקטיביות" משולבות טכנולוגיה קצה.</div>
                 <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value">1996. הוקמה כמיזם משותף בראשית עידן האינטרנט כדי לייצר "חדשות אינטראקטיביות" משולבות טכנולוגיה.</div>
+                <div class="value text-lg">1996. הוקמה כמיזם משותף נועז בראשית עידן האינטרנט כדי לייצר חדשות שמתאימות לעולם הדיגיטלי החדש, והפכה תחת הנהגת גריפין לקול הפרוגרסיבי והמנתח של אמריקה הליברלית.</div>
             </div>
             <div>
-                <div class="label">דמות מפתח (אידיאולוגית)</div>
-                <div class="value">פיל (פיליפ) גריפין</div>
-                <div class="label">שנות חיים</div>
-                <div class="value">נולד 1956 (פעיל)</div>
+                <div class="label">בונה/דמות מפתח (אידיאולוגית)</div>
+                <div class="value text-2xl font-bold">פיל (פיליפ) גריפין</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">נולד ב-1956. נשיא MSNBC לשעבר, האיש שעיצב את הזהות הפוליטית החריפה של הרשת כמשקל נגד לשמרנות המפרצית של פוקס ניוז.</div>
             </div>
         </div>
 
         <div class="bio-section">
-            <h3 class="text-base font-black text-white mb-4 border-r-4 border-purple-500 pr-3">ניתוח עומק: פיל גריפין</h3>
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-purple-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: פיל גריפין</h3>
+            
             <div class="background-box">
                 <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-xs text-slate-300 leading-relaxed">MSNBC הוקמה בשנת 1996, שנת המפנה שבה האינטרנט הפך לכוח צרכני המוני. הרקע להקמה היה מיזם משותף נועז בין מיקרוסופט (ביל גייטס) לבין NBC, במטרה לייצר "חדשות אינטראקטיביות" שישלבו בין שידור טלוויזיוני לאתר חדשות דינמי. בתחילה הרשת חיפשה את דרכה, אך תחת הנהגתו של גריפין, הרשת הפכה לתגובה האידיאולוגית המובהקת לעלייתה של Fox News. היא עוצבה מחדש כקול הפרוגרסיבי, המנתח והעמוק של אמריקה הליברלית. ההקמה הייתה למעשה ניסיון להגדיר מחדש את החדשות בעידן הדיגיטלי, תוך יצירת קהל נאמן סביב נרטיבים פוליטיים מוצקים ופרשנות מנומקת.</p>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    MSNBC הוקמה בשנת 1996, שנת המפנה שבה האינטרנט הפך לכוח צרכני המוני. הרקע להקמה היה מיזם משותף נועז בין מיקרוסופט (ביל גייטס) לבין NBC, במטרה לייצר "חדשות אינטראקטיביות". בתחילה הרשת חיפשה את דרכה, אך תחת הנהגתו של גריפין, הרשת הפכה לתגובה האידיאולוגית המובהקת לעלייתה של Fox News. היא עוצבה מחדש כקול הפרוגרסיבי והעמוק של אמריקה הליברלית, תוך יצירת קהל נאמן סביב נרטיבים פוליטיים מוצקים ופרשנות מנומקת.
+                </p>
             </div>
-            <div class="space-y-4">
+
+            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא המפורטת</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong>פיליפ (Philip):</strong> מקורו ביוונית עתיקה (Philippos), הלחם של המילים "Philos" שפירושו "אוהב" או "חבר" ו-"Hippos" שפירושו "סוס". פירושו המלא הוא "אוהב סוסים" – שם המייצג אריסטוקרטיה, אומץ ודינמיות. 
-                        <strong>גריפין (Griffin):</strong> שם משפחה ממקור וולשי (Gruffudd), שפירושו "אדון חזק" או "נסיך". השם מציין כושר מנהיגות, סמכותיות ויכולת הובלה של קבוצות גדולות.
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>פיליפ (Philip):</strong> מקורו ביוונית עתיקה <span class="root-badge">Philippos</span>, הלחם של המילים "Philos" (אוהב) ו-"Hippos" (סוס). פירושו "אוהב סוסים" – שם המייצג אצולה, אומץ, מהירות ודינמיות. 
+                        <strong>גריפין (Griffin):</strong> שם משפחה ממקור וולשי <span class="root-badge">Gruffudd</span>, שפירושו "אדון חזק" או "נסיך". השם מציין כושר מנהיגות, סמכותיות ויכולת הובלה של קבוצות גדולות לעבר יעד אידיאולוגי משותף.
                     </p>
                 </div>
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות</span>
-                    <p class="text-xs text-slate-300 leading-relaxed">נולד וגדל בניו יורק, הלב הפועם והרועש של עולם התקשורת האמריקאי. בילדותו היה עד למהפכות התרבותיות והפוליטיות הסוערות של שנות ה-60 וה-70, מה שנטע בו מודעות חברתית עמוקה כבר מגיל צעיר מאוד. הוא גדל בבית שבו החדשות והעיתונים היו חלק בלתי נפרד מהשיח היומיומי מסביב לשולחן האוכל, והוא פיתח סקרנות רבה לאופן שבו המידע מעצב את דעת הקהל. הילדות במטרופולין התוסס עיצבה את הבנתו שחדשות הן לא רק עובדות יבשות, אלא הן צריכות לשקף ערכים וזהות. הוא למד להעריך את הכוח של הניתוח המעמיק והשיחה האינטלקטואלית, מה שהוביל אותו מאוחר יותר לעצב את MSNBC לא כערוץ "דיווח" פשוט, אלא כזירה לדיון פוליטי מורכב המעניק לקהלו תחושת שייכות אידיאולוגית.</p>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        פיל נולד וגדל בניו יורק, הלב הפועם והרועש של עולם התקשורת האמריקאי. בילדותו היה עד למהפכות התרבותיות והפוליטיות הסוערות של שנות ה-60 וה-70, מה שנטע בו מודעות חברתית עמוקה כבר מגיל צעיר מאוד. הוא גדל בבית שבו החדשות והעיתונים היו חלק בלתי נפרד מהשיח היומיומי מסביב לשולחן האוכל. הילדות במטרופולין התוסס עיצבה את הבנתו שחדשות הן לא רק עובדות יבשות, אלא הן צריכות לשקף ערכים וזהות חברתית ברורה. הוא למד להעריך את הכוח של הניתוח המעמיק והשיחה האינטלקטואלית, מה שהוביל אותו מאוחר יותר לעצב את MSNBC לא כערוץ "דיווח" פשוט, אלא כזירה לדיון פוליטי מורכב המעניק לקהלו תחושת שייכות אידיאולוגית ברורה.
+                    </p>
                 </div>
                 <div>
                     <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-xs text-slate-300">הפיכת MSNBC לרשת מובילה המזוהה עם האגף הפרוגרסיבי בארה"ב, ייצוב המודל של "חדשות דעתניות" (Opinion-led news) והובלת הרשת לשיאי רייטינג היסטוריים.</p>
+                    <p class="text-lg text-slate-300">הפיכת MSNBC לרשת מובילה המזוהה עם האגף הפרוגרסיבי בארה"ב, ייצוב המודל של "חדשות דעתניות" (Opinion-led news) והובלת הרשת לשיאי רייטינג היסטוריים בתקופות פוליטיות סוערות.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-8 opacity-50 text-[10px]">
-        <p>PRESS MATRIX US EDITION | נערך עבור רם | 2026</p>
+    <footer class="text-center py-16 border-t border-slate-800 opacity-50 text-[14px]">
+        <p class="font-bold uppercase tracking-widest text-slate-400">Press Matrix US Edition | Ver 2026.V13</p>
+        <p class="mt-4">נערך עבור רם | 2026 | US & MENA Intelligence Matrix | COMPLETE RESEARCH SCALE</p>
+        <p class="mt-2 text-slate-600 uppercase tracking-tighter">CNN | FOX News | CBS | ABC | NBC | MSNBC</p>
     </footer>
 
 </body>
