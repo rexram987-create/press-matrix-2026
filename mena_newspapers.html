@@ -3,247 +3,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>עיתונות ערבית - THE MEGA MATRIX 8</title>
+    <title>PRESS MATRIX - MENA EDITION: NEWSPAPERS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
         body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.8; }
-        .newspaper-card { background-color: #0f172a; border: 1px solid #1e293b; border-radius: 2.5rem; padding: 2.5rem; margin-bottom: 5rem; border-top: 5px solid #6366f1; box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.7); }
-        .info-card { background: rgba(30, 41, 59, 0.4); padding: 1.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .label { color: #818cf8; font-weight: 800; display: block; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.5rem; border-bottom: 2px solid rgba(129, 140, 248, 0.2); }
-        .etymology-box { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px dashed #4f46e5; padding: 2rem; border-radius: 1.5rem; margin-bottom: 2rem; }
-        .nav-link { background: #1e293b; color: #f1f5f9; padding: 0.8rem 1.5rem; border-radius: 99px; font-weight: 700; transition: 0.3s; border: 1px solid #334155; }
-        .nav-active { background: #fbbf24; color: #020617; border: 1px solid #fbbf24; }
-        .title-main { background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; margin-bottom: 4rem; border-right: 1px solid rgba(52, 211, 153, 0.2); transition: all 0.3s ease; }
+        .dashboard-card:hover { border-color: #34d399; box-shadow: 0 15px 45px -10px rgba(52, 211, 153, 0.2); }
+        .title-gradient { background: linear-gradient(to left, #34d399, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+        .bio-section { background: rgba(30, 41, 59, 0.4); border-radius: 1.5rem; padding: 2.5rem; margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .label { color: #94a3b8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-top: 1.5rem; letter-spacing: 0.1em; border-bottom: 1px solid rgba(148, 163, 184, 0.1); display: inline-block; }
+        .value { color: #f1f5f9; font-size: 1.1rem; margin-bottom: 1.5rem; margin-top: 0.5rem; }
+        .sub-label { color: #34d399; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+        .background-box { background: rgba(52, 211, 153, 0.08); border-radius: 1.25rem; padding: 2rem; margin-bottom: 3rem; border: 1px dashed rgba(52, 211, 153, 0.3); }
+        strong { color: #818cf8; font-weight: 900; }
+        .root-badge { background: #1e1b4b; color: #818cf8; padding: 3px 14px; border-radius: 6px; font-family: monospace; font-size: 1.1rem; margin-right: 8px; border: 1px solid rgba(129, 140, 248, 0.4); box-shadow: 0 0 10px rgba(129, 140, 248, 0.1); }
+        p { margin-bottom: 1.25rem; }
     </style>
 </head>
-<body class="p-4 md:p-12 max-w-7xl mx-auto">
+<body class="p-4 md:p-12 max-w-6xl mx-auto">
 
-    <nav class="flex justify-center gap-6 mb-16 flex-wrap">
-        <a href="#" class="nav-link nav-active">עמוד עיתונות <i class="fas fa-newspaper mr-2"></i></a>
-        <a href="tv_channels.html" class="nav-link">עבור לערוצי טלוויזיה <i class="fas fa-tv mr-2"></i></a>
-    </nav>
-
-    <header class="text-center mb-24">
-        <h1 class="text-6xl md:text-9xl font-black italic mb-6 title-main">PRESS MATRIX</h1>
-        <p class="text-slate-400 text-2xl font-light italic">מחקר אינטנסיבי מאוחד (8 עיתונים) - 2026</p>
-        <div class="mt-8 flex justify-center gap-4 flex-wrap">
-            <span class="bg-slate-800 text-yellow-400 px-4 py-2 rounded-full text-xs font-bold border border-yellow-400/30">SAMSUNG S25 ULTRA OPTIMIZED</span>
-            <span class="bg-slate-800 text-emerald-400 px-4 py-2 rounded-full text-xs font-bold border border-emerald-400/30">VERIFIED: 100% RETENTION</span>
+    <header class="mb-20 flex justify-between items-center border-b border-slate-800 pb-12">
+        <a href="index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-bold flex items-center gap-3">
+            <i class="fas fa-arrow-right"></i> חזרה למרכז הבקרה
+        </a>
+        <div class="text-left">
+            <h1 class="text-4xl md:text-6xl font-black title-gradient tracking-tighter">PRESS MATRIX</h1>
+            <p class="text-[14px] text-slate-500 font-mono italic tracking-widest uppercase mt-4">ENCYCLOPEDIC NEWSPAPER MATRIX | MENA EDITION | PC ENHANCED</p>
         </div>
     </header>
 
-    <section class="newspaper-card">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">01. אל-אהראם (الأهرام)</h2>
-            <p class="text-indigo-400 font-bold mt-2">נוסד: 1875 | מטה: קהיר, מצרים</p>
-        </div>
-        <div class="etymology-box">
-            <span class="label">אטימולוגיה: הפירמידות</span>
-            <p class="text-slate-200">השם מסמל נצחיות ועוצמה. נועד להציב את העיתון כעדות חיה ליציבות התרבות הערבית בדומה לפירמידות בגיזה.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונים ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">סלים ובשארה תקלא (1848–1901)</p>
-                <p class="text-sm mt-4">נולדו בלבנון למשפחה משכילה. ילדותם עברה בצל "הנהדה" (התחייה הערבית) וסכסוכים עדתיים, מה שדחף אותם להגר למצרים ולהקים מודל עיתונות מקצועי וליברלי.</p>
+    <!-- Al-Ahram -->
+    <section class="dashboard-card">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">01. אל-אהראם (الأهرام)</h2>
+                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">The Eternal Voice of the Nile</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">פאן-ערביות מתונה ומודרניזציה. העיתון שרד הלאמות ושינויי משטר ונחשב למתעד ההיסטורי הרשמי של המדינה המצרית.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-monument text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">CAIRO, EGYPT | EST. 1875</span>
             </div>
-            <div class="info-card md:col-span-2 border-indigo-500/30 border">
-                <span class="label">אטימולוגיה של המייסדים</span>
-                <p class="text-sm"><strong>סלים:</strong> שלם/בטוח. <strong>בשארה:</strong> בשורה טובה (הקשר דתי לבשורה הנוצרית).</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value leading-relaxed text-lg italic"><strong>אל-אהראם (الأهرام):</strong> צורת הרבים של המילה "היראם", שפירושה בערבית "הפירמידות". השם נבחר כדי לסמל נצחיות, עוצמה תרבותית ויציבות היסטורית בלתי מעורערת. העיתון נועד להיות עדות חיה ליכולת של מצרים להישאר רלוונטית ומובילה לאורך אלפי שנים, בדומה לפירמידות בגיזה שהן סמל השרידות האולטימטיבי של הציוויליזציה האנושית.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1875. הוקם כיוזמה פרטית של מהגרים משכילים מלבנון כדי לייצר עיתונות מקצועית, עצמאית ואיכותית בתקופת ה"נהדה" (התחייה הערבית), כשהם שואפים לחבר את מצרים למודרנה המערבית.</div>
+            </div>
+            <div>
+                <div class="label">הבונים/מייסדים וייחוס היסטורי</div>
+                <div class="value text-2xl font-bold">האחים סלים ובשארה תקלא</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">סלים (1848–1892), בשארה (1852–1901). מהגרים נוצרים מלבנון שהפכו לארכיטקטים של העיתונות המודרנית במזרח התיכון כולו.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: האחים תקלא</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light">
+                    במחצית השנייה של המאה ה-19, מצרים תחת שלטונו של הח'דיו איסמאעיל הפכה למקלט בטוח עבור אינטלקטואלים נוצרים מלבנון וסוריה שברחו מהדיכוי העות'מאני. מצרים חוותה תהליך מואץ של "אירופניזציה" וחידושים טכנולוגיים. הרקע להקמה היה הצורך בבניית תודעה ערבית מודרנית שתשלב בין מורשת העבר לבין הקידמה. אל-אהראם החל כעיתון שבועי צנוע באלכסנדריה אך הפך במהירות ליומון המשפיע ביותר בעולם הערבי, תוך שהוא מציב סטנדרטים של אובייקטיביות ודיווח שלא היו קיימים עד אז באזור.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסדים - ניתוח לשוני וערכי מפורט</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>סלים (Saleem):</strong> נגזר מהשורש השמי המקודש <span class="root-badge">ס-ל-מ</span> (س-ل-م), המשותף לעברית ולערבית (שלום/סלאם). פירושו "שלם", "בטוח", "חסין" או "מוגן מכל רע". זהו שם המבטא יושרה פנימית, שקט נפשי וחיפוש אחר הרמוניה חברתית ושלום בין עמים. 
+                        <strong>בשארה (Bishara):</strong> נגזר מהשורש השמי <span class="root-badge">ב-ש-ר</span> (ب-ش-ر), שפירושו בשורה טובה או הודעה משמחת. בהקשר הנוצרי של משפחת תקלא, מדובר בהתייחסות ישירה ל"בשורת המלאך למרים" (עיד אל-בשארה). השם מסמל תקווה, התחדשות והבאת מסר של אור לעולם. 
+                        <strong>תקלא (Takla):</strong> שם משפחה לבנוני-נוצרי שורשי, נגזר מהשורש השמי <span class="root-badge">ת-כ-ל</span> (ת-כ-ל), שפירושו להסתמך, לבטוח או להישען (כמו המילה "ביטחון" או "הסתמכות"). השם מעיד על משפחה שהייתה משענת איתנה לקהילה ועל מחויבותם להיות "סלע" של מידע אמין.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של האחים</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        האחים תקלא נולדו בכפר הלבנוני הציורי "כפר שימא" למשפחה משכילה בלב תקופת ה"נהדה" – הרנסנס הערבי. בילדותם הם גדלו בתוך המורכבות המדממת של חיי המיעוט הנוצרי תחת השלטון העות'מאני המושחת, חוויה שנטעה בהם רצון עז לחופש ביטוי ולהגנה על זכויות הפרט. הם חונכו במוסדות חינוך מערביים וצרפתיים בביירות, שם נחשפו לעוצמתה של המילה המודפסת ככלי לשינוי משטרים ומהפכה תרבותית. המעבר שלהם למצרים בצעירותם היה תוצאה של "הרעב" להקים משהו גדול יותר מהמציאות המצומצמת של לבנון המפולגת. הילדות בצל סכסוכים דתיים בלבנון עיצבה את זהותם כמי שמחפשים "מכנה משותף ערבי חילוני" – הם האמינו שהשפה הערבית היא הבית הלאומי האמיתי של כולם. זהות זו הפכה את אל-אהראם לעיתון הראשון שפנה לכלל הערבים, ללא הבדל דת או מוצא, ומיצב את המייסדים כחלוצי הנאורות.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה פאן-ערבית</span>
+                    <p class="text-lg text-slate-300">מיסוד העיתונות היומית במזרח התיכון, הפיכת אל-אהראם למתעד הרשמי של ההיסטוריה המצרית (כולל בתקופת נאצר וסאדאת), וביסוס מודל של עיתונות רצינית, שקולה ומעמיקה שאינה נכנעת לסנסציונליזם.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #10b981;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">02. א-שרק אל-אווסאט (الشرق الأوسط)</h2>
-            <p class="text-emerald-400 font-bold mt-2">נוסד: 1978 | מטה: לונדון</p>
-        </div>
-        <div class="etymology-box" style="border-color: #065f46;">
-            <span class="label">אטימולוגיה: המזרח התיכון</span>
-            <p class="text-slate-200">השם נבחר כדי להדגיש את היותו העיתון הפאן-ערבי הבינלאומי הראשון, המכסה את כל האזור ממרכז עולמי בלונדון.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונים ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">הישאם ומוחמד עלי חאפז</p>
-                <p class="text-sm mt-4">נולדו באל-מדינה, סעודיה. גדלו בתוך בתי הדפוס של אביהם (מייסד עיתון אל-מדינה), מה שעיצב את תשוקתם להפוך את המדיה הערבית לגלובלית וטכנולוגית.</p>
+    <!-- Asharq Al-Awsat -->
+    <section class="dashboard-card" style="border-right-color: #10b981;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">02. א-שרק אל-אווסאט (الشرق الأوسط)</h2>
+                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">The Global Hub of Arab Information</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">שמרנות סעודית מתונה בשילוב סטנדרטים מערביים. העיתון הראשון שהודפס בו-זמנית בבירות שונות דרך לוויין.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-globe text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">LONDON HEADQUARTERS | EST. 1978</span>
             </div>
-            <div class="info-card md:col-span-2 border-emerald-500/30 border">
-                <span class="label">אטימולוגיה של המייסדים</span>
-                <p class="text-sm"><strong>הישאם:</strong> נדיב/שובר לחם. <strong>מוחמד:</strong> ראוי לשבח.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>א-שרק אל-אווסאט (الشرق الأوسط):</strong> מילולית: "המזרח התיכון". השם נבחר כדי להדגיש את היותו העיתון הפאן-ערבי הבינלאומי הראשון בהיסטוריה, המכסה את כל אזורי המזרח התיכון ממרכז ניטרלי וגלובלי בלונדון. העיתון נודע בכינויו "העיתון הירוק" בשל צבע דפיו הייחודי, המסמל צמיחה, אחדות ורעננות אינטלקטואלית.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1978. הוקם כדי לספק לקורא הערבי בגלות ובמולדת מידע אמין, מקצועי ובלתי תלוי בצנזורה המקומית של מדינות ערב הסגורות, תוך שימוש מהפכני בטכנולוגיית לוויין להדפסה סימולטנית בבירות שונות.</div>
+            </div>
+            <div>
+                <div class="label">הבונים/מייסדים ופורצי הדרך</div>
+                <div class="value text-2xl font-bold">האחים הישאם ומוחמד עלי חאפז</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">הישאם (1931–2006), מוחמד (1937–2011). חלוצי המדיה הסעודים שהוציאו את העיתונות הערבית מחוץ לגבולות המזרח התיכון אל הזירה העולמית.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: האחים חאפז</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    סוף שנות ה-70 היו שנים של "בום נפט" סעודי לצד תסיסה פוליטית אדירה (הסכמי קמפ דיוויד, המהפכה באיראן). העולם הערבי היה מפוצל ורווי צנזורה. האחים חאפז זיהו שאין עיתון ערבי אחד שיכול להיקרא בדמשק, קהיר, לונדון וריאד באותו יום עם אותו תוכן חופשי. הם החליטו להעביר את מרכז הכובד ללונדון כדי לנצל את חופש הביטוי המערבי ואת התשתית הטכנולוגית העולמית, ובכך יצרו את הסטנדרט הראשון של "עיתונות לוויינית" גלובלית בשפה הערבית.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסדים - ניתוח לשוני ומורשתי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>הישאם (Hisham):</strong> נגזר מהשורש השמי <span class="root-badge">ה-ש-מ</span> (ه-ش-م), שפירושו המקורי הוא "לשבור" או "לפורר" (במיוחד לחם לצורך האכלת עניים וזקוקים). השם מסמל נדיבות קיצונית, אצילות ודאגה לקהילה. היסטורית, זהו שמו של סבו של הנביא מוחמד (האשם). 
+                        <strong>מוחמד (Mohammed):</strong> מהשורש המקודש <span class="root-badge">ח-מ-ד</span> (ח-מ-ד), פירושו "הראוי לשבח" או "המהולל". זהו השם המרכזי באסלאם, המבטא מחויבות למופת אישי ודתי וליציבות ערכית. 
+                        <strong>חאפז (Hafiz):</strong> נגזר מהשורש <span class="root-badge">ח-פ-ז</span> (ح-ف-ظ), שפירושו לשמור, להגן או לזכור (במיוחד את הקוראן והידע). שם המשפחה מעיד על שושלת של "שומרי מסורת" וידע, אלו שמגנים על המורשת דרך הכתב והזיכרון ההיסטורי.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות היזמית</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        האחים חאפז נולדו באל-מדינה, העיר הקדושה השנייה באסלאם, למשפחה שהייתה שקועה בעולם הדפוס והספר. אביהם, עלי חאפז, הקים את עיתון "אל-מדינה" ב-1937. בילדותם הם גדלו בתוך ריח הדיו והרעש המהפנט של מכבשי הדפוס; הם ראו מקרוב כיצד מילים הופכות לכוח פוליטי וציבורי. הילדות בלב הסביבה הדתית והאינטלקטואלית של אל-מדינה נטעה בהם כבוד עמוק לשפה, אך המפגש שלהם עם השכלה מערבית גבוהה הוליד בהם רצון למודרניזציה טוטאלית. הם לא רצו להיות רק מו"לים מקומיים; הם שאפו להפוך את המדיה הערבית ל"אימפריה גלובלית". הילדות בתוך עסק משפחתי לוחמני ששרד תהפוכות פוליטיות עיצבה את זהותם כיזמים חסרי פשרות, המאמינים שהטכנולוגיה היא הדרך היחידה לחבר את העולם הערבי המפולג והמפוזר.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה גלובלית</span>
+                    <p class="text-lg text-slate-300">הפיכת א-שרק אל-אווסאט ל"עיתון הערבי של העולם", ייסוד קבוצת SRMG (חברת המדיה הגדולה במפרץ), וקביעת הסטנדרט המקצועי של דיווח פאן-ערבי מודרני, מאוזן ומכובד.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #f97316;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">03. אל-קודס אל-ערבי (القدس العربي)</h2>
-            <p class="text-orange-400 font-bold mt-2">נוסד: 1989 | מטה: לונדון</p>
-        </div>
-        <div class="etymology-box" style="border-color: #9a3412;">
-            <span class="label">אטימולוגיה: ירושלים הערבית</span>
-            <p class="text-slate-200">השם נבחר לסמל את המרכזיות של הסוגיה הפלסטינית בזהות הערבית וכדי להוות קול ביקורתי נגד המשטרים.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">עבד אל-בארי עטוואן (נולד 1950)</p>
-                <p class="text-sm mt-4">נולד במחנה פליטים בעזה. גדל בעוני קיצוני כפליט, חוויה שעיצבה את סגנונו הלוחמני ואת התנגדותו להגמוניה המערבית.</p>
+    <!-- Al-Quds Al-Arabi -->
+    <section class="dashboard-card" style="border-right-color: #f97316;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">03. אל-קודס אל-ערבי (القدس العربي)</h2>
+                <span class="text-sm text-orange-400 font-mono italic uppercase tracking-widest">The Angry Voice of the Dispossessed</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">לאומנות ערבית רדיקלית. הפך לבמה מרכזית עבור אינטלקטואלים ערבים המתנגדים למדיניות המערב באזור.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-hand-fist text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">LONDON / RAMALLAH | EST. 1989</span>
             </div>
-            <div class="info-card md:col-span-2 border-orange-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>עבד אל-בארי:</strong> משרת הבורא. <strong>עטוואן:</strong> שם פלסטיני כפרי שורשי.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg italic"><strong>אל-קודס אל-ערבי (القدس العربي):</strong> מילולית: "ירושלים הערבית". השם נבחר כדי להציב את הסוגיה הפלסטינית וירושלים כציר המרכזי והבלתי ניתן למחיקה של הזהות הערבית. "אל-קודס" (הקדושה) נגזר מהשורש השמי <span class="root-badge">ק-ד-ס</span> (קדושה), והתוספת "אל-ערבי" נועדה להדגיש את הבעלות הלאומית מול כל נרטיב אחר.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1989. הוקם בשיא האינתיפאדה הראשונה כדי לשמש פלטפורמה לוחמנית, זועמת וחסרת פשרות נגד המשטרים הערביים ונגד ההגמוניה המערבית, תוך מתן קול ל"רחוב הערבי" המדוכא.</div>
+            </div>
+            <div>
+                <div class="label">בונה/מייסד ולוחם המקלדת</div>
+                <div class="value text-2xl font-bold">עבד אל-בארי עטוואן</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">נולד ב-1950. עיתונאי פלסטיני רדיקלי, לשעבר העורך הראשי המיתולוגי של העיתון, האיש שהפך את המילה הכתובה לכלי של "מוקאומה" (התנגדות).</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-orange-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: עבד אל-בארי עטוואן</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light">
+                    העיתון נוסד בלונדון ב-1989, תקופה שבה העולם הערבי עמד בפני שינויים דרמטיים. בעוד שעיתונים פאן-ערביים אחרים נחשבו למזוהים עם הממסד הסעודי העשיר, עטוואן ביקש להקים עיתון שידבר ב"שפת הפליטים". העיתון נודע בסגנונו הבוטה והישיר, בתמיכה חסרת סייג בסדאם חוסיין (בזמנו) ובמאבק המזוין הפלסטיני, והפך במהירות לבמה המרכזית עבור קולות רדיקליים שהושתקו בבירות ערב השמרניות והפרו-מערביות.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ואידיאולוגי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>עבד אל-בארי (Abdel Bari):</strong> "עבד" פירושו משרת. "אל-בארי" (البارئ) הוא אחד מ-99 שמותיו של אלוהים באסלאם, שפירושו "הבורא" או "זה שמוציא משהו אל הפועל". השם מסמל ענווה בפני הכוח העליון אך גם עוצמה יצירתית. 
+                        <strong>עטוואן (Atwan):</strong> שם משפחה פלסטיני כפרי שורשי, נגזר מהשורש השמי <span class="root-badge">ע-ט-ו</span> (ع-ط-و), המציין נתינה, הענקה או הקרבה. השם מעיד על חיבור עמוק לאדמה ולערכי הקהילה הפלסטינית המקורית, ומסמל אדם שמעניק את חייו למען מטרה נעלה.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של פליט לוחם</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        עבד אל-בארי נולד במחנה הפליטים "אל-בורייג'" ברצועת עזה, למשפחה שגורשה ב-1948 מהעיר יבנא. בילדותו הוא גדל בעוני קיצוני ומחפיר, בתוך אוהלים וצריפי פח רעועים של אונר"א, כשהוא חווה על בשרו את הטראומה של המחסור והשפלה הלאומית. החוויה המעצבת ביותר שלו הייתה התחושה של "חוסר צדק עולמי". בילדותו הוא למד לאור עששיות קטנות וקרא עיתונים ישנים שנזרקו, מה שפיתח אצלו רעב אינטלקטואלי וזעם פוליטי יוקד. הילדות במחנה הפליטים עיצבה את זהותו כ"עיתונאי של המנושלים" – אדם שאינו סומך על אימפריות או על שליטים ערבים עשירים. הוא בנה את הקריירה שלו מתוך צורך קיומי "לנקום" את כבודם של הפליטים דרך המילים והניתוח המושחז. המעבר שלו ללונדון לא השכיח ממנו את ריח האבק של עזה; הוא הפך את הזעם הזה לכלי נשק רטורי שהפך אותו לאחד התקשורתנים המשפיעים והמעוררים מחלוקת ביותר בעולם הערבי.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיית ה"מוקאומה"</span>
+                    <p class="text-lg text-slate-300">הפיכת אל-קודס אל-ערבי לעיתון הביקורתי והלוחמני ביותר בלונדון, השגת גישה בלעדית לדמויות המבוקשות ביותר בעולם, וביסוס קולו של הלאומיות הערבית האנטי-אימפריאליסטית.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #ef4444;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">04. אל-חיאת (الحياة)</h2>
-            <p class="text-red-400 font-bold mt-2">נוסד: 1946 | מטה: ביירות / לונדון</p>
-        </div>
-        <div class="etymology-box" style="border-color: #7f1d1d;">
-            <span class="label">אטימולוגיה: החיים</span>
-            <p class="text-slate-200">פירוש השם הוא "החיים". נועד לשדר חיוניות ודינמיות, בניגוד לעיתונות הממסדית הכבדה של אותה תקופה.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">כאמל מרווה (1915–1966)</p>
-                <p class="text-sm mt-4">נולד בלבנון. גדל בבית דתי אך נאור. ילדותו בצל המנדט הצרפתי עוררה בו את הצורך בעיתונות עצמאית וחוקרת.</p>
+    <!-- Al-Hayat -->
+    <section class="dashboard-card" style="border-right-color: #ef4444;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">04. אל-חיאת (الحياة)</h2>
+                <span class="text-sm text-red-400 font-mono italic uppercase tracking-widest">The Elite Beacon of Arab Liberalism</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">ליברליזם ערבי ועצמאות עיתונאית. נחשב לעיתון האיכותי ביותר בשפה הערבית עד לסגירתו המצערת.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-heartbeat text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">BEIRUT / LONDON | EST. 1946</span>
             </div>
-            <div class="info-card md:col-span-2 border-red-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>כאמל:</strong> מושלם. <strong>מרווה:</strong> אצילות וגבורה מדברית.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>אל-חיאת (الحياة):</strong> מילולית: "החיים". השם נבחר כדי לשקף חיוניות, תנועה והתחדשות של החברה הערבית שלאחר מלחמת העולם השנייה. השם מסמל עיתונות ש"חיה" את האירועים מקרוב, שאינה מאובנת ושואפת להביא את דופק החיים האמיתי אל הקורא הערבי המשכיל והמעמיק.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1946. הוקמה בביירות על ידי כאמל מרווה כדי לייצר עיתונות חוקרת, עצמאית וליברלית שתשמש כבמה לאינטלקטואלים הערבים הגדולים בעידן העצמאות והתקווה שלאחר הקולוניאליזם.</div>
+            </div>
+            <div>
+                <div class="label">בונה/מייסד וארכיטקט החירות</div>
+                <div class="value text-2xl font-bold">כאמל מרווה</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1915–1966. עיתונאי לבנוני פורץ דרך, שנרצח בשל דעותיו העצמאיות. נחשב לאבי העיתונות האיכותית, המערבית והמכובדת ביותר בלבנון ובעולם הערבי.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-red-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: כאמל מרווה</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    העיתון הוקם בביירות מיד לאחר סיום מלחמת העולם השנייה ועזיבת המנדט הצרפתי. ביירות הייתה אז המרכז האינטלקטואלי והתרבותי של העולם הערבי כולו. כאמל מרווה רצה להקים עיתון שיעמוד בסטנדרטים המחמירים של ה-New York Times, עם רשת כתבים בינלאומית ודגש על ניתוחי עומק. אל-חיאת הפך במהירות לעיתון האליטה המשכילה, כשהוא מאתגר את המשטרים המלוכניים והצבאיים באזור דרך חשיפת עובדות והצגת דעות מגוונות וליברליות. מרווה שילם על כך בחייו כשנרצח במשרדו ב-1966 על ידי מתנקש פוליטי שסלד מחופש הביטוי שלו.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני וערכי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>כאמל (Kamel):</strong> נגזר מהשורש השמי <span class="root-badge">כ-מ-ל</span> (כ-מ-ל), שפירושו שלמות, תמימות או חוסר פגם. פירושו "המושלם" או "השלם". השם מסמל שאיפה אובססיבית למצוינות וליושרה מוחלטת בביצוע המשימה העיתונאית. 
+                        <strong>מרווה (Mrowa):</strong> שם משפחה לבנוני-שיעי שורשי, נגזר מהמילה "מרוא" (مرو), שפירושה בערבית עתיקה "אצילות", "גבורה מדברית", "יושרה" או "גבריות ערכית". השם מבטא מחויבות לקוד מוסרי נוקשה ולהגנה על הצדק והאמת בכל מחיר, גם מול סכנת מוות.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות חופשית</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        כאמל מרווה נולד בדרום לבנון למשפחה ששילבה בין דתיות עמוקה לבין פתיחות אינטלקטואלית נדירה. בילדותו הוא גדל בצל המעבר המטלטל מהאימפריה העות'מאנית למנדט הצרפתי, חוויה שפיתחה אצלו רגישות גבוהה לנושא הריבונות והחירות האישית. הוא היה אוטודידקט בנשמתו; בילדותו נהג לקרוא ספרי פילוסופיה והיסטוריה מתורגמים, והוקסם מהעוצמה של הכתב המערבי ומהשימוש במילים לשינוי המציאות. המפגש שלו עם התרבות הצרפתית בביירות יצר אצלו זהות של "ערבי נאור" – כזה שגאה במורשתו הלבנונית אך דורש עיתונות חופשית ומודרנית שאינה משמשת כשופר של אף שלטון. הילדות בלבנון הרב-תרבותית עיצבה אותו כאדם שמבין שחדשות הן "החמצן של הדמוקרטיה". רצח אביו בצעירותו על רקע פוליטי רק חיזק את נחישותו להילחם בעריצות דרך המילה הכתובה, עד שהוא עצמו הפך לקורבן של אותה מלחמה על האמת.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה ליברלית</span>
+                    <p class="text-lg text-slate-300">הפיכת אל-חיאת לעיתון האיכותי והמוערך ביותר בשפה הערבית במשך עשורים, פיתוח מודל של "כתבי חוץ נודדים" בכל בירות העולם, וביסוס מעמדה של ביירות כבירת החופש המחשבתי הערבי המודרני.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #3b82f6;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">05. א-נהאר (النهار)</h2>
-            <p class="text-blue-400 font-bold mt-2">נוסד: 1933 | מטה: ביירות</p>
-        </div>
-        <div class="etymology-box" style="border-color: #1e3a8a;">
-            <span class="label">אטימולוגיה: היום</span>
-            <p class="text-slate-200">פירושו "היום". מסמל שקיפות וחשיפת האמת לאור היום, ואת השאיפה להיות העיתון שפותח את היום עבור הלבנונים.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">ג'ובראן תווייני (1890–1947)</p>
-                <p class="text-sm mt-4">נולד בביירות למשפחה יוונית-אורתודוקסית. גדל בתקופת דעיכת האימפריה העות'מאנית, מה שהוביל אותו לפתח תפיסת לאומיות מודרנית.</p>
+    <!-- Al-Nahar -->
+    <section class="dashboard-card" style="border-right-color: #3b82f6;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">05. א-נהאר (النهار)</h2>
+                <span class="text-sm text-blue-400 font-mono italic uppercase tracking-widest">The Sun of Lebanese Sovereignty</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">ליברליזם וחופש ביטוי. העיתון הפך למוסד תרבותי בלבנון המזוהה עם המאבק לדמוקרטיה ולריבונות.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-sun text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">BEIRUT, LEBANON | EST. 1933</span>
             </div>
-            <div class="info-card md:col-span-2 border-blue-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>ג'ובראן:</strong> המרפא/המנחם. <strong>תווייני:</strong> שם אליטה לבנוני עתיק.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>א-נהאר (النهار):</strong> מילולית: "היום" (בניגוד ללילה). השם נבחר כדי לסמל שקיפות, בהירות מוחלטת וחשיפת האמת לאור השמש. העיתון נועד להיות זה ש"פותח את היום" עבור הלבנונים, ומביא אור לפינות החשוכות של השחיתות והעריצות. השם מבטא אופטימיות של תחייה לאומית לבנונית חופשית.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1933. הוקם בביירות על ידי ג'ובראן תווייני כדי לשמש כקול של הלאומיות הלבנונית החילונית וכמשקל נגד להשפעות האימפריאליסטיות והעדתיות שפירקו את המדינה הצעירה.</div>
+            </div>
+            <div>
+                <div class="label">בונה/מייסד ושומר החומות</div>
+                <div class="value text-2xl font-bold">ג'ובראן תווייני (הסב)</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1890–1947. עיתונאי ופוליטיקאי לבנוני, מייסד שושלת עיתונאים שהקריבו את חייהם (כולל נכדו שנרצח ב-2005) למען חופש העיתונות והריבונות הלבנונית.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-blue-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ג'ובראן תווייני</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    העיתון נוסד ב-1933, בלב תקופת המנדט הצרפתי ובצל עליית הנאציזם והפשיזם באירופה שאיים על המזרח התיכון. בלבנון התגבשה באותן שנים זהות לאומית חדשה שביקשה להשתחרר מהשפעות העבר העות'מאני ומכבלים זרים. ג'ובראן תווייני רצה לייצר מוסד שיהיה חזק יותר מהפוליטיקאים המקומיים – עיתון שיחנך את הציבור לדמוקרטיה וליברליזם חסר פשרות. א-נהאר הפך במהירות ל"עיתון הלאומי" של לבנון, כשהוא מוביל את המאבק לעצמאות ב-1943.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ומעמדי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>ג'ובראן (Gebran):</strong> נגזר מהשורש השמי <span class="root-badge">ג-ב-ר</span> (جبر), שפירושו בעברית ובערבית הוא ריפוי, איחוי עצמות, שיקום או נחמה (מכאן גם המילה "אלגברה" – איחוי חלקי משוואה). השם מסמל אדם שתפקידו לרפא את שברי החברה הלבנונית ולנחם את הסובלים דרך האמת. 
+                        <strong>תווייני (Tueni):</strong> שם משפחה אריסטוקרטי לבנוני-יווני-אורתודוקסי, נגזר אולי מהמילה "תואן" (ת-ו-נ) שקשורה למגורים באזור מסוים או למעמד של סוחרים ואנשי ספר בעלי נכסים וזכויות. השם מסמל את האליטה הלבנונית הישנה והמשכילה שנלחמה על זהותה הלאומית מול כוחות חיצוניים.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות הלאומיות הלבנונית</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        ג'ובראן נולד בביירות למשפחה יוונית-אורתודוקסית משכילה בשיא תקופת ה"נהדה". בילדותו הוא גדל בצל דעיכתה האיטית והכואבת של האימפריה העות'מאנית, כשהוא חזה ברעב, בדיכוי ובמאבקי העצמאות של עמי האזור. החשיפה המוקדמת שלו לספרות אירופית קלאסית מצד אחד ולמסורת הכנסייתית האורתודוקסית מצד שני יצרה אצלו זהות מורכבת של "ערבי-נוצרי" המאמין בחילוניות ובחופש המחשבה כפתרון היחיד לשלום אזורי. בילדותו הוא ראה את המילים הופכות לכלי נשק בידי המורדים נגד הטורקים, מה שנטע בו את ההבנה שהעיתון הוא ה"פרלמנט" האמיתי של העם. הילדות בביירות הקוסמופוליטית עיצבה אותו כאדם חסר פחד מול כל כוח שלטוני; הוא בנה את הזהות שלו כמגן החירות המוחלט, זהות שעברה בירושה לבנו ולנכדו, ששילמו כולם מחיר אישי כבד על שמירת "אור היום" של העיתון.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה דמוקרטית</span>
+                    <p class="text-lg text-slate-300">הפיכת א-נהאר למוסד התקשורת החשוב והמשפיע ביותר בלבנון, הובלת הקו הריבוני נגד כיבושים חיצוניים (במיוחד הכיבוש הסורי), וקביעת הסטנדרט של "עיתונות לוחמת" שאינה נכנעת לעולם.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #8b5cf6;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">06. אל-ג'מהוריה (الجمهورية)</h2>
-            <p class="text-purple-400 font-bold mt-2">נוסד: 1953 | מטה: קהיר</p>
-        </div>
-        <div class="etymology-box" style="border-color: #4c1d95;">
-            <span class="label">אטימולוגיה: הרפובליקה</span>
-            <p class="text-slate-200">השם נבחר מיד לאחר מהפכת הקצינים החופשיים כדי לסמל את המעבר של מצרים ממלוכה לרפובליקה חדשה.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">אנואר סאדאת (המפקח המייסד)</p>
-                <p class="text-sm mt-4">נולד בכפר מית אבו אל-כום. גדל בעוני פלאחי בדלתא, חוויה שנטעה בו חיבור עמוק לאדמה אך גם רצון עז לשנות את סדרי השלטון.</p>
+    <!-- Al-Gomhuria -->
+    <section class="dashboard-card" style="border-right-color: #8b5cf6;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">06. אל-ג'מהוריה (الجمهورية)</h2>
+                <span class="text-sm text-purple-400 font-mono italic uppercase tracking-widest">The Revolutionary Voice of the Masses</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">נאצריזם ומהפכנות בשנותיו הראשונות. שימש כשופר המרכזי להפצת רעיונות הריבונות המצרית החדשה לאחר 1952.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-users text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">CAIRO, EGYPT | EST. 1953</span>
             </div>
-            <div class="info-card md:col-span-2 border-purple-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>אנואר:</strong> המאיר ביותר. <strong>סאדאת:</strong> אדון/מנהיג.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>אל-ג'מהוריה (الجمهورية):</strong> מילולית: "הרפובליקה". השם נבחר במכוון מיד לאחר מהפכת הקצינים החופשיים ב-1952 כדי לסמל את המעבר של מצרים מעידן המלוכה והפאודליזם לעידן הרפובליקני החדש. השם נגזר מהשורש <span class="root-badge">ג-מ-ה-ר</span> (קהל/ציבור/המונים), ומסמל את בעלות ההמונים על המדינה ואת סיום עידן האריסטוקרטיה.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1953. הוקם ככלי התעמולה, ההסברה והחינוך המרכזי של מהפכת יולי, במטרה להפיץ את רעיונות הריבונות המצרית החדשה, הנאצריזם והרפורמות החברתיות לכל פלאח ופועל במדינה.</div>
+            </div>
+            <div>
+                <div class="label">הבונה/המפקח המייסד</div>
+                <div class="value text-2xl font-bold">אנואר סאדאת</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1918–1981. נשיא מצרים לשעבר, מהפכן, ואיש התקשורת הראשון של המהפכה (שימש כעורך הראשי הראשון של העיתון והיה אחראי על עיצוב דעת הקהל).</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-purple-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: אנואר סאדאת</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    לאחר הפלת המלך פארוק ב-1952, מנהיגי המהפכה (נאצר, סאדאת וחבריהם) הבינו שהם זקוקים לעיתון "משלהם" שידבר בשפת העם ולא בשפת האליטות הישנות של אל-אהראם הממוסד. אל-ג'מהוריה הוקם כדי להיות השופר הישיר של ה"פלאח" וה"פועל" המצרי. סאדאת, שהיה בעל כישרון רטורי ודרמטי יוצא דופן, מונה לפקח על הקמת העיתון וכתב בו את מאמרי המערכת הראשונים והלוהטים, כשהוא מעצב את הנרטיב של "מצרים החדשה והחופשית".
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ומנהיגותי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>אנואר (Anwar):</strong> נגזר מהשורש השמי <span class="root-badge">נ-ו-ר</span> (ن-و-ר), שפירושו אור, זוהר או הבנה. המילה "אנואר" היא צורת ההפלגה (superlative), ופירושה "המאיר ביותר" או "הזוהר ביותר". השם מבטא תקווה לידע, חשיפה של האמת ומובילות רוחנית המביאה אור לציבור. 
+                        <strong>סאדאת (Sadat):</strong> צורת הרבים של המילה "סייד" (אדון/מנהיג/נכבד). השם מעיד על ייחוס למשפחה של מנהיגים מקומיים או מכובדים בחברה הכפרית, ומסמל סמכות מולדת, כבוד ויכולת הנהגה טבעית של קבוצות גדולות לעבר יעד משותף.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של המהפכן מהכפר</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        אנואר נולד בכפר הקטן והעני "מית אבו אל-כום" בדלתא של הנילוס, למשפחה גדולה של פלאחים (איכרים) פשוטים. בילדותו הוא גדל באווירה של עוני קיצוני ודיכוי בריטי מוחשי, כשהוא סופג את סיפורי הגבורה של הכפריים נגד הכובש הזר מסבתו, שהייתה הדמות הדומיננטית והמחנכת בחייו. היא נהגה לספר לו על המאבק המצרי לעצמאות, מה שנטע בו מגיל אפס תודעה פוליטית חריפה וזהות של "לוחם חופש". בילדותו הוא הושפע עמוקות מדמויות היסטוריות כריזמטיות, והזהות שלו התגבשה כמי שרוצה לשבור את המחיצות המעמדיות במצרים. הלימודים באקדמיה הצבאית היו עבורו כרטיס כניסה לעולם המהפכה האמיתי. הילדות בצל האדמה והמחסור היא שאיפשרה לו, מאוחר יותר, לעצב את אל-ג'מהוריה כעיתון של "האנשים הפשוטים". הוא ראה בתקשורת דרך ל"חינוך המונים" ולהפלת המשטר הישן, זהות של מהפכן שלמד בילדותו שרק דרך עוצמה (צבאית או תקשורתית) ניתן להחזיר את הכבוד האבוד למצרי הפשוט.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה לאומית</span>
+                    <p class="text-lg text-slate-300">הפיכת אל-ג'מהוריה לעיתון הנפוץ ביותר בקרב המעמדות העובדים במצרים, הובלת התעמולה של מהפכת 1952, וביסוס מעמדו של סאדאת כדובר המרכזי של הלאומיות המצרית החדשה.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #14b8a6;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">07. אל-ח'ליג' (الخليج)</h2>
-            <p class="text-teal-400 font-bold mt-2">נוסד: 1970 | מטה: שארג'ה, איחוד האמירויות</p>
-        </div>
-        <div class="etymology-box" style="border-color: #134e4a;">
-            <span class="label">אטימולוגיה: המפרץ</span>
-            <p class="text-slate-200">השם נבחר כדי לסמל את הזהות האזורית המשותפת של מדינות המפרץ עוד לפני הקמת האיחוד הרשמי.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">תריאם עומראן תריאם (1945–2002)</p>
-                <p class="text-sm mt-4">נולד בשארג'ה לפני גילוי הנפט. גדל בצל קשיי המדבר והים, מה שעיצב את חזונו לאיחוד ולמודרניזציה של האמירויות דרך מדיה.</p>
+    <!-- Al-Khaleej -->
+    <section class="dashboard-card" style="border-right-color: #14b8a6;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">07. אל-ח'ליג' (الخليج)</h2>
+                <span class="text-sm text-teal-400 font-mono italic uppercase tracking-widest">The Pioneer of Gulf National Identity</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">פאן-ערביות ותמיכה באיחוד. היה החלוץ העיתונאי באזור המפרץ ונחשב לאחד המשפיעים ביותר שם עד היום.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-water text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">SHARJAH, UAE | EST. 1970</span>
             </div>
-            <div class="info-card md:col-span-2 border-teal-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>תריאם:</strong> מקום נשגב. <strong>עומראן:</strong> שגשוג ובנייה.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>אל-ח'ליג' (الخليج):</strong> מילולית: "המפרץ". השם נבחר בשנת 1970, רגע היסטורי לפני הקמת איחוד האמירויות הרשמי, כדי לסמל את הזהות הגיאופוליטית והתרבותית המשותפת של מדינות האזור. השם מבטא רצון לאחד את הנסיכויות המפוזרות סביב המפרץ הפרסי תחת דגל תקשורתי אחד של מודרנה, יציבות ואיחוד פאן-ערבי.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">1970. הוקמה בשארג'ה על ידי האחים תריאם כדי להיות הקול העיתונאי העצמאי הראשון באזור המפרץ, שתומך ללא סייג באיחוד האמירויות ובזהות הערבית הלאומית החדשה.</div>
+            </div>
+            <div>
+                <div class="label">בונה/מייסד ואבי העיתונות באמירויות</div>
+                <div class="value text-2xl font-bold">תריאם עומראן תריאם</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1945–2002. עיתונאי, פוליטיקאי ודיפלומט אמירתי בכיר, כיהן כיו"ר המועצה הלאומית הפדרלית והיה מהדוחפים האידיאולוגיים הגדולים ביותר להקמת האיחוד.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-teal-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: תריאם עומראן</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    בשנת 1970 הודיעה בריטניה על נסיגתה מהמפרץ. האזור עמד על סף שינוי היסטורי מפחיד ומלהיב כאחד. שארג'ה הייתה אז המרכז התרבותי והחינוכי המוביל של האמירויות. תריאם עומראן ואחיו עבדאללה הבינו שכדי לבנות מדינה מאוחדת מתוך השבטיות, חייבים לייצר עיתון שיחבר בין האנשים. הם הקימו את אל-ח'ליג' באמצעים דלים ביותר, כשהם מדפיסים אותו בכווית ומבריחים אותו במטוסים קטנים לשארג'ה, מתוך תחושת שליחות לאומית לבנות "זהות מפרצית" מודרנית וגאה.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני וערכי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>תריאם (Taryam):</strong> שם ערבי נדיר ועתיק מאוד, שפירושו "מקום נשגב", "פסגת ההר" או "ענן גבוה וגשום". השם מסמל שאיפה בלתי פוסקת למצוינות, גובה רוחני ומובילות טבעית מעל להמונים. 
+                        <strong>עומראן (Omran):</strong> נגזר מהשורש השמי <span class="root-badge">ע-מ-ר</span> (ع-م-ר), שפירושו בנייה, שגשוג, ציוויליזציה או אורך ימים. השם מבטא את תפקידו המרכזי של המייסד בבניית המדינה והמוסדות שלה (מכאן גם המושג "עמראן" אצל אבן ח'לדון כסמל לתרבות מתקדמת ומאורגנת). 
+                        <strong>תריאם (שם משפחה):</strong> חזרה על השם הפרטי כשם משפחה מעידה על שושלת המקדשת את הזהות העצמית והשורשיות המקומית העמוקה בשארג'ה.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של בונה האומה</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        תריאם נולד בשארג'ה בתקופה הקשוחה שלפני גילוי הנפט, כשחיי היום-יום היו מאבק הישרדותי בין חולות המדבר הלוהטים לבין הים הבוגדני. בילדותו הוא גדל בתוך אווירה של שינוי פוליטי תוסס, כשהוא רואה את ההשפעה המחשבתית של מצרים (תקופת נאצר) מגיעה אפילו לחופי המפרץ המרוחקים ומעוררת תקוות לאחדות. הוא חונך בבתי הספר המודרניים הראשונים בשארג'ה ולאחר מכן נשלח ללמוד בקהיר, שם נחשף לעולם העיתונות הסוער, האינטלקטואלי והאידיאולוגי של שנות ה-60. המפגש עם האינטלקטואלים המצרים בנעוריו יצר אצלו זהות של "ערבי פאן-לאומי" המאמין בכוחו הבלתי מוגבל של האיחוד. הוא ראה בילדותו את המפרץ כפריפריה נשכחת והחליט להפוך אותו למרכז התודעה. הזהות שלו התגבשה כשילוב בין ה"בדווי" הקשוח שמכיר את המדבר לבין ה"דיפלומט" המשכיל שמכיר את העולם הגדול. הילדות בצל הנוכחות הבריטית הולידה בו רצון עז לעצמאות תקשורתית מוחלטת, מה שהוביל אותו להקים את אל-ח'ליג' כפרויקט חיים.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה פאן-מפרצית</span>
+                    <p class="text-lg text-slate-300">ייסוד העיתונות היומית באיחוד האמירויות, תמיכה אסטרטגית בהקמת האיחוד ב-1971, ומיצוב שארג'ה כבירת התרבות, הספרות והעיתונות החוקרת של המפרץ עד היום.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="newspaper-card" style="border-top-color: #f43f5e;">
-        <div class="mb-8">
-            <h2 class="text-5xl font-black text-white italic">08. אל-אח'באר (الأخبار)</h2>
-            <p class="text-rose-400 font-bold mt-2">נוסד: 2006 | מטה: ביירות</p>
-        </div>
-        <div class="etymology-box" style="border-color: #9f1239;">
-            <span class="label">אטימולוגיה: החדשות</span>
-            <p class="text-slate-200">פירוש: "החדשות". שם ישיר שנועד לשדר דיווח נטול מניירות, אך משמש בפועל כאלטרנטיבה רדיקלית לסדר היום השמרני.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="info-card">
-                <span class="label">הבונה ופרטי ילדות</span>
-                <p class="font-bold text-white text-xl">ג'וזף סמאחה (1949–2007)</p>
-                <p class="text-sm mt-4">נולד בלבנון. גדל בשיא המלחמה הקרה והמאבק הלאומי הלבנוני. נחשף לספרות מרקסיסטית מגיל צעיר, מה שהפך אותו לאינטלקטואל שמאלי בולט.</p>
+    <!-- Al-Akhbar -->
+    <section class="dashboard-card" style="border-right-color: #f43f5e;">
+        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
+            <div>
+                <h2 class="text-5xl font-black text-white italic tracking-tighter">08. אל-אח'באר (الأخبار)</h2>
+                <span class="text-sm text-rose-400 font-mono italic uppercase tracking-widest">The Radical Vanguard of Lebanese Press</span>
             </div>
-            <div class="info-card">
-                <span class="label">אידיאולוגיה והישגים</span>
-                <p class="text-sm">שמאל רדיקלי ואנטי-אימפריאליזם. ידוע בחשיפות נוקבות נגד ארה"ב וישראל ובסגנון לוחמני שאינו מתחשב בטאבו חברתי.</p>
+            <div class="flex flex-col items-end">
+                <i class="fas fa-newspaper text-6xl text-slate-700 opacity-40"></i>
+                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">BEIRUT, LEBANON | EST. 2006</span>
             </div>
-            <div class="info-card md:col-span-2 border-rose-500/30 border">
-                <span class="label">אטימולוגיה של המייסד</span>
-                <p class="text-sm"><strong>ג'וזף:</strong> יוסף (ה' יוסיף). <strong>סמאחה:</strong> סובלנות ונדיבות.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="label">אטימולוגיית המותג</div>
+                <div class="value text-lg"><strong>אל-אח'באר (الأخبار):</strong> מילולית: "החדשות". השם נבחר כדי לשדר ישירות, אמינות גולמית ודיווח נטול מניירות אריסטוקרטיות או פילטרים ממסדיים. השם נגזר מהשורש השמי <span class="root-badge">ח'-ב-ר</span> (ידיעה/ניסיון/מומחיות), ומסמל את השאיפה להביא את הידיעה האמיתית, הנסתרת והלא מצונזרת אל הציבור הרחב, תוך שבירת כל הטאבו של העיתונות השמרנית הישנה.</div>
+                <div class="label">שנת הקמה וסיבת הייסוד</div>
+                <div class="value text-lg">2006. הוקמה בביירות מיד לאחר מלחמת לבנון השנייה כדי לייצר אלטרנטיבה אינטלקטואלית-שמאלית, חילונית ורדיקלית לנרטיב המערבי והסעודי הדומיננטי, תוך תמיכה מוצהרת ב"ציר ההתנגדות".</div>
+            </div>
+            <div>
+                <div class="label">בונה/מייסד ואינטלקטואל השמאל</div>
+                <div class="value text-2xl font-bold">ג'וזף סמאחה</div>
+                <div class="label">שנות חיים ותפקיד</div>
+                <div class="value text-lg">1949–2007. עיתונאי, סופר והוגה דעות לבנוני מבריק, נחשב לאחד האינטלקטואלים המשפיעים והחריפים ביותר בשמאל הערבי המודרני בעשורים האחרונים.</div>
+            </div>
+        </div>
+
+        <div class="bio-section">
+            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-rose-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ג'וזף סמאחה</h3>
+            
+            <div class="background-box">
+                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
+                <p class="text-base text-slate-200 leading-relaxed font-light italic">
+                    העיתון הוקם בשיא הקיטוב הפוליטי המדמם בלבנון לאחר רצח רפיק אל-חרירי ומלחמת 2006. סמאחה, שעזב את עיתון "א-ספיר" הוותיק, רצה להקים עיתון שישלב בין איכות כתיבה ספרותית לבין עמדות פוליטיות חריפות ובלתי מתפשרות נגד ההגמוניה האמריקאית באזור. הרקע להקמה היה הצורך בבמה שתיתן מענה אינטלקטואלי מעמיק לעליית חזבאללה מחד, אך תשמור על ערכים חילוניים, מרקסיסטיים וביקורתיים מאידך.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ואידיאולוגי</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        <strong>ג'וזף (Joseph):</strong> הגרסה הצרפתית והנוצרית לשם העברי יוסף (ה' יוסיף). השם מסמל צמיחה, ברכה ותוספת תמידית של ערך וידע לעולם. 
+                        <strong>סמאחה (Samaha):</strong> נגזר מהשורש השמי המשותף <span class="root-badge">ס-מ-ח</span> (س-م-ح), שפירושו בערבית סובלנות, נדיבות, מחילה או גדלות נפש. שם המשפחה מבטא אידיאל של חברה פתוחה ונדיבה, מה שעומד בניגוד מעניין ומרתק לסגנון כתיבתו הלוחמני, המושחז והבלתי מתפשר של ג'וזף נגד יריביו.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של המבקר החריף</span>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        ג'וזף נולד בלבנון למשפחה נוצרית משכילה בשיא תקופת המלחמה הקרה והמאבק הבין-גושי. בילדותו הוא גדל בתוך האווירה הסוערת והחשמלית של ביירות, שהייתה זירה למאבקים אדירים בין אידיאולוגיות – קומוניזם, נאצריזם וליברליזם מערבי. בילדותו הוא נחשף לספרות פוליטית רדיקלית מהעולם הגדול (צרפת וברה"מ), מה שעיצב את חשיבתו הביקורתית והאנטי-ממסדית מגיל צעיר מאוד. הוא גדל בתוך "חברה בפירוק", חוויה שנטעה בו את הצורך הנואש למצוא סדר חדש וצודק יותר דרך המחשבה המרקסיסטית והחילונית. הזהות שלו התגבשה כ"אינטלקטואל מורד" – כזה שאינו מקבל את המוסכמות החברתיות, הדתיות או המעמדיות של סביבתו. בילדותו הוא למד שהכוח האמיתי אינו נמצא אצל המלכים או הגנרלים, אלא אצל אלו שמעזים לכתוב את האמת הכואבת והחשופה. זהות זו הפכה אותו לעיתונאי שאינו חושש להתעמת עם שגרירויות, ממשלות וארגוני ביון, תוך שהוא משתמש באל-אח'באר כדי לנפץ את הדימוי המהוקצע של הפוליטיקה.
+                    </p>
+                </div>
+                <div>
+                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה שמאלית</span>
+                    <p class="text-lg text-slate-300">הקמת אל-אח'באר כעיתון המאתגר ביותר את הסדר הקיים, הפיכת המערכת למקור מרכזי לחשיפות מודיעיניות (כמו מסמכי WikiLeaks בערבית), וביסוס מודל של עיתונות רדיקלית, איכותית וחסרת פחד.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center mt-20 p-8 border-t border-slate-800">
-        <div class="opacity-30 text-[10px]">נערך עבור רם | 8 עיתונים מאוחדים (אל-אהראם, א-שרק אל-אווסאט, אל-קודס אל-ערבי, אל-חיאת, א-נהאר, אל-ג'מהוריה, אל-ח'ליג', אל-אח'באר) | ינואר 2026 | S25 Ultra Optimized</div>
+    <footer class="text-center py-16 border-t border-slate-800 opacity-50 text-[14px]">
+        <p class="font-bold uppercase tracking-widest text-slate-400">Press Matrix MENA Edition | Ver 2026.V8</p>
+        <p class="mt-4">נערך עבור רם | 2026 | US & MENA Intelligence Matrix | COMPLETE RESEARCH SCALE</p>
+        <p class="mt-2 text-slate-600 uppercase tracking-tighter">Al-Ahram | Asharq Al-Awsat | Al-Quds Al-Arabi | Al-Hayat | Al-Nahar | Al-Gomhuria | Al-Khaleej | Al-Akhbar</p>
     </footer>
 
 </body>
