@@ -3,513 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRESS MATRIX - US EDITION: NEWSPAPERS</title>
+    <title>PRESS MATRIX - MASTER HUB</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
-        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.8; }
-        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; margin-bottom: 4rem; border-right: 1px solid rgba(129, 140, 248, 0.2); transition: all 0.3s ease; }
-        .dashboard-card:hover { border-color: #818cf8; box-shadow: 0 15px 45px -10px rgba(129, 140, 248, 0.2); }
-        .title-gradient { background: linear-gradient(to left, #818cf8, #fbbf24, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
-        .bio-section { background: rgba(30, 41, 59, 0.4); border-radius: 1.5rem; padding: 2.5rem; margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .label { color: #94a3b8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-top: 1.5rem; letter-spacing: 0.1em; border-bottom: 1px solid rgba(148, 163, 184, 0.1); display: inline-block; }
-        .value { color: #f1f5f9; font-size: 1.1rem; margin-bottom: 1.5rem; margin-top: 0.5rem; }
-        .sub-label { color: #818cf8; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-        .background-box { background: rgba(129, 140, 248, 0.08); border-radius: 1.25rem; padding: 2rem; margin-bottom: 3rem; border: 1px dashed rgba(129, 140, 248, 0.3); }
-        strong { color: #818cf8; font-weight: 900; }
-        .root-badge { background: #1e1b4b; color: #818cf8; padding: 3px 14px; border-radius: 6px; font-family: monospace; font-size: 1.1rem; margin-right: 8px; border: 1px solid rgba(129, 140, 248, 0.4); box-shadow: 0 0 10px rgba(129, 140, 248, 0.1); }
-        p { margin-bottom: 1.25rem; }
-        ul { margin-bottom: 1.5rem; }
+        
+        :root {
+            --bg-deep: #020617;
+            --card-bg: #0f172a;
+            --accent-primary: #818cf8;
+        }
+
+        body { 
+            background-color: var(--bg-deep); 
+            color: #f1f5f9; 
+            font-family: 'Assistant', sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Dashboard Grid Optimization for S25 Ultra */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .hub-card { 
+            background: var(--card-bg); 
+            border: 1px solid #1e293b; 
+            border-radius: 2.5rem; 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            padding: 2.5rem;
+            border-right: 4px solid transparent;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+        }
+        
+        .hub-card:hover { 
+            border-color: var(--accent-primary); 
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 30px 60px -15px rgba(129, 140, 248, 0.2); 
+            background: #1e293b;
+        }
+
+        /* Category Accents linked to your file sectors */
+        .card-us-tv { border-right-color: #10b981; }
+        .card-us-press { border-right-color: #6366f1; }
+        .card-mena-tv { border-right-color: #f59e0b; }
+        .card-mena-press { border-right-color: #f43f5e; }
+
+        .title-gradient { 
+            background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-weight: 900; 
+        }
+        
+        .status-badge {
+            background: rgba(52, 211, 153, 0.1);
+            color: #34d399;
+            padding: 4px 12px;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #34d399;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #34d399;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
     </style>
 </head>
-<body class="p-4 md:p-12 max-w-6xl mx-auto">
+<body class="p-6 md:p-12 lg:p-24 max-w-7xl mx-auto">
 
-    <header class="mb-20 flex justify-between items-center border-b border-slate-800 pb-12">
-        <a href="index.html" class="text-indigo-400 hover:text-indigo-300 transition-colors text-sm font-bold flex items-center gap-3">
-            <i class="fas fa-arrow-right"></i> חזרה למרכז הבקרה
-        </a>
-        <div class="text-left">
-            <h1 class="text-4xl md:text-6xl font-black title-gradient tracking-tighter">US PRINT INTEL</h1>
-            <p class="text-[14px] text-slate-500 font-mono italic tracking-widest uppercase mt-4">ENCYCLOPEDIC NEWSPAPER MATRIX | US EDITION | 2026.V23</p>
+    <!-- System Control Header -->
+    <header class="text-center mb-20 md:mb-24">
+        <div class="status-badge mb-8">
+            <span class="pulse-dot"></span>
+            Intelligence System Online
+        </div>
+        <h1 class="text-6xl md:text-8xl font-black title-gradient tracking-tighter mb-6 italic">PRESS MATRIX</h1>
+        <p class="text-slate-500 font-mono tracking-[0.3em] uppercase italic text-xs md:text-sm">
+            US & MENA Strategic Media Intelligence Hub | Master Version 2026
+        </p>
+        
+        <div class="mt-12 flex flex-wrap justify-center items-center gap-8 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            <span>Location: Ramat HaSharon</span>
+            <span class="w-1 h-1 bg-slate-800 rounded-full"></span>
+            <span>Device: S25 Ultra Optimized</span>
+            <span class="w-1 h-1 bg-slate-800 rounded-full"></span>
+            <span>Research Scale: Encyclopedic</span>
         </div>
     </header>
 
-    <!-- 01. The New York Times -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">01. The New York Times</h2>
-                <span class="text-sm text-indigo-400 font-mono italic uppercase tracking-widest">"All the News That's Fit to Print" - The Grey Lady</span>
+    <!-- Main Intelligence Grid -->
+    <div class="hub-grid">
+        
+        <!-- 01. US TV Channels -->
+        <a href="us_tv_channels.html" class="hub-card card-us-tv group">
+            <div class="icon-box text-emerald-400 group-hover:scale-110 transition-transform">
+                <i class="fas fa-satellite-dish"></i>
             </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-newspaper text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1851</span>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">US TV Channels</h2>
+            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
+                ניתוח רשתות שידור מובילות: CNN, FOX, NBC. חקר ארכיטקטורת נרטיב גלובלית ופרופילי מייסדים מלאים.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+                <span class="text-[10px] font-black uppercase tracking-widest text-emerald-500">Access Matrix</span>
+                <i class="fas fa-arrow-left text-xs text-emerald-500 transform group-hover:-translate-x-2 transition-transform"></i>
             </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והמיקום</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>New York:</strong> 
-                        <ul class="list-none space-y-3 mt-2 pr-4 border-r-2 border-indigo-900">
-                            <li>• <strong>הדוכס מיורק:</strong> העיר נקראת על שמו של <strong>ג'יימס השני (James II)</strong>, שנולד ב-1633 ונפטר ב-1701. הוא הפך ל<strong>מלך אנגליה</strong>, סקוטלנד ואירלנד בשנת <strong>1685</strong>.</li>
-                            <li>• <strong>המקור הבריטוני העתיק:</strong> <span class="root-badge">Eburokon</span> שפירושו המילולי הוא "מקום עצי הטקסוס" (Yew-tree estate), עץ סמלי המייצג נצחיות בתרבויות עתיקות.</li>
-                            <li>• <strong>הגלגול הלטיני:</strong> הרומאים שינו את השם ל-<span class="root-badge">Eboracum</span>, ששימש כמרכז השלטון הצבאי והפוליטי בצפון בריטניה הרומית.</li>
-                            <li>• <strong>הגלגול האנגלו-סכסוני:</strong> השם התגלגל ל-<span class="root-badge">Eoforwic</span>, הלחם של "Eofor" (חזיר בר) ו"Wic" (מעון/כפר), כלומר "מעון חזירי הבר".</li>
-                            <li>• <strong>הגלגול הוויקינגי:</strong> הפולשים הנורדים שינו את השם ל-<strong>Jórvík</strong>, שממנו נגזר השם המודרני <strong>York</strong>.</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>The Times:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-indigo-900">
-                            <li>• מייצג את הרישום הכרונולוגי של ה"עתים" – יומן ההיסטוריה המקיף שנועד לתעד את המציאות בכל רגע נתון באובייקטיביות מוחלטת.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1851. הוקם כדי לספק מקור מידע שקול, רציני ואחראי מול העיתונות הסנסציונית ("עיתונות הפני") ששלטה אז ברחובות ניו יורק, במטרה לפנות לאליטה האינטלקטואלית ולמעמד הבינוני שחיפשו אמת עובדתית ומנומקת.</div>
-            </div>
-            <div>
-                <div class="label">בונה/מייסד וארכיטקט המוסד</div>
-                <div class="value text-2xl font-bold">הנרי ג'ארביס ריימונד</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1820–1869. פוליטיקאי רפובליקני מנוסה, מייסד שותף והעורך הראשי הראשון שהגדיר את ערכי האובייקטיביות המודרנית של ה-Gray Lady.</div>
-            </div>
-        </div>
+        </a>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-indigo-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: הנרי ג'ארביס ריימונד</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    באמצע המאה ה-19, זירת התקשורת בניו יורק הייתה שדה קרב של סנסציונליזם זול וצהוב. ריימונד, שהיה פוליטיקאי רפובליקני מנוסה ומקורב לאליטות, זיהה ואקום מסוכן: היעדר עיתון שיוכל לשרת את האליטה המשכילה במידע אמין ומנומק. הרקע להקמה היה הצורך במוסד שיהיה "מבוגר אחראי" ערב מלחמת האזרחים, כזה שידווח על המתחים בין הצפון לדרום מבלי להצית יצרים לשווא. הוא גייס 70,000 דולר יחד עם ג'ורג' ג'ונס כדי להקים מוסד שישמש "רישום של ההיסטוריה בזמן אמת", תוך התחייבות לאיכות תוכן חסרת תקדים שתהיה "ראויה לדפוס".
-                </p>
+        <!-- 02. US Newspapers -->
+        <a href="us_newspapers.html" class="hub-card card-us-press group">
+            <div class="icon-box text-indigo-400 group-hover:scale-110 transition-transform">
+                <i class="fas fa-newspaper"></i>
             </div>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">US Newspapers</h2>
+            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
+                הגרסה האנציקלופדית המלאה (V24). NYT, WSJ, WaPo. כולל אטימולוגיה של יורק ודמותו של ג'וזף מדיל.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+                <span class="text-[10px] font-black uppercase tracking-widest text-indigo-500">Access Matrix</span>
+                <i class="fas fa-arrow-left text-xs text-indigo-500 transform group-hover:-translate-x-2 transition-transform"></i>
+            </div>
+        </a>
 
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני ומבני</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>הנרי (Henry):</strong> מקורו בגרמנית עתיקה <span class="root-badge">Heimirich</span>, הלחם של "Heim" (בית) ו-"Ric" (שליט/עוצמה). פירושו "אדון המעון" או "שליט הבית" – שם המנבא הנהגה וסמכות פנימית.</p>
-                        <p><strong>ג'ארביס (Jarvis):</strong> נגזר מהשם הצרפתי <span class="root-badge">Gervais</span>, המבוסס על המילה הגרמנית העתיקה "Geri" (חנית) ו-"Vas" (משרת/לוחם). פירושו "משרת החנית" או "לוחם חנית מיומן".</p>
-                        <p><strong>ריימונד (Raymond):</strong> שם גרמני עתיק <span class="root-badge">Raginmund</span> המורכב מהאלמנטים "Ragin" (עצה/החלטת האלים) ו-"Mund" (יד שומרת/מגן). פירושו "יועץ מגן".</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולד בחווה בלימה, ניו יורק, למשפחה עם שורשים נוצריים עמוקים. ריימונד נחשב לילד מחונן (Child Prodigy) שהחל לקרוא ספרים מורכבים כבר בגיל 3 והפגין יכולת זיכרון פנומנלית של נאומים וטקסטים ארוכים. בילדותו בחווה, הוא נחשף למאבק היומיומי של החקלאים אך מוחו נמשך אל עולם הספר והשפה. הצלחתו בלימודים הייתה כה גדולה עד שסיים את לימודי האוניברסיטה בורמונט בהצטיינות יתרה כבר בגיל 20. השילוב בין מוסר העבודה של החווה לבין חדות אינטלקטואלית עיצב אותו כעיתונאי שמונה מרעב בלתי פוסק לחקירה ודיוק. הילדות בצל המאבק החקלאי העניקה לו חוסן נפשי לעמוד מול מתקפות פוליטיות אגרסיביות בהמשך חייו.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">האמין בעיתונות המנהלת דיאלוג רציני עם הממשל. דגל בשפה רהוטה ובדיווח אובייקטיבי ("שמרן בטון וליברלי ברוח"), כשהוא מציב את האמת והיושרה המקצועית מעל לכל שיקול פופוליסטי או כלכלי קצר טווח. עבורו, עיתון לא היה רק עסק, אלא כלי לחינוך חברתי ופוליטי של האומה.</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">מייסד ה-New York Times, עורך ראשי ראשון, ואחד ממקימי המפלגה הרפובליקנית בארה"ב. הניח את התשתית הערכית של העיתון שביססה אותו כמוסד האמין ביותר בעולם המערבי למשך מאות שנים.</p>
-                </div>
+        <!-- 03. MENA TV Channels -->
+        <a href="mena_tv_channels.html" class="hub-card card-mena-tv group">
+            <div class="icon-box text-amber-400 group-hover:scale-110 transition-transform">
+                <i class="fas fa-broadcast-tower"></i>
             </div>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">MENA TV</h2>
+            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
+                רשתות השידור במזרח התיכון: אל-ג'זירה, אל-ערביה. מחקר על עוצמה רכה וזרימת מידע אזורית.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+                <span class="text-[10px] font-black uppercase tracking-widest text-amber-500">Access Matrix</span>
+                <i class="fas fa-arrow-left text-xs text-amber-500 transform group-hover:-translate-x-2 transition-transform"></i>
+            </div>
+        </a>
+
+        <!-- 04. MENA Newspapers -->
+        <a href="mena_newspapers.html" class="hub-card card-mena-press group">
+            <div class="icon-box text-rose-400 group-hover:scale-110 transition-transform">
+                <i class="fas fa-atlas"></i>
+            </div>
+            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">MENA Press</h2>
+            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
+                עיתונות מצרים, סעודיה ולבנון. אל-אהראם וא-שרק אל-אווסאט. ניתוח אטימולוגי של קהיר המנצחת.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+                <span class="text-[10px] font-black uppercase tracking-widest text-rose-500">Access Matrix</span>
+                <i class="fas fa-arrow-left text-xs text-rose-500 transform group-hover:-translate-x-2 transition-transform"></i>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- System Architecture Footer -->
+    <footer class="mt-auto pt-32 pb-16 text-center border-t border-slate-900/50">
+        <div class="flex justify-center gap-12 mb-10 opacity-20">
+            <i class="fas fa-dna text-3xl"></i>
+            <i class="fas fa-brain text-3xl"></i>
+            <i class="fas fa-shield-halved text-3xl"></i>
         </div>
-    </section>
-
-    <!-- 02. The Wall Street Journal -->
-    <section class="dashboard-card" style="border-right-color: #10b981;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">02. The Wall Street Journal</h2>
-                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">Global Business Authority - The Data Beacon</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-chart-line text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">NEW YORK CITY | EST. 1889</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והמיקום</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Wall Street:</strong> 
-                        <ul class="list-none space-y-2 mt-2 pr-4 border-r-2 border-emerald-900">
-                            <li>• נקרא על שמה של החומה (Wall) שנבנתה על ידי ההולנדים בשנת 1653 כדי להגן על היישוב ניו אמסטרדם מפני פלישות.</li>
-                            <li>• השם מסמל הגנה, ביצור וגבול של ערכים כלכליים ונכסים לאומיים במרכז הסחר העולמי.</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Journal:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-emerald-900">
-                            <li>• יומן תיעוד שיטתי ומדויק – הפיכת נתונים גולמיים למידע בעל ערך מקצועי עבור קהל המשקיעים.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1889. הוקם כדי למסד את הדיווח הפיננסי ולהוציא את המידע על הבורסה מידיהם של "הברונים השודדים" לטובת ציבור המשקיעים הרחב.</div>
-            </div>
-            <div>
-                <div class="label">הוגה ומייסד המטריצה</div>
-                <div class="value text-2xl font-bold">צ'ארלס הנרי דאו</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1851–1902. עיתונאי וכלכלן, מייסד שותף והאיש שיצר את השפה המודרנית שבה העולם מנתח שווקים, מדדים וכסף.</div>
-            </div>
-        </div>
-
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: צ'ארלס דאו</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    העיתון נולד בלב "עידן הזהב" (Gilded Age), תקופה של צמיחה תעשייתית חסרת רסן לצד שחיתות פיננסית עמוקה. לפני הקמת ה-WSJ, מידע על הבורסה היה נחלתם הבלעדית של בעלי הון והועבר באמצעות פתקאות ידניות ומוטות (Flimsies). דאו זיהה שהמשקיע הקטן נותר בחשיכה, נתון למניפולציות של בעלי עניין. הרקע להקמה היה הניסיון למסד את הדיווח הפיננסי ולהפוך אותו למדע אובייקטיבי המבוסס על שקיפות ונגישות לכל, במטרה להוכיח שהשוק הוא המדד האמיתי לבריאות האומה.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני ומנהיגותי</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>צ'ארלס (Charles):</strong> מקורו בגרמנית עתיקה (Karl), שפירושו "אדם חופשי" (Free Man) או "גבר", המציין חוסר כפיפות לממסד.</p>
-                        <p><strong>הנרי (Henry):</strong> כפי שצוין, פירושו "אדון הבית" <span class="root-badge">Heimirich</span>.</p>
-                        <p><strong>דאו (Dow):</strong> שם משפחה סקוטי/גאלי עתיק מהמילה "Dubh" שפירושה "כהה" או "שחור", ומסמל דמות רצינית, סמכותית ובעלת כובד משקל המשרה ביטחון.</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולד בחווה מבודדת בקונטיקט למשפחה שחיה בתנאים בסיסיים ביותר. בגיל 6 חווה טרגדיה כאשר אביו נפטר, והוא נאלץ להפוך ל"גבר בבית" ולעבוד עבודת כפיים מפרכת בחווה כדי לסייע לאמו. שנות הילדות בבדידות היחסית של השדות, כשהוא מוקף בתהליכים מחזוריים של צמיחה וקציר, פיתחו אצלו יכולת התבוננות פנומנלית בפרטים הקטנים ביותר וסבלנות נדירה לזיהוי דפוסים נסתרים. דאו לא זכה להשכלה פורמלית גבוהה, אך הוא לימד את עצמו את אמנות הדיווח והניתוח מתוך סקרנות פראית. הזהות שלו עוצמה כ"אוטודידקט של המציאות" – אדם שהבין מוקדם מאוד שהעולם מנוהל על ידי חוקיות נסתרת שניתן לפענח דרך נתונים קרים ומדויקים.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">"המספרים אינם משקרים". תפקיד העיתון הוא לספק נתונים טהורים מעבר לנרטיב של בעלי העניין. הוא האמין שהשוק הוא המדד האמיתי לבריאות האומה ושהשקיפות היא הדרך היחידה למנוע קריסות הונאה. הדיווח הכלכלי כמעבדה מדעית של האמת.</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">יצירת מדד דאו ג'ונס והפיכת העיתונות הכלכלית למקצוע מבוסס נתונים ושקיפות. הוא הניח את היסודות לבורסה המודרנית כפי שאנו מכירים אותה היום והוציא את המידע הפיננסי מהחשכה לאור השמש.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 03. USA Today -->
-    <section class="dashboard-card" style="border-right-color: #fbbf24;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">03. USA Today</h2>
-                <span class="text-sm text-yellow-400 font-mono italic uppercase tracking-widest">"The Nation's Newspaper" - The Modern Connector</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-flag-usa text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">MCLEAN, VA | EST. 1982</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והזהות</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>USA:</strong> 
-                        <ul class="list-none space-y-2 mt-2 pr-4 border-r-2 border-yellow-900">
-                            <li>• נגזר מהקיצור של ארצות הברית (United States of America).</li>
-                            <li>• המילה <strong>America</strong> מיוחסת למגלה הארצות האיטלקי <span class="root-badge">Amerigo Vespucci</span>.</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Today:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-yellow-900">
-                            <li>• מסמל עדכניות, מהירות ופנייה לדור הדינמי שחי ב"זמן אמת" ומחפש מידע מהיר, נגיש ורלוונטי לצרכיו היומיומיים במדינה גדולה.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1982. הוקם כדי להתחרות בטלוויזיה בצבע ובקצב המהיר של עידן המידע, באמצעות שפה ויזואלית עשירה וכתבות מזוקקות שמתאימות לקהל הנודד בדרכים.</div>
-            </div>
-            <div>
-                <div class="label">הוגה ומייסד החדשנות</div>
-                <div class="value text-2xl font-bold">אל ניוהארת' (Al Neuharth)</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1924–2013. יו"ר Gannett והאיש ששבר את המודל האליטיסטי של העיתונות והנגיש אותה להמונים דרך צבע, גרפיקה ופשטות מבנית.</div>
-            </div>
-        </div>
-
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-yellow-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: אל ניוהארת'</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    שנת 1982 סימנה את שיא המעבר של ארה"ב מעידן התעשייה לעידן המידע. הקהל האמריקאי הפך לנייד מאוד בשל תחילת עידן הטיסות הפנימיות ההמוניות, אך לא היה עיתון לאומי אחיד שניתן לקרוא בכל מדינה. הטלוויזיה בצבע גנבה את תשומת הלב מהעיתונות היבשה והאפורה. הרקע להקמה היה הניסיון הנועז של תאגיד "גאנט" להילחם בטלוויזיה באמצעות הכלים שלה: צבע, גרפיקה מהירה וטקסטים קצרים. ניוהארת' ניצל את טכנולוגיית הלוויין החדשה כדי להדפיס את העיתון בו-זמנית ב-30 מוקדים, מהלך שנחשב אז לטירוף כלכלי ("השטות של ניוהארת'"), אך יצר את מותג התקשורת הלאומי הראשון של ארה"ב.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>אל (Al/Allen):</strong> מקורו קלטי וגאלי <span class="root-badge">Ailin</span>, שפירושו "סלע קטן" (מסמל יציבות) או מהמילה <span class="root-badge">Aluinn</span> ("נאה/הרמוני").</p>
-                        <p><strong>ניוהארת' (Neuharth):</strong> שם משפחה גרמני מובהק, הלחם של "Neu" (חדש) ו-"Hart" (קשיחות/לב/חזק). פירושו "לב חדש" או "נחישות חדשה".</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולד בדקוטה הדרומית בשיא "השפל הגדול" למשפחה ענייה של מהגרים גרמנים. כשהיה בן שנתיים בלבד אביו נהרג בתאונת עבודה, ואמו נאלצה לעבוד בשלוש משרות (כבסה, תופרת ומנקה) כדי לקיים את המשפחה בתנאי הישרדות קשים. ניוהארת' גדל בבית שבו דיברו גרמנית והערך העליון היה עבודה קשה ללא תלונות. בגיל 11 החל לעבוד כנער שליח בעיתון מקומי, כשהוא רץ בין הבתים בקור המקפיא של דקוטה. המחסור והמאבק הסיזיפי של אמו הולידו בו אמביציה חסרת מעצורים ורעב להצלחה המונית – הוא רצה לייצר משהו שיגיע לכל בית באמריקה, כשהוא מבין שהקהל הרחב מחפש שפה פשוטה, נגישה וצבעונית שמעניקה תקווה ולא רק פילוסופיה ארוכה ומורכבת.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">"עיתונות ידידותית למשתמש". שבירת הדימוי המנופח והאליטיסטי של העיתונות הישנה לטובת נגישות, צבע וקיצור. הוא האמין שחדשות הן מוצר צריכה שצריך לשרת את הלקוח במהירות וביעילות מרבית, תוך דגש על שפה ויזואלית חזקה שמושכת את העין.</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">הקמת העיתון הנפוץ ביותר בארה"ב ושינוי הסטנדרט הוויזואלי והמבני של העיתונות המודרנית בעולם. הוכחת היתכנות של מודל הפצה לווייני גלובלי וביסוס מותג ה-USA Today ככוח מאחד לאומי.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 04. Los Angeles Times -->
-    <section class="dashboard-card" style="border-right-color: #818cf8;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">04. Los Angeles Times</h2>
-                <span class="text-sm text-indigo-400 font-mono italic uppercase tracking-widest">"The Voice of the West" - The Frontier Power</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-sun text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">LOS ANGELES, CA | EST. 1881</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והמיקום</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Los Angeles:</strong> 
-                        <ul class="list-none space-y-2 mt-2 pr-4 border-r-2 border-indigo-900">
-                            <li>• ספרדי: "המלאכים".</li>
-                            <li>• המקור המלא: <span class="root-badge">El Pueblo de Nuestra Señora la Reina de los Ángeles</span> (הכפר של גבירתנו מלכת המלאכים).</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Times:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-indigo-900">
-                            <li>• רישום ההיסטוריה המקומית והלאומית. סמל לסמכות של החוף המערבי השווה לחוף המזרחי השמרני.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1881. הוקם ככלי שיווקי ופוליטי אגרסיבי לקידום הפיתוח של דרום קליפורניה ולמשיכת השקעות ומתיישבים מהמזרח השמרני והממוסד.</div>
-            </div>
-            <div>
-                <div class="label">הדמות המעצבת והלוחם</div>
-                <div class="value text-2xl font-bold">הריסון גריי אוטיס (Harrison Gray Otis)</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1837–1917. קולונל במיל' ומו"ל לוחמני שעיצב פיזית ופוליטית את פניה של קליפורניה המודרנית כמעצמה עולמית.</div>
-            </div>
-        </div>
-
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-indigo-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: הריסון גריי אוטיס</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    בסוף המאה ה-19, לוס אנג'לס הייתה עיירה נידחת ומאובקת יחסית לסן פרנסיסקו המשגשגת. הרקע להקמה היה חלק מתנועת ה-"Boosterism" – שיווק אגרסיבי וחסר מעצורים של דרום קליפורניה למשקיעים ומתיישבים מהמזרח. העיתון הוקם ככלי מלחמה אידיאולוגי שנועד למשוך הון, לקדם את בניית הנמל בסן פדרו ולבצר את השליטה במקורות המים של האזור. אוטיס ראה בעיתון זרוע ביצועית של הפיתוח הכלכלי; הוא השתמש בדפיו כדי לשבור איגודי עובדים ולמשוך תעשיות (כמו הוליווד מאוחר יותר) לעיר. העיתון לא רק דיווח על ההיסטוריה של לוס אנג'לס, אלא הקים אותה באופן פיזי דרך השפעה על תשתיות המים והמסילות.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>הריסון (Harrison):</strong> שם אנגלי שפירושו המילולי הוא "בנו של הארי" (Harry's Son). השם הארי הוא גרסה של הנרי שפירושו "שליט הבית".</p>
-                        <p><strong>גריי (Gray):</strong> שם תיאורי המגיע מאנגלית עתיקה (Græg), שפירושו "אפור שיער" או "מיושב/מכובד", המציין בגרות וניסיון של אדם שעבר קרבות רבים.</p>
-                        <p><strong>אוטיס (Otis):</strong> נגזר מהמילה הגרמנית העתיקה (Odo) או (Otto), שפירושה "עושר", "שגשוג", "מזל" או "נחלה", התאמה מושלמת לשאיפותיו הכלכליות להפוך את המדבר לנחלה משגשגת.</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולד באוהיו למשפחת חלוצים עם שורשים המגיעים עד המהפכה האמריקאית. אביו היה איש דת ומתנגד עבדות חריף, וסביבתו של אוטיס הייתה רוויה בדיונים פוליטיים ואידיאולוגיים מגיל אפס. בגיל 14, בשל הצורך הכלכלי לסייע למשפחתו הגדולה, הפך לשוליה בבית דפוס מקומי. שם, בין מכבשי הדיו, הוא למד את הצד הטכני והלוחמני של העיתונות. שירותו הקרבי במלחמת האזרחים, שבו עלה לדרגת קולונל, הטמיע בו משמעת צבאית קשוחה וראיית עולם היררכית שבה ניהול עיתון הוא "מבצע לכיבוש שטח". הילדות בחווה המערבית והשירות הצבאי יצרו דמות של "עיתונאי-לוחם" שרואה בקידמה הכלכלית שליחות קדושה ובכל התנגדות סוג של בגידה בערכי הקידמה והציביליזציה.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">העיתון הוא מנוע צמיחה קפיטליסטי ותוקפני. תמיכה ללא סייג ביוזמה חופשית ומאבק בלתי פשרני בכל גורם שנתפס כמעכב את הפיתוח. עיתונות ככוח בניה לאומי ועירוני המשרת את עוצמת האזור מעל לכל שיקול אחר.</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">בניית העיתון הדומיננטי בחוף המערבי ועיצוב פניה הפיזיים והפוליטיים של לוס אנג'לס המודרנית כמעצמה עולמית דרך שליטה במשאבי הטבע, המים ודעת הקהל.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 05. Chicago Tribune -->
-    <section class="dashboard-card" style="border-right-color: #64748b;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">05. Chicago Tribune</h2>
-                <span class="text-sm text-slate-400 font-mono italic uppercase tracking-widest">"World's Greatest Newspaper" - The Moral Pillar</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-tower-observation text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">CHICAGO, IL | EST. 1847</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והמיקום</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Chicago:</strong> 
-                        <ul class="list-none space-y-2 mt-2 pr-4 border-r-2 border-slate-500">
-                            <li>• נגזר מהמילה הילידית (מיאמי-אילינוי) <span class="root-badge">Shikaakwa</span>.</li>
-                            <li>• פירוש מילולי: "שום פרא" או "בצל פראי" שגדל בשפע לגדות הנהר בשל ריח הצמחייה הייחודי והחזק.</li>
-                            <li>• מסמל צמיחה טבעית פראית, שורשיות אדמתית ועוצמה הנובעת מהקרקע האמריקאית בלב היבשת המתחדשת.</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Tribune:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-slate-500">
-                            <li>• נציג העם המגן עליו מפני עריצות (מושג רומי עתיק מהפוליטיקה של הפלבאים).</li>
-                            <li>• כוח משימה עיתונאי שנועד להוות "קול" לצדק, חופש וביקורת בלב היבשת האמריקאית.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1847. הוקם כקול אופוזיציוני לתנועת העבדות וככלי לבניית התשתית המוסרית והפוליטית של המערב התיכון הצומח, במטרה לשמר את האיחוד ולבצר ערכים דמוקרטיים.</div>
-            </div>
-            <div>
-                <div class="label">הדמות המרכזית והבונה</div>
-                <div class="value text-2xl font-bold">ג'וזף מדיל (Joseph Medill)</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1823–1899. מו"ל, איש חזון וראש עיריית שיקגו, האיש שזיהה את הפוטנציאל של אברהם לינקולן והוביל את הקמפיין לנשיאותו.</div>
-            </div>
-        </div>
-
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-slate-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ג'וזף מדיל</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    העיתון נוסד בתקופה של תסיסה פוליטית אדירה שקדמה למלחמת האזרחים. שיקגו הפכה באותן שנים מצומת דרכים קטן למרכז רכבות ותעשייה קריטי עבור המערב התיכון (Midwest). הרקע להקמה היה הצורך הנואש של תנועת ה-"Free Soil" בקול תקשורתי חזק שיתנגד להתפשטות העבדות לטריטוריות החדשות. מדיל ושותפיו רצו לייצר משקולת נגד לעמדות השמרניות של הדרום ולבנות את התשתית האידיאולוגית למפלגה הרפובליקנית הצעירה. העיתון הוקם ככוח משימה שנועד להריץ את אברהם לינקולן (חבר אישי של מדיל) לנשיאות, מתוך הבנה ששיקגו היא הלב המוסרי והכלכלי של האיחוד. רגע המבחן הגדול היה השריפה הגדולה של 1871; כשהעיר בערה, מדיל פרסם את הכותרת האלמותית "שיקגו תקום לתחייה" והוביל את שיקומה הפיזי והרוחני כראש עיר.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>ג'וזף (Joseph):</strong> מקורו בשם העברי יוסף, שפירושו "יוסיף ה'", שם המבטא ברכה, שפע וצמיחה עתידית – סמל לאופטימיות הבלתי נדלית של בוני האימפריות במאה ה-19.</p>
-                        <p><strong>מדיל (Medill):</strong> שם משפחה אירי וסקוטי (גרסה של McDowell או Madill), נגזר מהמילים "Magh" (שדה/מישור) ו-"Dail" (עמק), ופירושו "מי שחי בעמק הקטן" או "גבעה קטנה". המקור האדמתי עומד בניגוד לעוצמה העירונית הכבירה שבנה בשיקגו.</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולד בניו ברונסוויק, קנדה, ועבר בגיל 9 עם משפחתו לחווה באוהיו. חייו בילדותו היו מאופיינים בעבודת אדמה קשה מהזריחה ועד השקיעה בצל מחסור כלכלי תמידי. למרות העייפות הפיזית המפרכת, מדיל היה אוטודידקט מובהק – הוא נהג לצעוד קילומטרים רבים בשלג כדי להשאיל ספרים וקרא אותם לאור נר בערב לאחר יום עבודה מפרך בשדה. השילוב בין החספוס של החווה לבין הסקרנות האינטלקטואלית יצר אצלו דמות של "עיתונאי-חוקר" שלא פוחד מהממסד ומקדש את האמת ככלי נשק. הוא ראה את שיקגו צומחת מתוך הבוץ והפכה לעיר תעשייתית מובילה, מה שנטע בו את האמונה הדתית כמעט בכוחה של העיתונות לעצב ערכים מוסריים. הילדות בצל המחסור יצרה אדם שלא נרתע מקשיים פיזיים או כלכליים ומאמין בשיפור המין האנושי דרך ידע.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">עיתונות ככלי למהפכה מוסרית וחברתית. תמיכה בלתי פשרנית בערכים רפובליקניים שורשיים, חירות הפרט ומאבק חסר רחמים בעבדות. הוא האמין שעל העיתון להיות ה"שוט" שמעיר את הציבור לפעולה נגד עוולות ודוחף לעבר הקידמה הטכנולוגית והחברתית ללא מורא ממחיר פוליטי.</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">הפיכת העיתון למעצמה ב"מערב התיכון", הובלת הקמפיין ההיסטורי של אברהם לינקולן, ושיקום שיקגו מהשריפה הגדולה של 1871 בתפקידו כראש עיר, כשהוא מעצב את דמותה המודרנית, החזקה והמשגשגת של העיר.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 06. The Washington Post -->
-    <section class="dashboard-card" style="border-right-color: #ef4444;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">06. The Washington Post</h2>
-                <span class="text-sm text-red-500 font-mono italic uppercase tracking-widest">"Democracy Dies in Darkness" - The Truth Guardian</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-landmark text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">WASHINGTON, D.C. | EST. 1877</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג והמיקום</div>
-                <div class="space-y-6 mt-4">
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Washington:</strong> 
-                        <ul class="list-none space-y-2 mt-2 pr-4 border-r-2 border-red-900">
-                            <li>• נקרא על שמו של ג'ורג' וושינגטון, הנשיא הראשון.</li>
-                            <li>• מקור אטימולוגי (שם משפחה): מהאנגלית העתיקה <span class="root-badge">Hwæssingatūn</span>.</li>
-                            <li>• פירוש: "האחוזה של צאצאי ווסה" (Estate of the descendants of Hwæssa). סמל למורשת של בעלות, ריבונות והמשכיות שלטונית ארוכת שנים.</li>
-                        </ul>
-                    </div>
-                    <div class="text-lg italic leading-relaxed">
-                        <strong>Post:</strong> 
-                        <ul class="list-none mt-2 pr-4 border-r-2 border-red-900">
-                            <li>• שליחות ודיווח מהיר. עיתון שנועד להיות ה"קול" הנשלח מהבירה לעולם הרחב כמעין דואר שליחים של אמת עובדתית וחוקרת.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="label">שנת הקמה וסיבת הייסוד</div>
-                <div class="value text-lg">1877. הוקם כקול אופוזיציוני דמוקרטי בלב הבירה הרפובליקנית, והפך תחת הנהגת גרהאם למגן הלאומי של השקיפות והדמוקרטיה האמריקאית כנגד שחיתות שלטונית.</div>
-            </div>
-            <div>
-                <div class="label">הדמות המעצבת ואשת הברזל</div>
-                <div class="value text-2xl font-bold">קתרין גרהאם (Katharine Graham)</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">1917–2001. המו"לית האגדית והאישה הראשונה שעמדה בראש חברת Fortune 500, הובילה את חשיפת פרשת ווטרגייט והפלת ממשל ניקסון המושחת.</div>
-            </div>
-        </div>
-
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-red-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: קתרין גרהאם</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    העיתון נוסד ב-1877 בתקופת "סוף השיקום" שלאחר מלחמת האזרחים. וושינגטון די.סי הייתה אז עיר שנשלטה באופן כמעט מוחלט על ידי רפובליקנים, והרקע להקמה היה הצורך של המפלגה הדמוקרטית לייצר קול אופוזיציוני בלב הבירה. העיתון עבר גלגולים רבים, אך המפנה האמיתי התרחש כשאביה של קתרין רכש אותו ב-1933 לאחר פשיטת רגל. תחת קתרין, הרקע ההיסטורי השתנה למאבק קיומי על חופש העיתונות מול ממשל ניקסון. היא עמדה מול איומים על רישיון הרשת שלה ועל עתיד העסק המשפחתי, ובחרה באומץ לפרסם את "מסמכי הפנטגון" ואת פרשת ווטרגייט המטלטלת.
-                </p>
-            </div>
-
-            <div class="space-y-12">
-                <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית השם המלא - ניתוח לשוני וערכי</span>
-                    <div class="text-lg text-slate-300 leading-relaxed space-y-4 pr-4 border-r-2 border-slate-700">
-                        <p><strong>קתרין (Katharine):</strong> מקורו במילה היוונית <span class="root-badge">Katharos</span>, שפירושו "טהורה", "זכה" או "נקייה" – שם המסמל יושרה פנימית ומוסריות בלתי מתפשרת.</p>
-                        <p><strong>גרהאם (Graham):</strong> שם משפחה סקוטי המגיע מאנגלית עתיקה מהמילים "Græg" (אפור) ו-"Ham" (בית), ופירושו "הבית האפור" או "אחוזה השוכנת על קרקע חצצית/אבנים".</p>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        נולדה בניו יורק למשפחה של כוח ועושר מופלג (אביה היה יו"ר הפדרל ריזרב). למרות העושר המופלג והבית המלא ב-20 משרתים, קתרין גדלה בבדידות רגשית עמוקה ובריחוק מאמה, אגנס, שהייתה דמות קרה וביקורתית. הילדות שלה התאפיינה בביטחון עצמי נמוך ובציפייה חברתית נוקשה שתהיה "אשת חברה" שקטה וכנועה, ולא מנהלת בעלת השפעה. היא חונכה במוסדות היוקרתיים ביותר, אך תמיד הרגישה כמשקיפה מהצד ולא כבעלת השפעה אישית. השנים שבהן חיה תחת צילם של דמויות גבריות חזקות (אביה ובעלה) עיצבו את הצורך שלה למצוא את קולה העצמאי. המהפך שלה מאישה חסרת ביטחון למנהיגה חסרת פחד שהפילה נשיא מושחת הוא אחד הסיפורים המכוננים, המרגשים והחשובים ביותר של המאה ה-20.
-                    </p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-brain"></i> אידיאולוגיה עיתונאית</span>
-                    <p class="text-lg text-slate-300">העיתונות היא הרשות המבקרת האחרונה והחשובה ביותר של הדמוקרטיה. תפקיד העיתון הוא לחשוף את האמת גם כשהיא מאיימת על היציבות השלטונית. אמת לפני פוליטיקה, ואומץ מוסרי לפני נוחות כלכלית. "הדמוקרטיה מתה בחשיכה".</p>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים מרכזיים</span>
-                    <p class="text-lg text-slate-300">הובלת חשיפת ווטרגייט וביצור מעמד העיתונות ככוח השומר על הדמוקרטיה האמריקאית. פרסום מסמכי הפנטגון נגד כל הסיכויים המשפטיים וזכייה בפרס פוליצר על האוטוביוגרפיה האישית והמכוננת שלה.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="text-center py-16 border-t border-slate-800 opacity-50 text-[14px]">
-        <p class="font-bold uppercase tracking-widest text-slate-400">Press Matrix US Edition | Ver 2026.V23</p>
-        <p class="mt-4">נערך עבור רם | 2026 | US & MENA Intelligence Matrix | COMPLETE RESEARCH SCALE</p>
-        <p class="mt-2 text-slate-600 uppercase tracking-tighter">NYT | WSJ | USA TODAY | LA TIMES | TRIBUNE | WAPO</p>
+        <p class="text-slate-700 text-[10px] font-mono uppercase tracking-[0.4em] mb-4">
+            Security Clearance Level 5 | Node: 177-RAM-MATRIX | Protocol: Master-Active
+        </p>
+        <p class="text-slate-500 text-[11px] font-bold">
+            © 2026 US & MENA INTELLIGENCE MATRIX | RESEARCH HUB | RAM'S EDITION
+        </p>
     </footer>
 
 </body>
