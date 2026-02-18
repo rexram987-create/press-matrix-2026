@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -57,16 +58,14 @@
             background: #1e293b;
         }
 
-        /* Category Accents */
+        /* Category Accents linked to your file sectors */
         .card-us-tv { border-right-color: #10b981; }
         .card-us-press { border-right-color: #6366f1; }
         .card-mena-tv { border-right-color: #f59e0b; }
         .card-mena-press { border-right-color: #f43f5e; }
-        .card-eu-tv { border-right-color: #0ea5e9; } /* New: Sky Blue */
-        .card-eu-press { border-right-color: #a855f7; } /* New: Purple */
 
         .title-gradient { 
-            background: linear-gradient(to left, #818cf8, #34d399, #fbbf24, #f43f5e); 
+            background: linear-gradient(to left, #818cf8, #34d399, #fbbf24); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             font-weight: 900; 
@@ -118,6 +117,7 @@
 </head>
 <body class="p-6 md:p-12 lg:p-24 max-w-7xl mx-auto">
 
+    <!-- System Control Header -->
     <header class="text-center mb-20 md:mb-24">
         <div class="status-badge mb-8">
             <span class="pulse-dot"></span>
@@ -125,7 +125,7 @@
         </div>
         <h1 class="text-6xl md:text-8xl font-black title-gradient tracking-tighter mb-6 italic">PRESS MATRIX</h1>
         <p class="text-slate-500 font-mono tracking-[0.3em] uppercase italic text-xs md:text-sm">
-            Global Strategic Media Intelligence Hub | Master Version 2026
+            US & MENA Strategic Media Intelligence Hub | Master Version 2026
         </p>
         
         <div class="mt-12 flex flex-wrap justify-center items-center gap-8 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
@@ -133,12 +133,14 @@
             <span class="w-1 h-1 bg-slate-800 rounded-full"></span>
             <span>Device: S25 Ultra Optimized</span>
             <span class="w-1 h-1 bg-slate-800 rounded-full"></span>
-            <span>Research Scale: Global Encyclopedic</span>
+            <span>Research Scale: Encyclopedic</span>
         </div>
     </header>
 
+    <!-- Main Intelligence Grid -->
     <div class="hub-grid">
         
+        <!-- 01. US TV Channels -->
         <a href="us_tv_channels.html" class="hub-card card-us-tv group">
             <div class="icon-box text-emerald-400 group-hover:scale-110 transition-transform">
                 <i class="fas fa-satellite-dish"></i>
@@ -153,6 +155,7 @@
             </div>
         </a>
 
+        <!-- 02. US Newspapers -->
         <a href="us_newspapers.html" class="hub-card card-us-press group">
             <div class="icon-box text-indigo-400 group-hover:scale-110 transition-transform">
                 <i class="fas fa-newspaper"></i>
@@ -167,6 +170,7 @@
             </div>
         </a>
 
+        <!-- 03. MENA TV Channels -->
         <a href="mena_tv_channels.html" class="hub-card card-mena-tv group">
             <div class="icon-box text-amber-400 group-hover:scale-110 transition-transform">
                 <i class="fas fa-broadcast-tower"></i>
@@ -181,6 +185,7 @@
             </div>
         </a>
 
+        <!-- 04. MENA Newspapers -->
         <a href="mena_newspapers.html" class="hub-card card-mena-press group">
             <div class="icon-box text-rose-400 group-hover:scale-110 transition-transform">
                 <i class="fas fa-atlas"></i>
@@ -195,36 +200,9 @@
             </div>
         </a>
 
-        <a href="eu_tv_channels.html" class="hub-card card-eu-tv group">
-            <div class="icon-box text-sky-400 group-hover:scale-110 transition-transform">
-                <i class="fas fa-globe-europe"></i>
-            </div>
-            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">European TV</h2>
-            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
-                ניתוח רשתות שידור אירופיות: BBC, France 24, DW. חקר השפעת השידור הציבורי ואטימולוגיה של לונדון ופריז.
-            </p>
-            <div class="mt-auto flex items-center justify-between">
-                <span class="text-[10px] font-black uppercase tracking-widest text-sky-500">Access Matrix</span>
-                <i class="fas fa-arrow-left text-xs text-sky-500 transform group-hover:-translate-x-2 transition-transform"></i>
-            </div>
-        </a>
-
-        <a href="eu_newspapers.html" class="hub-card card-eu-press group">
-            <div class="icon-box text-purple-400 group-hover:scale-110 transition-transform">
-                <i class="fas fa-feather-pointed"></i>
-            </div>
-            <h2 class="text-2xl font-black text-white mb-4 uppercase tracking-tight">European Press</h2>
-            <p class="text-slate-500 text-sm leading-relaxed font-light italic mb-8">
-                עיתונות אירופית מובילה: The Guardian, Le Monde, Der Spiegel. ניתוח דמויות המייסדים והתפתחות הנרטיב הליברלי.
-            </p>
-            <div class="mt-auto flex items-center justify-between">
-                <span class="text-[10px] font-black uppercase tracking-widest text-purple-500">Access Matrix</span>
-                <i class="fas fa-arrow-left text-xs text-purple-500 transform group-hover:-translate-x-2 transition-transform"></i>
-            </div>
-        </a>
-
     </div>
 
+    <!-- System Architecture Footer -->
     <footer class="mt-auto pt-32 pb-16 text-center border-t border-slate-900/50">
         <div class="flex justify-center gap-12 mb-10 opacity-20">
             <i class="fas fa-dna text-3xl"></i>
@@ -235,9 +213,10 @@
             Security Clearance Level 5 | Node: 177-RAM-MATRIX | Protocol: Master-Active
         </p>
         <p class="text-slate-500 text-[11px] font-bold">
-            © 2026 GLOBAL INTELLIGENCE MATRIX | RESEARCH HUB | RAM'S EDITION
+            © 2026 US & MENA INTELLIGENCE MATRIX | RESEARCH HUB | RAM'S EDITION
         </p>
     </footer>
 
 </body>
 </html>
+
