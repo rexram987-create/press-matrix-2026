@@ -7,16 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
         
-        :root {
-            --bg-deep: #020617;
-            --card-bg: #0f172a;
-            --accent-press: #fbbf24; /* זהב עיתונות יוקרתי */
-        }
-
         body { 
-            background-color: var(--bg-deep); 
+            /* רקע כחול-נייבי עמוק בדומה לפרויקט החסחוסן */
+            background-color: #060b19; 
             color: #f1f5f9; 
             font-family: 'Assistant', sans-serif; 
             min-height: 100vh;
@@ -24,135 +19,40 @@
             overflow-x: hidden;
         }
 
+        /* התאמה אופטימלית ל-Samsung S25 Ultra */
         .matrix-container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.5rem;
         }
 
-        .press-section {
-            border: 1px solid rgba(251, 191, 36, 0.2);
-            border-radius: 3.5rem;
-            padding: 4rem 2.5rem;
-            margin-bottom: 9rem;
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(2, 6, 23, 1) 100%);
-            position: relative;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.9);
-        }
-
-        .section-header {
-            text-align: right;
-            margin-bottom: 4rem;
-        }
-
-        .press-title {
-            font-size: 2.3rem;
-            font-weight: 900;
-            line-height: 1.1;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .etymology-block {
-            background: rgba(251, 191, 36, 0.12);
-            border-right: 5px solid var(--accent-press);
-            padding: 1.8rem;
-            margin-top: 2rem;
-            border-radius: 0 1.5rem 1.5rem 0;
-            font-size: 1rem;
-            color: var(--accent-press);
-            font-weight: 400;
-            line-height: 1.8;
-        }
-
-        .info-block {
-            margin-top: 5rem;
-            margin-bottom: 5.5rem;
-        }
-
-        .info-label {
-            color: var(--accent-press);
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.35em;
+        .data-card {
+            background-color: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 1rem;
+            padding: 1rem 0.5rem;
+            text-align: center;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
 
-        .info-label::after {
-            content: '';
-            flex: 1;
+        .etymology-box {
+            background-color: rgba(17, 24, 39, 0.6);
+            border-right: 4px solid #06b6d4; /* Cyan-500 */
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* קו הפרדה עדין בין עיתונים */
+        .press-divider {
             height: 1px;
-            background: linear-gradient(to left, rgba(251, 191, 36, 0.5), transparent);
+            background: linear-gradient(to left, transparent, #1e293b, transparent);
+            margin: 4rem 0;
         }
-
-        .content-text {
-            font-size: 1.3rem;
-            font-weight: 300;
-            line-height: 2.2;
-            color: #cbd5e1;
-            text-align: justify;
-        }
-
-        .builder-title-block {
-            margin-top: 8rem;
-            margin-bottom: 4rem;
-        }
-
-        .builder-name {
-            font-size: 1.8rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            color: #ffffff;
-            line-height: 1.3;
-        }
-
-        .builder-etymology-full {
-            background: rgba(255, 255, 255, 0.05);
-            border-right: 5px solid #f1f5f9;
-            padding: 1.8rem;
-            margin-top: 1.8rem;
-            border-radius: 0 1.5rem 1.5rem 0;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            font-weight: 400;
-            line-height: 1.9;
-        }
-
-        .status-dot {
-            width: 16px;
-            height: 16px;
-            background: var(--accent-press);
-            border-radius: 50%;
-            box-shadow: 0 0 30px var(--accent-press);
-        }
-
-        .highlight-year {
-            font-family: monospace;
-            color: var(--accent-press);
-            font-weight: 900;
-            background: rgba(251, 191, 36, 0.15);
-            padding: 4px 12px;
-            border-radius: 8px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 7rem;
-            padding-top: 2rem;
-        }
-
-        strong { font-weight: 800; color: #fff; }
-        em { color: var(--accent-press); font-style: normal; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -160,484 +60,771 @@
     <div class="matrix-container">
         
         <!-- Navigation Header -->
-        <nav>
-            <a href="index.html" class="text-xs font-black uppercase tracking-[0.4em] flex items-center gap-3 text-amber-400">
-                <i class="fas fa-th-large"></i>
-                MATRIX HUB
+        <nav class="flex justify-between items-center mb-12">
+            <a href="index.html" class="text-xs font-black uppercase tracking-[0.2em] flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
+                <i class="fas fa-arrow-right"></i>
+                חזרה למאגר
             </a>
-            <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                ENCYCLOPEDIC ARCHIVE V24 / RAM
+            <div class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest bg-cyan-500/10 px-3 py-1 rounded-full">
+                EN
             </div>
         </nav>
 
-        <!-- 01. The Guardian (United Kingdom) -->
-        <section class="press-section">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-amber-400">UK Progressive Active</span>
-                </div>
-                <h2 class="press-title">The Guardian .01</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Independent Investigative Matrix</h3>
-                
-                <div class="etymology-block">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Guardian:</em> השורש המרוחק ביותר הוא הפרוטו-אינדו-אירופי <strong>*wer-</strong> שפירושו "להבחין", "להיות מודע" או "לראות לעומק". ממנו התפתח השורש הגרמאני <strong>Wardon</strong> (לצפות/לשמור). המילה הגיעה לאנגלית דרך הצרפתית העתיקה <strong>Gardien</strong>. סמנטית, השם מגדיר את העיתון כיישות ריבונית העומדת על המשמר (Watching) כנגד שחיתות והפרת זכויות.<br>
-                    <em>Manchester:</em> מורכב מהשורש הקלטי <strong>Mamm</strong> (שד או גבעה עגולה - תיאור לצורת הגבעות המעוגלות באזור) ומהמילה הלטינית <strong>Castra</strong> (מחנה צבאי רומי). השם מתאר התיישבות רומית מבוצרת על גבעה מעוגלת.<br>
-                    <em>London:</em> מהמקור הקלטי <strong>Lowonidonjon</strong>. מורכב מהשורש <strong>Lowoni</strong> (נהר רחב וגדול) והסיומת <strong>Donjon</strong> (מבצר/חצייה). מציין מקום אסטרטגי שבו הנהר (התמזה) רחב מדי למעבר פשוט.
-                </div>
+        <!-- ========================================== -->
+        <!-- 01. The Guardian -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מעוז ליברלי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">The Guardian .01</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Independent Investigative Matrix</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    ה-Guardian נולד מתוך דם ואש ב-5 במאי <span class="highlight-year">1821</span>. הקמתו היא תוצאה ישירה של **"טבח פיטרלו"** (Peterloo Massacre) ב-1819, שבו כוחות צבא דיכאו באלימות רצחנית מפגינים שדרשו רפורמות במנצ'סטר. המייסד, ג'ון אדוארד טיילור, חזה בזוועות והחליט שהעיר זקוקה לכלי תקשורת שיחשוף את האמת אל מול עריצות השלטון. העיתון הוקם כמעוז של הליברליזם הבריטי החדש, שנועד לקדם את זכויות הפועלים, את הרפורמה בבחירות ואת ביטול חוקי הדגן, תוך שמירה על עצמאות מוחלטת מבעלי הון מסורתיים. כיום, הוא פועל תחת קרן **Scott Trust**, מודל ייחודי המבטיח שהרווחים יופנו אך ורק לאיכות העיתונאית.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name">Charles Prestwich Scott (1846–1932)</h4>
-                <div class="builder-etymology-full">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Charles:</em> מהמילה הגרמאנית <strong>Karl</strong> (אדם חופשי/ריבון). השם מסמל את מהותו כעורך חופשי שאינו משועבד לאיש או לממסד.<br>
-                    <em>Prestwich:</em> שם משפחה טופונימי (מהמאה ה-12). מורכב מ-<strong>Preost</strong> (כומר/איש דת) ו-<strong>Wic</strong> (התיישבות/חווה/נמל). משמעותו: "התיישבות של איש המוסר והדת".<br>
-                    <em>Scott:</em> מהמילה הלטינית <strong>Scotti</strong> – כינוי שנתנו הרומאים לשבטי ה-Gaels שפשטו על בריטניה. השורש קשור ל"נדודים", "לוחמה" ו"חיפוש אחר אופקים חדשים".
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">בריטניה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1821</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד / עורך היסטורי</span>
+                    <span class="text-sm font-bold text-white">צ'רלס פ. סקוט</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">פרוגרסיבי - אקטיבי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label">ילדות (Childhood)</span>
-                <p class="content-text">
-                    צ'רלס פרסטוויץ' סקוט נולד בבאת', אנגליה, למשפחה שהייתה חלק מהעילית האינטלקטואלית של התנועה היוניטרית (Unitarianism) – זרם דתי-פילוסופי שדגל ברציונליזם ובצדק חברתי. ביתו היה מעבדת מחשבה שבה חירות המחשבה וספקנות דתית בריאה היו הלחם והחמאה. אביו, ראסל סקוט, היה איש עסקים מצליח ורפורמטור שחינך את בניו שהשכלה היא חובה חברתית ולא זכות אישית. בילדותו נחשף סקוט למאבקי הרפורמה הסוערים של בריטניה הוויקטוריאנית ולמד שכל מילה כתובה היא נשק לעיצוב המציאות. הוא למד באוקספורד, שם הצטיין בלימודים קלאסיים, מה שהעניק לו את היכולת לראות תהליכי עומק היסטוריים בתוך החדשות היומיות. הוא הגיע לעריכת העיתון בגיל 25 בלבד, כשהוא מצויד בתודעה פוריטנית של שליחות "אלוהית" לתיקון העולם דרך המילה הכתובה.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו, המכונה **"ליברליזם של סקוט"**, התבססה על העיקרון שהעיתונאי הוא נאמן הציבור (Public Trustee). ב-1921 הוא כתב את המניפסט של העיתונות המודרנית: **"Comment is free, but facts are sacred"** (הפרשנות חופשית, אך העובדות קדושות). הוא האמין שהעיתון חייב להיות "איבר חי של הקהילה" ולא מכונת רווחים. סקוט דגל בשוויון זכויות מלא, בצדק כלכלי ובהתנגדות מוחלטת לאימפריאליזם דורסני. עבורו, יושרה היא הנכס היחיד של העיתונאי, והוא האמין שהעיתון צריך להדריך את המצפון הלאומי גם כשהציבור עצמו טועה, מתוך תפיסה של פטרנליזם נאור.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Guardian</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השורש המרוחק ביותר הוא הפרוטו-אינדו-אירופי <strong>*wer-</strong> שפירושו "להבחין", "להיות מודע" או "לראות לעומק". ממנו התפתח השורש הגרמאני <strong>Wardon</strong> (לצפות/לשמור). המילה הגיעה לאנגלית דרך הצרפתית העתיקה <strong>Gardien</strong>. סמנטית, השם מגדיר את העיתון כיישות ריבונית העומדת על המשמר (Watching) כנגד שחיתות והפרת זכויות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Manchester</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מורכב מהשורש הקלטי <strong>Mamm</strong> (שד או גבעה עגולה - תיאור לצורת הגבעות המעוגלות באזור) ומהמילה הלטינית <strong>Castra</strong> (מחנה צבאי רומי). השם מתאר התיישבות רומית מבוצרת על גבעה מעוגלת.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">London</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמקור הקלטי <strong>Lowonidonjon</strong>. מורכב מהשורש <strong>Lowoni</strong> (נהר רחב וגדול) והסיומת <strong>Donjon</strong> (מבצר/חצייה). מציין מקום אסטרטגי שבו הנהר (התמזה) רחב מדי למעבר פשוט.</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label">הישגים (Achievements)</span>
-                <p class="content-text">
-                    במהלך 57 שנות עריכתו (<span class="highlight-year">1872–1929</span>), הפך סקוט את ה-Manchester Guardian מעיתון מחוזי נידח לאחד משלושת העיתונים המשפיעים והמכובדים בתבל. הישגו הארכיטקטוני הגדול ביותר היה הקמת ה-**Scott Trust**, ישות משפטית שמבטיחה שרווחי העיתון יושקעו אך ורק באיכות העיתונאית שלו, ובכך הבטיח את חירותו מהון ושלטון לנצח. הוא הוביל את ההתנגדות המוסרית למלחמת הבורים וביסס את הסטנדרט של כתיבה אינטלקטואלית עמוקה (Long-form) שאינה נכנעת לסנסציונליזם.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        ה-Guardian נולד מתוך דם ואש ב-5 במאי <strong>1821</strong>. הקמתו היא תוצאה ישירה של <strong>"טבח פיטרלו"</strong> (Peterloo Massacre) ב-1819, שבו כוחות צבא דיכאו באלימות רצחנית מפגינים שדרשו רפורמות במנצ'סטר. המייסד, ג'ון אדוארד טיילור, חזה בזוועות והחליט שהעיר זקוקה לכלי תקשורת שיחשוף את האמת אל מול עריצות השלטון. העיתון הוקם כמעוז של הליברליזם הבריטי החדש, שנועד לקדם את זכויות הפועלים, את הרפורמה בבחירות ואת ביטול חוקי הדגן, תוך שמירה על עצמאות מוחלטת מבעלי הון מסורתיים. כיום, הוא פועל תחת קרן <strong>Scott Trust</strong>, מודל ייחודי המבטיח שהרווחים יופנו אך ורק לאיכות העיתונאית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Charles Prestwich Scott (1846–1932)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Charles (צ'רלס)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מקורו בשפה הגרמאנית העתיקה <strong>*Karlaz</strong> (או <strong>Karl</strong>), שפירושו המקורי והמדויק הוא "אדם חופשי" – אדם שאינו משועבד לאדון פיאודלי ואינו צמית (Serf). התפתחות השם דרך השושלת הקרולינגית (קרל הגדול) העניקה לו הילה של ריבונות, עצמאות ועוצמה שלטונית. סמליות זו קריטית להבנת פועלו של סקוט: הוא תפס את תפקיד העורך הראשי כאדם חופשי לחלוטין, שאינו כפוף לטייקונים פיננסיים או לתכתיבי ממשלה, אלא רק למצפונו ולאמת הציבורית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Prestwich (פרסטוויץ')</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה אנגלי טופונימי עתיק מהמאה ה-12 (אזור לנקשייר). השם מורכב משתי מילים באנגלית עתיקה: <strong>Preost</strong> (כומר, איש כמורה, מנהיג רוחני) ו-<strong>Wic</strong> (התיישבות, חווה, או יישוב סחר). הצירוף המילולי הוא "התיישבות הכומר" או "נחלת איש הדת". אטימולוגיה זו משתקפת באופן מדהים באישיותו הפוריטנית של סקוט; הוא ניהל את מערכת העיתון כמעין מסדר נזירי-מוסרי, וראה בעיתונות לא עסק מסחרי אלא כהונת קודש חברתית ושליחות דתית למען האמת.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Scott (סקוט)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מקורו בכינוי הלטיני <strong>Scotti</strong> – שם בו השתמשו הרומאים כדי לתאר את שבטי ה-Gaels, הקלטים הנודדים שפשטו מאירלנד אל תוך חבל הארץ שלימים ייקרא על שמם, סקוטלנד. השורש טומן בחובו משמעויות של נדודים ימיים, פשיטה, לוחמה עיקשת וחיפוש מתמיד אחר טריטוריות חדשות. באופן מטאפורי, השם מייצג את רוחו הבלתי נלאית של סקוט כלוחם פוליטי וחלוץ אינטלקטואלי, שלא פחד "לפשוט" על מוסכמות האימפריה הבריטית ולנהל מערכות צלב מוסריות (כמו התנגדותו העיקשת למלחמת הבורים).</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        צ'רלס פרסטוויץ' סקוט נולד בבאת', אנגליה, למשפחה שהייתה חלק מהעילית האינטלקטואלית של התנועה היוניטרית (Unitarianism) – זרם דתי-פילוסופי שדגל ברציונליזם ובצדק חברתי. ביתו היה מעבדת מחשבה שבה חירות המחשבה וספקנות דתית בריאה היו הלחם והחמאה. אביו, ראסל סקוט, היה איש עסקים מצליח ורפורמטור שחינך את בניו שהשכלה היא חובה חברתית ולא זכות אישית. בילדותו נחשף סקוט למאבקי הרפורמה הסוערים של בריטניה הוויקטוריאנית ולמד שכל מילה כתובה היא נשק לעיצוב המציאות. הוא למד באוקספורד, שם הצטיין בלימודים קלאסיים, מה שהעניק לו את היכולת לראות תהליכי עומק היסטוריים בתוך החדשות היומיות. הוא הגיע לעריכת העיתון בגיל 25 בלבד, כשהוא מצויד בתודעה פוריטנית של שליחות "אלוהית" לתיקון העולם דרך המילה הכתובה.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו, המכונה <strong>"ליברליזם של סקוט"</strong>, התבססה על העיקרון שהעיתונאי הוא נאמן הציבור (Public Trustee). ב-1921 הוא כתב את המניפסט של העיתונות המודרנית: <strong>"Comment is free, but facts are sacred"</strong> (הפרשנות חופשית, אך העובדות קדושות). הוא האמין שהעיתון חייב להיות "איבר חי של הקהילה" ולא מכונת רווחים. סקוט דגל בשוויון זכויות מלא, בצדק כלכלי ובהתנגדות מוחלטת לאימפריאליזם דורסני. עבורו, יושרה היא הנכס היחיד של העיתונאי, והוא האמין שהעיתון צריך להדריך את המצפון הלאומי גם כשהציבור עצמו טועה, מתוך תפיסה של פטרנליזם נאור.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        במהלך 57 שנות עריכתו (<strong>1872–1929</strong>), הפך סקוט את ה-Manchester Guardian מעיתון מחוזי נידח לאחד משלושת העיתונים המשפיעים והמכובדים בתבל. הישגו הארכיטקטוני הגדול ביותר היה הקמת ה-<strong>Scott Trust</strong>, ישות משפטית שמבטיחה שרווחי העיתון יושקעו אך ורק באיכות העיתונאית שלו, ובכך הבטיח את חירותו מהון ושלטון לנצח. הוא הוביל את ההתנגדות המוסרית למלחמת הבורים וביסס את הסטנדרט של כתיבה אינטלקטואלית עמוקה (Long-form) שאינה נכנעת לסנסציונליזם.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 02. Le Monde (France) -->
-        <section class="press-section border-blue-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-blue-500 shadow-blue-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-blue-400">French Sector Active</span>
-                </div>
-                <h2 class="press-title">Le Monde .02</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Conscience of the Fifth Republic</h3>
-                
-                <div class="etymology-block border-blue-500 text-blue-400 bg-blue-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Le Monde:</em> מצרפתית: "העולם". נגזר מהלטינית <strong>Mundus</strong>, ששורשה בפעולה <strong>*meuh-</strong> (לשטוף, לנקות, להבריק). בעולם העתיק, "מונדוס" תיאר את הקוסמוס כמקום מסודר, אסתטי ונקי בניגוד לכאוס הברברי. הבחירה בשם זה מבטאת את שאיפת העיתון ליצור סדר אינטלקטואלי וניקיון מוסרי בתוך הזוהמה של הפוליטיקה.<br>
-                    <em>Paris:</em> על שם שבט ה-<strong>Parisii</strong> הקלטי שיישב את נהר הסן. השורש <strong>Par</strong> פירושו "סירה" או "כלי שיט", עדות למומחיותם בניווט וסחר נהרי.<br>
-                    <em>France:</em> מהמילה הגרמאנית <strong>Frank</strong> – שפירושו המקורי הוא "חופשי" (Free), בניגוד לאוכלוסיות משועבדות.
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 02. Le Monde -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מצפון רפובליקני</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">Le Monde .02</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Conscience of the Fifth Republic</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-blue-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    לידתו של Le Monde ב-19 בדצמבר <span class="highlight-year">1944</span> היא אירוע מדינתי רב משמעות. לאחר שחרור צרפת, הגנרל שארל דה גול רצה להקים עיתון שיחליף את "Le Temps" (הזמן) הוותיק ששיתף פעולה עם הנאצים. מטרת העל הייתה להעניק לצרפת המחודשת "מצפון אינטלקטואלי" טהור – עיתון שידבר בשם הערכים הרפובליקניים וההומניסטיים וישמש כקול הסמכותי של צרפת בזירה הבינלאומית. העיתון הוקם במבנה ייחודי שבו העיתונאים עצמם הם בעלי השליטה, כדי להבטיח אי-תלות מוחלטת בממשלה שהקימה אותו ובבעלי הון פרטיים.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-blue-400">Hubert Beuve-Méry (1902–1989)</h4>
-                <div class="builder-etymology-full border-blue-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Hubert:</em> שם גרמאני עתיק המורכב מ-<strong>Hug</strong> (נפש/מחשבה/לב) ו-<strong>Berht</strong> (זוהר/בהיר). פירושו: "רוח מזהירה" או "מחשבה קורנת".<br>
-                    <em>Beuve:</em> שם משפחה צרפתי עתיק שמקורו בשורש <strong>Bovo</strong> – שפירושו "שור" או לוחם בעל כוח פיזי אדיר ודבקות מוחלטת במשימתו.<br>
-                    <em>Méry:</em> התפתחות מהמילה הלטינית <strong>Meridius</strong> – שפירושה "אור צהריים", המסמל את נקודת השיא של האמת והבהירות ביום.
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">צרפת</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1944</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">הוברט בוב-מרי</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">מרכז - אינטלקטואלי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-blue-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    הוברט בוב-מרי נולד בפריז למשפחה שחיה בעוני מחפיר בצל התפרקות מוסרית וחברתית. ילדותו עברה בסימן יתמות מאב (שנהרג במלחמת העולם הראשונה) ומחסור תמידי, מה שחישל בו יושרה מוסרית פנאטית ותיעוב למלחמות פופוליסטיות. הוא נאלץ לעבוד כמוכר עיתונים ובלדר כדי לממן את לימודיו, חוויה שהעניקה לו הבנה "מהשטח" של עולם המדיה ושל קשיי המעמד הנמוך. הצלחתו לרכוש השכלה משפטית גבוהה בזכות מלגות והצטיינות אינטלקטואלית נטעה בו את האמונה בכוחה של ההשכלה ככלי לשחרור האדם. חוויותיו כעיתונאי בפראג ב-1938, שם חזה בבגידה המבישה של המערב בצ'כוסלובקיה, עיצבו את נחישותו הברזלית להקים עיתונות שתגיד תמיד את האמת הקשה, ללא מורא וללא תלות במוקדי כוח.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-blue-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו התבססה על "אי-תלות אגרסיבית" ופילוסופיית ה-**Personalism** (פרסונליזם). הוא דגל במושג ה-**"Sirius"** (על שם הכוכב הבהיר ביותר בשמיים) – עיתונות רצינית, עמוקה, קרה ומרוחקת מאינטרסים רגעיים. בוב-מרי האמין שהעיתונאי חייב להיות "כלב שמירה" (Watchdog) של המוסר הציבורי, ותיעב את הפיכת המדיה לכלי בידור. הוא הנהיג קו עיתונאי שסירב להיכנע אפילו לדה גול, והאמין שהעיתון חייב לשקף את האמת גם אם היא פוגעת באינטרסים של צרפת כמעצמה, מתוך אמונה שהאמת היא המגן הטוב ביותר של הרפובליקה.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Le Monde (העולם)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מצרפתית: "העולם". נגזר מהלטינית <strong>Mundus</strong>, ששורשה בפעולה <strong>*meuh-</strong> (לשטוף, לנקות, להבריק). בעולם העתיק, "מונדוס" תיאר את הקוסמוס כמקום מסודר, אסתטי ונקי בניגוד לכאוס הברברי. הבחירה בשם זה מבטאת את שאיפת העיתון ליצור סדר אינטלקטואלי וניקיון מוסרי בתוך הזוהמה של הפוליטיקה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Paris</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">על שם שבט ה-<strong>Parisii</strong> הקלטי שיישב את נהר הסן. השורש <strong>Par</strong> פירושו "סירה" או "כלי שיט", עדות למומחיותם בניווט וסחר נהרי.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">France</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמילה הגרמאנית <strong>Frank</strong> – שפירושו המקורי הוא "חופשי" (Free), בניגוד לאוכלוסיות משועבדות.</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-blue-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    בנה את Le Monde מאפס והפך אותו לעיתון המשפיע ביותר באירופה ובצרפת במשך 25 שנות ניהולו (<span class="highlight-year">1944–1969</span>). הוא המציא את מודל ה-**SRM** (Société des Rédacteurs du Monde) – שותפות עובדים שהעניקה לעיתונאים עצמם בעלות על המדיניות העריכתית וזכות וטו על מינוי עורכים, תקדים עולמי בחופש העיתונות. הוא הצליח לשמר את הסטנדרט האינטלקטואלי הגבוה ביותר של העיתון גם בזמן משברים כמו המלחמה באלג'יריה ואירועי מאי 1968.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        לידתו של Le Monde ב-19 בדצמבר <strong>1944</strong> היא אירוע מדינתי רב משמעות. לאחר שחרור צרפת, הגנרל שארל דה גול רצה להקים עיתון שיחליף את "Le Temps" (הזמן) הוותיק ששיתף פעולה עם הנאצים. מטרת העל הייתה להעניק לצרפת המחודשת "מצפון אינטלקטואלי" טהור – עיתון שידבר בשם הערכים הרפובליקניים וההומניסטיים וישמש כקול הסמכותי של צרפת בזירה הבינלאומית. העיתון הוקם במבנה ייחודי שבו העיתונאים עצמם הם בעלי השליטה, כדי להבטיח אי-תלות מוחלטת בממשלה שהקימה אותו ובבעלי הון פרטיים.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Hubert Beuve-Méry (1902–1989)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Hubert (הוברט)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם גרמאני עתיק ורב-עוצמה. מורכב משני שורשים מהותיים: <strong>Hug</strong> (שמשמעותו לב, נפש, מחשבה עמוקה, או אינטלקט) ו-<strong>Berht</strong> (שמשמעותו מבריק, קורן, טהור או זוהר). הצירוף יוצר את המשמעות של "רוח מזהירה" או "אינטלקט קורן". שם זה מגלם את הארכיטיפ של איש ההשכלה. וזה בדיוק מה שהיה בוב-מרי עבור צרפת של אחרי מלחמת העולם השנייה – המשכיל הצרפתי (Intellectuel) שהאיר במחשבתו הקורנת והטהורה את החשיכה הפוליטית של זמנו, וסירב להתפשר על בהירות עיתונאית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Beuve (בוב)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה צרפתי עתיק שמקורו קשור קשר הדוק לשורש הלטיני <strong>Bov-</strong> או לגרסאות גרמאניות של <strong>Bovo</strong>, שפירושם "שור" או בקר עבודה. אטימולוגיה זו מצביעה על מאפיינים של כוח פיזי אדיר, עקשנות חייתית, וסיבולת למשאות כבדים. בניגוד ל"הוברט" המרחף בעולמות הרוח, "בוב" מעקר את המייסד לקרקע המציאות ולעבודה שחורה. זה מתאר את עקשנותו הבלתי נתפסת של בוב-מרי להתמיד בהוצאת העיתון גם מול איומים פוליטיים ואיומי סגירה, תוך שהוא נושא על גבו את משא "מצפון הרפובליקה".</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Méry (מרי)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">טופונים (שם מקום) צרפתי נפוץ, שהתפתח מהשם הגאלו-רומי <strong>Marius</strong>, המקושר לאל המלחמה הרומי מארס (אומץ, לוחמה, גבריות). סברה נוספת מקשרת אותו למילה הלטינית <strong>Meridius</strong>, שפירושה צהריים (אור היום בשיאו). שתי האפשרויות סמליות במיוחד: בוב-מרי היה לוחם ("מארס") של המילה הכתובה, שדרש מעיתונאיו לחשוף את האמת באור צהריים מלא וחסר פשרות, ללא צללים או הסתרות של אינטרסים שלטוניים.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הוברט בוב-מרי נולד בפריז למשפחה שחיה בעוני מחפיר בצל התפרקות מוסרית וחברתית. ילדותו עברה בסימן יתמות מאב (שנהרג במלחמת העולם הראשונה) ומחסור תמידי, מה שחישל בו יושרה מוסרית פנאטית ותיעוב למלחמות פופוליסטיות. הוא נאלץ לעבוד כמוכר עיתונים ובלדר כדי לממן את לימודיו, חוויה שהעניקה לו הבנה "מהשטח" של עולם המדיה ושל קשיי המעמד הנמוך. הצלחתו לרכוש השכלה משפטית גבוהה בזכות מלגות והצטיינות אינטלקטואלית נטעה בו את האמונה בכוחה של ההשכלה ככלי לשחרור האדם. חוויותיו כעיתונאי בפראג ב-1938, שם חזה בבגידה המבישה של המערב בצ'כוסלובקיה, עיצבו את נחישותו הברזלית להקים עיתונות שתגיד תמיד את האמת הקשה, ללא מורא וללא תלות במוקדי כוח.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו התבססה על "אי-תלות אגרסיבית" ופילוסופיית ה-<strong>Personalism</strong> (פרסונליזם). הוא דגל במושג ה-<strong>"Sirius"</strong> (על שם הכוכב הבהיר ביותר בשמיים) – עיתונות רצינית, עמוקה, קרה ומרוחקת מאינטרסים רגעיים. בוב-מרי האמין שהעיתונאי חייב להיות "כלב שמירה" (Watchdog) של המוסר הציבורי, ותיעב את הפיכת המדיה לכלי בידור. הוא הנהיג קו עיתונאי שסירב להיכנע אפילו לדה גול, והאמין שהעיתון חייב לשקף את האמת גם אם היא פוגעת באינטרסים של צרפת כמעצמה, מתוך אמונה שהאמת היא המגן הטוב ביותר של הרפובליקה.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        בנה את Le Monde מאפס והפך אותו לעיתון המשפיע ביותר באירופה ובצרפת במשך 25 שנות ניהולו (<strong>1944–1969</strong>). הוא המציא את מודל ה-<strong>SRM</strong> (Société des Rédacteurs du Monde) – שותפות עובדים שהעניקה לעיתונאים עצמם בעלות על המדיניות העריכתית וזכות וטו על מינוי עורכים, תקדים עולמי בחופש העיתונות. הוא הצליח לשמר את הסטנדרט האינטלקטואלי הגבוה ביותר של העיתון גם בזמן משברים כמו המלחמה באלג'יריה ואירועי מאי 1968.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 03. Der Spiegel (Germany) -->
-        <section class="press-section border-amber-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-amber-500 shadow-amber-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-amber-400">German Investigative Active</span>
-                </div>
-                <h2 class="press-title">Der Spiegel .03</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Bulwark of German Democratic Liberty</h3>
-                
-                <div class="etymology-block border-amber-500 text-amber-400 bg-amber-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Spiegel:</em> מגרמנית: "מראה". נגזר מהמילה הלטינית <strong>Speculum</strong>, ששורשה בפועל <strong>Specere</strong> (להתבונן, לבחון, לראות לעומק). השם נבחר כדי לסמל את תפקיד המדיה לשקף את המציאות כפי שהיא, ללא עיוות פוליטי או תעמולתי, כמעין "ראי" בוחן ומבקר לאומה הגרמנית המנסה להשתקם מהטוטליטריות.<br>
-                    <em>Hamburg:</em> שילוב של המילה <strong>Hamme</strong> (גרמנית עתיקה: שטח אדמה מגודר או שטח ביצה מוקף) והמילה <strong>Burg</strong> (מבצר/טירה). פירושו: "המבצר שעל הביצה".<br>
-                    <em>Germany:</em> מהמילה הלטינית <strong>Germania</strong> – שם שניתן על ידי הרומאים לשבטים מעבר לריין, ייתכן מהשורש <strong>Gair</strong> (שכן) או <strong>Ger</strong> (לוחם חנית).
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 03. Der Spiegel -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: תותח חקירות</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">Der Spiegel .03</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Bulwark of German Democratic Liberty</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-amber-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    Der Spiegel נוסד ב-4 בינואר <span class="highlight-year">1947</span> בהמבורג, כגלגול של כתב העת "Diese Woche" שהקימו רשויות הכיבוש הבריטיות. המטרה המיידית הייתה להקים מגזין חדשות חוקר שיהווה משקל נגד לשלטון הגרמני החדש וימנע חזרה לדיקטטורה נאצית דרך ביקורת עיתונאית חריפה ובלתי פוסקת. מטרת העל הייתה לשמש כ"תותח הכבד" של הדמוקרטיה הגרמנית הצעירה, המבצע תחקירים מעמיקים על שחיתות, נפוטיזם וניצול כוח ממסדי, תוך שמירה על עצמאות כלכלית מוחלטת.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-amber-400">Rudolf Karl Augstein (1923–2002)</h4>
-                <div class="builder-etymology-full border-amber-500">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Rudolf:</em> שם גרמאני עתיק <strong>Hrod + Wulf</strong>. מורכב מהמילים "תהילה/מוניטין" (Hrod) ו"זאב" (Wulf). פירושו: "הזאב המפואר", מסמל לוחם אמיץ וערמומי.<br>
-                    <em>Karl:</em> מהשפה הגרמאנית העתיקה – פירושו "גבר" או "אדם חופשי" (Free Man).<br>
-                    <em>Augstein:</em> שם משפחה גרמני המורכב מ-<strong>Aug</strong> (עין) ו-<strong>Stein</strong> (אבן). באופן סמלי, השם מרמז על "ראייה קשיחה כסלע" או תצפית חודרת ובלתי מתפשרת.
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">גרמניה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1947</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">רודולף קארל אוגשטיין</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">תחקירים - ביקורתי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-amber-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    רודולף אוגשטיין נולד בהאנובר למשפחה קתולית אדוקה מהמעמד הבינוני הגרמני. ילדותו עברה בצל עליית הרייך השלישי ודיכוי המחשבה החופשית, חוויות שהותירה בו תיעוב עמוק לכל סוג של סמכותיות ודוֹגמטיות. כנער בלט בכישרונו הספרותי ובספקנות הבריאה שלו כלפי הממסד. במלחמת העולם השנייה שירת כקצין תצפית בארטילריה בחזית המזרחית, שם למד את חשיבות הדיוק המוחלט בתצפית מדעית – כלי ששימש אותו מאוחר יותר בבניית המודל העיתונאי החוקר. הוא היה חלק מדור הצעירים שביקשו לבנות את גרמניה מחדש מההריסות המוסריות של המלחמה, מתוך הבנה שהמידע החופשי הוא הנשק היחיד נגד חזרת הרודנות.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-amber-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "עיתונות של התנגדות" (Journalism of Opposition). אוגשטיין האמין שהעיתונות חייבת להיות ה"כוח הרביעי" (Fourth Estate) במדינה, כזה שאינו פוחד להתעמת עם הממשלה החזקה ביותר. המוטו המפורסם שלו היה: **"Sagen, was ist"** (לומר את מה שקיים) – שקיפות מוחלטת ללא מורא. הוא דגל ב"דמוקרטיה מתגוננת" וראה ב-Spiegel כלי לשמירה על חיוניות הדמוקרטיה הגרמנית מפני שחיתות פנימית וריכוזיות שלטונית מסוכנת, תוך דבקות בעובדות קרות ומוכחות.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Spiegel (מראה)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מגרמנית: "מראה". נגזר מהמילה הלטינית <strong>Speculum</strong>, ששורשה בפועל <strong>Specere</strong> (להתבונן, לבחון, לראות לעומק). השם נבחר כדי לסמל את תפקיד המדיה לשקף את המציאות כפי שהיא, ללא עיוות פוליטי או תעמולתי, כמעין "ראי" בוחן ומבקר לאומה הגרמנית המנסה להשתקם מהטוטליטריות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Hamburg</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שילוב של המילה <strong>Hamme</strong> (גרמנית עתיקה: שטח אדמה מגודר או שטח ביצה מוקף) והמילה <strong>Burg</strong> (מבצר/טירה). פירושו: "המבצר שעל הביצה".</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Germany</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמילה הלטינית <strong>Germania</strong> – שם שניתן על ידי הרומאים לשבטים מעבר לריין, ייתכן מהשורש <strong>Gair</strong> (שכן) או <strong>Ger</strong> (לוחם חנית).</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-amber-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו הגדול ביותר הוא **"פרשת שפיגל"** (Spiegel Affair) ב-1962, שבה נעצר על ידי הממשלה באשמת בגידה לאחר שחשף מחדלים חמורים בביטחון הלאומי. עמידתו האיתנה הובילה למחאה ציבורית אדירה, להתפטרות שר ההגנה ולביסוס סופי של חופש העיתונות בגרמניה המערבית. הוא הפך את המגזין לאימפריה של ידע וביסס את מחלקת התיעוד שלו כסטנדרט עולמי לאמינות. הוא זכה להכרה כ"עיתונאי המאה" בגרמניה.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        Der Spiegel נוסד ב-4 בינואר <strong>1947</strong> בהמבורג, כגלגול של כתב העת "Diese Woche" שהקימו רשויות הכיבוש הבריטיות. המטרה המיידית הייתה להקים מגזין חדשות חוקר שיהווה משקל נגד לשלטון הגרמני החדש וימנע חזרה לדיקטטורה נאצית דרך ביקורת עיתונאית חריפה ובלתי פוסקת. מטרת העל הייתה לשמש כ"תותח הכבד" של הדמוקרטיה הגרמנית הצעירה, המבצע תחקירים מעמיקים על שחיתות, נפוטיזם וניצול כוח ממסדי, תוך שמירה על עצמאות כלכלית מוחלטת.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Rudolf Karl Augstein (1923–2002)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Rudolf (רודולף)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם גרמאני עתיק וקלאסי <strong>Hrodulf</strong>. מורכב מהמילים <strong>Hrod</strong> (שמשמעותה תהילה, מוניטין או כבוד) ו-<strong>Wulf</strong> (זאב). הפירוש המילולי הוא "הזאב המפואר" או "הזאב המפורסם". הזאב במסורת האירופית מסמל חיה טורפת, אינטליגנטית, שפועלת בלהקה אך מסוגלת להיות עצמאית ואכזרית כלפי טרפה. זהו תיאור מדויק לחלוטין של אוגשטיין ועיתונו: עיתונות זאבית, טורפת, שצדה פוליטיקאים מושחתים ללא רחם וזוכה על כך לתהילה לאומית מתמשכת.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Karl (קארל)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">כאמור, מהשפה הגרמאנית העתיקה <strong>*Karlaz</strong> – פירושו הפשוט הוא "גבר" או "אדם חופשי" ממעמד שאינו משועבד. הבחירה בשם זה מדגישה פעם נוספת את המוטיב החוזר של עורכי-על בהיסטוריה: הדרישה לחירות אבסולוטית. קארל הוא זה שלא כופף את ראשו בפני קנצלרים (כמו קונרד אדנאואר), ושמר על חירות המערכת גם במחיר ישיבה בכלא הממשלתי.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Augstein (אוגשטיין)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה גרמני מרתק מבחינה פילולוגית. הוא מורכב מהמילים <strong>Auge</strong> (עין) ו-<strong>Stein</strong> (אבן או סלע). "עין האבן" הוא הדימוי המושלם והעוצמתי ביותר שניתן להעלות על הדעת עבור מייסד של מגזין חוקר בשם "המראה". אוגשטיין בנה מערכת עיתונאית שהיא בבחינת עין בלתי ממצמצת, קרה, קשיחה ואובייקטיבית כסלע, שאינה מושפעת מרגשות או איומים וצופה במנגנוני המדינה ללא הרף.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        רודולף אוגשטיין נולד בהאנובר למשפחה קתולית אדוקה מהמעמד הבינוני הגרמני. ילדותו עברה בצל עליית הרייך השלישי ודיכוי המחשבה החופשית, חוויות שהותירה בו תיעוב עמוק לכל סוג של סמכותיות ודוֹגמטיות. כנער בלט בכישרונו הספרותי ובספקנות הבריאה שלו כלפי הממסד. במלחמת העולם השנייה שירת כקצין תצפית בארטילריה בחזית המזרחית, שם למד את חשיבות הדיוק המוחלט בתצפית מדעית – כלי ששימש אותו מאוחר יותר בבניית המודל העיתונאי החוקר. הוא היה חלק מדור הצעירים שביקשו לבנות את גרמניה מחדש מההריסות המוסריות של המלחמה, מתוך הבנה שהמידע החופשי הוא הנשק היחיד נגד חזרת הרודנות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "עיתונות של התנגדות" (Journalism of Opposition). אוגשטיין האמין שהעיתונות חייבת להיות ה"כוח הרביעי" (Fourth Estate) במדינה, כזה שאינו פוחד להתעמת עם הממשלה החזקה ביותר. המוטו המפורסם שלו היה: <strong>"Sagen, was ist"</strong> (לומר את מה שקיים) – שקיפות מוחלטת ללא מורא. הוא דגל ב"דמוקרטיה מתגוננת" וראה ב-Spiegel כלי לשמירה על חיוניות הדמוקרטיה הגרמנית מפני שחיתות פנימית וריכוזיות שלטונית מסוכנת, תוך דבקות בעובדות קרות ומוכחות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו הגדול ביותר הוא <strong>"פרשת שפיגל"</strong> (Spiegel Affair) ב-1962, שבה נעצר על ידי הממשלה באשמת בגידה לאחר שחשף מחדלים חמורים בביטחון הלאומי. עמידתו האיתנה הובילה למחאה ציבורית אדירה, להתפטרות שר ההגנה ולביסוס סופי של חופש העיתונות בגרמניה המערבית. הוא הפך את המגזין לאימפריה של ידע וביסס את מחלקת התיעוד שלו כסטנדרט עולמי לאמינות. הוא זכה להכרה כ"עיתונאי המאה" בגרמניה.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 04. The Times (United Kingdom) -->
-        <section class="press-section border-slate-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-slate-400"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-slate-400">Historical Record Active</span>
-                </div>
-                <h2 class="press-title">The Times .04</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The World's Newspaper of Record</h3>
-                
-                <div class="etymology-block border-slate-500 text-slate-400 bg-slate-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>The Times:</em> מהמילה האנגלית <strong>Tima</strong>, ששורשה בפרוטו-גרמאנית <strong>Timon</strong> (חלק, מנה או מידה). מציין את חלוקת הרצף ההיסטורי ליחידות זמן. השם מסמל את תפקיד העיתון כתיעוד הכרונולוגי של האנושות.<br>
-                    <em>London:</em> מהשורש הקלטי <strong>Lond</strong> (פראי או נועז). מרמז על אופי המים הסוערים בנהר התמזה בלונדוניום הרומית.<br>
-                    <em>Printing House Square:</em> מקום המטה המקורי שבו הפך הידע האנושי למוצר תעשייתי המיוצר בהמוניו לראשונה בהיסטוריה.
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 04. The Times -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: רישום היסטורי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">The Times .04</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The World's Newspaper of Record</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-slate-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    נוסד ב-1 בינואר <span class="highlight-year">1785</span> על ידי ג'ון וולטר הראשון (במקור כ-Daily Universal Register). המטרה הייתה להקים יומון שיספק רישום מדויק ויומי של כלל האירועים הפוליטיים והמסחריים בלונדון. מטרת העל הייתה להפוך ל"עיתון הרישום" (Newspaper of Record) של האימפריה הבריטית, כזה שכל מילה בו נחשבת לעובדה היסטורית מוצקה. ה-Times המציא את המודל של שימוש בכתבים זרים בפריסה עולמית ושימוש בטכנולוגיית דפוס מהפכנית.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-slate-400">John Walter I (1738–1812)</h4>
-                <div class="builder-etymology-full border-slate-500 text-slate-500">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>John:</em> גרסה אנגלית לשם העברי <strong>יוחנן</strong> (Yochanan) – שפירושו "יהוה חנן". מסמל חסד ורחמים אלוהיים.<br>
-                    <em>Walter:</em> מהמילה הגרמאנית העתיקה <strong>Wald + Hari</strong>. מורכב מהשורש <strong>Wald</strong> (שלטון/ניהול) והסיומת <strong>Hari</strong> (צבא). פירושו: "שליט הצבא".<br>
-                    <em>Logography:</em> המצאה טכנולוגית שלו המורכבת מהמילים היווניות <strong>Logos</strong> (מילה) ו-<strong>Grapho</strong> (כתיבה/דפוס).
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">בריטניה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1785</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">ג'ון וולטר הראשון</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">שמרני - ממסדי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-slate-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    ג'ון וולטר נולד בלונדון למשפחה של סוחרי פחם מצליחים. הוא גדל בלב המהפכה המסחרית הבריטית ולמד את רזי העסקים והלוגיסטיקה מגיל צעיר. לאחר שחווה פשיטת רגל כואבת בעסקי הביטוח והפחם בשל משבר כלכלי עולמי ב-1781, הוא לא נשבר והחליט להמציא את עצמו מחדש כמוציא לאור. ילדותו בצל המסחר הלונדוני נטעה בו הבנה עמוקה של הצורך הקריטי של אנשי עסקים ופוליטיקאים במידע מדויק, מהיר ואמין – מה שהוביל אותו לרכוש פטנט על שיטת הדפסה חדשנית ולהקים את העיתון החזק ביותר במאה ה-19.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-slate-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "עיתונות של סדר, יציבות ודיוק". הוא האמין שהעיתון הוא כלי עזר חיוני לניהול מדינה וכלכלה גלובלית, ולכן עליו להיות רשמי, מאופק ובעל יוקרה בלתי מעורערת. וולטר דגל בשימוש בטכנולוגיה כדי לייעל את הייצור ולהפוך את הידע לנגיש יותר לציבור הרחב, אך סירב להתפשר על הדיוק העובדתי. תפיסתו הייתה שהעיתון צריך לשקף את ה"מוסד" (Establishment) הבריטי ולהוות גורם מאזן ושפוי בתוך הסערות הפוליטיות.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">The Times (הזמנים)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמילה האנגלית <strong>Tima</strong>, ששורשה בפרוטו-גרמאנית <strong>Timon</strong> (חלק, מנה או מידה). מציין את חלוקת הרצף ההיסטורי ליחידות זמן. השם מסמל את תפקיד העיתון כתיעוד הכרונולוגי של האנושות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">London</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהשורש הקלטי <strong>Lond</strong> (פראי או נועז). מרמז על אופי המים הסוערים בנהר התמזה בלונדוניום הרומית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Printing House Square</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מקום המטה המקורי שבו הפך הידע האנושי למוצר תעשייתי המיוצר בהמוניו לראשונה בהיסטוריה.</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-slate-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו הגדול ביותר היה הקמת התשתית למה שיהפוך לעיתון המשפיע ביותר בהיסטוריה המודרנית. בנו, ג'ון וולטר השני, המשיך את דרכו והכניס את מכונת הדפוס בקיטור ב-1814 – מהלך טכנולוגי שנחשב למהפכה הגדולה ביותר בתולדות הדפוס מאז גוטנברג. ה-Times תחת הנהגתו הפך לגוף מדיה שיכול להפיל ממשלות ולעצב את דעת הקהל העולמית ב"קול רעם" (The Thunderer).
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        נוסד ב-1 בינואר <strong>1785</strong> על ידי ג'ון וולטר הראשון (במקור כ-Daily Universal Register). המטרה הייתה להקים יומון שיספק רישום מדויק ויומי של כלל האירועים הפוליטיים והמסחריים בלונדון. מטרת העל הייתה להפוך ל"עיתון הרישום" (Newspaper of Record) של האימפריה הבריטית, כזה שכל מילה בו נחשבת לעובדה היסטורית מוצקה. ה-Times המציא את המודל של שימוש בכתבים זרים בפריסה עולמית ושימוש בטכנולוגיית דפוס מהפכנית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: John Walter I (1738–1812)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">John (ג'ון)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">זוהי הגרסה האנגלית הנפוצה ביותר לשם העברי המקראי <strong>יוחנן</strong> (Yochanan), שפירושו המילולי הוא "יהוה חנן" או אלוהים נתן חסד. במרחב האנגלו-סקסי, השם הפך לסמל של האדם הממוצע, האזרח מן השורה ("ג'ון דאו", או "ג'ון בול" - ההאנשה הלאומית של אנגליה). וולטר, למרות שייסד מוסד אליטיסטי, היה במקורו איש פחם מן המעמד העסקי-הבינוני שהתאמץ לייצר עיתון שידבר בבהירות ובדיוק אל העם, ואל האומה כולה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Walter (וולטר)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם שמקורו בגרמנית עילית עתיקה (Old High German) – <strong>Walthari</strong>. הוא נוצר מהלחם של שתי מילים רבי-עוצמה: <strong>Wald</strong> (לשלוט, לנהל, או להחזיק בסמכות) והסיומת <strong>Hari</strong> (צבא, מארח, או המון). הפירוש המילולי הוא "שליט הצבא" או "מנהיג ההמון". זהו התיאור האטימולוגי המושלם למוציא לאור מהמאה ה-18: וולטר לא היה אידיאליסט רומנטי, אלא תעשיין ששלט בצבאות של פועלי דפוס, כתבים ומכונות, וניהל את המידע כמו גנרל המנהל מערכה לוגיסטית להפצת האמת ברחבי האימפריה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Logography (לוגוגרפיה)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">זהו אינו שמו, אלא הפטנט הטכנולוגי שבזכותו הקים את העיתון. מקור המילה ביוונית עתיקה: <strong>Logos</strong> (מילה שלמה, היגיון, חשיבה) ו-<strong>Grapho</strong> (לכתוב, להטביע, או לרשום). ההמצאה של וולטר כללה הדפסה של מילים שלמות מוכנות מראש (במקום אותיות בודדות). מבחינה פילוסופית, הלוגוגרפיה היא התיעוש (Industrialization) של המחשבה האנושית – הפיכת השפה למוצר מהיר וזול להמונים.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        ג'ון וולטר נולד בלונדון למשפחה של סוחרי פחם מצליחים. הוא גדל בלב המהפכה המסחרית הבריטית ולמד את רזי העסקים והלוגיסטיקה מגיל צעיר. לאחר שחווה פשיטת רגל כואבת בעסקי הביטוח והפחם בשל משבר כלכלי עולמי ב-1781, הוא לא נשבר והחליט להמציא את עצמו מחדש כמוציא לאור. ילדותו בצל המסחר הלונדוני נטעה בו הבנה עמוקה של הצורך הקריטי של אנשי עסקים ופוליטיקאים במידע מדויק, מהיר ואמין – מה שהוביל אותו לרכוש פטנט על שיטת הדפסה חדשנית ולהקים את העיתון החזק ביותר במאה ה-19.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "עיתונות של סדר, יציבות ודיוק". הוא האמין שהעיתון הוא כלי עזר חיוני לניהול מדינה וכלכלה גלובלית, ולכן עליו להיות רשמי, מאופק ובעל יוקרה בלתי מעורערת. וולטר דגל בשימוש בטכנולוגיה כדי לייעל את הייצור ולהפוך את הידע לנגיש יותר לציבור הרחב, אך סירב להתפשר על הדיוק העובדתי. תפיסתו הייתה שהעיתון צריך לשקף את ה"מוסד" (Establishment) הבריטי ולהוות גורם מאזן ושפוי בתוך הסערות הפוליטיות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו הגדול ביותר היה הקמת התשתית למה שיהפוך לעיתון המשפיע ביותר בהיסטוריה המודרנית. בנו, ג'ון וולטר השני, המשיך את דרכו והכניס את מכונת הדפוס בקיטור ב-1814 – מהלך טכנולוגי שנחשב למהפכה הגדולה ביותר בתולדות הדפוס מאז גוטנברג. ה-Times תחת הנהגתו הפך לגוף מדיה שיכול להפיל ממשלות ולעצב את דעת הקהל העולמית ב"קול רעם" (The Thunderer).
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 05. El País (Spain) -->
-        <section class="press-section border-red-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-red-500 shadow-red-500"></span>
-                    <span class="text-[14px] font-black uppercase tracking-[0.4em] text-red-400">Iberian Democratic Matrix</span>
-                </div>
-                <h2 class="press-title">El País .05</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Architect of Spanish Transition</h3>
-                
-                <div class="etymology-block border-red-500 text-red-400 bg-red-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>El País:</em> (ספרדית: המדינה). נגזר מהלטינית <strong>Pagus</strong>, שמשמעותה המקורית הייתה "מחוז מסומן" או "אזור חקלאי מוגדר" (מכאן המילה Pagan - איש הכפר). השם נבחר כדי לסמל את איחוד האומה תחת נרטיב דמוקרטי משותף.<br>
-                    <em>Madrid:</em> מהמילה הערבית/ספרדית עתיקה <strong>Mayrit</strong>, שפירושה "מקום של שפע מים" (עקב ריבוי הבארות בתקופה המוסלמית).<br>
-                    <em>Spain:</em> מהלטינית <strong>Hispania</strong> – במקור מהשורש הפיניקי <strong>I-Shpania</strong> שפירושו "ארץ השפנים".
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 05. El País -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: אדריכל הדמוקרטיה</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">El País .05</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Architect of Spanish Transition</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-red-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    El País נוסד ב-4 במאי <span class="highlight-year">1976</span>, חודשים ספורים לאחר מות הדיקטטור פרנקו. המטרה הייתה להקים עיתון דמוקרטי, ליברלי ואירופי שינחה את ספרד בתקופת המעבר (La Transición) מדיקטטורה לדמוקרטיה מודרנית. מטרת העל הייתה להוות שופר לערכים של פלורליזם, חופש ביטוי ומודרניזציה, תוך הצגת ספרד החדשה והנאורה לעולם. הוא הפך במהרה לעיתון הנפוץ והמשפיע ביותר בעולם דובר הספרדית כולו.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-red-400">Jesús de Polanco Gutiérrez (1929–2007)</h4>
-                <div class="builder-etymology-full border-red-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Jesús:</em> מהשם העברי <strong>ישוע</strong> (Yeshua) – שפירושו "יהוה מושיע". מסמל תקווה, גאולה וסדר חדש.<br>
-                    <em>Polanco:</em> שם משפחה ספרדי טופונימי מצפון המדינה (Cantabria). נגזר מהמילה <strong>Polanco</strong> שמשמעותה המקורית מציינת "תושב הגשר הקטן" או "אזור מישורי".<br>
-                    <em>Gutiérrez:</em> שם פטרונימי ספרדי המורכב מהשם <strong>Gualtieri</strong> (וולטר/שליט צבא) והסיומת <strong>Ez</strong> (בנו של). פירושו: "בנו של שליט הצבא".
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">ספרד</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1976</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">חוסוס דה פולנקו</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">דמוקרטי - אירופאי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-red-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    חוסוס דה פולנקו נולד במדריד למשפחה מהמעמד הבינוני המשכיל. ילדותו עברה בצל מלחמת האזרחים הספרדית הנוראה (1936-1939), חוויה טראומטית שעיצבה את תפיסתו לגבי הצורך הנואש בפיוס לאומי ובחשיבותה הקריטית של תקשורת חופשית למניעת סכסוכים אלימים. הוא הוכשר כמשפטן באוניברסיטת מדריד והחל את דרכו כמוציא לאור של ספרי לימוד. הצלחתו העסקית המוקדמת בעולם החינוך העניקה לו את המשאבים והחזון להקים אימפריית מדיה שתשמש כבסיס הכלכלי והתרבותי לדמוקרטיה הספרדית הצעירה.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-red-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "ליברליזם חברתי ואירופאיזציה". פולנקו האמין שספרד חייבת להיפרד סופית מעברה האפל והמבודד ולהשתלב במערב אירופה הליברלית והדמוקרטית. הוא דגל בחילוניות, בזכויות אזרח ובשוק חופשי המרוסן על ידי אחריות חברתית. הוא ראה ב-El País כלי לחינוך דמוקרטי של הציבור הספרדי, תוך הקפדה על רמה עיתונאית אירופית גבוהה שהתנערה מהסגנון המיושן והמצונזר של עיתוני המשטר הישן.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">El País (המדינה)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ספרדית: המדינה. נגזר מהלטינית <strong>Pagus</strong>, שמשמעותה המקורית הייתה "מחוז מסומן" או "אזור חקלאי מוגדר" (מכאן המילה Pagan - איש הכפר). השם נבחר כדי לסמל את איחוד האומה תחת נרטיב דמוקרטי משותף.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Madrid</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמילה הערבית/ספרדית עתיקה <strong>Mayrit</strong>, שפירושה "מקום של שפע מים" (עקב ריבוי הבארות בתקופה המוסלמית).</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Spain</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהלטינית <strong>Hispania</strong> – במקור מהשורש הפיניקי <strong>I-Shpania</strong> שפירושו "ארץ השפנים".</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-red-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו המכונן היה הפיכת El País לעיתון הלאומי של ספרד תוך פחות מעשור מרגע הקמתו. ב-23 בפברואר 1981, בזמן ניסיון ההפיכה הצבאית בספרד, העיתון הוציא מהדורה מיוחדת ("El País, עם החוקה") שהתייצבה לצד הדמוקרטיה והמלך – רגע היסטורי שבו העיתון נחשב לגורם המרכזי שהציל את המדינה מקריסה חזרה לדיקטטורה. פולנקו הצליח להפוך את העיתון למעצמה גלובלית המשפיעה על דעת הקהל באמריקה הלטינית.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        El País נוסד ב-4 במאי <strong>1976</strong>, חודשים ספורים לאחר מות הדיקטטור פרנקו. המטרה הייתה להקים עיתון דמוקרטי, ליברלי ואירופי שינחה את ספרד בתקופת המעבר (La Transición) מדיקטטורה לדמוקרטיה מודרנית. מטרת העל הייתה להוות שופר לערכים של פלורליזם, חופש ביטוי ומודרניזציה, תוך הצגת ספרד החדשה והנאורה לעולם. הוא הפך במהרה לעיתון הנפוץ והמשפיע ביותר בעולם דובר הספרדית כולו.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Jesús de Polanco Gutiérrez (1929–2007)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Jesús (חוסוס)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם ספרדי נפוץ מאוד, המגיע ישירות מהשם העברי <strong>ישוע</strong> (Yeshua), הנגזר מ"יהושע" – שפירושו המילולי הוא "יהוה מושיע". בממד הסמלי והמטאפורי, פולנקו אכן שימש כדמות מושיעה עבור הדמוקרטיה הספרדית. לאחר כמעט 40 שנות חושך, דיכוי וצנזורה תחת הגנרליסימו פרנקו, הוא הקים גוף תקשורת שהציל את הציבור הספרדי מבורותו, והנחה אותם (כמו רועה צאן/מושיע) אל עבר אירופה הנאורה והמודרנית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Polanco (פולנקו)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה טופונימי (המעיד על מוצא גיאוגרפי) שמקורו במחוז קנטבריה בצפון ספרד. השורש של המילה קשור ככל הנראה לשפות הפרה-רומיות (קלטית או איברית), והמילית <strong>Pol-</strong> מציינת אזור של מים, עמק צר, או ביצה (דומה ל-Pool באנגלית). לחלופין, נטען כי הוא נגזר מהלטינית <strong>Plancus</strong> (שטוח). כך או כך, זהו שם שמחבר את פולנקו עמוק לאדמה הספרדית הבסיסית ביותר. הוא היה איש של שורשים טריטוריאליים שהקים אימפריה מדיה המבוססת על המהות הגיאוגרפית של עמו.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Gutiérrez (גוטיירס)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה פטרונימי (על שם האב) מסורתי בספרד. הוא מורכב מהשם הפרטי הגרמאני/גותי <strong>Gutierre</strong> (המקבילה הספרדית ל"וולטר" - <strong>Wald+Hari</strong>, כלומר "שליט הצבא") והסיומת <strong>Ez</strong> (בנו של). הפירוש הוא "בנו של מפקד הצבא". שם זה מסמל את אופיו הניהולי הכוחני והעוצמתי של פולנקו, שהקים תאגיד ענק (PRISA) ושלט בו ביד רמה כמפקד עליון המסוגל להניע מסות של אנשים ודעות.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        חוסוס דה פולנקו נולד במדריד למשפחה מהמעמד הבינוני המשכיל. ילדותו עברה בצל מלחמת האזרחים הספרדית הנוראה (1936-1939), חוויה טראומטית שעיצבה את תפיסתו לגבי הצורך הנואש בפיוס לאומי ובחשיבותה הקריטית של תקשורת חופשית למניעת סכסוכים אלימים. הוא הוכשר כמשפטן באוניברסיטת מדריד והחל את דרכו כמוציא לאור של ספרי לימוד. הצלחתו העסקית המוקדמת בעולם החינוך העניקה לו את המשאבים והחזון להקים אימפריית מדיה שתשמש כבסיס הכלכלי והתרבותי לדמוקרטיה הספרדית הצעירה.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "ליברליזם חברתי ואירופאיזציה". פולנקו האמין שספרד חייבת להיפרד סופית מעברה האפל והמבודד ולהשתלב במערב אירופה הליברלית והדמוקרטית. הוא דגל בחילוניות, בזכויות אזרח ובשוק חופשי המרוסן על ידי אחריות חברתית. הוא ראה ב-El País כלי לחינוך דמוקרטי של הציבור הספרדי, תוך הקפדה על רמה עיתונאית אירופית גבוהה שהתנערה מהסגנון המיושן והמצונזר של עיתוני המשטר הישן.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו המכונן היה הפיכת El País לעיתון הלאומי של ספרד תוך פחות מעשור מרגע הקמתו. ב-23 בפברואר 1981, בזמן ניסיון ההפיכה הצבאית בספרד, העיתון הוציא מהדורה מיוחדת ("El País, עם החוקה") שהתייצבה לצד הדמוקרטיה והמלך – רגע היסטורי שבו העיתון נחשב לגורם המרכזי שהציל את המדינה מקריסה חזרה לדיקטטורה. פולנקו הצליח להפוך את העיתון למעצמה גלובלית המשפיעה על דעת הקהל באמריקה הלטינית.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 06. Corriere della Sera (Italy) -->
-        <section class="press-section border-emerald-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-emerald-500 shadow-emerald-500"></span>
-                    <span class="text-[14px] font-black uppercase tracking-[0.4em] text-emerald-400">Italian Liberal Active</span>
-                </div>
-                <h2 class="press-title">Corriere della Sera .06</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Italy's Primary Ethical Liberal Voice</h3>
-                
-                <div class="etymology-block border-emerald-500 text-emerald-400 bg-emerald-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Corriere:</em> (איטלקית: השליח). נגזר מהמילה הלטינית <strong>Currere</strong>, שפירושה "לרוץ". מציין את המהירות והדחיפות שבהן המידע עובר.<br>
-                    <em>Sera:</em> (איטלקית: ערב). נגזר מהמילה הלטינית <strong>Serus</strong> (מאוחר). במקור, העיתון הודפס בשעות אחר הצהריים המאוחרות לקריאה בסוף יום העבודה.<br>
-                    <em>Milan:</em> מהמילה הלטינית <strong>Mediolanum</strong>, שהתפתחה מהשורש הקלטי <strong>Medio</strong> (אמצע) ו-<strong>Lano</strong> (מישור). המשמעות: "באמצע המישור".
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 06. Corriere della Sera -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: קול ליברלי טהור</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">Corriere della Sera .06</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Italy's Primary Ethical Liberal Voice</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-emerald-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    נוסד ב-5 במרץ <span class="highlight-year">1876</span> במילאנו על ידי אוג'ניו טורלי ויולייר. המטרה הייתה להקים ערוץ תקשורת ליברלי, עצמאי ואינטלקטואלי שייצג את המעמד הבינוני החדש והיזמי של צפון איטליה לאחר איחוד המדינה (Risorgimento). מטרת העל הייתה ליצור עיתון "אירופי" באיטליה – כזה ששומר על רמה עיתונאית גבוהה, מתרחק מפופוליזם זול ומהווה עוגן של יציבות בתוך הפוליטיקה האיטלקית הסוערת.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-emerald-400">Eugenio Torelli Viollier (1842–1900)</h4>
-                <div class="builder-etymology-full border-emerald-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Eugenio:</em> מהמילה היוונית <strong>Eugenes</strong>. מורכב מהשורשים <strong>Eu</strong> (טוב/היטב) ו-<strong>Genos</strong> (מוצא/גזע). פירושו: "נולד היטב" או "אציל" (Well-born).<br>
-                    <em>Torelli:</em> שם משפחה איטלקי – צורת הקטנה של <strong>Toro</strong> (שור). מסמל כוח מתפרץ, עקביות ודבקות במטרה.<br>
-                    <em>Viollier:</em> שם משפחה ממוצא צרפתי. ייתכן מהמילה <strong>Violette</strong> (סיגלית) או <strong>Viole</strong> (כלי נגינה עתיק), מציין קשר ליופי או לאמנות.
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">איטליה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1876</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">אוג'ניו טורלי ויולייר</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">ליברלי - אינטלקטואלי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-emerald-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    אוג'ניו טורלי ויולייר נולד בנאפולי למשפחה משכילה אך דלת אמצעים. ילדותו עברה בצל המאבקים המדממים לעצמאות איטליה, והוא הושפע עמוקות מהאידיאלים של פיוס לאומי וקידמה אירופית. כנער בילה שעות אינסופיות בספריות ובמערכות עיתונים קטנות, שם למד את כוחה המאגי של המילה הכתובה לעצב תודעה של אומה שלמה. הוא עבר למילאנו, המרכז התעשייתי והאינטלקטואלי של המדינה, מתוך הבנה ששם נמצא המפתח לעתיד איטליה המודרנית.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-emerald-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "ליברליזם שמרני-נאור". הוא האמין שהעיתון חייב להיות עצמאי מכל מפלגה פוליטית (דבר שהיה נדיר באיטליה של אותה תקופה). טורלי ויולייר דגל באובייקטיביות צוננת, בשימוש בשפה איטלקית ברורה, מדויקת ונקייה מליריקה מיותרת, וביצירת "עיתון לאנשים שרוצים לחשוב". הוא ראה ב-Corriere כלי לחיבור איטליה לשאר אירופה המודרנית, תוך קידום ערכים של שלטון החוק, מסחר חופשי ותרבות קלאסית.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Corriere (השליח)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">איטלקית: השליח. נגזר מהמילה הלטינית <strong>Currere</strong>, שפירושה "לרוץ". מציין את המהירות והדחיפות שבהן המידע עובר.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Sera (ערב)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">איטלקית: ערב. נגזר מהמילה הלטינית <strong>Serus</strong> (מאוחר). במקור, העיתון הודפס בשעות אחר הצהריים המאוחרות לקריאה בסוף יום העבודה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Milan</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מהמילה הלטינית <strong>Mediolanum</strong>, שהתפתחה מהשורש הקלטי <strong>Medio</strong> (אמצע) ו-<strong>Lano</strong> (מישור). המשמעות: "באמצע המישור".</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-emerald-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו הגדול היה הפיכת ה-Corriere della Sera לעיתון הנפוץ והחשוב ביותר באיטליה בתוך זמן קצר מאוד מרגע השקתו. הוא בנה מערכת עיתונאית מקצועית שהשתמשה בטלגרף ובטכנולוגיות החדשניות ביותר כדי להביא חדשות מהעולם בזמן אמת. תחת הנהגתו, העיתון הפך לנקודת הייחוס הבלעדית של האליטה האינטלקטואלית והפוליטית במדינה. מורשתו היא יצירת מותג תקשורת המזוהה עם מילאנו ועם הגינות עיתונאית אבסולוטית.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        נוסד ב-5 במרץ <strong>1876</strong> במילאנו על ידי אוג'ניו טורלי ויולייר. המטרה הייתה להקים ערוץ תקשורת ליברלי, עצמאי ואינטלקטואלי שייצג את המעמד הבינוני החדש והיזמי של צפון איטליה לאחר איחוד המדינה (Risorgimento). מטרת העל הייתה ליצור עיתון "אירופי" באיטליה – כזה ששומר על רמה עיתונאית גבוהה, מתרחק מפופוליזם זול ומהווה עוגן של יציבות בתוך הפוליטיקה האיטלקית הסוערת.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Eugenio Torelli Viollier (1842–1900)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Eugenio (אוג'ניו)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם המגיע ישירות מהמילה היוונית <strong>Eugenes</strong>. המילה מורכבת מקידומת <strong>Eu</strong> (טוב, נכון, או היטב) והשורש <strong>Genos</strong> (לידה, משפחה, מוצא או גזע). הפירוש הקלאסי הוא "זה שנולד היטב", אדם אציל, בעל מידות טובות וחינוך מעולה. שם זה משקף באופן מושלם את רוחו של העיתון שהוא ייסד: ה-Corriere della Sera כיוון מראש לקהל ה"אצולה" החדשה של איטליה – הבורגנות הגבוהה, התעשיינים, והאינטלקטואלים במילאנו. הוא רצה עיתון בעל נימוסים "אציליים" שלא מתלכלך בצהובונים של ההמון.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Torelli (טורלי)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה איטלקי טיפוסי שהוא צורת הקטנה (Diminutive) של המילה <strong>Toro</strong> (הנגזרת מהלטינית Taurus), כלומר "שור". הפירוש המילולי הוא "השור הקטן". בעוד השם הפרטי שלו מעיד על עדינות ואצילות רוחנית, שם המשפחה הזה מסמל כוח מתפרץ, יצריות, עקביות עיוורת כמעט, ודבקות עיקשת במטרה. ויולייר אכן פעל לעיתים בכוחניות כדי לקדם את העיתון שלו בתוך השוק האיטלקי התחרותי והכאוטי של סוף המאה ה-19.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Viollier (ויולייר)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה בעל צליל צרפתי מובהק (מעיד על מוצא משפחתי מעבר להרי האלפים או השפעה תרבותית). אטימולוגית, סביר שנגזר מהמילה העתיקה <strong>Viole</strong> (כלי המיתר ויולה) או לחלופין מ-<strong>Violette</strong> (פרח הסיגלית). תוספת השם הזה מציינת קשר עמוק לאסתטיקה, לאמנות ולתרבות הפרנקופונית-אירופית. היא מאזנת את ה"שור" עם נגינה ויופי, ומדגישה את שאיפתו להיות אירופאי וקוסמופוליטי במרחב האיטלקי.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        אוג'ניו טורלי ויולייר נולד בנאפולי למשפחה משכילה אך דלת אמצעים. ילדותו עברה בצל המאבקים המדממים לעצמאות איטליה, והוא הושפע עמוקות מהאידיאלים של פיוס לאומי וקידמה אירופית. כנער בילה שעות אינסופיות בספריות ובמערכות עיתונים קטנות, שם למד את כוחה המאגי של המילה הכתובה לעצב תודעה של אומה שלמה. הוא עבר למילאנו, המרכז התעשייתי והאינטלקטואלי של המדינה, מתוך הבנה ששם נמצא המפתח לעתיד איטליה המודרנית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "ליברליזם שמרני-נאור". הוא האמין שהעיתון חייב להיות עצמאי מכל מפלגה פוליטית (דבר שהיה נדיר באיטליה של אותה תקופה). טורלי ויולייר דגל באובייקטיביות צוננת, בשימוש בשפה איטלקית ברורה, מדויקת ונקייה מליריקה מיותרת, וביצירת "עיתון לאנשים שרוצים לחשוב". הוא ראה ב-Corriere כלי לחיבור איטליה לשאר אירופה המודרנית, תוך קידום ערכים של שלטון החוק, מסחר חופשי ותרבות קלאסית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו הגדול היה הפיכת ה-Corriere della Sera לעיתון הנפוץ והחשוב ביותר באיטליה בתוך זמן קצר מאוד מרגע השקתו. הוא בנה מערכת עיתונאית מקצועית שהשתמשה בטלגרף ובטכנולוגיות החדשניות ביותר כדי להביא חדשות מהעולם בזמן אמת. תחת הנהגתו, העיתון הפך לנקודת הייחוס הבלעדית של האליטה האינטלקטואלית והפוליטית במדינה. מורשתו היא יצירת מותג תקשורת המזוהה עם מילאנו ועם הגינות עיתונאית אבסולוטית.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 07. Die Zeit (Germany) -->
-        <section class="press-section border-indigo-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-indigo-500 shadow-indigo-500"></span>
-                    <span class="text-[14px] font-black uppercase tracking-[0.4em] text-indigo-400">German Intellectual Active</span>
-                </div>
-                <h2 class="press-title">Die Zeit .07</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Matrix of German Post-War Thought</h3>
-                
-                <div class="etymology-block border-indigo-500 text-indigo-400 bg-indigo-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Die Zeit:</em> מגרמנית: "הזמן". נגזר מהשורש הפרוטו-גרמאני <strong>Tidi</strong>, שפירושו תקופה, שעה או עונה. השם מציין את השאיפה של העיתון לנתח תהליכי עומק היסטוריים שמתעלים מעל לחדשות החולפות של היום.<br>
-                    <em>Hamburg:</em> שילוב של המילה <strong>Hamme</strong> (שטח סגור או שטח ביצה מוגן) ו-<strong>Burg</strong> (מבצר/טירה). מציין את מעמדה כעיר נמל מבוצרת וחופשית.<br>
-                    <em>Zeitgeist:</em> (רוח הזמן) – מושג פילוסופי גרמני שהעיתון שואף לייצג ולהוביל דרך ניתוח אינטלקטואלי עמוק.
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 07. Die Zeit -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: פילוסופיה וניתוח הווה</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">Die Zeit .07</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Matrix of German Post-War Thought</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-indigo-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    Die Zeit נוסד ב-21 בפברואר <span class="highlight-year">1946</span> בהמבורג, חודשים ספורים לאחר תום המלחמה. המטרה הייתה להקים שבועון איכותי ומעמיק שיסייע בשיקום המוסרי והאינטלקטואלי של גרמניה לאחר זוועות הנאציזם. מטרת העל הייתה ליצור פלטפורמה לדיאלוג דמוקרטי פתוח, המבוסס על ניתוחים ארוכים (Long-form Journalism) שמתעלים מעל לרדידות החדשותית, תוך הצגת גרמניה החדשה לעולם כמדינה חושבת, הומניסטית ומחוברת לערכי המערב.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-indigo-400">Gerd Bucerius (1906–1995)</h4>
-                <div class="builder-etymology-full border-indigo-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Gerd:</em> קיצור של השם הגרמאני <strong>Gerhard</strong>. מורכב מהמילים <strong>Ger</strong> (חנית) ו-<strong>Hard</strong> (חזק/קשוח). פירושו: "לוחם חנית חזק".<br>
-                    <em>Bucerius:</em> שם לטיני-הומניסטי (אופייני למשפחות משכילות ברנסאנס). נגזר מהמילים היווניות <strong>Bous</strong> (פר/שור) ו-<strong>Keras</strong> (קרן). פירושו: "קרן הפר", מסמל שפע, עוצמה וכוח אינטלקטואלי בלתי נלאה.
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">גרמניה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1946</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">גרד בוצריוס</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">פילוסופי - הומניסטי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-indigo-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    גרד בוצריוס נולד בהאם, גרמניה, למשפחה משפטית מכובדת וקפדנית. אביו היה שופט שהטמיע בבנו את הערך העליון של שלטון החוק ויושרה אינטלקטואלית. הוא למד משפטים והפך לעורך דין צעיר ומבריק כבר בשנות ה-20. במהלך שנות השלטון הנאצי הפגין אומץ לב יוצא דופן כאשר הגן כעורך דין על לקוחות יהודים ועל מתנגדי משטר (אשתו הייתה יהודייה, דבר שהעמיד אותו בסכנה קיומית מתמדת). חוויות אלו תחת הדיקטטורה נטעו בו את ההבנה שחופש הביטוי והעיתונות העמוקה הם המחסום האחרון והחשוב ביותר בפני הברבריות.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-indigo-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "ליברליזם הומניסטי ופרגמטי". בוצריוס האמין בגרמניה דמוקרטית המחוברת למערב (Westbindung), אך כזו שאינה פוחדת מוויכוח פנימי סוער ומרתק. הוא דגל ב"תרבות של ויכוח" (Debattenkultur) וראה ב-Die Zeit מקום שבו דעות מנוגדות יכולות להיפגש בכבוד הדדי ובעומק מחקרי. הוא האמין שלמידע איכותי ומנומק יש ערך חינוכי עליון ושהדמוקרטיה זקוקה לאזרחים חושבים ולא רק לצרכני כותרות מהירות.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Die Zeit (הזמן)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מגרמנית: "הזמן". נגזר מהשורש הפרוטו-גרמאני <strong>Tidi</strong>, שפירושו תקופה, שעה או עונה. השם מציין את השאיפה של העיתון לנתח תהליכי עומק היסטוריים שמתעלים מעל לחדשות החולפות של היום.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Hamburg</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שילוב של המילה <strong>Hamme</strong> (שטח סגור או שטח ביצה מוגן) ו-<strong>Burg</strong> (מבצר/טירה). מציין את מעמדה כעיר נמל מבוצרת וחופשית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Zeitgeist (רוח הזמן)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">מושג פילוסופי גרמני שהעיתון שואף לייצג ולהוביל דרך ניתוח אינטלקטואלי עמוק.</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-indigo-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו הגדול היה בניית Die Zeit כאחד השבועונים היוקרתיים והמכובדים ביותר בעולם. הוא הצליח לשמר את העיתון בתקופות כלכליות קשות והפך אותו לרווחי מבלי להתפשר על האיכות העיתונאית. בוצריוס הקים את קרן **Zeit-Stiftung** המקדמת מדע, תרבות וחינוך ברחבי העולם עד היום. הישג נוסף שלו היה שילוב דמויות ענק כמו הלמוט שמידט במערכת העיתון, מה שהעניק ל-Die Zeit מעמד של "מועצת חכמים" לאומית.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        Die Zeit נוסד ב-21 בפברואר <strong>1946</strong> בהמבורג, חודשים ספורים לאחר תום המלחמה. המטרה הייתה להקים שבועון איכותי ומעמיק שיסייע בשיקום המוסרי והאינטלקטואלי של גרמניה לאחר זוועות הנאציזם. מטרת העל הייתה ליצור פלטפורמה לדיאלוג דמוקרטי פתוח, המבוסס על ניתוחים ארוכים (Long-form Journalism) שמתעלים מעל לרדידות החדשותית, תוך הצגת גרמניה החדשה לעולם כמדינה חושבת, הומניסטית ומחוברת לערכי המערב.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Gerd Bucerius (1906–1995)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Gerd (גרד)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">זהו קיצור של השם הגרמאני העתיק והנפוץ <strong>Gerhard</strong>. השם מורכב משתי מילים לוחמניות ומסורתיות: <strong>Ger</strong> (שפירושו "חנית" - כלי הנשק הדומיננטי של השבטים הגרמאניים) ו-<strong>Hard</strong> (שפירושו אמיץ, קשוח, חזק או עמיד). הצירוף המילולי הוא "נושא החנית החזק". שם זה סמלי מאוד לפועלו של בוצריוס בימי הרייך השלישי; כעורך דין (ואחר כך כעיתונאי), הוא השתמש בחוק ובמילה הכתובה כחנית חדה וחזקה נגד משטר האימה, כשהוא מגן על יהודים ומתנגדי משטר בסכנת חיים.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Bucerius (בוצריוס)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">זהו שם משפחה לטיני-הומניסטי נדיר. בתקופת הרנסאנס, אינטלקטואלים גרמנים רבים "לטנו" (מלשון לטינית) או "ייוונו" את שמות המשפחה המקומיים שלהם כדי להראות השכלה גבוהה וחיבור למסורת הקלאסית. השם נגזר מהשורשים היווניים <strong>Bous</strong> (פר או שור) ו-<strong>Keras</strong> (קרן). כלומר - קרן הפר. קרן הפר בתרבות הקלאסית (Cornucopia) מסמלת שפע אדיר של יבול וחיים, או לחלופין נשק אינטלקטואלי עוצמתי (נגיחה באיוולת). זה מתאים באופן מושלם למייסד של עיתון שהפך לקרן השפע האינטלקטואלית והפילוסופית של גרמניה שלאחר המלחמה.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        גרד בוצריוס נולד בהאם, גרמניה, למשפחה משפטית מכובדת וקפדנית. אביו היה שופט שהטמיע בבנו את הערך העליון של שלטון החוק ויושרה אינטלקטואלית. הוא למד משפטים והפך לעורך דין צעיר ומבריק כבר בשנות ה-20. במהלך שנות השלטון הנאצי הפגין אומץ לב יוצא דופן כאשר הגן כעורך דין על לקוחות יהודים ועל מתנגדי משטר (אשתו הייתה יהודייה, דבר שהעמיד אותו בסכנה קיומית מתמדת). חוויות אלו תחת הדיקטטורה נטעו בו את ההבנה שחופש הביטוי והעיתונות העמוקה הם המחסום האחרון והחשוב ביותר בפני הברבריות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "ליברליזם הומניסטי ופרגמטי". בוצריוס האמין בגרמניה דמוקרטית המחוברת למערב (Westbindung), אך כזו שאינה פוחדת מוויכוח פנימי סוער ומרתק. הוא דגל ב"תרבות של ויכוח" (Debattenkultur) וראה ב-Die Zeit מקום שבו דעות מנוגדות יכולות להיפגש בכבוד הדדי ובעומק מחקרי. הוא האמין שלמידע איכותי ומנומק יש ערך חינוכי עליון ושהדמוקרטיה זקוקה לאזרחים חושבים ולא רק לצרכני כותרות מהירות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו הגדול היה בניית Die Zeit כאחד השבועונים היוקרתיים והמכובדים ביותר בעולם. הוא הצליח לשמר את העיתון בתקופות כלכליות קשות והפך אותו לרווחי מבלי להתפשר על האיכות העיתונאית. בוצריוס הקים את קרן <strong>Zeit-Stiftung</strong> המקדמת מדע, תרבות וחינוך ברחבי העולם עד היום. הישג נוסף שלו היה שילוב דמויות ענק כמו הלמוט שמידט במערכת העיתון, מה שהעניק ל-Die Zeit מעמד של "מועצת חכמים" לאומית.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- 08. Le Figaro (France) -->
-        <section class="press-section border-rose-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-rose-500 shadow-rose-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-rose-400">French Legacy Active</span>
-                </div>
-                <h2 class="press-title">Le Figaro .08</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Guardian of French Traditional Culture</h3>
-                
-                <div class="etymology-block border-rose-500 text-rose-400 bg-rose-500/5">
-                    <strong>אטימולוגיה מורחבת (שם ומיקום):</strong><br>
-                    <em>Le Figaro:</em> על שם הדמות הספרותית שיצר בומרשה במחזה "נישואי פיגארו". השם הפך לסמל לשנינות, ערמומיות וחופש ביקורת חברתית בלתי מתפשרת נגד האצולה המושחתת.<br>
-                    <em>Paris (Haussmann):</em> המטה ממוקם בשדרות אוסמן המפוארות, הלב הפועם של הבורגנות הצרפתית והאליטה הכלכלית.<br>
-                    <em>Slogan:</em> "ללא חופש ביקורת, אין שבח מחמיא" (מתוך דבריו של פיגארו במחזה).
-                </div>
+        <div class="press-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 08. Le Figaro -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מעוז תרבות מסורתית</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">Le Figaro .08</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Guardian of French Traditional Culture</h3>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-rose-400">לידת העיתון והקשר היסטורי</span>
-                <p class="content-text">
-                    Le Figaro נוסד ב-15 בינואר <span class="highlight-year">1826</span> כעיתון סאטירי ושנון, והפך לעיתון יומי ב-1866. זהו העיתון הוותיק ביותר בצרפת שעדיין יוצא לאור ברציפות. המטרה המקורית הייתה לבקר את החברה הצרפתית שאחרי נפוליאון דרך הומור וסאטירה חריפה, אך הוא התפתח להיות קולה המרכזי של הבורגנות הצרפתית, השמרנות המתונה והאליטה הכלכלית. מטרת העל שלו היא לשמר את הערכים התרבותיים והמסורתיים של צרפת, לקדם ליברליזם כלכלי ולהוות משקל נגד אינטלקטואלי וערכי לשמאל הצרפתי.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-rose-400">Jean Hippolyte de Villemessant (1810–1879)</h4>
-                <div class="builder-etymology-full border-rose-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Jean:</em> גרסה צרפתית לשם העברי <strong>יוחנן</strong> (Yochanan) – "יהוה חנן".<br>
-                    <em>Hippolyte:</em> מהמילה היוונית <strong>Hippolytos</strong>. מורכב מ-<strong>Hippos</strong> (סוס) ו-<strong>Lyo</strong> (לשחרר/להתיר/להוביל). פירושו: "משחרר הסוסים" או מוביל המרכבה המלכותית.<br>
-                    <em>Villemessant:</em> שם אצילי צרפתי. מורכב מהמילה <strong>Ville</strong> (עיר/אחוזה/יישוב) וסיומת המציינת בעלות פיאודלית עתיקה על קרקע ויישוב.
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">צרפת</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1826</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">ז'אן איפוליט דה וילמסאן</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">שמרני - תרבותי</span>
                 </div>
             </div>
-            
-            <div class="info-block">
-                <span class="info-label text-rose-400">ילדות (Childhood)</span>
-                <p class="content-text">
-                    ז'אן איפוליט דה וילמסאן נולד ברואן, צרפת, למשפחה שחיה את התהפוכות הפוליטיות של עידן הרסטורציה. ילדותו עברה בסביבה של יזמות ותחרותיות עסקית. הוא גדל עם חוש עסקי מפותח בצורה יוצאת דופן ואהבה עזה לחיים הציבוריים והזוהרים של פריז. בצעירותו עסק במסחר ובביטוח, אך תשוקתו האמיתית הייתה עולם התיאטרון והספרות, מה שהוביל אותו להבין את כוחה של הדרמה, הברק והסגנון בתוך העיתונות הכתובה. הוא היה דמות כריזמטית ואנרגטית שראה בפריז את מרכז העולם המלוטש, וביקש ליצור עיתון שישקף את השנינות, האלגנטיות והמורכבות של הבירה הצרפתית לאליטה המקומית.
-                </p>
-            </div>
 
-            <div class="info-block">
-                <span class="info-label text-rose-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "עיתונות של סגנון, השפעה ושנינות". הוא האמין שהעיתון חייב להיות בראש ובראשונה מעניין, כתוב היטב ומעורר מחלוקת. וילמסאן טבע את המשפט האלמותי המנחה את העיתון עד היום: **"אם עיתון אינו מזעזע מישהו בכל בוקר, הוא אינו עיתון"**. הוא דגל בשמרנות תרבותית ובליברליזם אישי כדרך חיים, וראה ב-Le Figaro כלי לשמירה על הטעם הטוב הצרפתי, על השפה הצרפתית הטהורה ועל האינטרסים של המעמדות המובילים בצרפת.
-                </p>
-            </div>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה מורחבת (שם ומיקום):</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Le Figaro</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">על שם הדמות הספרותית שיצר בומרשה במחזה "נישואי פיגארו". השם הפך לסמל לשנינות, ערמומיות וחופש ביקורת חברתית בלתי מתפשרת נגד האצולה המושחתת.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Paris (Haussmann)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">המטה ממוקם בשדרות אוסמן המפוארות, הלב הפועם של הבורגנות הצרפתית והאליטה הכלכלית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Slogan</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">"ללא חופש ביקורת, אין שבח מחמיא" (מתוך דבריו של פיגארו במחזה).</p>
+                    </div>
+                </div>
 
-            <div class="info-block">
-                <span class="info-label text-rose-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הישגו המרכזי היה הפיכת Le Figaro מעיתון שבועי סאטירי קטן לעיתון היומי החשוב, המצליח והיוקרתי ביותר בצרפת של המאה ה-19. הוא המציא טכניקות עיתונאיות מודרניות רבות, כמו ה"פיליטון" (טור ספרתי-ביקורתי) והשימוש בראיונות אישיים חודרים עם דמויות מפתח בחברה. הוא בנה את מטה העיתון בפריז כמרכז של עוצמה תרבותית. וילמסאן הצליח לגייס את מיטב הסופרים והאינטלקטואלים של צרפת (כמו אמיל זולא ומרסל פרוסט) לכתוב בעיתון, ובכך הפך את Le Figaro למוסד שבו הספרות והעיתונות מתמזגות לישות אחת המשפיעה על התרבות והפוליטיקה עד היום.
-                </p>
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-3">לידת העיתון והקשר היסטורי:</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        Le Figaro נוסד ב-15 בינואר <strong>1826</strong> כעיתון סאטירי ושנון, והפך לעיתון יומי ב-1866. זהו העיתון הוותיק ביותר בצרפת שעדיין יוצא לאור ברציפות. המטרה המקורית הייתה לבקר את החברה הצרפתית שאחרי נפוליאון דרך הומור וסאטירה חריפה, אך הוא התפתח להיות קולה המרכזי של הבורגנות הצרפתית, השמרנות המתונה והאליטה הכלכלית. מטרת העל שלו היא לשמר את הערכים התרבותיים והמסורתיים של צרפת, לקדם ליברליזם כלכלי ולהוות משקל נגד אינטלקטואלי וערכי לשמאל הצרפתי.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">העורך והבונה ההיסטורי: Jean Hippolyte de Villemessant (1810–1879)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Jean (ז'אן)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">הגרסה הצרפתית והקלאסית לשם העברי המקראי <strong>יוחנן</strong> (Yochanan) – "יהוה חנן" או חסד האל. זהו אחד השמות השורשיים ביותר במסורת הצרפתית-קתולית הקלאסית, ומעגן את המייסד עמוק בתוך המסורת ההיסטורית שאותה העיתון (Le Figaro) ינסה לשמר ולייצג אל מול המודרנה הרדיקלית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Hippolyte (איפוליט)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם שמקורו מן המיתולוגיה והשפה היוונית העתיקה: <strong>Hippolytos</strong>. המילה מורכבת מ-<strong>Hippos</strong> (שפירושו סוס) ומהשורש <strong>Lyo</strong> (לשחרר, להתיר, או להוביל). הפירוש המילולי הוא "זה שמשחרר את הסוסים" או "מוביל המרכבה". מבחינה פסיכולוגית והיסטורית, וילמסאן היה בדיוק איש כזה - מוציא לאור ש"שחרר את סוסי הבר" של הסאטירה, הרכילות, ביקורת התיאטרון והשנינות על קהל הקוראים הפריזאי. הוא ניווט את "המרכבה" של דעת הקהל בצרפת של המאה ה-19 באופן חסר תקדים.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">de Villemessant (דה וילמסאן)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם אצילי צרפתי מובהק (שימו לב לקידומת ה"דה", המעידה על שיוך לאצולת קרקעות היסטורית). המילה בנויה מהשורש <strong>Ville</strong> (בצרפתית עתיקה: עיר, אחוזה חקלאית נרחבת או יישוב כפרי) ו-<strong>Messant</strong> (כנראה מהמילה העתיקה messier, שומר יבולים, או ציון נחלה מסוימת). זהו שם ארצי מאוד המעיד על בעלות פיאודלית ושמירה על נחלות האבות. השם מסביר את משיכתו הטבעית של וילמסאן לייצג בעיתונו את האליטה הצרפתית, בעלי ההון ושומרי המסורת התרבותית של צרפת הישנה והטובה.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        ז'אן איפוליט דה וילמסאן נולד ברואן, צרפת, למשפחה שחיה את התהפוכות הפוליטיות של עידן הרסטורציה. ילדותו עברה בסביבה של יזמות ותחרותיות עסקית. הוא גדל עם חוש עסקי מפותח בצורה יוצאת דופן ואהבה עזה לחיים הציבוריים והזוהרים של פריז. בצעירותו עסק במסחר ובביטוח, אך תשוקתו האמיתית הייתה עולם התיאטרון והספרות, מה שהוביל אותו להבין את כוחה של הדרמה, הברק והסגנון בתוך העיתונות הכתובה. הוא היה דמות כריזמטית ואנרגטית שראה בפריז את מרכז העולם המלוטש, וביקש ליצור עיתון שישקף את השנינות, האלגנטיות והמורכבות של הבירה הצרפתית לאליטה המקומית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה (Ideology)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        האידיאולוגיה שלו הייתה "עיתונות של סגנון, השפעה ושנינות". הוא האמין שהעיתון חייב להיות בראש ובראשונה מעניין, כתוב היטב ומעורר מחלוקת. וילמסאן טבע את המשפט האלמותי המנחה את העיתון עד היום: <strong>"אם עיתון אינו מזעזע מישהו בכל בוקר, הוא אינו עיתון"</strong>. הוא דגל בשמרנות תרבותית ובליברליזם אישי כדרך חיים, וראה ב-Le Figaro כלי לשמירה על הטעם הטוב הצרפתי, על השפה הצרפתית הטהורה ועל האינטרסים של המעמדות המובילים בצרפת.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">הישגים (Achievements)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הישגו המרכזי היה הפיכת Le Figaro מעיתון שבועי סאטירי קטן לעיתון היומי החשוב, המצליח והיוקרתי ביותר בצרפת של המאה ה-19. הוא המציא טכניקות עיתונאיות מודרניות רבות, כמו ה"פיליטון" (טור ספרתי-ביקורתי) והשימוש בראיונות אישיים חודרים עם דמויות מפתח בחברה. הוא בנה את מטה העיתון בפריז כמרכז של עוצמה תרבותית. וילמסאן הצליח לגייס את מיטב הסופרים והאינטלקטואלים של צרפת (כמו אמיל זולא ומרסל פרוסט) לכתוב בעיתון, ובכך הפך את Le Figaro למוסד שבו הספרות והעיתונות מתמזגות לישות אחת המשפיעה על התרבות והפוליטיקה עד היום.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Matrix Footer -->
-        <footer class="py-24 text-center opacity-20">
-            <div class="flex justify-center gap-12 mb-8">
-                <i class="fas fa-feather-pointed text-3xl"></i>
-                <i class="fas fa-book-open text-3xl"></i>
-                <i class="fas fa-newspaper text-3xl"></i>
+        <!-- Matrix Footer המותאם -->
+        <footer class="mt-16 pt-8 border-t border-slate-800 text-center pb-8">
+            <div class="flex justify-center gap-6 mb-4 text-slate-600">
+                <i class="fas fa-feather-pointed text-xl"></i>
+                <i class="fas fa-book-open text-xl"></i>
+                <i class="fas fa-newspaper text-xl"></i>
             </div>
-            <p class="text-[12px] font-mono uppercase tracking-[0.6em] mb-3 text-sky-400">
-                European Strategic Intelligence Matrix | Sector EU-06
-            </p>
-            <p class="text-[14px] font-bold italic uppercase tracking-widest">
-                Architecture by Ram | Master Version 2026
-            </p>
+            <p class="text-slate-300 text-sm tracking-wide font-bold">האתר נוצר על ידי ג'מיני ורם</p>
+            <p class="text-[10px] text-slate-500 font-mono mt-2 tracking-widest uppercase">Version 2.0 / 2026</p>
         </footer>
 
     </div>
