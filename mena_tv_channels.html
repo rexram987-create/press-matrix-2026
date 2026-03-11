@@ -3,638 +3,702 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRESS MATRIX - MENA EDITION: TV NETWORKS</title>
+    <title>MENA TV NETWORKS - MAXIMUM ENCYCLOPEDIC V24</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
-        body { background-color: #020617; color: #f1f5f9; font-family: 'Assistant', sans-serif; line-height: 1.8; }
-        .dashboard-card { background: #0f172a; border: 1px solid #1e293b; border-radius: 1.5rem; padding: 2.5rem; margin-bottom: 4rem; border-right: 1px solid rgba(52, 211, 153, 0.2); transition: all 0.3s ease; }
-        .dashboard-card:hover { border-color: #34d399; box-shadow: 0 15px 45px -10px rgba(52, 211, 153, 0.2); }
-        .title-gradient { background: linear-gradient(to left, #34d399, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
-        .bio-section { background: rgba(30, 41, 59, 0.4); border-radius: 1.5rem; padding: 2.5rem; margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .label { color: #94a3b8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-top: 1.5rem; letter-spacing: 0.1em; border-bottom: 1px solid rgba(148, 163, 184, 0.1); display: inline-block; }
-        .value { color: #f1f5f9; font-size: 1.1rem; margin-bottom: 1.5rem; margin-top: 0.5rem; }
-        .sub-label { color: #34d399; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
-        .background-box { background: rgba(52, 211, 153, 0.08); border-radius: 1.25rem; padding: 2rem; margin-bottom: 3rem; border: 1px dashed rgba(52, 211, 153, 0.3); }
-        strong { color: #818cf8; font-weight: 900; }
-        .root-badge { background: #1e1b4b; color: #818cf8; padding: 3px 14px; border-radius: 6px; font-family: monospace; font-size: 1.1rem; margin-right: 8px; border: 1px solid rgba(129, 140, 248, 0.4); box-shadow: 0 0 10px rgba(129, 140, 248, 0.1); }
-        p { margin-bottom: 1.25rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+        
+        body { 
+            background-color: #060b19; 
+            color: #f1f5f9; 
+            font-family: 'Assistant', sans-serif; 
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .matrix-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .data-card {
+            background-color: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 1rem;
+            padding: 1rem 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        .etymology-box {
+            background-color: rgba(17, 24, 39, 0.6);
+            border-right: 4px solid #06b6d4; 
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .channel-divider {
+            height: 1px;
+            background: linear-gradient(to left, transparent, #1e293b, transparent);
+            margin: 4rem 0;
+        }
+
+        .info-label {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to left, rgba(56, 189, 248, 0.4), transparent);
+        }
+        
+        .root-badge {
+            background: #1e1b4b;
+            color: #06b6d4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-right: 4px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            display: inline-block;
+            margin-bottom: 4px;
+        }
     </style>
 </head>
-<body class="p-4 md:p-12 max-w-6xl mx-auto">
+<body>
 
-    <header class="mb-20 flex justify-between items-center border-b border-slate-800 pb-12">
-        <a href="index.html" class="text-emerald-400 hover:text-emerald-300 transition-colors text-sm font-bold flex items-center gap-3">
-            <i class="fas fa-arrow-right"></i> חזרה למרכז הבקרה
-        </a>
-        <div class="text-left">
-            <h1 class="text-4xl md:text-6xl font-black title-gradient tracking-tighter">MENA BROADCAST INTEL</h1>
-            <p class="text-[14px] text-slate-500 font-mono italic tracking-widest uppercase mt-4">ENCYCLOPEDIC INTELLIGENCE MATRIX | 2026.V5 | PC ENHANCED</p>
-        </div>
-    </header>
+    <div class="matrix-container">
+        
+        <!-- Navigation Header -->
+        <nav class="flex justify-between items-center mb-12">
+            <a href="index.html" class="text-xs font-black uppercase tracking-[0.2em] flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
+                <i class="fas fa-arrow-right"></i>
+                חזרה למאגר
+            </a>
+            <div class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest bg-cyan-500/10 px-3 py-1 rounded-full">
+                MENA/TV
+            </div>
+        </nav>
 
-    <!-- 01. Al Jazeera -->
-    <section class="dashboard-card">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">01. אל-ג'זירה (Al Jazeera)</h2>
-                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">The Global Narrative Disrupter</span>
+        <!-- ========================================== -->
+        <!-- 01. Al Jazeera -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: שיבוש הנרטיב העולמי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">אל-ג'זירה .01</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Global Narrative Disrupter</h3>
             </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-broadcast-tower text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">DOHA STRATEGIC HUB</span>
+
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">קטר (דוחה)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">1996</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">חמד בן ח'ליפה אאל ת'אני</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">אופוזיציוני - פופוליסטי</span>
+                </div>
             </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-emerald-400 text-xl tracking-wide">אל (الـ):</span>
-                        <p class="text-slate-300 mt-1">ה"א הידיעה המוחלטת.</p>
+
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל (الـ)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ה"א הידיעה בשפה הערבית. במקרה של אל-ג'זירה, היא אינה רק תוספת תחבירית אלא הצהרת ריבונות אבסולוטית: מדובר ב"הא הידיעה המוחלטת". הערוץ לא רואה את עצמו כעוד פלטפורמה, אלא כפלטפורמה האחת והיחידה המייצגת את האמת.</p>
                     </div>
-                    <div class="mb-4 border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-emerald-400 text-xl tracking-wide">ג'זירה (جزيرة):</span>
-                        <p class="text-slate-300 mt-1">מילולית: "אי". המילה נגזרת מהשורש השמי העתיק <span class="root-badge text-sm">ג-ז-ר</span> (جزر), שפירושו חיתוך, כריתה או הפרדה פיזית (האופן שבו הים "חותך" את האי מהיבשה).</p>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ג'זירה (جزيرة)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">התרגום המילולי הוא "אי" או "חצי אי". מבחינה פילולוגית, המילה נגזרת מהשורש השמי העתיק <span class="root-badge">ג-ז-ר</span> (جزر). משמעות השורש היא פעולה אגרסיבית של חיתוך, כריתה, ניתוק או הפרדה פיזית ומנטלית (האופן שבו הים "חותך" ומבודד את האי מהיבשה המרכזית). השורש המקביל בעברית קשור גם למושג "לגזור" ולגזירת דין – מה שמרמז על אופיו הפסקני והחותך של הערוץ.</p>
                     </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-emerald-300">משמעות הוליסטית:</strong> השם נבחר כאלגוריה מבריקה לקטר הקטנה, המהווה "אי של חופש ביטוי" בלב ים של משטרים ערביים ריכוזיים ושמרניים. במקביל, המונח "ג'זירת אל-ערב" (חצי האי הערבי) מעניק למותג יומרה לשליטה תודעתית והיסטורית במרחב הערבי כולו, כשהוא מציב את דוחה כמרכז המידע האזורי.
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם נבחר כאלגוריה מבריקה ומתריסה למיקומה ואופיה של מדינת קטר הזעירה: היא מהווה "אי של חופש ביטוי" צף בלב ים סוער של משטרים ערביים ריכוזיים, שמרניים ומצונזרים (כמו סעודיה ומצרים). בנוסף, המונח ההיסטורי "ג'זירת אל-ערב" (חצי האי הערבי) מעניק למותג יומרה טריטוריאלית ענקית: השליטה התודעתית וההיסטורית במרחב הערבי כולו עוברת דרך "האי" (דוחה), המנותק גיאוגרפית ורעיונית משכנותיו.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הערוץ הוקם בסוף <strong>1996</strong>, בנקודת זמן קריטית עבור קטר. ביוני 1995, חמד בן ח'ליפה ביצע הפיכת חצר חלקה והדיח את אביו מן השלטון. קטר הייתה אז מדינה חלשה, חסרת משמעות צבאית, שחיה בפחד מתמיד מפני בליעה על ידי ענקית הנפט השכנה, ערב הסעודית. חמד הבין שההישרדות הקטארית אינה תלויה בצבא, אלא ביצירת "כוח רך" (Soft Power) שיהפוך אותה למעצמה הכרחית בעולם. באותה שנה ממש, מיזם משותף של רשת ה-BBC בערבית יחד עם משקיעים סעודים, קרס ברעש גדול עקב ניסיונות צנזורה חמורים של ריאד. הסיבה המרכזית להקמת אל-ג'זירה הייתה לנצל את המומנטום: חמד גייס מיידית את בכירי העיתונאים והמגישים המובטלים של ה-BBC בלונדון, העביר אותם לדוחה, ונתן להם צ'ק פתוח וחופש מערכתי חסר תקדים (למעט איסור ביקורת על שליטי קטר עצמה). המטרה הייתה לשבור את המונופול של הטלוויזיה הממלכתית הערבית, לשדר תוכניות אירוח סוערות ("הכיוון ההפוך") ולהפוך את קטר למוקד שממנו חוששים, אך אליו עולים לרגל, כל מנהיגי המזרח התיכון.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-emerald-400 font-bold mb-2">1996. קריסת מיזם ה-BBC בערבית ותחילת שלטון חמד בן ח'ליפה.</div>
-                    <p class="text-slate-300 mb-4">לאחר הפיכת חצר חלקה (בה הדיח את אביו), האמיר החדש הבין שקטר הזעירה זקוקה לאסטרטגיית הישרדות מול שכנותיה הענקיות (סעודיה ואיראן). בדיוק אז, רשת ה-BBC בערבית, ששידרה מסעודיה, קרסה עקב ניסיונות צנזורה חמורים של ריאד.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-emerald-300">המטרה האסטרטגית המרכזית:</strong> יצירת "כוח רך" (Soft Power) חסר תקדים. קטר אספה את העיתונאים המובטלים של ה-BBC והעניקה להם חופש עיתונאי מלא (מלבד ביקורת על דוחה עצמה) ותקציבי עתק. הערוץ נועד לשמש כנשק אסטרטגי פסיכולוגי שירתיע את השכנות, ישבור את מונופול המידע המערבי והערבי-ממלכתי, ויציב את קטר בלב המפה הדיפלומטית העולמית כמעצמת תקשורת.
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">האמיר המייסד: חמד בן ח'ליפה אאל ת'אני (נולד ב-1952)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">חמד (Hamad)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם זה נגזר מהשורש השמי המקודש <span class="root-badge">ח-מ-ד</span> (ح-م-د), אשר משותף לעברית ולערבית (חמד, מוחמד, אחמד, מחמוד). המשמעות העמוקה היא "שבח", "הערכה", "הודיה" ואף חמדה. פירוש השם הוא "הראוי לשבח" או "זה שמודה לאלוהים תמיד". מבחינה פסיכולוגית וציבורית, השם מסמל מנהיגות כריזמטית הזוכה לגיבוי עממי נרחב, ומנהיג השואף להותיר אחריו מורשת היסטורית שתזכה להלל ולשבחים לדורות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">בן ח'ליפה (Bin Khalifa)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">המילה "ח'ליפה" נובעת מהשורש <span class="root-badge">ח'-ל-ף</span> (خ-ل-ف), שפירושו המילולי הוא לבוא מאחור, להחליף מישהו אחר, או לרשת את מקומו. בהקשר האסלאמי-פוליטי, מדובר בתואר הרם ביותר: "ח'ליף" – ממלא מקום הנביא ומנהיג קהילת המאמינים (האומה) עלי אדמות. השם מטמיע באמיר סמכות ריבונית אבסולוטית, ירושה שלטונית עמוקה, ותחושת אחריות כמעט משיחית על גורל האומה הערבית כולה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אאל ת'אני (Al Thani)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">המילה "אאל" (آل) מציינת משפחה מורחבת, שושלת או "אנשי הבית" המקוריים. השם "ת'אני" (ثاني) פירושו בערבית "השני". השם המשפחתי ניתן לזכר השייח' ג'אסם בן מוחמד אאל ת'אני, המייסד של מדינת קטר במאה ה-19. הסיומת השושלתית הזו נועדה לקבע את הלגיטימיות ההיסטורית והשבטית של משפחת המלוכה מול כל השבטים היריבים בחצי האי הערבי, ומעידה על הישרדות ארוכת שנים בתנאי מדבר קשים.</p>
                     </div>
                 </div>
-            </div>
-            <div>
-                <div class="label">בונה/מייסד ומעמד שושלתי</div>
-                <div class="value text-2xl font-bold">חמד בן ח'ליפה אאל ת'אני</div>
-                <div class="label">שנות חיים ותפקיד היסטורי</div>
-                <div class="value text-lg">נולד ב-1952. אמיר קטר (1995–2013). המנהיג שביצע את "המהפכה השקטה" והפך את קטר מנסיכות זעירה לשחקנית מפתח גלובלית בעזרת גז טבעי ותקשורת.</div>
-            </div>
-        </div>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">ניתוח עומק מודיעיני: חמד בן ח'ליפה</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light">
-                    ביוני 1995, בעוד אביו נופש בשוויץ, חמד בן ח'ליפה תפס את השלטון בהפיכה ללא שפיכות דמים. קטר הייתה אז מדינה זעירה בצל השפעה סעודית מוחלטת ומבודדת מהעולם. חמד הבין שריבונותו תלויה ביכולתו לייצר נוכחות בינלאומית שתהיה גדולה משטחה הפיזי של המדינה. הרקע המיידי להקמה היה קריסת המיזם המשותף של ה-BBC בערבית וסעודיה בשל ניסיונות צנזורה של ריאד; חמד גייס מיידית את העיתונאים המובטלים והקים את אל-ג'זירה כנשק אסטרטגי שנועד להרתיע את שכנותיה דרך שליטה בדעת הקהל הערבית ושידור ויכוחים שמעולם לא נשמעו בטלוויזיה הערבית.
-                </p>
-            </div>
-
-            <div class="space-y-12">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ושושלתי מפורט</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">חמד (Hamad):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי המקודש <span class="root-badge text-sm">ח-מ-ד</span> (ح-מ-ד), המשותף לעברית ולערבית (חמד, מחמד, אחמד). משמעותו "שבח", "הערכה" או "הודיה". פירושו "הראוי לשבח" או "זה שמודה לאלוהים". השם מסמל מנהיגות כריזמטית הזוכה לגיבוי מוסרי ודתי.</p>
-                        </div>
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">בן ח'ליפה (Bin Khalifa):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">המילה "ח'ליפה" מגיעה מהשורש <span class="root-badge text-sm">ח'-ל-ף</span> (خ-ל-ף), שפירושו לבוא במקום או להחליף. בהקשר האסלאמי, מדובר ב"ח'ליף" – ממלא מקום הנביא. השם מסמל סמכות ריבונית, ירושה שלטונית לגיטימית ואחריות כבדה על האומה.</p>
-                        </div>
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">אאל ת'אני (Al Thani):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">"אאל" (آل) מציין משפחה מורחבת, שושלת או "אנשי הבית". "ת'אני" (ثاني) פירושו בערבית "השני". השם ניתן לזכר המייסד המודרני של המדינה, השייח' ג'אסם בן מוחמד אאל ת'אני. הסיומת מסמלת יציבות שושלתית ארוכת שנים והבטחת הלגיטימיות של משפחת המלוכה הקטארית מול העולם.</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות פסיכולוגית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
-                        חמד נולד בדוחה בתקופה שבה קטר הייתה מדינה ענייה מאוד, תחת חסות בריטית, המתבססת על כלכלת פנינים דועכת טרם גילוי הנפט והגז. בילדותו הוא גדל בלב הדרמה של ארמון המלוכה, כשהוא חזה מקרוב במאבקי הירושה ובדינמיקה השבטית המורכבת. החוויה המכוננת ביותר של חייו הייתה הלימודים באקדמיית סנדהרסט הצבאית בבריטניה בשנות ה-70. שם נחשף חמד הצעיר לפער הבלתי נתפס שבין הטכנולוגיה, הסדר והחירות המערבית לבין הדלות והקיפאון המסורתי של ביתו. החינוך הצבאי הקנה לו חשיבה של אסטרטג לוחם הממוקד במטרות. הילדות במדבר חסר המשאבים, בצל תחושת הנחיתות מול סעודיה הגדולה, יצרה אצלו אמביציה פנומנלית לשנות את גורל מדינתו. הוא בנה את זהותו כ"אדריכל מידע" – אדם שהבין שהיכולת לשלוט בנרטיב חזקה יותר מהחזקת צבא קונבנציונלי.
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        חמד נולד בדוחה בתקופה שבה קטר הייתה מדינה ענייה מאוד, תחת חסות בריטית, המתבססת על כלכלת פנינים דועכת טרם גילוי הנפט והגז בממדים אדירים. בילדותו הוא גדל בלב הדרמה של ארמון המלוכה, כשהוא חזה מקרוב במאבקי הירושה ובדינמיקה השבטית המורכבת. החוויה המכוננת ביותר של חייו הייתה הלימודים באקדמיית סנדהרסט הצבאית בבריטניה בשנות ה-70. שם נחשף חמד הצעיר לפער הבלתי נתפס שבין הטכנולוגיה, הסדר והחירות המערבית לבין הדלות והקיפאון המסורתי של ביתו. החינוך הצבאי הקנה לו חשיבה של אסטרטג לוחם הממוקד במטרות. הילדות במדבר חסר המשאבים, בצל תחושת הנחיתות מול סעודיה הגדולה, יצרה אצלו אמביציה פנומנלית לשנות את גורל מדינתו. הוא בנה את זהותו כ"אדריכל מידע" – אדם שהבין שהיכולת לשלוט בנרטיב חזקה יותר מהחזקת צבא קונבנציונלי.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה פאן-ערבית</span>
-                    <p class="text-lg text-slate-300">ייסוד אל-ג'זירה כרשת החדשות המשפיעה בעולם, הפיכת קטר למתווכת בינלאומית, ושינוי התודעה הערבית מציות עיוור לדיאלוג ביקורתי, נועז ובלתי מתפשר מול שליטים ורודנים.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Al Arabiya -->
-    <section class="dashboard-card" style="border-right-color: #10b981;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">02. אל-ערביה (Al Arabiya)</h2>
-                <span class="text-sm text-emerald-400 font-mono italic uppercase tracking-widest">Rationalist Liberal Mainstream</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-globe-americas text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">RIYADH / DUBAI BROADCAST</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-emerald-400 text-xl tracking-wide">אל (الـ):</span>
-                        <p class="text-slate-300 mt-1">ה"א הידיעה.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-emerald-400 text-xl tracking-wide">ערביה (العربية):</span>
-                        <p class="text-slate-300 mt-1">פירושה "הערבית". נגזרת מהשייכות הלאומית והתרבותית הרחבה ביותר באזור.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-emerald-300">משמעות הוליסטית:</strong> השם נבחר במכוון כדי לנכס את המותג "ערביות" בחזרה ממי שנתפסו כקיצוניים. הוא נועד להציג את הזהות הערבית כזהות מתונה, רציונלית, חילונית ברובה וליברלית עסקית – בניגוד גמור לקו הלוחמני-דתי או המהפכני של אל-ג'זירה. השם מסמל את "הזרם המרכזי" (Mainstream) החדש והבורגני של העולם הערבי.
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        ייסוד אל-ג'זירה כרשת החדשות המשפיעה בעולם, הפיכת קטר למתווכת בינלאומית, ושינוי התודעה הערבית מציות עיוור לדיאלוג ביקורתי, נועז ובלתי מתפשר מול שליטים ורודנים.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-emerald-400 font-bold mb-2">2003. פרוץ מלחמת עיראק וההתבססות האמריקאית.</div>
-                    <p class="text-slate-300 mb-4">אל-ג'זירה הגיעה לשיא השפעתה כרשת אנטי-אמריקאית ואנטי-ממסדית שהלהיטה את הרחוב הערבי ושידרה קלטות של אוסאמה בן לאדן. סעודיה ומדינות המפרץ המתונות הבינו שהן מאבדות לחלוטין את השליטה על התודעה הציבורית.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-emerald-300">המטרה האסטרטגית המרכזית:</strong> יצירת "משקל נגד" (Counterweight) מאוזן ופרו-סעודי מול אל-ג'זירה. הערוץ הוקם בשיתוף פעולה של משקיעים סעודים, לבנונים ומפרציים כדי להציע חדשות בקצב מהיר וסטנדרט מערבי (אריזה גרפית נוסח CNN) אך בקו עריכה שמקדם יציבות אזורית, נאמנות לממשלות, והתנגדות פומבית לאסלאם הקיצוני ולטרור. 
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מייסד ומעמד אליטיסטי</div>
-                <div class="value text-2xl font-bold">וואליד בן איברהים אל-איברהים</div>
-                <div class="label">שנות חיים ותפקיד מרכזי</div>
-                <div class="value text-lg">נולד ב-1962. מייסד ויו"ר קבוצת MBC, האיש שעיצב את פני הבידור והחדשות בסעודיה ובעולם הערבי כולו ב-30 השנים האחרונות.</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-emerald-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: וואליד אל-איברהים</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light">
-                    ערב הפלישה האמריקאית לעיראק ב-2003, הממסד הסעודי הבין שהוא מאבד את השליטה על התודעה הערבית לטובת הנרטיב המתסיס של קטר. אל-ג'זירה הלהיטה את הרחוב בקו אנטי-מערבי חריף שאיים על היציבות של מדינות המפרץ. וואליד אל-איברהים, שכבר בנה את אימפריית הבידור MBC בלונדון ובדובאי, נבחר על ידי צמרת המלוכה להקים רשת חדשות שתגן על האינטרסים של הממלכה ושל הציר הסוני המתון. המטרה הייתה למשוך את האינטליגנציה הערבית שחיפשה מידע אובייקטיבי, ארוז בסטנדרטים מערביים, ולא רק תעמולה דתית או מהפכנית.
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 02. Al Arabiya -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: המיינסטרים הסוני הליברלי-כלכלי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">אל-ערביה .02</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Rationalist Liberal Mainstream</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">סעודיה (דובאי/ריאד)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2003</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד היסטורי</span>
+                    <span class="text-sm font-bold text-white">וואליד בן איברהים אל-איברהים</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">שמרני מתון - פרו-סעודי</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ומעמדי מורחב</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">וואליד (Walid):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי העתיק <span class="root-badge text-sm">ו-ל-ד</span> (ولد), המשותף לערבית ולעברית (ילד). פירושו "ילוד", "תינוק" או "זה שנולד מחדש". השם מסמל התחדשות, פריון, רעננות ויצירה של חיים חדשים מתוך המורשת הישנה. זהו שם המייצג אדם שנועד להביא שיטות עבודה וכלים מודרניים לחברה מסורתית.</p>
-                        </div>
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">איברהים (Ibrahim):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">הגרסה הערבית-אסלאמית לאברהם אבינו. מקור השם הוא שמי עתיק ופירושו "אב להמון עמים". השם מבטא שורשיות דתית עמוקה, סמכות מוסרית עליונה וברכה אלוהית המועברת מדור לדור.</p>
-                        </div>
-                        <div class="border-r-4 border-emerald-500 pr-4 bg-emerald-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-emerald-400 text-xl tracking-wide">אל-איברהים (Al Ibrahim):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">שם המשפחה מעיד על השתייכות לאחת המשפחות האריסטוקרטיות והחזקות ביותר בממלכה הסעודית. קרבת המשפחה ההדוקה לבית המלוכה (אחותו הייתה אשת המלך פהד) מעניקה לשם משקל פוליטי של "נאמן השלטון" בעל השפעה בלתי מוגבלת על עיצוב התודעה הערבית.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל (الـ)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ה"א הידיעה הממסדית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ערביה (العربية)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">פירושה הפשוט, הישיר והנקי ביותר הוא "הערבית". השם נגזר מהשייכות הלאומית, הגיאוגרפית, הלשונית והתרבותית הרחבה והמקיפה ביותר במזרח התיכון. אין כאן התייחסות לדת או לגיאוגרפיה צרה, אלא לגזע ולאומה כולה.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם נבחר במכוון על ידי משפחת המלוכה הסעודית והמייסדים כדי "לנכס" מחדש את המותג "ערביות". באותן שנים, המושג נחטף על ידי גורמים שנתפסו בעיני סעודיה כקיצוניים (תנועות טרור כמו אל-קאעידה, או גופי תעמולה כמו אל-ג'זירה). השם "אל-ערביה" נועד להציג את הזהות הערבית האותנטית כזהות שהיא בבסיסה מתונה, רציונלית, בעלת פתיחות חילונית (במישור החדשותי) וליברלית מבחינה עסקית. השם מצהיר: אנחנו לא פלג או שבט מתמרד, אנחנו "הזרם המרכזי" (The Mainstream) השפוי והבורגני של העולם הערבי, המעדיף יציבות וצמיחה כלכלית על פני מהפכות פוליטיות הרסניות.</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות אליטיסטית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הערוץ הוקם במרץ <strong>2003</strong>, ממש ערב הפלישה האמריקאית לעיראק (מלחמת המפרץ השנייה). הרקע להקמתו היה משבר תודעתי חריף במדינות המפרץ המתונות. רשת אל-ג'זירה הגיעה באותן שנים לשיא השפעתה כרשת אנטי-אמריקאית ואנטי-ממסדית, שהלהיטה את הרחוב הערבי באמצעות סיקור בלעדי ממערות טורה-בורה של אל-קאעידה ושידור קלטות של אוסאמה בן לאדן. ההנהגה הסעודית והאמירתית הבינה שהיא איבדה לחלוטין את השליטה על התודעה הציבורית, ושההתלהמות הזו מאיימת על יציבות המשטרים המלוכניים מבפנים. הסיבה המרכזית להקמת אל-ערביה הייתה לייצר "משקל נגד" (Counterweight) מאוזן ופרו-סעודי. המטרה הייתה להקים ערוץ שישדר בסטנדרטים חזותיים גבוהים של המערב (אריזה גרפית נוסח CNN), וימשוך את האינטליגנציה הערבית שחיפשה מידע אובייקטיבי, אך עם קו עריכה ברור שמקדם יציבות אזורית, פרגמטיזם, והתנגדות פומבית וברורה לאסלאם הפוליטי הקיצוני ולטרור.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">הבונה האליטיסטי: וואליד בן איברהים אל-איברהים (נולד ב-1962)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">וואליד (Walid)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם נגזר מהשורש השמי העתיק <span class="root-badge">ו-ל-ד</span> (ولد), המשותף לחלוטין לערבית ולעברית (ילד, להוליד, מולד). הפירוש הישיר הוא "ילוד", "תינוק" או אדם "שנולד מחדש". מעבר למשמעות הפשוטה, השם מסמל פריון עצום, התחדשות, יצירתיות, רעננות מנטלית, ויכולת בריאה של חיים חדשים מתוך מורשת ישנה. זהו שם המייצג נאמנה את האדם ש"הוליד" את תעשיית הבידור והחדשות המסחרית המודרנית במזרח התיכון (קבוצת MBC), והביא שיטות עבודה מערביות לחברה הסעודית המסורתית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">איברהים (Ibrahim)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">זוהי הגרסה הערבית-אסלאמית לשמו של אברהם אבינו. מקור השם הוא בשפות השמיות העתיקות ופירושו "אב רם" או "אב המון גויים" (מנהיג רב לאומים). השם מכניס ממד של שורשיות דתית עמוקה, סמכות מוסרית פטריארכלית שאין לערער עליה, וברכה אלוהית המועברת מדור לדור כבסיס איתן ובלתי ניתן לערעור.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל-איברהים (Al Ibrahim)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם המשפחה במקרה זה מעיד על השתייכות לאחת מהמשפחות האריסטוקרטיות, העשירות והחזקות ביותר בממלכה הסעודית. אחותו של וואליד, אל-ג'והרה, הייתה אשתו האהובה של מלך סעודיה המנוח, המלך פהד. ייחוס פוליטי-משפחתי זה העניק לוואליד קרבה הדוקה וגישה ישירה לחלונות הגבוהים ביותר של בית המלוכה. השם מעניק לו מעמד מעין-מלכותי של "נאמן השלטון", עם חסינות והשפעה בלתי מוגבלת על עיצוב התודעה הערבית בהתאם לאינטרסים של ארמון המלוכה בריאד.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         וואליד נולד בריאד למשפחה שחיה בלב הפועם של הכוח וההחלטות הסעודיות. ילדותו עברה בתוך ארמונות ומרכזי קבלת החלטות, שם נחשף מגיל אפס לדיפלומטיה העדינה והמורכבת של המפרץ. הוא גדל כ"נסיך תקשורתי" בתקופה של פריחה כלכלית פנומנלית, מה שאיפשר לו גישה בלתי מוגבלת להשכלה, לתרבות ולטכנולוגיה מערבית בשיאה. החשיפה המוקדמת שלו לעולם העסקים בלונדון ובארה"ב יצרה אצלו זהות של "סעודי קוסמופוליטי" – אדם שמאמין שהממלכה חייבת לאמץ את הכלים של המערב (בידור, מדיה, טכנולוגיה) כדי לשמור על מעמדה הרלוונטי בעולם המודרני. הילדות בלב הממסד עיצבה את הבנתו שתקשורת היא לא רק עסק רווחי, אלא "זרוע ביצועית" קריטית של המדינה. הוא פיתח יכולת ייחודית לשלב בין תרבות פופולרית (כמו סדרות וסרטים הוליוודיים) לבין מסרים פוליטיים מתוחכמים המשרתים את היציבות האזורית.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה מודרניסטית</span>
-                    <p class="text-lg text-slate-300">בניית קבוצת המדיה הגדולה במזרח התיכון, הפיכת אל-ערביה למגן הנרטיבי של המתינות הסונית, ושינוי הטעם התרבותי של העולם הערבי דרך סטנדרטים בינלאומיים של שידור ואיכות חסרת פשרות.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Al Hadath -->
-    <section class="dashboard-card" style="border-right-color: #f97316;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">03. אל-חדת' (Al Hadath)</h2>
-                <span class="text-sm text-orange-400 font-mono italic uppercase tracking-widest">Tactical Breaking News Specialist</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-bolt text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">OSINT & LIVE INTEL HUB</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-orange-500 pr-4 bg-orange-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-orange-400 text-xl tracking-wide">אל (الـ):</span>
-                        <p class="text-slate-300 mt-1">ה"א הידיעה הממקדת.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-orange-500 pr-4 bg-orange-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-orange-400 text-xl tracking-wide">חדת' (حدث):</span>
-                        <p class="text-slate-300 mt-1">נגזר מהשורש <span class="root-badge text-sm">ח-ד-ת'</span>, שפירושו התרחשות חדשה, חידוש, או משהו שקרה ממש כרגע.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-orange-300">משמעות הוליסטית:</strong> "האירוע". השם נבחר בדקדקנות כדי לשדר דחיפות פסיכולוגית, מיידיות ומיקוד אובססיבי בחדשות מתפרצות (Breaking News) בלבד. הוא מצהיר: כאן אין תוכניות אירוח, אין מגזינים מוקלטים, יש רק את הדופק המהיר של "השעה אפס".
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        בניית קבוצת המדיה הגדולה במזרח התיכון, הפיכת אל-ערביה למגן הנרטיבי של המתינות הסונית, ושינוי הטעם התרבותי של העולם הערבי דרך סטנדרטים בינלאומיים של שידור ואיכות חסרת פשרות.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-orange-400 font-bold mb-2">2012. הכאוס של מלחמות האזרחים בעקבות "האביב הערבי".</div>
-                    <p class="text-slate-300 mb-4">המזרח התיכון בער: סוריה, לוב ועיראק התפרקו לגורמים על ידי מיליציות וארגוני טרור (כמו דאע"ש). רשתות החדשות המסורתיות התקשו לעמוד בקצב הדיווחים הטקטיים והסרטונים שהציפו את הרשת, והיו כבולות לפורמטים איטיים יחסית של שידורי אולפן.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-orange-300">המטרה האסטרטגית המרכזית:</strong> אל-ערביה (בראשות וואליד אל-איברהים) ייסדה את "אל-חדת'" כערוץ בת מתמחה שפועל כ"חמ"ל טקטי" 24/7. הערוץ הוקם כדי לספק לצופה (האזרח, אך גם גופי המודיעין) תמונת מצב אופרטיבית בזמן אמת – מפות התקדמות כוחות, ניתוחי OSINT (מודיעין גלוי), צילומי רחפנים וסיקור רציף של החזית, כדי לשלוט בנרטיב של הלחימה האזורית נגד ההשפעה האיראנית ודאע"ש.
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מייסד והוגה המודל</div>
-                <div class="value text-2xl font-bold">וואליד בן איברהים אל-איברהים</div>
-                <div class="label">שנות חיים</div>
-                <div class="value text-lg">נולד ב-1962 (פעיל בריאד ודובאי)</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-orange-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: אסטרטגיית ה"חמ"ל"</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light">
-                    הערוץ נולד מתוך הכאוס הטוטאלי של 2012, כשהאביב הערבי הפך למלחמת אזרחים עקובה מדם בסוריה, לוב ועיראק. רשתות החדשות המסורתיות (כולל אל-ערביה) היו כבולות ללוחות שידורים קשיחים של תוכניות אירוח. אל-חדת' הוקם כמותג-בת תוקפני שפועל כ"חמ"ל חדשות" 24/7. המטרה המרכזית הייתה לנטרל את התעמולה של איראן ודאע"ש דרך חשיפת נתוני שטח, מפות לוויין ודיווחים חיים מהחזית, ובכך לספק לצופה תחושה של "שותף מודיעיני" בזמן אמת.
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 03. Al Hadath -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מומחיות טקטית בחדשות מתפרצות</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">אל-חדת' .03</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Tactical Breaking News Specialist</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">סעודיה (דובאי)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2012</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">הוגה המודל</span>
+                    <span class="text-sm font-bold text-white">וואליד בן איברהים אל-איברהים</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">מבצעי - OSINT</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד בהקשר המותג המבצעי</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-orange-500 pr-4 bg-orange-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-orange-400 text-xl tracking-wide">וואליד אל-איברהים:</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">השימוש בשמו של <strong>וואליד אל-איברהים</strong> גם כאן מדגיש את תפקידו כ"מוליד" (Walid) של פורמטים תקשורתיים משבשים במפרץ. השילוב בין החידוש הטכנולוגי והרעננות המחשבתית (וואליד) לבין הסמכות והיציבות הסעודית (איברהים) אפשר לו לייצר מותג שהוא "האירוע" (החדת') – כזה שמגדיר מחדש את המציאות בשטח עבור הצופה הערבי. השם "אל-חדת'" עצמו מסמל את שבירת הרצף והמעבר למידע גולמי ומיידי שאינו מושפע מצנזורה איטית.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל (الـ)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ה"א הידיעה, המשמשת כאן כזרקור פסיכולוגי ממקד: זה לא סתם אירוע, אלא <strong>ה-אירוע</strong>. המוקד שמבטל כל עיסוק בחדשות משניות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">חדת' (حدث)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">נגזר מהשורש השמי המשותף <span class="root-badge">ח-ד-ת'</span>, שפירושו הפשוט הוא להתרחש עכשיו, להיות משהו חדש לחלוטין (קשור למילה העברית "חדש"), חידוש, או תקרית ספונטנית שקורית ממש ברגע זה. בתיאולוגיה האסלאמית, "חדית'" (Hadith) היא מסורת היסטורית המדווחת על דברי הנביא, אך בטרמינולוגיה של התקשורת המודרנית, "חדת'" הופשט מהדת והפך למילה הנרדפת ביותר לתקרית מבצעית (Incident) או אירוע מתפרץ.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">"האירוע". השם המינימליסטי והקר הזה נבחר בדקדקנות כדי לשדר דחיפות פסיכולוגית עצומה, קצב דופק מהיר, מיידיות ומיקוד אובססיבי בחדשות מתפרצות בלבד (Breaking News). השם מצהיר במפורש על המודל הפונקציונלי של הערוץ: כאן אין תוכניות אירוח פוליטיות, אין פאנלים מנומנמים עם פרשנים, ואין מגזינים דוקומנטריים שהוקלטו מראש. יש רק את "האירוע" – הדופק המהיר של "השעה אפס" והזרמה של מידע גולמי היישר מזירת הלחימה, ברגע התהוותו.</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות ועיצוב זהות מודיעינית-מבצעית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הערוץ הוקם ב-<strong>2012</strong>, מתוך הכאוס הטוטאלי שנוצר כשההבטחות של "האביב הערבי" הפכו למלחמות אזרחים עקובות מדם בסוריה, בלוב ובעיראק. המזרח התיכון בער, והמיליציות השונות (ובהמשך ארגון המדינה האסלאמית - דאע"ש) הציפו את הרשתות החברתיות בסרטוני שטח אכזריים. רשתות החדשות המסורתיות היו כבולות ללוחות שידורים קשיחים ולפורמטים איטיים יחסית של שידורי אולפן, והתקשו לעמוד בקצב הדיווחים הטקטיים המהירים של החזית. קבוצת MBC (ואל-ערביה בפרט, בהנהגת וואליד אל-איברהים) החליטה שהיא זקוקה לזרוע טקטית נפרדת. הסיבה להקמת "אל-חדת'" כערוץ-בת מתמחה הייתה יצירת "חמ"ל חדשות" (חדר מצב) הפועל 24/7. המטרה המרכזית הייתה לנטרל את התעמולה של איראן ודאע"ש לא דרך פובליציסטיקה, אלא דרך חשיפת נתוני שטח כירורגיים: מפות לוויין, התקדמות כוחות, ניתוחי OSINT (מודיעין גלוי), צילומי רחפנים ודיווחים חיים מהחזיתות, ובכך לספק לצופה ולמקבלי ההחלטות תחושה של קבלת תדריך מודיעיני אופרטיבי בזמן אמת.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אדריכל ה"חמ"ל": וואליד בן איברהים אל-איברהים</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">וואליד אל-איברהים בהקשר "אל-חדת'"</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השימוש בשמו של <strong>וואליד אל-איברהים</strong> (אותו מייסד של אל-ערביה) מדגיש גם כאן את תפקידו הבלתי מעורער כ"מוליד" (Walid - יוצר דברים חדשים) של פורמטים תקשורתיים משבשים וחדשניים במפרץ. השילוב בין החידוש הטכנולוגי והרעננות המחשבתית של "וואליד", לבין הסמכות, היציבות העסקית והמשאבים של השושלת הסעודית שלו ("איברהים"), אפשר לו לייצר מותג שהוא-הוא "האירוע" (החדת'). הוא הבין שהמציאות זקוקה לערוץ שמגדיר מחדש את השטח עבור הצופה הערבי. השם "אל-חדת'" בשליטתו מסמל את שבירת הרצף המסורתי והמעבר למידע גולמי, דיגיטלי ומיידי שאינו יכול להמתין לעורכי החדשות הישנים.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         בילדותו בארמונות ריאד בלב הממלכה, וואליד חזה במו עיניו כיצד מידע רגיש עובר בתוך מסדרונות הכוח והופך להחלטות הרות גורל שמשנות את פני האזור. הילדות בלב האליטה השלטונית לימדה אותו שמידע הוא לא רק ידע, אלא כוח הישרדותי אסטרטגי ראשון במעלה. הוא הושפע עמוקות מהשידורים החיים של רשת CNN במהלך מלחמת המפרץ (1991), חוויה שעיצבה את זהותו כ"אסטרטג שקט" המבין את הכוח הפסיכולוגי של המהירות והנוכחות בזירה. הוא אימץ את הדינמיות המערבית ושתל אותה בתוך התרבות הערבית המסורתית. הזהות שלו עוצבה מתוך הבנה שבעיתות מלחמה, הקהל לא מחפש פילוסופיה או ניתוח איטי, אלא נתונים מבצעיים ואירועים (Events) כפי שהם קורים – תובנה שהובילה אותו לעצב את אל-חדת' כערוץ החדשות המהיר והמבוקש ביותר בעולם הערבי בזמני משבר.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה מבצעית</span>
-                    <p class="text-lg text-slate-300">הפיכת אל-חדת' למקור המידע המהיר ביותר עבור גורמי מודיעין וקבלי החלטות, חשיפת פעילות המליציות האיראניות דרך גרפיקה מתוחכמת, וביסוס מודל ה"חמ"ל הטלוויזיוני" כסטנדרט עולמי חדש בשידורי חדשות.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Sky News Arabia -->
-    <section class="dashboard-card" style="border-right-color: #0ea5e9;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">04. סקיי ניוז ערביה (Sky News Arabia)</h2>
-                <span class="text-sm text-sky-400 font-mono italic uppercase tracking-widest">Global Hybrid Information Axis</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-satellite text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">ABU DHABI GLOBAL MEDIA HUB</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-sky-500 pr-4 bg-sky-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-sky-400 text-xl tracking-wide">Sky (סקיי):</span>
-                        <p class="text-slate-300 mt-1">מילולית: שמיים. מסמל חופש תנועה, שקיפות, חשיפה רחבה וכמובן שידור לווייני גלובלי ללא גבולות. זהו גם המותג הבריטי העוצמתי במקורו.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-sky-500 pr-4 bg-sky-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-sky-400 text-xl tracking-wide">News Arabia (ניוז ערביה):</span>
-                        <p class="text-slate-300 mt-1">תוספת אזורית המגדירה את הקהל ואת השפה. חדשות ערביות בסטנדרט המערבי הגבוה ביותר.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-sky-300">משמעות הוליסטית:</strong> השם מבטא סינתזה (הכלאה) מושלמת בין שותפים. הוא נועד לקחת את היוקרה, האמינות והאיכות הטכנית חסרת הפשרות של הרשת הבריטית (Sky), לעטוף אותה באריזה תרבותית ערבית יוקרתית, ולשדר את הכל מאבו דאבי אל העולם.
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הפיכת אל-חדת' למקור המידע המהיר ביותר עבור גורמי מודיעין וקבלי החלטות, חשיפת פעילות המליציות האיראניות דרך גרפיקה מתוחכמת, וביסוס מודל ה"חמ"ל הטלוויזיוני" כסטנדרט עולמי חדש בשידורי חדשות.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-sky-400 font-bold mb-2">2012. איחוד האמירויות ממצבת עצמה כמעצמת יציבות טכנולוגית.</div>
-                    <p class="text-slate-300 mb-4">בזמן שרשתות אחרות היו עסוקות בליבוי יצרים (אל-ג'זירה) או בלימה של כאוס (אל-ערביה), איחוד האמירויות החליטה שהגיע הזמן לבנות מעמד כבירה של סובלנות, מסחר גלובלי, ופיתוח כלכלי. לשם כך, היה חסר להם גוף תקשורת בינלאומי ברמה העליונה ביותר.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-sky-300">המטרה האסטרטגית המרכזית:</strong> יצירת גשר תקשורתי יציב, אמין ופרגמטי. מנסור בן זאיד יזם שותפות אסטרטגית 50/50 עם BSkyB הבריטית כדי להקים באבו דאבי את חדר החדשות המתקדם והירוק ביותר במזרח התיכון. המטרה הייתה להעביר מסר למשקיעים במערב ולאליטות באזור: איחוד האמירויות היא הקול השפוי, הרציונלי והאובייקטיבי שאינו נשאב למלחמות דת קיצוניות.
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מייסד ואדריכל ה"כוח הרך"</div>
-                <div class="value text-2xl font-bold">מנסור בן זאיד אאל נהיאן</div>
-                <div class="label">שנות חיים ותפקיד שלטוני</div>
-                <div class="value text-lg">נולד ב-20 בנובמבר 1970. סגן נשיא איחוד האמירויות, בעל אימפריית השקעות (City Football Group) ואחד האנשים המשפיעים בכלכלה העולמית.</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-sky-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: מנסור בן זאיד</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    הערוץ הוקם כחלק מהחזון האסטרטגי של אבו דאבי להפוך למרכז מדיה, טכנולוגיה וספורט עולמי (פרויקט Twofour54). איחוד האמירויות ביקשה להציג קול ערבי "חדש" – כזה שהוא מודרני, טכנולוגי ופרגמטי לחלוטין, שאינו מזוהה עם הלהט האידיאולוגי של קטר או השמרנות הדתית של ריאד. הערוץ עוצב בסטנדרטים של לונדון וניו יורק, תוך שימוש באולפנים המתקדמים בעולם ובגרפיקה עתידנית, כדי לבסס את אבו דאבי כבירת המודרניות והיציבות.
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 04. Sky News Arabia -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: ציר הכלאה תקשורתי בינלאומי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">סקיי ניוז ערביה .04</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Global Hybrid Information Axis</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">איחוד האמירויות (אבו דאבי)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2012</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אדריכל ה"כוח הרך"</span>
+                    <span class="text-sm font-bold text-white">מנסור בן זאיד אאל נהיאן</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">גלובלי - עסקי מודרני</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני וריבוני מורחב</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-sky-500 pr-4 bg-sky-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-sky-400 text-xl tracking-wide">מנסור (Mansour):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי העתיק <span class="root-badge text-sm">נ-צ-ר</span> (ن-ص-ر), המשותף לעברית (נצר) ולערבית. פירושו "המנצח", "זה שזוכה לסיוע אלוהי לניצחון" או "המושיע". השם מסמל הצלחה כבירה ומובילות טבעית המקבלת גיבוי מהכוחות העליונים.</p>
-                        </div>
-                        <div class="border-r-4 border-sky-500 pr-4 bg-sky-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-sky-400 text-xl tracking-wide">זאיד (Zayed):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי <span class="root-badge text-sm">ז-י-ד</span> (ז-י-ד), שפירושו השפעה, צמיחה, התרחבות או הוספת טוב לעולם. שם זה מזוהה עמוקות עם שגשוג, נדיבות וצמיחה כלכלית מהירה במפרץ הפרסי.</p>
-                        </div>
-                        <div class="border-r-4 border-sky-500 pr-4 bg-sky-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-sky-400 text-xl tracking-wide">אאל נהיאן (Al Nahyan):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">"אאל" פירושו משפחה או שושלת. "נהיאן" נגזר מהשורש השמי <span class="root-badge text-sm">נ-ה-י</span> (נהי) שפירושו סמכות הקובעת גבולות, איסורים וערכי מוסר. השם מסמל ריבונות חזקה, סדר חברתי יציב והנהגה שקובעת את חוקי המשחק ושומרת על גבולות המדינה והחברה.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">Sky (שמיים)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">המילה האנגלית, שמקורה בנורדית עתיקה, משמעותה שמיים, רקיע או ענן. הבחירה במילה זו אינה רק זיהוי תאגידי, אלא סמל פילוסופי לחופש תנועה מוחלט, שקיפות, חשיפה רחבה וכמובן שימוש בטכנולוגיית השידור הלווייני שאינה כפופה לגבולות קרקעיים של אף מדינה. זהו המותג הבריטי העוצמתי שהומצא על ידי איל התקשורת רופרט מרדוק, והבאתו למפרץ מהווה יוקרה בינלאומית וחותמת איכות של אמינות מערבית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">News Arabia (ניוז ערביה)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">תוספת אזורית המגדירה בצורה ברורה ומדויקת את קהל היעד ואת השפה. היא יוצרת תיאום ציפיות: הצופה יקבל את ה"ניוז" (החדשות בפורמט האנגלו-סקסי המהיר) אך הכל יותאם וילבש אופי של "ערביה" (עולם ערבי מכובד ומסורתי).</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם המלא מבטא סינתזה (הכלאה) מושלמת בין מזרח למערב. הוא נועד לקחת את היוקרה, הדיוק הפיננסי, האמינות והאיכות הטכנית חסרת הפשרות של הרשת הבריטית-אירופית המקורית (Sky), לעטוף אותה באריזה תרבותית ערבית יוקרתית, ולשדר את הכל מהמטה האקולוגי והמתקדם באבו דאבי אל העולם הערבי והמערבי כאחד.</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות אסטרטגית גלובלית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הערוץ החל את שידוריו במאי <strong>2012</strong>. באותן שנים, בזמן שקטר הייתה עסוקה בליבוי יצרים אידיאולוגיים ומהפכניים באמצעות אל-ג'זירה, וסעודיה התמקדה בבלימת הכאוס והגנה על המשטרים באמצעות אל-ערביה, איחוד האמירויות הערביות (ובהובלת אמירות אבו דאבי) קיבלה החלטה אסטרטגית משלה: למצב את עצמה כמדינה שהיא מעצמת יציבות, סובלנות טכנולוגית, ומרכז מסחר גלובלי מתקדם (בדומה למעמד של סינגפור במזרח אסיה). אולם, גבר ההבנה שחסר לה גוף תקשורת בינלאומי עצמאי ברמה העליונה שיפיץ את החזון הזה לעולם ויגן על תדמיתה. השייח' מנסור בן זאיד יזם שותפות היסטורית וחסרת תקדים (50/50) עם רשת BSkyB הבריטית כדי להקים באבו דאבי את חדר החדשות המתקדם, האקולוגי והטכנולוגי ביותר במזרח התיכון. הסיבה להקמה הייתה כפולה: מחד, להעביר מסר מרגיע, אובייקטיבי ונטול פניות למשקיעים במערב ולאליטות באזור; ומאידך, להוכיח שאיחוד האמירויות היא הקול השפוי, הרציונלי והמתון שאינו נשאב למלחמות דת קיצוניות או לפוליטיקה רעילה של אחים מוסלמים, אלא ממוקד בפיתוח, בכלכלה ובעתיד המודרני.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אדריכל ה"כוח הרך": מנסור בן זאיד אאל נהיאן (נולד ב-1970)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">מנסור (Mansour)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם ערבי קלאסי הנגזר מהשורש השמי העתיק <span class="root-badge">נ-צ-ר</span> (ن-ص-ر), המשותף באופן הדוק לעברית (כמו במילה נצר) ולערבית. פירושו הברור והמילולי הוא "המנצח", "זה שזוכה לסיוע אלוהי על מנת לנצח" או "המושיע/התומך". השם מסמל באסלאם הצלחה כבירה, מיקוד מוחלט במטרה, ומובילות טבעית המקבלת גיבוי מהכוחות העליונים. מנסור אכן משמש כסמל של "ניצחון תדמיתי" אבו דאבי, ועם אימפריית עסקים מנצחת ורשתות שידור, הוא אכן מנצח בזירה הגלובלית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">זאיד (Zayed)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">נגזר מהשורש השמי <span class="root-badge">ז-י-ד</span> (ז-י-ד), שפירושו הוספה, השפעה, תוספת, צמיחה, התרחבות שמעבר לגבולות, או הוספת טוב וברכה לעולם. שם זה מזוהה עמוקות עם שגשוג כלכלי, נדיבות חומרית וצמיחה פנומנלית במפרץ הפרסי. השם מוכר ונערץ בעיקר בזכותו של האב המייסד של המדינה המודרנית (השייח' זאיד), ולשאת אותו פירושו לשאת באחריות על עתיד הצמיחה של האמירויות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אאל נהיאן (Al Nahyan)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">"אאל" פירושו משפחה או שושלת. "נהיאן" נגזר מהשורש השמי <span class="root-badge">נ-ה-י</span> (נהי) שפירושו המקורי הוא לאסור, לקבוע גבולות, לעצור משהו, או להתוות סמכות של ערכי מוסר חברתיים (למנוע מהעם לעשות רע). השם מסמל את שושלת המלוכה החזקה של אבו דאבי, המהווה סמכות ריבונית שאינה ניתנת לערעור, הדואגת לסדר חברתי יציב, מגנה על אזרחיה, וקובעת הלכה למעשה את "חוקי המשחק" במפרץ.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         מנסור הוא בנו של השייח' זאיד בן סולטאן אאל נהיאן, האב המייסד והרוחני של איחוד האמירויות. בילדותו הוא גדל בלב הדרמה ההיסטורית של הפיכת המדבר הנידח לאימפריה כלכלית וטכנולוגית מודרנית ונוצצת. הוא חונך על ידי אביו לערכים של "פרגמטיזם עסקי" – היכולת לשלב בין מורשת שבטית עתיקה לבין קפיטליזם גלובלי חסר פשרות. בילדותו ראה כיצד נבנים נמלים, גורדי שחקים וערים שלמות מתוך החול, מה שנטע בו אמונה יוקדת בכוחה של היזמות והחדשנות. מנסור למד בארה"ב, שם נחשף לעוצמה של המדיה והספורט ככלים לדיפלומטיה ציבורית גלובלית (Soft Power). הילדות בצל אב-מייסד כריזמטי יצרה אצלו זהות של אסטרטג פיננסי הרואה בעולם כולו מגרש משחקים להשקעות איכותיות המשרתות את תדמית המדינה והופכות אותה למובילה גלובלית שאי אפשר להתעלם ממנה.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה גלובליסטית</span>
-                    <p class="text-lg text-slate-300">מיצוב אבו דאבי כבירת מדיה עולמית, יצירת גשר תקשורתי אמין בין המערב לעולם הערבי, והובלת השקעות מדיה ששינו את פני השידור באזור (כולל שותפות היסטורית עם Sky הבריטית).</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Al Mayadeen -->
-    <section class="dashboard-card" style="border-right-color: #ef4444;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">05. אל-מיאדין (Al Mayadeen)</h2>
-                <span class="text-sm text-red-500 font-mono italic uppercase tracking-widest">The Ideological Epicenter of the Resistance</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-fist-raised text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">BEIRUT RESISTANCE HUB</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-red-500 pr-4 bg-red-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-red-400 text-xl tracking-wide">אל (الـ):</span>
-                        <p class="text-slate-300 mt-1">ה"א הידיעה.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-red-500 pr-4 bg-red-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-red-400 text-xl tracking-wide">מיאדין (ميادين):</span>
-                        <p class="text-slate-300 mt-1">צורת הרבים של המילה "מידאן" שפירושה כיכר עירונית, רחבה או זירת התרחשות.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-red-300">משמעות הוליסטית:</strong> "הכיכרות". השם הוא קריצה ישירה ורומנטית למחאות העממיות (כמו כיכר תחריר). הוא נועד לסמל את הערוץ כ"זירת העם", כבמה להמונים הערביים המנושלים הנאבקים ב"אימפריאליזם האמריקאי ובציונות", ולהציג את רשת הטלוויזיה כחלק בלתי נפרד מציר ההתנגדות הלוחמני של איראן וחזבאללה.
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        מיצוב אבו דאבי כבירת מדיה עולמית, יצירת גשר תקשורתי אמין בין המערב לעולם הערבי, והובלת השקעות מדיה ששינו את פני השידור באזור (כולל שותפות היסטורית עם Sky הבריטית).
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-red-400 font-bold mb-2">2012. פיצול אידיאולוגי תהומי סביב מלחמת האזרחים בסוריה.</div>
-                    <p class="text-slate-300 mb-4">האביב הערבי קרע את העולם הערבי לשניים. בעוד אל-ג'זירה (קטר) ואל-ערביה (סעודיה) תמכו באופן אקטיבי במורדים הסונים נגד שלטון בשאר אל-אסד בסוריה, הציר השיעי-איראני (שכלל את חזבאללה) הרגיש שמלחמת תודעה אכזרית מתנהלת נגדו ללא מענה הולם.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-red-300">המטרה האסטרטגית המרכזית:</strong> ע'סאן בן ג'דו (שפרש מזועזע מאל-ג'זירה) הקים את "אל-מיאדין" כדי לייצר חלופה אידיאולוגית עזה ונחרצת לתקשורת המפרצית. המטרה הייתה להוות שופר טלוויזיוני מודרני ל"ציר ההתנגדות" (מוקאומה), להגן באופן פומבי על משטר אסד, ולמקד מחדש את השיח הערבי סביב הסוגיה הפלסטינית כליבת הזהות הערבית, כנגד מה שנתפס כהתערבות זרה.
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מייסד ולוחם תקשורת</div>
-                <div class="value text-2xl font-bold">ע'סאן בן ג'דו</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">נולד ב-31 במאי 1962. עיתונאי, אינטלקטואל ואיש תקשורת תוניסאי-לבנוני, לשעבר המנהל המיתולוגי של אל-ג'זירה בביירות.</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-red-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ע'סאן בן ג'דו</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    הערוץ הוקם בביירות מיד לאחר פרישתו הדרמטית של בן ג'דו מאל-ג'זירה (שם שימש כמנהל הסניף המצליח וזכה לתהילה עולמית). הרקע להקמה היה אידיאולוגי-מוסרי עמוק: בן ג'דו טען שאל-ג'זירה הפכה לכלי פוליטי של המדיניות הקטארית נגד סוריה ולבנון במהלך האביב הערבי. הוא הקים את אל-מיאדין כדי לייצר משקל נגד (Counter-narrative) עבור "ציר ההתנגדות", תוך הדגשת הסוגיה הפלסטינית כליבת הזהות הערבית הבלתי מתפשרת, בניגוד למה שכינה "הבגידה של המפרציים".
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 05. Al Mayadeen -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מוקד רעיוני של ההתנגדות</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">אל-מיאדין .05</h2>
+                <h3 class="text-lg font-medium text-cyan-400">The Ideological Epicenter of the Resistance</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">לבנון (מטה בביירות)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2012</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד ולוחם התקשורת</span>
+                    <span class="text-sm font-bold text-white">ע'סאן בן ג'דו</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">התנגדות (מוקאומה) - פרו-סורי/איראני</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני וערכי מפורט</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-red-500 pr-4 bg-red-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-red-400 text-xl tracking-wide">ע'סאן (Ghassan):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">שם ערבי קדם-אסלאמי עתיק, נגזר משמה של באר מים מפורסמת בערב. פירושו "שיא הנעורים", "מרץ", "חיוניות" או "יופי שופע ומרענן". השם מזוהה היסטורית עם שושלת הע'סאנים המפוארת ששלטה באזור סוריה ולבנון, מה שמקנה לשמו נופך של גבורה עתיקה ומחויבות עמוקה לקרקע הערבית.</p>
-                        </div>
-                        <div class="border-r-4 border-red-500 pr-4 bg-red-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-red-400 text-xl tracking-wide">בן ג'דו (Ben Jiddo):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">"בן" פירושו "בן של". "ג'דו" פירושו בערבית "סבו". השם המלא "בנו של סבו" מבטא כבוד עמוק למורשת האבות, לשורשים ולקשר הדורי הבלתי מנותק. זהו שם המעיד על אדם הרואה עצמו כשומר החומות של הערכים המסורתיים והאידיאולוגיים של עמו, ואינו מוכן לזנוח את עברו לטובת מודרנה מערבית מזויפת.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל (الـ)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ה"א הידיעה המכוונת לזירה ציבורית מסוימת.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">מיאדין (ميادين)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">צורת הרבים של המילה הערבית "מידאן" (ميدان). משמעות המילה היא כיכר עירונית פתוחה, רחבה ציבורית רחבת ידיים, זירת התרחשות או פשוט "שדה קרב" (כמו מגרש המסדרים, או זירת הפגנות). המונח טומן בחובו התכנסות עממית אדירה אל מול ממסד סגור (ארמון/פרלמנט).</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">"הכיכרות" או "שדות הקרב". השם הוא קריצה ישירה, פופוליסטית ורומנטית למחאות העממיות וההתקוממויות של שנת 2011 במזרח התיכון (כמו כיכר תחריר במצרים, או כיכר הפנינה בבחריין). הוא נועד לסמל את הערוץ כ"זירת העם האמיתית", כבמה טלוויזיונית פתוחה להמונים הערביים המנושלים הנאבקים באליטות הישנות והמושחתות. אולם, באופן פרדוקסלי, השם משמש להכשרת המאבק האזורי ב"אימפריאליזם האמריקאי ובציונות", ולהצגת הרשת כחלק אינטגרלי ואותנטי מ"ציר ההתנגדות" הלוחמני של איראן, סוריה וחזבאללה, תוך מיצוב ההתנגדות האלימה כתנועה עממית אותנטית הצומחת מתוך ה"כיכר".</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות לוחמנית רב-תרבותית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        אל-מיאדין החל לשדר ביוני <strong>2012</strong>, מתוך פיצול אידיאולוגי ותהומי שנוצר בעקבות מלחמת האזרחים בסוריה. האביב הערבי קרע את העולם הערבי ואת עולם התקשורת לשניים. בעוד שרשתות כמו אל-ג'זירה (קטר) ואל-ערביה (סעודיה) תמכו באופן אקטיבי וללא סייג במורדים הסונים שקמו נגד משטרו של בשאר אל-אסד בסוריה, "הציר השיעי-איראני" (שכלל גם את חזבאללה בלבנון ואת משטר אסד) הרגיש שמלחמת תודעה אכזרית מנוהלת נגדו על ידי המפרציות, ללא מענה הולם באותה רמת הפקה טלוויזיונית. ע'סאן בן ג'דו, אחד מהכוכבים הגדולים של אל-ג'זירה ומנהל הלשכה בביירות, התפטר מהרשת הקטארית בטריקת דלת ובמחאה חריפה על מה שראה כהתערבות הרסנית וסובייקטיבית נגד סוריה, שהפכה לערוץ תעמולה. הוא ייסד את "אל-מיאדין" כמשקל נגד עוין: אלטרנטיבה אידיאולוגית עזה שתהווה שופר טלוויזיוני מודרני, אסתטי ורהוט ל"ציר ההתנגדות" (מוקאומה). המטרה המיידית הייתה להגן באופן פומבי על משטר אסד מפני הדחה, ולהדוף את ההשפעה הסעודית והקטארית על ידי מיקוד מחדש של השיח הערבי סביב "האויב האמיתי" והמסורתי – ישראל (הסוגיה הפלסטינית) וארצות הברית.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">לוחם התקשורת: ע'סאן בן ג'דו (נולד ב-1962)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ע'סאן (Ghassan)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם ערבי קדם-אסלאמי עתיק ויפהפה, שנגזר היסטורית משמה של באר מים מתוקים מפורסמת בחצי האי ערב. פירוש השם המקובל הוא "שיא הנעורים", "מרץ חסר מעצורים", "חיוניות" או "יופי שופע ומרענן". השם מזוהה היסטורית עם שושלת הע'סאנים (אל-ע'סאסנה) המפוארת (ממלכה נוצרית-ערבית חזקה ששלטה באזור סוריה, ירדן ולבנון לפני עליית האסלאם, כבעלת ברית של הביזנטים). זה מקנה לשמו נופך של גבורה עתיקה, מורכבות היסטורית המגשרת בין עדות, ומחויבות עמוקה ואורגנית לאדמת הלבנט (סוריה רבתי) - בדיוק האדמה שעליה הוא נלחם כיום תקשורתית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">בן ג'דו (Ben Jiddo)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">המילה "בן" פירושה הברור "בן של". המילה "ג'דו" פירושה בערבית מדוברת וספרותית "סבו" או "הסבא שלו" (ג'ד = סבא). השם המלא "בנו של סבו" הוא צירוף פילולוגי שורשי המבטא כבוד אדיר ויוצא דופן למורשת האבות, לשורשים המשפחתיים ולשרשרת הדורות הבלתי מנותקת. זהו שם המעיד על אדם פטריארכלי הרואה עצמו כשומר החומות של הערכים המסורתיים והאידיאולוגיים של עמו, כזה שאינו מוכן בשום אופן לזנוח את "האמת הישנה" ואת המאבקים ההיסטוריים (המאבק למען פלסטין והמאבק בציונות) לטובת כסף מפרצי קל או "מודרנה" מערבית מזויפת.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         ע'סאן נולד בתוניסיה לאב מוסלמי ואם נוצרייה, מה שהעניק לו בסיס זהותי רב-תרבותי, סובלני ומורכב מגיל אפס. הוא גדל בצל המאבקים הפוליטיים הסוערים בתוניסיה ובצרפת, שם נחשף לתנועות השמאל הרדיקלי והאנטי-קולוניאליזם. הילדות בסביבה המשלבת בין דתות יצרה אצלו תפיסת עולם "פאן-ערבית" חילונית, הרואה בלאומיות הערבית את המכנה המשותף העליון מעל לכל דת. לאחר לימודיו בתוניסיה ובפריז, הזהות שלו התגבשה כעיתונאי-לוחם המאמין שחדשות הן קודם כל כלי למהפכה חברתית. בילדותו הוא ספג את סיפורי הגבורה של המאבק הפלסטיני, מה שהפך אצלו לאמונה אידיאולוגית עמוקה. המעבר שלו ללבנון וסיקור המלחמות מול ישראל יצרו אצלו הזדהות מוחלטת עם חזבאללה, ועיצבו אותו כדמות המשלבת חריפות אינטלקטואלית צרפתית עם להט מהפכני ערבי שאינו יודע פשרות.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיית ה"מוקאומה"</span>
-                    <p class="text-lg text-slate-300">יצירת האלטרנטיבה התקשורתית החזקה ביותר לנרטיב המפרצי, ביסוס מעמדה של ביירות כמרכז שידור אידיאולוגי של "ההתנגדות", והובלת קמפיינים תקשורתיים גלובליים לטובת "ציר ההתנגדות" הערבי.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Al Araby -->
-    <section class="dashboard-card" style="border-right-color: #a855f7;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">06. אל-ערבי (Al Araby TV)</h2>
-                <span class="text-sm text-purple-400 font-mono italic uppercase tracking-widest">Democratic Intellectual Vanguard Axis</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-university text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">LONDON / DOHA INTELECTUAL INTEL</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-purple-500 pr-4 bg-purple-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-purple-400 text-xl tracking-wide">אל (الـ):</span>
-                        <p class="text-slate-300 mt-1">ה"א הידיעה הממקדת.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-purple-500 pr-4 bg-purple-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-purple-400 text-xl tracking-wide">ערבי (العربي):</span>
-                        <p class="text-slate-300 mt-1">פירושו "הערבי". הגדרה ישירה של זהות לאומית המופשטת מזהויות דתיות או שבטיות.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-purple-300">משמעות הוליסטית:</strong> השם מבטא רצון לייצג "דור חדש" של ערבים: דמוקרטיים, חילוניים ומשכילים, שאינם כפופים לתכתיבי המשטרים המלוכניים הישנים, ואינם נכנעים לפיתויי האסלאם הקיצוני. הוא מסמל חזרה רעיונית לזהות הערבית הטהורה, זו המחוברת לערכי זכויות אדם, אוניברסליות וחופש מחשבה אקדמי.
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        יצירת האלטרנטיבה התקשורתית החזקה ביותר לנרטיב המפרצי, ביסוס מעמדה של ביירות כמרכז שידור אידיאולוגי של "ההתנגדות", והובלת קמפיינים תקשורתיים גלובליים לטובת "ציר ההתנגדות" הערבי, תוך שהוא מארח בקביעות בכירים באיראן ובחזבאללה.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-purple-400 font-bold mb-2">2015. שקיעת האביב הערבי ועליית "משטרי הנגד".</div>
-                    <p class="text-slate-300 mb-4">לאחר התלהבות ה"אביב הערבי" ב-2011, הגיעה שנת 2015 כשהיא מביאה עמה אכזבה קשה. הדיקטטורות הצבאיות חזרו לשלוט (כמו במצרים), ומהפכות רבות נגנבו על ידי תנועות איסלאמיסטיות או צבאות זרים. האינטליגנציה הערבית חשה אבודה וללא בית תקשורתי.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-purple-300">המטרה האסטרטגית המרכזית:</strong> עזמי בשארה, בתמיכת קטר (דרך חברת "Fadaat Media"), הקים את הערוץ כדי לייצר סביבה טלוויזיונית שמתפקדת כ"אוניברסיטה פתוחה" פוליטית. המטרה לא הייתה רק לשדר חדשות, אלא לספק ניתוח אינטלקטואלי עמוק ומרווח נשימה אקדמי שישמר את רעיונות הדמוקרטיה וזכויות האדם בקרב הנוער הערבי. זהו ערוץ שמבקש להנחיל תרבות פוליטית של אזרחות (Citizenship) כחלופה ממשית לייאוש שאפף את האזור.
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מייסד וארכיטקט המחשבה</div>
-                <div class="value text-2xl font-bold">עזמי בשארה</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">נולד ב-22 ביולי 1956. פילוסוף, פוליטיקאי, סופר ואסטרטג ערבי-פלסטיני, המשמש כיום כיועץ בכיר ומשפיע לאמיר קטר ומנהל מכון מחקר מוביל.</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-purple-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: עזמי בשארה</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    הערוץ הוקם בלונדון כחלק מקבוצת "הערבי החדש" (Fadaat Media). הרקע להקמה היה הצורך הקריטי בשימור והמשכיות של ערכי ה"אזרחות" וה"דמוקרטיה" שפרצו לרחובות ב-2011 אך דוכאו בכוח על ידי משטרי הנגד. בשארה רצה להקים ערוץ המהווה "אוניברסיטה טלוויזיונית" לבניית תשתית רעיונית לחברה חופשית, תוך פנייה לאינטליגנציה הערבית הצעירה שחיה בגלות או במולדתה ומחפשת עומק מחשבתי מעבר לכותרות הצעקניות.
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 06. Al Araby TV -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: אוונגרד אינטלקטואלי דמוקרטי</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">אל-ערבי .06</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Democratic Intellectual Vanguard Axis</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">לונדון / דוחה (קטר)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2015</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מייסד וארכיטקט המחשבה</span>
+                    <span class="text-sm font-bold text-white">עזמי בשארה</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">אזרחי - ליברלי (נתמך קטר)</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המייסד - ניתוח לשוני ומחשבתי מפורט</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-purple-500 pr-4 bg-purple-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-purple-400 text-xl tracking-wide">עזמי (Azmi):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי <span class="root-badge text-sm">ע-ז-מ</span> (ع-ז-מ), המשותף לעברית ולערבית. פירושו "בעל נחישות", "כוח רצון איתן", "נחוש" או "החלטה נחרצת". השם מעיד על עקביות אידיאולוגית, עמידה על עקרונות ודבקות במטרה למרות קשיים חיצוניים ופוליטיים.</p>
-                        </div>
-                        <div class="border-r-4 border-purple-500 pr-4 bg-purple-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-purple-400 text-xl tracking-wide">בשארה (Bishara):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">פירושו בערבית "בשורה טובה", "חדשות טובות" או "אוונגליון" (כפי שמופיע בברית החדשה). זהו שם המזוהה עמוקות עם שורשים ערביים-נוצריים ומבטא תקווה משיחית-חילונית לעידן חדש, מתוקן וצודק יותר בחברה הערבית. השילוב בין נחישות (עזמי) לבשורה (בשארה) מגדיר היטב את פועלו המחקרי והפוליטי של האיש שבנה את המטריצה המחשבתית החדשה של דוחה.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל (الـ)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">ה"א הידיעה הממקדת והאולטימטיבית, הופכת מושג פשוט להגדרה אוניברסלית.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ערבי (العربي)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">פירושו הפשוט הוא "הערבי". זוהי הגדרה ישירה, נקייה וטהורה של זהות לאומית ואישית, המופשטת לחלוטין מזהויות דתיות משנה (כמו סוני או שיעי) או מזהויות שבטיות ואזוריות מצומצמות. זהו תיאור של אדם אנושי, של אזרח במרחב.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם "הערבי" (או בהשאלה "הערבי החדש") מבטא רצון עז לייצג ולפנות אל "דור חדש" לחלוטין של ערבים: דור של צעירים משכילים שדורשים אזרחות, שוויון, דמוקרטיה וחילוניות (מופרדת ממוסדות המדינה). אלו צעירים שאינם מוכנים עוד להיות כפופים לתכתיבי המשטרים הצבאיים או המלוכניים הישנים, ובו זמנית אינם נכנעים לפיתויי ההקצנה של האסלאם הרדיקלי והטרור. השם מסמל חזרה רעיונית אל הזהות ה"ערבית" האמיתית בגדולתה – כזו המחוברת היסטורית לערכי זכויות אדם, פלורליזם אוניברסלי, השכלה מדעית וחופש מחשבה אקדמי פתוח לחלוטין.</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות אינטלקטואלית מורכבת</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הערוץ הוקם בשנת <strong>2015</strong> והחל את שידוריו מהמטה המרכזי בלונדון. לאחר ההתלהבות העצומה של מחאות ה"אביב הערבי" ב-2011, הגיעה שנת 2015 כשהיא מביאה עמה חורף קר ואכזבה פוליטית קשה ביותר במזרח התיכון (תקופה המכונה "שקיעת האביב הערבי"). הדיקטטורות הצבאיות העמוקות, כדוגמת מצרים תחת הנהגת א-סיסי, חזרו לשלוט בכוח הזרוע; מהפכות אחרות נחטפו, נבזזו או נהרסו על ידי מיליציות אסלאמיסטיות (כמו דאע"ש) או על ידי התערבות של צבאות זרים (בסוריה, בתימן ובלוב). האינטליגנציה הערבית חשה אבודה, מדוכאת, משותקת וללא שום בית תקשורתי שייצג את דרישותיה המקוריות לדמוקרטיה טהורה נטו. על רקע התרסקות זו, הקים ההוגה עזמי בשארה, בתמיכה כלכלית אדירה של קטר (דרך חברת התקשורת "Fadaat Media"), את רשת אל-ערבי. הסיבה להקמה לא הייתה להתחרות מיידית באל-ג'זירה על כותרות צהובות (למעשה קטר מממנת את שני הגופים), אלא לייצר סביבה טלוויזיונית שמתפקדת כ"אוניברסיטה פתוחה" פוליטית. הערוץ נועד לספק ניתוח אינטלקטואלי עמוק ומרווח נשימה רעיוני שישמר בכוח את חזון הדמוקרטיה והאזרחות (Citizenship) כחלופה ממשית לייאוש, להגירה או להקצנה שאפפו את הנוער הערבי.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">ארכיטקט המחשבה: עזמי בשארה (נולד ב-1956)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">עזמי (Azmi)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">נגזר מהשורש השמי המשותף <span class="root-badge">ע-ז-מ</span> (ع-ز-م), אשר מקביל במשמעותו לשורש העברי "עוז/עזוז" או לקבלת החלטה חזקה (כמו "מלקבל החלטה"). הפירוש הישיר של השם הוא "בעל נחישות רבה", "כוח רצון איתן", "אדם נחוש ללא חת" או "החלטה נחרצת שאין ממנה חזרה". השם מעיד במדויק על אישיות בעלת עקביות אידיאולוגית עמוקה, עמידה איתנה ולעתים עיקשת על עקרונות מחשבתיים, ודבקות מוחלטת במטרה גם כשנדרשים לשלם מחיר כבד של רדיפות, גלות וקשיים מצד הממסד הפוליטי.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">בשארה (Bishara)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">פירוש המילה בערבית הוא "בשורה טובה", "חדשות טובות ומשמחות" או בהקשר הדתי הנוצרי "אוונגליון" (ממש כמו בשורת הברית החדשה). זהו שם המזוהה עמוקות עם שורשים ערביים-נוצריים (חג הבשורה – עיד אל-בשארה) ומבטא תקווה אופטימית, משיחית אך מומרת לחילונית, לעידן חדש, מתוקן, נאור וצודק יותר בחברה הערבית החולה. השילוב המושלם בין נחישות איתנה ובלתי מתפשרת של פוליטיקאי (עזמי) לבין הבאת בשורה רעיונית של תקווה ושינוי של פילוסוף (בשארה) מתאר בדיוק מופתי את פועלו המחקרי והפוליטי של האיש שניסח מחדש את המטריצה המחשבתית של התקשורת בקטר.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         עזמי נולד בנצרת, ישראל, למשפחה משכילה ובעלת מודעות פוליטית גבוהה מאוד (אביו היה דמות מוערכת בקהילה). הוא גדל כערבי-נוצרי בתוך המורכבות המדממת והזהותית של הקיום הפלסטיני במדינת ישראל הצעירה. בילדותו חווה את המתח העמוק שבין רצון להשכלה וחירות לבין תחושת הקיפוח הלאומי והממשל הצבאי (בנעוריו המוקדמים). הוא היה תלמיד מבריק שספג בביתו ערכים של לאומיות ערבית חילונית (נאצריזם), מה שדחף אותו לפתח תיאוריות פוליטיות מורכבות על הקשר שבין דת, מדינה ולאום. לאחר דוקטורט בפילוסופיה באוניברסיטת הומבולדט בברלין (שם נחשף למחשבה הליברלית והמרקסיסטית האירופית), הזהות שלו התגבשה כ"אינטלקטואל ערבי גלובלי" המנסה ליישם מודלים דמוקרטיים מערביים על המציאות הערבית הסבוכה. המעבר שלו לקטר ב-2007 הפך אותו לארכיטקט התרבותי של דוחה המודרנית, כשהוא משתמש בילדותו בנצרת כדלק למאבקו על הזהות הערבית הליברלית והחופשית.
                     </p>
                 </div>
-                <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה דמוקרטית-לאומית</span>
-                    <p class="text-lg text-slate-300">הקמת המרכז הערבי למחקר ולימודים פוליטיים, ביסוס אל-ערבי כערוץ החדשות האינטלקטואלי המוביל, ופרסום עשרות ספרים ששינו את פני המחשבה המדינית הערבית במאה ה-21.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Asharq News -->
-    <section class="dashboard-card" style="border-right-color: #fbbf24;">
-        <div class="flex justify-between items-start mb-10 border-b border-slate-800 pb-8">
-            <div>
-                <h2 class="text-5xl font-black text-white italic tracking-tighter">07. א-שרק ניוז (Asharq News)</h2>
-                <span class="text-sm text-yellow-400 font-mono italic uppercase tracking-widest">Financial Power & Global Influence Axis</span>
-            </div>
-            <div class="flex flex-col items-end">
-                <i class="fas fa-chart-line text-6xl text-slate-700 opacity-40"></i>
-                <span class="text-[10px] text-slate-600 mt-2 font-black uppercase tracking-widest">RIYADH ECONOMIC INTELLIGENCE</span>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="label">אטימולוגיית המותג: ניתוח מבני ושורשי</div>
-                <div class="value mt-4">
-                    <div class="mb-4 border-r-4 border-yellow-500 pr-4 bg-yellow-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-yellow-400 text-xl tracking-wide">א-שרק (الشرق):</span>
-                        <p class="text-slate-300 mt-1">פירושה בערבית "המזרח". נגזרת מהשורש <span class="root-badge text-sm">ש-ר-ק</span> המציין את זריחת השמש.</p>
-                    </div>
-                    <div class="mb-4 border-r-4 border-yellow-500 pr-4 bg-yellow-900/10 py-2 rounded-l-lg">
-                        <span class="font-black text-yellow-400 text-xl tracking-wide">ניוז (News):</span>
-                        <p class="text-slate-300 mt-1">תוספת באנגלית המשמשת כחותמת מערבית, פיננסית, שמעידה על תפיסת המותג כשחקן גלובלי.</p>
-                    </div>
-                    <p class="text-lg italic text-slate-200 mt-4 leading-relaxed">
-                        <strong class="text-yellow-300">משמעות הוליסטית:</strong> המותג מקשר את הערוץ לקבוצת המדיה הסעודית הענקית SRMG, ומסמל את עליית "המזרח החדש" כמרכז כובד כלכלי וטכנולוגי גלובלי. בעזרת השותפות עם ענקית המידע Bloomberg, השם נועד לייצג את העוצמה הפיננסית העולה של המפרץ – מזרח שמביט לוול סטריט בגובה העיניים ומדבר בשפת שוק ההון.
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הקמת המרכז הערבי למחקר ולימודים פוליטיים, ביסוס אל-ערבי כערוץ החדשות האינטלקטואלי המוביל, ופרסום עשרות ספרים ששינו את פני המחשבה המדינית הערבית במאה ה-21.
                     </p>
                 </div>
-                
-                <div class="label mt-6">שנת הקמה, סיבת הייסוד והקשר גיאופוליטי</div>
-                <div class="value text-lg leading-relaxed mt-4">
-                    <div class="text-yellow-400 font-bold mb-2">2020. עידן "חזון 2030" של ערב הסעודית בצל מגפת הקורונה.</div>
-                    <p class="text-slate-300 mb-4">הממלכה הסעודית, תחת הנהגתו של יורש העצר מוחמד בן סלמאן (MBS), פתחה במאמץ אגרסיבי לגוון את כלכלתה ולהיגמל מהתלות בנפט. כדי למשוך השקעות זרות אדירות, ריאד הבינה שחסר לה קול תקשורתי כלכלי אמין שיוכל להתחרות בבירות הפיננסיות העולמיות.</p>
-                    <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl">
-                        <strong class="text-yellow-300">המטרה האסטרטגית המרכזית:</strong> הקמת זרוע תקשורת כלכלית בערבית שתשתווה ברמתה ל-Bloomberg ול-CNBC. א-שרק ניוז הוקמה כדי להוות גשר מידע קריטי (בשפות ערבית ואנגלית) שיפנה לא רק לפוליטיקאים, אלא ליזמים, אנשי העסקים והצעירים הערבים. השותפות האקסקלוסיבית עם בלומברג העניקה לערוץ, עוד בטרם החל לשדר, אמינות בנקאית מוחלטת בעיני משקיעים בינלאומיים שרצו להיכנס לשוק המפרצי.
-                    </div>
-                </div>
             </div>
-            <div>
-                <div class="label">בונה/מנהיגה ופורצת דרך ניהולית</div>
-                <div class="value text-2xl font-bold">ג'ומאנה אל-ראשד</div>
-                <div class="label">שנות חיים ותפקיד</div>
-                <div class="value text-lg">נולדה בערך ב-1980. מנכ"לית SRMG, האישה הראשונה העומדת בראש קבוצת המדיה הגדולה ביותר במזרח התיכון והדמות המשפיעה על המודרניזציה התקשורתית הסעודית.</div>
-            </div>
-        </div>
+        </section>
 
-        <div class="bio-section">
-            <h3 class="text-2xl font-black text-white mb-10 border-r-8 border-yellow-500 pr-5 italic uppercase tracking-tighter">פרופיל עומק מודיעיני: ג'ומאנה אל-ראשד</h3>
-            
-            <div class="background-box">
-                <span class="sub-label"><i class="fas fa-history"></i> הרקע ההיסטורי המורחב להקמה</span>
-                <p class="text-base text-slate-200 leading-relaxed font-light italic">
-                    הערוץ הוקם בשיא המהפכה הכלכלית והחברתית המהירה של יורש העצר הסעודי מוחמד בן סלמאן. הרקע להקמה היה ההבנה האסטרטגית שערב הסעודית חייבת להפוך למרכז פיננסי עולמי, וכדי לעשות זאת היא זקוקה לזרוע תקשורתית שתדבר בשפה של המשקיעים הגלובליים ותדווח על שוק המניות בזמן אמת. השותפות האסטרטגית עם Bloomberg נועדה להעניק לערוץ חותמת של אמינות ויוקרה בינלאומית מיום הקמתו, תוך שימוש בטכנולוגיות השידור המתקדמות ביותר הקיימות כיום בריאד ובדובאי כדי לשנות את הדימוי של הכלכלה הערבית.
-                </p>
+        <div class="channel-divider"></div>
+
+        <!-- ========================================== -->
+        <!-- 07. Asharq News -->
+        <!-- ========================================== -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-slate-400 mb-2 tracking-widest">מאפיין ייחודי: מעצמת כוח פיננסי וחזון 2030</div>
+                <h2 class="text-4xl font-black text-white mb-2 tracking-wide">א-שרק ניוז .07</h2>
+                <h3 class="text-lg font-medium text-cyan-400">Financial Power & Global Influence Axis</h3>
             </div>
 
-            <div class="space-y-12">
+            <div class="grid grid-cols-2 gap-3 mb-10">
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מדינה</span>
+                    <span class="text-sm font-bold text-white">סעודיה (מטה: ריאד/דובאי)</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">שנת ייסוד</span>
+                    <span class="text-sm font-bold text-white">2020</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">מנהיגה ויזמית</span>
+                    <span class="text-sm font-bold text-white">ג'ומאנה אל-ראשד</span>
+                </div>
+                <div class="data-card">
+                    <span class="text-xs font-semibold text-slate-400 mb-1">אוריינטציה</span>
+                    <span class="text-sm font-bold text-white">כלכלי - גלובליסטי (בשיתוף Bloomberg)</span>
+                </div>
+            </div>
+
+            <div class="space-y-8">
                 <div>
-                    <span class="sub-label"><i class="fas fa-fingerprint"></i> אטימולוגיית המנהיגה - ניתוח לשוני ומנהיגותי מורחב</span>
-                    <div class="mt-4 space-y-4">
-                        <div class="border-r-4 border-yellow-500 pr-4 bg-yellow-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-yellow-400 text-xl tracking-wide">ג'ומאנה (Jomana):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">שם ערבי עתיק ופיוטי שפירושו "פנינה" או "פנינת כסף" (מקור פרסי/ערבי עתיק). השם מבטא יופי נדיר, ערך גבוה מאוד ועדינות משולבת בחוזק של אבן חן יקרה. הוא סמלי למעמדה כאישה פורצת דרך שזורחת בהנהגה הסעודית החדשה והצעירה ששואפת למצוינות.</p>
-                        </div>
-                        <div class="border-r-4 border-yellow-500 pr-4 bg-yellow-900/10 py-3 rounded-l-lg">
-                            <span class="font-black text-yellow-400 text-xl tracking-wide">אל-ראשד (Al-Rashid):</span>
-                            <p class="text-slate-300 mt-2 leading-relaxed">נגזר מהשורש השמי המקודש <span class="root-badge text-sm">ר-ש-ד</span> (ر-ש-ד), המשותף לעברית ולערבית. פירושו "הנחיה", "יושרה", "צדק" או "בגרות שכלית ורוחנית". זהו אחד משמותיו של אלוהים באסלאם ("אל-ראשד"), והוא מעיד על הנהגה נבונה המכוונת למטרה נכונה ומסמל יושרה ניהולית, חזון ויושר לב מקצועי חסר פשרות.</p>
-                        </div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">אטימולוגיה פילולוגית של הערוץ:</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">א-שרק (الشرق)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">פירושה בערבית "המזרח". נגזרת מהשורש השמי <span class="root-badge">ש-ר-ק</span>, המציין את זריחת השמש והופעת האור. השימוש בשם זה מקשר את הערוץ ישירות לעיתון הדגל של קבוצת המדיה הסעודית (א-שרק אל-אווסאט), ומעניק לו עוגן של יוקרה ארוכת שנים ומוניטין פאן-ערבי מבוסס.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ניוז (News)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">תוספת אוניברסלית וגלובלית באנגלית (במקום המילה הערבית "אח'באר"). תוספת זו משמשת כחותמת מודרנית, טכנולוגית ופיננסית מובהקת. היא מעידה על תפיסת המותג: זהו אינו רק עוד ערוץ ערבי מקומי המסקר סכסוכים, אלא שחקן גלובלי המדבר בשפת שוקי ההון והאליטות הבינלאומיות של ניו יורק ולונדון.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">משמעות הוליסטית</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">השם השלם (א-שרק ניוז) מסמל את עליית "המזרח התיכון החדש" כמרכז כובד כלכלי, טכנולוגי וחדשני, ולא רק כאזור של משברי נפט או מלחמות. בעזרת השותפות האקסקלוסיבית עם ענקית המידע הכלכלי Bloomberg, השם נועד לייצג את העוצמה הפיננסית העולה של מדינות המפרץ – מזרח גאה, חזק ומודרני שמביט לוול סטריט בגובה העיניים, ומסוגל להכתיב בעצמו את הקצב הכלכלי של שוקי האנרגיה וההיי-טק העולמיים.</p>
                     </div>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-child"></i> ילדות, סביבה ועיצוב זהות של מנהיגות חדשה וגלובלית</span>
-                    <p class="text-lg text-slate-300 leading-relaxed">
+                    <span class="info-label">הרקע והסיבות להקמת הערוץ</span>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        ערוץ א-שרק ניוז הושק בנובמבר <strong>2020</strong>, בעיצומה של מגפת הקורונה העולמית וכחלק מהותי מ"חזון 2030" האסטרטגי של יורש העצר הסעודי מוחמד בן סלמאן (MBS). הממלכה הסעודית פתחה אז במאמץ אגרסיבי חסר תקדים לגוון את כלכלתה, לבנות את עיר העתיד ניאום (NEOM), ולהיגמל לחלוטין מתלותה ההיסטורית בשוק הנפט. כדי למשוך השקעות זרות אדירות של טריליוני דולרים ולהעביר מסר של שקיפות כלכלית, ריאד הבינה שחסר לה קול תקשורתי כלכלי ומודרני אמין שיוכל להתחרות בבירות הפיננסיות העולמיות. הסיבה המרכזית להקמת הערוץ הייתה ליצור זרוע תקשורת כלכלית בערבית שתשתווה באיכותה ל-CNBC ולרשתות המערביות המובילות. א-שרק ניוז הוקמה כדי להוות גשר מידע קריטי שיפנה לקהל יעד חדש לגמרי במזרח התיכון: יזמים צעירים, אנשי הייטק, מנכ"לים, אנשי עסקים ומשקיעים, במקום לפוליטיקאים מיושנים. השותפות הבלעדית עם בלומברג העולמית, שהעניקה לערוץ גישה מיידית למסופים פיננסיים מתקדמים ולמידע בורסאי גלובלי, נועדה לשדר אמינות בנקאית מוחלטת בעיני משקיעים בינלאומיים המבקשים להיכנס לשוק המפרצי המתפתח במהירות.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-cyan-400 mb-4">המנהיגה הפורצת דרך: ג'ומאנה אל-ראשד (נולדה סביב 1980)</h4>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">ג'ומאנה (Jomana)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם ערבי עתיק, נשי ופיוטי, ששורשיו הרחוקים נעוצים גם בשפה הפרסית העתיקה. פירושו המילולי הוא "פנינה" או "פנינת כסף טהורה ומבריקה". השם מבטא יופי נדיר, ערך כלכלי ותכשיטי גבוה מאוד, ועדינות המשולבת בחוזק עצום של אבן חן הנוצרת בתנאי לחץ וזמן בתוך צדפה במצולות הים. בחברה של חצי האי הערבי, פנינים היו מקור העושר והסחר העיקרי לפני גילוי הנפט, ולכן יש לשם משמעות תרבותית אדירה. הוא סמלי ביותר למעמדה כאישה פורצת דרך, "פנינה יקרה" שזורחת בתוך ההנהגה הסעודית החדשה (ממסד שעד כה נשלט לחלוטין על ידי גברים), השואפת ליוקרה, לאיכות ולמצוינות עסקית ללא פשרות.</p>
+                    </div>
+                    <div class="etymology-box">
+                        <h5 class="font-bold text-cyan-300 mb-1">אל-ראשד (Al-Rashid)</h5>
+                        <p class="text-sm text-slate-300 leading-relaxed">שם משפחה יוקרתי הנגזר מהשורש השמי המקודש <span class="root-badge">ר-ש-ד</span> (ر-ش-د), המשותף לעברית ולערבית. פירושו העמוק הוא "הנחיה לדרך הישר", "הליכה בדרך הצדק", "יושרה מוחלטת", "רציונליות" או "בגרות שכלית ורוחנית". זהו אחד מ-99 שמותיו של אלוהים באסלאם ("אל-ראשד" – המדריך לאמת). השם מעיד על הנהגה נבונה, שקולה ומחושבת המכוונת למטרה נכונה. הוא מסמל עבור נושאתו חזון ניהולי רחב, יושרה מקצועית איתנה וכושר הכוונה (להיות "מצפן" כלכלי ותקשורתי) הדרוש כדי לנווט את ספינת המדיה הענקית של סעודיה לעבר יעדי המאה ה-21.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">ילדות (Childhood)</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
                         ג'ומאנה נולדה בערב הסעודית למשפחה בעלת מעמד, השכלה והשפעה רבה בממלכה. היא גדלה בתקופה של שינוי חברתי עמוק ומהיר, כשהיא משתייכת לדור הראשון של נשים סעודיות שזכו לחינוך גלובלי ללא המגבלות המסורתיות הנוקשות של העבר. בילדותה היא נחשפה למסורת הסעודית השמרנית והמכובדת בביתה, אך במקביל ספגה את העולם המערבי והעסקי דרך לימודיה המקיפים בלונדון (SOAS ו-City University). הילדות בלב תקופת המעבר הסעודית הפכה אותה לדמות האידיאלית להובלת המהפכה התקשורתית: היא מבינה לעומק את הניואנסים והרגישויות של התרבות הערבית אך פועלת בסטנדרטים ניהוליים קפדניים של לונדון וניו יורק. הזהות שלה עוצבה על ידי השילוב בין ה"עולם הישן" המחויב לערכי המשפחה לבין השאיפות של ה"עולם החדש" הממוקד בנתונים, רווח והשפעה גלובלית חסרת פשרות, מה שהופך אותה למנהיגה המגשרת בין שתי תקופות.
                     </p>
                 </div>
+
                 <div>
-                    <span class="sub-label"><i class="fas fa-trophy"></i> הישגים ואידיאולוגיה כלכלית מודרנית</span>
-                    <p class="text-lg text-slate-300">הפיכתה לאישה הראשונה העומדת בראש קבוצת SRMG, הקמת א-שרק ניוז כערוץ הכלכלי החזק ביותר באזור, וביסוס מודל של עיתונות כלכלית ערבית העומדת בסטנדרטים של וול סטריט והסיטי של לונדון תוך שותפות עם בלומברג.</p>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">אידאולוגיה והישגים</h4>
+                    <p class="text-slate-300 text-[15px] leading-relaxed text-justify">
+                        הפיכתה לאישה הראשונה העומדת בראש קבוצת SRMG, הקמת א-שרק ניוז כערוץ הכלכלי החזק ביותר באזור, וביסוס מודל של עיתונות כלכלית ערבית העומדת בסטנדרטים של וול סטריט והסיטי של לונדון תוך שותפות עם בלומברג.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="text-center py-16 border-t border-slate-800 opacity-50 text-[14px]">
-        <p class="font-bold uppercase tracking-widest text-slate-400">Press Matrix MENA Edition | Ver 2026.V5</p>
-        <p class="mt-4">נערך עבור רם | 2026 | US & MENA Intelligence Matrix | PC OPTIMIZED DATA</p>
-        <p class="mt-2 text-slate-600 uppercase tracking-tighter">Al Jazeera | Al Arabiya | Al Hadath | Sky News Arabia | Al Mayadeen | Al Araby | Asharq News</p>
-    </footer>
+        <!-- Matrix Footer המותאם -->
+        <footer class="mt-16 pt-8 border-t border-slate-800 text-center pb-8">
+            <div class="flex justify-center gap-6 mb-4 text-slate-600">
+                <i class="fas fa-satellite-dish text-xl"></i>
+                <i class="fas fa-globe-americas text-xl"></i>
+                <i class="fas fa-tv text-xl"></i>
+            </div>
+            <p class="text-slate-300 text-sm tracking-wide font-bold">האתר נוצר על ידי ג'מיני ורם</p>
+            <p class="text-[10px] text-slate-500 font-mono mt-2 tracking-widest uppercase">MENA TV MATRIX V3.0 / 2026</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
