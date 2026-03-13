@@ -7,16 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
         
         :root {
             --bg-deep: #020617;
             --card-bg: #0f172a;
-            --accent-tv: #38bdf8; /* תכלת טלוויזיה אלקטרונית */
+            --accent-tv: #38bdf8;
+            --border-glow: rgba(56, 189, 248, 0.2);
         }
 
         body { 
-            background-color: var(--bg-deep); 
+            background-color: #060b19; 
             color: #f1f5f9; 
             font-family: 'Assistant', sans-serif; 
             min-height: 100vh;
@@ -31,107 +32,87 @@
         }
 
         .channel-section {
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--border-glow);
             border-radius: 3.5rem;
-            padding: 4rem 2.5rem;
-            margin-bottom: 9rem;
+            padding: 3rem 2rem;
+            margin-bottom: 6rem;
             background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 1) 100%);
             position: relative;
             box-shadow: 0 40px 80px -20px rgba(0,0,0,0.9);
         }
 
-        .section-header {
-            text-align: right;
-            margin-bottom: 4rem;
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-tv);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-tv);
+            display: inline-block;
         }
 
         .channel-title {
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             font-weight: 900;
             line-height: 1.1;
             font-style: italic;
             text-transform: uppercase;
             letter-spacing: -0.05em;
             color: #ffffff;
-            margin-bottom: 0.5rem;
         }
 
         .etymology-block {
-            background: rgba(56, 189, 248, 0.12);
-            border-right: 5px solid var(--accent-tv);
-            padding: 1.8rem;
-            margin-top: 2rem;
-            border-radius: 0 1.5rem 1.5rem 0;
-            font-size: 1rem;
-            color: var(--accent-tv);
-            font-weight: 400;
-            line-height: 1.8;
+            background: rgba(56, 189, 248, 0.08);
+            border-right: 4px solid var(--accent-tv);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 1.2rem 1.2rem 0;
         }
 
-        .info-block {
-            margin-top: 5rem;
-            margin-bottom: 5.5rem;
+        .etymology-item {
+            margin-bottom: 1rem;
+        }
+
+        .etymology-item strong {
+            color: var(--accent-tv);
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
 
         .info-label {
             color: var(--accent-tv);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.15em;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .info-label::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to left, rgba(56, 189, 248, 0.5), transparent);
+            background: linear-gradient(to left, var(--border-glow), transparent);
         }
 
         .content-text {
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             font-weight: 300;
-            line-height: 2.2;
+            line-height: 1.8;
             color: #cbd5e1;
             text-align: justify;
+            margin-bottom: 2rem;
         }
 
-        .builder-title-block {
-            margin-top: 8rem;
-            margin-bottom: 4rem;
-        }
-
-        .builder-name {
-            font-size: 1.8rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            color: #ffffff;
-            line-height: 1.3;
-        }
-
-        .builder-etymology-full {
-            background: rgba(255, 255, 255, 0.05);
-            border-right: 5px solid #f1f5f9;
-            padding: 1.8rem;
-            margin-top: 1.8rem;
-            border-radius: 0 1.5rem 1.5rem 0;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            font-weight: 400;
-            line-height: 1.9;
-        }
-
-        .status-dot {
-            width: 16px;
-            height: 16px;
-            background: var(--accent-tv);
-            border-radius: 50%;
-            box-shadow: 0 0 30px var(--accent-tv);
+        .builder-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-top: 4rem;
         }
 
         .highlight-year {
@@ -139,508 +120,137 @@
             color: var(--accent-tv);
             font-weight: 900;
             background: rgba(56, 189, 248, 0.15);
-            padding: 4px 12px;
-            border-radius: 8px;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 7rem;
-            padding-top: 2rem;
+            margin-bottom: 5rem;
+            padding-top: 1rem;
         }
 
-        strong { font-weight: 800; color: #fff; }
-        em { color: var(--accent-tv); font-style: normal; font-weight: 700; }
+        h4.bio-subtitle {
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            margin-top: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
 
     <div class="matrix-container">
         
-        <!-- Navigation Header -->
         <nav>
             <a href="index.html" class="text-xs font-black uppercase tracking-[0.4em] flex items-center gap-3 text-sky-400">
                 <i class="fas fa-th-large"></i>
                 MATRIX HUB
             </a>
-            <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-                ENCYCLOPEDIC ARCHIVE V24 / RAM
+            <div class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest bg-cyan-500/10 px-3 py-1 rounded-full">
+                EUROPE/NEWS
             </div>
         </nav>
 
-        <!-- 01. BBC News (United Kingdom) -->
         <section class="channel-section">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-4">
                     <span class="status-dot"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-sky-400">UK Sector Active</span>
+                    <span class="text-xs font-black uppercase tracking-widest text-sky-400">UK Sector Active</span>
                 </div>
                 <h2 class="channel-title">BBC .01</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">British Broadcasting Corporation</h3>
+                <h3 class="text-xl font-light italic text-slate-500">British Broadcasting Corporation</h3>
+            </div>
+
+            <div class="etymology-block">
+                <div class="etymology-item">
+                    <strong>British (בריטי)</strong>
+                    <p class="text-sm text-slate-300">נגזר מהשם הרומי Britannia, ששורשו ביוונית Prettanikē - "ארצם של האנשים המצוירים". נועד לאחד את כל חלקי הממלכה תחת זהות אחת.</p>
+                </div>
+                <div class="etymology-item">
+                    <strong>Broadcasting (שידור)</strong>
+                    <p class="text-sm text-slate-300">מונח חקלאי במקור (Broad + Casting) המתאר זריעת זרעים בתנועה רחבה. ה-BBC שאלה את המונח לתיאור "זריעת" אותות באוויר.</p>
+                </div>
+                <div class="etymology-item">
+                    <strong>Corporation (תאגיד)</strong>
+                    <p class="text-sm text-slate-300">מהלטינית Corporare - "לשלב בתוך גוף אחד". מסמל ישות ריבונית עצמאית המשרתת את הציבור.</p>
+                </div>
+            </div>
+
+            <span class="info-label">הרקע והקמת הערוץ</span>
+            <p class="content-text">
+                ה-BBC הוקמה ב-18 באוקטובר <span class="highlight-year">1922</span> מתוך חרדה מה"כאוס האלחוטי" האמריקאי. הממשלה הבריטית ביקשה ליצור מונופול מוסדר שימנע תחרות מסחרית משחיתה וישמש ככלי חינוכי מאחד. מאז 1927 היא פועלת תחת צ'רטר מלכותי המבטיח את עצמאותה כ"קול האמת" של האימפריה.
+            </p>
+
+            <div class="builder-box">
+                <h4 class="text-white font-black text-xl mb-4 italic uppercase">John Charles Walsham Reith</h4>
+                <div class="text-sm text-cyan-400 font-mono mb-4">1889–1971</div>
                 
-                <div class="etymology-block">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>British:</em> נגזר מהמילה הרומית <strong>Britannia</strong>, ששורשה ביוונית <strong>Prettanikē</strong> - "ארצם של האנשים המצוירים" (שבטי הפיקטים שקישטו את גופם).<br>
-                    <em>Broadcasting:</em> מונח חקלאי במקורו המורכב מהמילים <strong>Broad</strong> (רחב) ו-<strong>Casting</strong> (זריעה). מתאר פיזור זרעים ביד חופשית לכל עבר. המונח הושאל לרדיו כדי לתאר הפצת אותות אלקטרומגנטיים לציבור הרחב ללא צורך בכבלים.<br>
-                    <em>Corporation:</em> מהלטינית <strong>Corporare</strong> - "ליצור גוף". מסמל את איחוד האינטרסים לישות משפטית ריבונית אחת.<br>
-                    <em>London:</em> מהשורש הקלטי העתיק <strong>Lowonidonjon</strong> - "נהר רחב מדי מכדי לחצותו", עדות לעוצמת נהר התמזה שסביבו צמחה העיר.
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    ה-BBC הוקמה רשמית ב-18 באוקטובר <span class="highlight-year">1922</span>. היא נולדה מתוך צורך פוליטי וטכנולוגי דחוף לארגן את שידורי הרדיו החדשניים תחת קורת גג אחת, כדי למנוע את ה"כאוס האלחוטי" שאפיין את המודל המסחרי בארה"ב. בשנת 1927 היא הפכה מתאגיד פרטי למוסד ציבורי המוגן תחת צ'רטר מלכותי. מטרת העל הייתה להשתמש בשידור כ"שירות ציבורי" (Public Service) המנותק מלחצים כלכליים, במטרה להוות סמכות מוסרית וחינוכית לאומה, תוך הגדרת הסטנדרט העולמי לאובייקטיביות ועצמאות עריכתית.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name">John Charles Walsham Reith (1889–1971)</h4>
-                <div class="builder-etymology-full">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>John:</em> (עברית: Yochanan) - "יהוה חנן", מסמל חסד אלוהי.<br>
-                    <em>Charles:</em> מהשפה הגרמאנית העתיקה (Karl) - שפירושו "אדם חופשי" (Free Man).<br>
-                    <em>Walsham:</em> שם משפחה אנגלי טופונימי - המורכב מ-Weal (חומה/באר) ו-Ham (התיישבות/בית).<br>
-                    <em>Reith:</em> שם סקוטי עתיק - שפירושו "מקום מוקף", סכר מים או אזור מגודר.
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    ג'ון ריית' נולד בסטונהייבן, סקוטלנד, בנם הצעיר של הכומר ג'ורג' ריית' ואמו אדית. אביו היה דמות סמכותית בכנסייה החופשית של סקוטלנד, והבית התנהל תחת משמעת פוריטנית קפדנית של עבודה קשה ותחושת שליחות "נבחרת". ריית' גדל עם האמונה שהחיים הם שדה קרב מוסרי. הוא הוכשר כמהנדס בגלזגו, שם למד להעריך סדר מבני ודיוק. פציעתו הקשה במלחמת העולם הראשונה (כדור בפנים בקרב לוס ב-1915 שהותיר בו צלקת בולטת) חיזקה את נחישותו לעצב את החברה כ"מהנדס חברתי" המשתמש בטכנולוגיה לטובת המוסר הציבורי.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו, המכונה **"ריית'יאניזם" (Reithianism)**, התבססה על הפטרנליזם המוסרי: האמונה שעל המדיה להציג לאנשים את מה שהוא "טוב עבורם" ולא את מה שהם "רוצים" (כמו בידור זול). הוא האמין שהשידור הוא כלי אלוהי לשיפור האנושות. המוטו המפורסם שלו - "ליידע, לחנך ולבדר" - הציב את החינוך בראש הסולם. הוא ביסס את עקרון ה"אובייקטיביות הפעילה", לפיה ה-BBC חייבת לשמש כקול של האומה כולה, תוך שמירה על רמה תרבותית גבוהה שתמנע את התדרדרות ההמון לרדידות.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הפך את ה-BBC מארגון רדיו מקומי למוסד התקשורת המשפיע בתבל. הוא ייסד ב-1932 את ה-BBC Empire Service (היום ה-World Service) והשיק ב-1936 את שידורי הטלוויזיה הראשונים בעולם בחדות גבוהה באלכסנדרה פאלאס. הוא ביסס את עצמאות הארגון מול הפוליטיקאים דרך הצ'רטר המלכותי, מהלך ששינה את פני הדמוקרטיה המודרנית והפך את ה-BBC למותג האמון החזק בעולם. בשנת 1940 הוענק לו תואר האצולה **Baron Reith**.
-                </p>
+                <h4 class="bio-subtitle">ילדות</h4>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">נולד בסקוטלנד כבן לכומר דומיננטי. גדל בבית נוקשה של עבודה קשה ודת. הוכשר כמהנדס, ופציעתו הקשה במלחמת העולם הראשונה (צלקת בולטת בפניו) חיזקה את נחישותו לעצב את החברה כ"מהנדס חברתי".</p>
+                
+                <h4 class="bio-subtitle">אידיאולוגיה</h4>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">"ריית'יאניזם" - פטרנליזם מוסרי. האמין שעל המדיה לתת לאנשים את מה ש"טוב עבורם" ולא מה שהם "רוצים". המוטו שלו: ליידע, לחנך ולבדר.</p>
+                
+                <h4 class="bio-subtitle">הישגים</h4>
+                <p class="text-sm text-slate-400 leading-relaxed">הפך את ה-BBC מארגון רדיו מקומי למוסד המשפיע בתבל. השיק ב-1936 את שידורי הטלוויזיה הראשונים בעולם בחדות גבוהה וביסס את עצמאות הארגון מול הפוליטיקאים.</p>
             </div>
         </section>
 
-        <!-- 02. i24NEWS (Global / Israel) -->
-        <section class="channel-section border-blue-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-blue-500 shadow-blue-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-blue-400">Global Sector Active</span>
+        <section class="channel-section" style="--border-glow: rgba(59, 130, 246, 0.3)">
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="status-dot" style="background: #3b82f6; box-shadow: 0 0 20px #3b82f6;"></span>
+                    <span class="text-xs font-black uppercase tracking-widest text-blue-400">Global Sector Active</span>
                 </div>
                 <h2 class="channel-title">i24NEWS .02</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Information International News Channel</h3>
-                
-                <div class="etymology-block border-blue-500 text-blue-400 bg-blue-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>i:</em> מסמל Information (מידע), International (בינלאומי), Independent (עצמאי), ו-Israel (ישראל).<br>
-                    <em>24:</em> מציין שידור רציף 24 שעות ביממה, 7 ימים בשבוע, ללא הפסקה.<br>
-                    <em>Jaffa (יפו):</em> מהשורש השמי <strong>י-פ-ה</strong> - יופייה המרהיב של עיר הנמל העתיקה ששימשה שער היסטורי לארץ ישראל.<br>
-                    <em>News:</em> (אנגלית) Collective noun ל"דברים חדשים" מהמקור הלטיני <strong>Nova</strong>.
+                <h3 class="text-xl font-light italic text-slate-500">Information International News Channel</h3>
+            </div>
+
+            <div class="etymology-block" style="border-right-color: #3b82f6; background: rgba(59, 130, 246, 0.08)">
+                <div class="etymology-item">
+                    <strong>i (האות הקטנה)</strong>
+                    <p class="text-sm text-slate-300">מסמלת ארבעה עמודים: Information (מידע), International (בינלאומי), Independent (עצמאי), ו-Israel (ישראל).</p>
+                </div>
+                <div class="etymology-item">
+                    <strong>Jaffa (יפו)</strong>
+                    <p class="text-sm text-slate-300">מהשורש י-פ-ה. הבחירה בנמל יפו מסמלת שער תרבותי היסטורי המחבר בין המזרח התיכון לאירופה.</p>
                 </div>
             </div>
 
-            <div class="info-block">
-                <span class="info-label text-blue-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    i24NEWS הוקמה ב-17 ביולי <span class="highlight-year">2013</span> על ידי המיליארדר פטריק דרהי. זהו מיזם פרטי שנולד מתוך צורך אסטרטגי לשנות את זרימת המידע במזרח התיכון ולספק אלטרנטיבה מאוזנת לנרטיב של רשתות כמו אל-ג'זירה. מטרת העל הייתה להציג את המציאות המורכבת של ישראל והאזור בשלוש שפות (צרפתית, אנגלית וערבית), במטרה להוות גשר תקשורתי בין המערב לעולם הערבי ולחזק את פלורליזם הדעות באזור רווי קונפליקטים.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-blue-400">Patrick Drahi (1963–)</h4>
-                <div class="builder-etymology-full border-blue-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Patrick:</em> מהמילה הלטינית <strong>Patricius</strong> - שמשמעותה "אציל" או "מיוחס" (שורש: Pater - אב).<br>
-                    <em>Drahi:</em> שם משפחה יהודי-מרוקאי. השורש עשוי לנבוע מהמילה הערבית <strong>דרע</strong> שפירושה "שריון" או "מגן", או מהתייחסות לנהר הדרעא במרוקו.
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-blue-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    פטריק דרהי נולד בקזבלנקה, מרוקו, למשפחה יהודית של מורים למתמטיקה. הוריו הטמיעו בו מגיל צעיר הערצה ללוגיקה, למספרים ולניתוח אנליטי קר. בגיל 15 עבר לצרפת, שם הצטיין בלימודיו והתקבל ל-École Polytechnique היוקרתית בפריז. הרקע המהגר שלו והצלחתו באליטה המדעית הצרפתית עיצבו אותו כאיש עסקים גלובלי המשלב שורשים צפון-אפריקאים עם שאיפה למצוינות טכנולוגית מערבית. הוא גדל בסביבה שדרשה הסתגלות מהירה וחדות מחשבתית, תכונות שהפכו לסימן ההיכר שלו בעולם העסקים.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-blue-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו מבוססת על המושג <strong>Convergence</strong> (התכנסות) – שילוב מוחלט בין תשתית (טלקום) לבין תוכן (מדיה). בתחום החדשות, הוא מאמין בתקשורת "ללא גבולות": עולם שבו המידע זורם חופשי ללא הטיות לאומיות צרות. הוא רואה ב-i24NEWS כלי ליצירת שיח רציונלי ומקצועי במזרח התיכון, תוך שימוש במודל עסקי יעיל וטכנולוגיות שידור מתקדמות המאפשרות גמישות מקסימלית בסיקור אירועים בזמן אמת.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-blue-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    בנה את אימפריית Altice שהפכה לאחת מקבוצות הטלקום והמדיה הגדולות בעולם. הקמת i24NEWS ב-2013 היא הישג חלוצי כערוץ החדשות הבינלאומי הראשון המופעל מישראל ומצליח לחדור לשווקים בצרפת, ארה"ב והעולם הערבי. ב-2019 רכש את בית המכירות "סות'ביס" (Sotheby's), הישג שמיצב אותו כשחקן מרכזי גם בזירה התרבותית העולמית. ב-2024 השיק את ערוץ i24NEWS בעברית, המהווה מהפכה בשוק החדשות המקומי בישראל.
-                </p>
-            </div>
-        </section>
-
-        <!-- 03. Deutsche Welle (Germany) -->
-        <section class="channel-section border-amber-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-amber-500 shadow-amber-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-amber-400">Germany Sector Active</span>
-                </div>
-                <h2 class="channel-title">DW .03</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Deutsche Welle Global News Service</h3>
-                
-                <div class="etymology-block border-amber-500 text-amber-400 bg-amber-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Deutsche:</em> מהמילה הגרמאנית העתיקה <strong>Diutisc</strong> - שפירושה "ששייך לעם" (The People).<br>
-                    <em>Welle:</em> (גרמנית: גל) - מהשורש הפרוטו-גרמאני <strong>Walon</strong> שפירושו להתגלגל. מציין את התפשטות גלי הרדיו בחלל.<br>
-                    <em>Berlin:</em> מהמילה הסלאבית <strong>Birl</strong> - שפירושה "ביצה" או "אזור רטוב".<br>
-                    <em>Bonn:</em> מהמקור הקלטי-רומי <strong>Bonna</strong> - שפירושו "מבצר" או "יסוד יציב".
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-amber-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    Deutsche Welle (DW) החלה את שידוריה ב-3 במאי <span class="highlight-year">1953</span>. היא נוסדה בתקופת ה"נס הכלכלי" כחלק מהמאמץ הלאומי הגרמני להשתלב מחדש במשפחת העמים הדמוקרטיים לאחר מלחמת העולם השנייה. מטרת העל הייתה לשקם את האמון הבינלאומי ולהוכיח שגרמניה מסוגלת לנהל עיתונות חופשית, תוך בניית "גשר של הבנה" (Kulturbrücke) בין גרמניה לעולם החופשי ומתן משקל נגד לתעמולה הטוטליטרית שפעלה ממזרח ברלין.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-amber-400">Konrad Hermann Joseph Adenauer (1876–1967)</h4>
-                <div class="builder-etymology-full border-amber-500">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Konrad:</em> מהמילה הגרמאנית העתיקה <strong>Kuon + Rad</strong> - שפירושו "יועץ נועז/אמיץ" (Bold Counsel).<br>
-                    <em>Hermann:</em> שם גרמאני עתיק המורכב מ-Heer (צבא) ו-Mann (איש) - "איש צבא".<br>
-                    <em>Joseph:</em> (עברית: Yosef) - "יהוה יוסיף", שם מקראי המסמל שפע וצמיחה.<br>
-                    <em>Adenauer:</em> שם טופונימי המציין תושב מהעיירה <strong>Adenau</strong> (במקור "Ah-den-au", שפירושו מים בעמק השקט).
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-amber-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    קונראד אדנאואר נולד בקלן למשפחה קתולית אדוקה מהמעמד הבינוני. אביו היה פקיד משפטי קפדן שהטמיע בו ערכים של צייתנות לחוק, חסכנות ויושרה עמוקה. ילדותו בצל קתדרלת קלן נטעה בו זהות אירופאית-קתולית חזקה שראתה בגרמניה חלק מהמערב הנוצרי. הוא חווה את התבוסה במלחמת העולם הראשונה ואת עליית הנאציזם (שאליו התנגד נחרצות, מה שהוביל למאסרו פעמיים על ידי הגסטפו), חוויות שעיצבו את אמונתו שרק דמוקרטיה יציבה ומעוגנת במערב יכולה להגן על העם הגרמני.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-amber-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו הייתה "דמוקרטיה נוצרית" משולבת בפרגמטיזם פוליטי נוקשה. אדנאואר האמין שגרמניה חייבת להיות מעוגנת במערב (Westbindung) כדי לשרוד את המלחמה הקרה. הוא ראה בתקשורת חופשית (DW Law) כלי להצגת הפנים האנושיות והסובלניות של גרמניה החדשה לעולם, בניגוד מוחלט לתעמולה הסובייטית. תפיסתו הייתה שהעיתונאי הוא שגריר של ערכים דמוקרטיים, ועליו לפעול לקידום השלום וההבנה הבינלאומית.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-amber-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    ביסס את ה-DW Law ב-1953, שהעניק לרשת עצמאות מוחלטת מהממשלה למרות המימון הממשלתי. כקנצלר גרמניה הראשון (<span class="highlight-year">1949–1963</span>), הפך את DW מרדיו קטן בבון לתאגיד מולטימדיה גלובלי המשדר כיום ב-32 שפות. הקים את ה-DW Akademie לחיזוק חופש הביטוי בעולם. מורשתו היא רשת הנחשבת לקול הדמוקרטי והשפוי ביותר באירופה, המהווה עמוד שדרה לדיפלומטיה הציבורית הגרמנית.
-                </p>
-            </div>
-        </section>
-
-        <!-- 04. CNews (France) -->
-        <section class="channel-section border-red-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-red-600 shadow-red-600"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-red-500">French Corporate Active</span>
-                </div>
-                <h2 class="channel-title">CNEWS .04</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">The Narrative Alternative Matrix</h3>
-                
-                <div class="etymology-block border-red-500 text-red-500 bg-red-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>C:</em> מייצג את קבוצת <strong>Canal+</strong> (מהלטינית: Canalis - צינור או תעלה), מסמל את הזרמת התוכן לציבור.<br>
-                    <em>News:</em> (אנגלית) Collective noun ל"דברים חדשים" מהמקור הלטיני <strong>Nova</strong>.<br>
-                    <em>Boulogne-Billancourt:</em> מורכב מ-Bonna (מבצר) ומ-Billancourt (חצרו של ביליאן).<br>
-                    <em>Bolloré:</em> שם משפחה ברטוני (Breton) המורכב מ-Bod + Loré - שפירושו "שיח דפנה" או "קצה הגבעה".
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-500">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    ערוץ CNews הושק מחדש במתכונתו הנוכחית ב-<span class="highlight-year">2017</span>. המטרה היתה להקים ערוץ חדשות המבוסס על דעות ופרשנות (Opinion-led News), כמענה לליברליזם של המיינסטרים הצרפתי. הערוץ נועד לשבור את ה"תקינות הפוליטית" ולאפשר שיח פתוח על נושאים כמו זהות לאומית, הגירה וערכים נוצריים. הוא הוקם כאלטרנטיבה שמרנית ל-France 24, מתוך אמונה שהקהל הצרפתי זקוק לעימות רעיוני חי ותוסס.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-red-500">Vincent Jean Marie Bolloré (1952–)</h4>
-                <div class="builder-etymology-full border-red-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Vincent:</em> מהמילה הלטינית <strong>Vincere</strong> - שפירושה "הכובש" או "המנצח" (שורש: Victoria).<br>
-                    <em>Jean:</em> גרסה צרפתית ל"יוחנן" (Yochanan) - יהוה חנן.<br>
-                    <em>Marie:</em> מהשם העברי "מרים" (Miryam) - שפירושו "רצויה" או "מרירות", שם קדוש קתולי.
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-red-500">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    ונסן בולורה נולד בבולון-ביאנקור למשפחת תעשיינים ברטונית עשירה וותיקה (הוצאת נייר בולורה שנוסדה ב-1822). הוא גדל בלב האצולה התעשייתית והפיננסית של צרפת, שם למד את רזי הכוח והשליטה על מידע וכלכלה גלובלית. חונך במוסדות קתוליים יוקרתיים ורכש השכלה משפטית. ילדותו בצל המפעלים המשפחתיים נטעה בו אופי של "פשיטה" עסקית (Corporate Raider) המשלב שמרנות חברתית קשיחה עם דינמיות פיננסית חסרת פשרות, תוך דבקות בשימור מורשת המשפחה והאומה.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-500">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו דוגלת בשמרנות קתולית-צרפתית ושימור ה"ציוויליזציה הנוצרית" של אירופה. הוא מאמין שהמדיה צריכה להיות כלי לקידום ערכים לאומיים ומסורתיים ולהוות משקל נגד לגלובליזציה הליברלית. בולורה רואה ב-CNews פלטפורמה ל"החזרת הקול" לצרפת הישנה, תוך שימוש במודל תקשורתי המעודד פולמוס חריף כדרך להגיע לאמת ולעורר את הציבור. תפיסתו היא שהתקשורת אינה ניטרלית, אלא שדה קרב על הנשמה של האומה.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-500">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הפך את קבוצת Bolloré למעצמה לוגיסטית ומדיה חובקת עולם דרך רכישת Vivendi ו-Canal+. הישגו התקשורתי המכונן הוא המהפך של CNews מערוץ זניח לאחד המשפיעים בצרפת, תוך שינוי סדר היום הציבורי. יצר מודל של "תקשורת לוחמת" ששינה את פני השיח הלאומי והפך אותו למותג המכונה לעיתים "הפוקס ניוז האירופי", תוך הוכחה שחדשות המבוססות על דעות יכולות להיות רווחיות ביותר.
-                </p>
-            </div>
-        </section>
-
-        <!-- 05. Sky News (United Kingdom) -->
-        <section class="channel-section border-indigo-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-indigo-500 shadow-indigo-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-indigo-400">UK Corporate Active</span>
-                </div>
-                <h2 class="channel-title">SKY NEWS .05</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Europe's First 24h News Matrix</h3>
-                
-                <div class="etymology-block border-indigo-500 text-indigo-400 bg-blue-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Sky:</em> מהמילה הנורדית העתיקה <strong>Sky</strong> - שפירושה "ענן" או "אוויר עליון". מסמל את חוסר הגבולות הלווייני.<br>
-                    <em>London (Osterley):</em> מהשורש הקלטי <strong>Lond</strong> (פראי או עז). המטה ממוקם ב-Osterley ("קרחת יער של כבשים").<br>
-                    <em>Murdoch:</em> שם גאלי/סקוטי (Muir-dach) - שפירושו "אדון הים".
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-indigo-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    Sky News הוקמה ב-5 בפברואר <span class="highlight-year">1989</span>. המטרה היתה לשבור את המונופול הממלכתי של ה-BBC ולהכניס מודל מסחרי, מהיר ותחרותי לשוק התקשורת האירופי. היא נולדה מתוך חזונו של רופרט מרדוק להשתמש בטכנולוגיית לוויין כדי לספק חדשות בזמן אמת, תוך אימוץ סגנון דינמי ואגרסיבי יותר המתמקד ב"חדשות שבירה" (Breaking News) ככלי לשליטה בסדר היום הציבורי.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-indigo-400">Keith Rupert Murdoch (1931–)</h4>
-                <div class="builder-etymology-full border-indigo-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Keith:</em> שם סקוטי עתיק (Céiteach) - שפירושו "מקום מיוער".<br>
-                    <em>Rupert:</em> מהשפה הגרמאנית העתיקה <strong>Hrod-berht</strong> - שפירושו "תהילה זוהרת" (Bright Fame).
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-indigo-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    נולד במלבורן, אוסטרליה, למשפחה של עיתונאים מובילים. אביו, סר קית' מרדוק, היה מו"ל משפיע. רופרט גדל בתוך מערכות עיתונים ולמד מגיל צעיר את הקשר הישיר שבין שליטה במידע להשפעה פוליטית. התחנך באוקספורד, שם פיתח בוז לממסד הבריטי הישן והמעונב, רגש שעיצב את סגנונו המרדני והאנטי-ממסדי לאורך כל הקריירה הבינלאומית שלו. הוא ראה בעצמו "אאוטסיידר" שבא לזעזע את האליטות הישנות של אירופה.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-indigo-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    דוגלת בליברליזם של שוק חופשי ובחדשות המכוונות לקהל הרחב (Populist News). הוא מאמין שהמדיה צריכה לתת לאנשים את מה שהם רוצים לראות, ולא מה שהממשלה חושבת. דחף לשבירת מונופולים ממשלתיים וראה בתחרות העסקית כלי לשיפור המהירות והרלוונטיות של הדיווח, תוך דגש על שמרנות כלכלית והשפעה פוליטית ישירה על הממשל דרך כוחה של המילה המשודרת.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-indigo-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    בנה את News Corp והפך את Sky News לערוץ המשפיע ביותר בבריטניה לצד ה-BBC. הגדיר מחדש את המהירות שבה מועבר מידע גלובלי דרך המצאת הקונספט של שידור לווייני רציף. חתום על שינוי המפה הפוליטית במדינות רבות דרך כוחו התקשורתי והפיכת החדשות למוצר כלכלי ופוליטי רב עוצמה שאין לו גבולות גיאוגרפיים, תוך הובלת המהפכה הדיגיטלית במדיה.
-                </p>
-            </div>
-        </section>
-
-        <!-- 06. Euronews (European Union) -->
-        <section class="channel-section border-purple-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-purple-500 shadow-purple-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-purple-400">Integration Sector Active</span>
-                </div>
-                <h2 class="channel-title">EURONEWS .06</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Multilingual European Strategic Matrix</h3>
-                
-                <div class="etymology-block border-purple-500 text-purple-400 bg-purple-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>Euro:</em> על שם הנסיכה המיתולוגית אירופה, מהיוונית <strong>Eury-ope</strong> (רחבת מבט).<br>
-                    <em>Lyon:</em> מהשם הקלטי-רומי <strong>Lugdunum</strong> - "הגבעה של אל האור לוג" (אל השמש).<br>
-                    <em>Peters:</em> מהמילה היוונית <strong>Petros</strong> - שפירושה "סלע" או "אבן יציבה".
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-purple-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    Euronews הוקמה ב-1 בינואר <span class="highlight-year">1993</span> בליון, צרפת. המטרה היתה ליצור ערוץ חדשות אירופי רב-לשוני שישמש קול מאוחד לאיחוד האירופי ויתחרה ב-CNN דרך גישה רב-תרבותית. הערוץ נולד מתוך צורך פוליטי להציג נרטיב משותף ליבשת לאחר נפילת חומת ברלין, תוך שימוש במודל ייחודי של דיווח ללא "כוכבי הגשה" לשמירה על אובייקטיביות ופלורליזם יבשתי.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-purple-400">Michael Peters (1971–)</h4>
-                <div class="builder-etymology-full border-purple-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Michael:</em> (עברית: Mi-ka-el) - השאלה הרטורית "מי כאל?". מסמל ענווה וסמכות.
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-purple-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    נולד בליון, צרפת, למשפחה שחיה את המציאות האירופית המשתנה של שנות ה-70. גדל בלב המערכת הכלכלית והמנהלית ופיתח תשוקה לניהול מערכות תקשורת גלובליות מורכבות. מייצג את הדור החדש של מנהלי המדיה הרואים באירופה ישות פוליטית ותרבותית אחת. רכש השכלה במנהל עסקים ופיננסים (IAE Lyon), מה שהכשיר אותו לנהל את המורכבות הכלכלית של רשת המשדרת לעשרות מדינות במקביל ובשפות שונות.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-purple-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    דוגלת בחדשות ללא גבולות (Trans-European). מאמין שהעתיד שייך למידע שמתעלה מעל הטיות לאומיות ספציפיות. תחת הנהגתו, הערוץ דבק במודל ה-"No Comment" המאפשר לעובדות לדבר בעד עצמן לקהל אירופי רב-גווני ב-12 שפות. רואה ב-Euronews את ה"כיכר הציבורית" של אירופה המודרנית, מקום בו גרמני וצרפתי מקבלים את אותן עובדות בשפתם שלהם, ללא מניפולציות.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-purple-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    הפך את Euronews לרשת החדשות המובילה ביבשת מבחינת פריסה שפתית והשפעה אסטרטגית. הישגו המרכזי היה שימור המודל האירופי הייחודי גם בעידן של שינויים טכנולוגיים כבירים ומעבר לבעלות פרטית. הוביל את הטרנספורמציה הדיגיטלית של הרשת והפך אותה למותג מוכר גלובלית כקול השפוי והמאוזן של אירופה המאוחדת ובניית שותפויות אסטרטגיות חובקות עולם.
-                </p>
-            </div>
-        </section>
-
-        <!-- 07. RAI News 24 (Italy) -->
-        <section class="channel-section border-red-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="status-dot bg-red-500 shadow-red-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-red-400">Italy Sector Active</span>
-                </div>
-                <h2 class="channel-title">RAI NEWS 24 .07</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Italy's Primary 24h News Service</h3>
-                
-                <div class="etymology-block border-red-500 text-red-400 bg-red-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>RAI:</em> Radio Audizioni Italiane (שידורי רדיו איטלקיים).<br>
-                    <em>Rome:</em> מהמקור הלטינית <strong>Roma</strong> - ייתכן מהשורש האטרוסקי <strong>Rumon</strong> שפירושו נהר (הטיבר) או מהיוונית <strong>Rhome</strong> (כוח).<br>
-                    <em>Marconi:</em> מהמילה האיטלקית <strong>Marco</strong> - שנגזרה מהלטינית <strong>Marcus</strong> (פטיש).
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    RAI News 24 הושק ב-26 באפריל <span class="highlight-year">1999</span>. המטרה היתה לספק לאיטליה ערוץ חדשות ציבורי איכותי שיהווה משקל נגד לחדשות המסחריות (Mediaset) וישקף את המורכבות התרבותית והפוליטית האיטלקית לעולם סביב השעון. הערוץ נולד מתוך צורך לאומי בחדשות אמינות המבוססות על המורשת העשירה של רשות השידור האיטלקית RAI, המשלבת זהות לאומית עם טכנולוגיה מודרנית.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-red-400">Guglielmo Marconi (1874–1937)</h4>
-                <div class="builder-etymology-full border-red-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Guglielmo:</em> גרסה איטלקית ל"William" - מורכב מ-Will (רצון) ו-Helmet (קסדה). מסמל רצון חזק והגנה.<br>
-                    <em>Giovanni:</em> (יוחנן) - יהוה חנן.<br>
-                    <em>Maria:</em> (מרים) - שם קדוש קתולי המציין חסד אלוהי וטוהר.
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-red-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    נולד בבולוניה למשפחה אריסטוקרטית איטלקית-אירית. מגיל צעיר גילה עניין יוצא דופן בפיזיקה ובחשמל. בילה את כל זמנו הפנוי בביצוע ניסויים מדעיים מורכבים בעליית הגג של בית הוריו (Villa Griffone). שם, בגיל 20 בלבד, המציא את הבסיס לשידור האלחוטי. ילדותו בצל המדע והחדשנות נטעה בו אופי של ממציא חסר גבולות שראה בתקשורת את המפתח לאיחוד האנושות ולקידום הקידמה העולמית המודרנית דרך גלי האתר.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    כאבי הטכנולוגיה האלחוטית, האידיאולוגיה שלו התבססה על הכוח של התקשורת לחבר בין אנשים ללא חוטים. האמין בקידמה טכנולוגית חסרת גבולות וראה בשידור כלי לשליטה לאומית, גאווה איטלקית ומיצוב המדינה כמרכז טכנולוגי עולמי. תמך בשיתוף פעולה בין המדע למדינה וראה בשידור (RAI בגלגוליה המוקדמים) כלי להעברת השכלה ותרבות להמונים כדרך לשיפור חברתי ואיחוד לאומי תחת ערכים משותפים.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-red-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    חתן פרס נובל לפיזיקה על פיתוח הטלגרף האלחוטי. הישגו הגדול הוא הקמת התשתית המדעית והטכנולוגית שאיפשרה את קיום הרדיו והטלוויזיה המודרניים. הקים את חברת מרקוני העולמית ושימש כנשיא האקדמיה המלכותית של איטליה. מורשתו היא הפיכת השידור לכלי תקשורת להמונים, המהווה את הבסיס לכל ערוצי החדשות הרציפים הקיימים היום, כולל RAI News 24 הממשיך את דרכו הטכנולוגית.
-                </p>
-            </div>
-        </section>
-
-        <!-- 08. 24 Horas (Spain / RTVE) -->
-        <section class="channel-section border-rose-500/30">
-            <div class="section-header">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="status-dot bg-rose-500 shadow-rose-500"></span>
-                    <span class="text-[15px] font-black uppercase tracking-[0.4em] text-rose-400">Iberian Sector Active</span>
-                </div>
-                <h2 class="channel-title">24 HORAS .08</h2>
-                <h3 class="text-2xl font-light italic text-slate-500 leading-none mt-4">Spain's Global News Matrix (RTVE)</h3>
-                
-                <div class="etymology-block border-rose-500 text-rose-400 bg-rose-500/5">
-                    <strong>אטימולוגיה פילולוגית מורחבת (שם ומיקום):</strong><br>
-                    <em>24 Horas:</em> 24 שעות (ספרדית/לטינית: Hora - שעה או עונה).<br>
-                    <em>RTVE:</em> Radio Televisión Española (רדיו וטלוויזיה ספרדית).<br>
-                    <em>Madrid:</em> מהמילה הערבית/ספרדית עתיקה <strong>Mayrit</strong> - "מקום של שפע מים" (עקב ריבוי הבארות).
-                </div>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-rose-400">לידת הערוץ והקשר היסטורי</span>
-                <p class="content-text">
-                    ערוץ 24 Horas הושק ב-15 בספטמבר <span class="highlight-year">1997</span> כחלק מרשות השידור הציבורית של ספרד RTVE. המטרה היתה להקים את ערוץ החדשות הספרדי הראשון שמשדר 24 שעות ביממה, במטרה לחבר את ספרד לעולם דובר הספרדית (ההיספנוספירה) ולספק דיווחים אמינים בזמן אמת לאחר שנות הדיקטטורה. הערוץ משמש ככלי מרכזי של ספרד להפצת הנרטיב הדמוקרטי והליברלי שלה בעולם ובאירופה.
-                </p>
-            </div>
-
-            <div class="builder-title-block">
-                <h4 class="builder-name text-rose-400">Adolfo Suárez González (1932–2014)</h4>
-                <div class="builder-etymology-full border-rose-500 text-slate-400">
-                    <strong>פירוק אטימולוגי של השם המלא:</strong><br>
-                    <em>Adolfo:</em> מהשפה הגרמאנית העתיקה <strong>Adal-wolf</strong> - שפירושו "זאב נאציל" (Noble Wolf).<br>
-                    <em>Suárez:</em> שם פטרונימי ספרדי (Suero + Ez) - שפירושו "בנו של סוארו". סוארו פירושו "שומר" או "מגן".<br>
-                    <em>González:</em> שם פטרונימי מ-Gonzalo - שפירושו "בנו של גונזלו" (רוח הקרב).
-                </div>
-            </div>
-            
-            <div class="info-block">
-                <span class="info-label text-rose-400">ילדות וסביבה מעצבת (Childhood)</span>
-                <p class="content-text">
-                    נולד בספריוס, ספרד. גדל בצל מלחמת האזרחים המדממת והדיקטטורה הארוכה של פרנקו. משפחתו הייתה חלק מהמעמד הבינוני המשכיל, והוא הוכשר כמשפטן באוניברסיטת סלמנקה היוקרתית. חוויות ילדותו תחת משטר סמכותי נטעו בו שאיפה עמוקה לפיוס לאומי ולדמוקרטיה חופשית. החל את דרכו המקצועית בתוך מנגנוני המשטר הישן, אך תמיד פעל בשקט ובחכמה כדי לשנות את המערכת מבפנים ולהפוך את ספרד למדינה פתוחה ופלורליסטית, תוך הבנה שהתקשורת היא המפתח לשינוי התודעה.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-rose-400">אידאולוגיה (Ideology)</span>
-                <p class="content-text">
-                    האידיאולוגיה שלו דוגלת בדמוקרטיה ליברלית, פיוס לאומי ואירופאיזציה של ספרד. היה האדריכל הראשי של ה-**Transición** (המעבר לדמוקרטיה) בספרד. האמין שעל התקשורת להיות חופשית וממלכתית בו זמנית, כדי לשמש כבסיס יציב לחברה דמוקרטית מודרנית. עבורו, RTVE לא הייתה כלי תעמולה אלא הנדבך המרכזי של הזהות הספרדית החדשה, המכבדת את זכויות האדם ופלורליזם הדעות כערכי יסוד בלתי מעורערים.
-                </p>
-            </div>
-
-            <div class="info-block">
-                <span class="info-label text-rose-400">הישגים (Achievements)</span>
-                <p class="content-text">
-                    כיהן כראש ממשלת ספרד הראשון לאחר עידן פרנקו. הישגו הגדול וההיסטורי היה העברת חוק הרפורמה הפוליטית שאיפשרה בחירות דמוקרטיות. בתחום התקשורת, חתום על הפיכת רשות השידור הציבורית לכלי דמוקרטי מודרני, מהלך שהוביל להקמת ערוץ 24 Horas כסמל של עיתונות חופשית וגלובלית המשדרת למאות מיליוני דוברי ספרדית. זכה להערצה עולמית כמי שהוביל מעבר שלם ללא שפיכות דמים.
-                </p>
-            </div>
-        </section>
-
-        <!-- Matrix Footer -->
-        <footer class="py-24 text-center opacity-20">
-            <div class="flex justify-center gap-12 mb-8">
-                <i class="fas fa-microchip text-3xl"></i>
-                <i class="fas fa-network-wired text-3xl"></i>
-                <i class="fas fa-shield-halved text-3xl"></i>
-            </div>
-            <p class="text-[12px] font-mono uppercase tracking-[0.6em] mb-3 text-sky-400">
-                European Strategic Intelligence Matrix | Sector EU-05
+            <span class="info-label" style="color: #3b82f6">הרקע והקמת הערוץ</span>
+            <p class="content-text">
+                הוקמה ב-17 ביולי <span class="highlight-year">2013</span> מתוך כורח גיאופוליטי לשבור את ההגמוניה של רשתות כמו אל-ג'זירה. פטריק דרהי ביקש לייצר "נורמליזציה תקשורתית" לישראל ולהציג את המציאות המורכבת בשלוש שפות: אנגלית, צרפתית וערבית.
             </p>
-            <p class="text-[14px] font-bold italic uppercase tracking-widest">
-                Architecture by Ram | Master Version 2026
-            </p>
+
+            <div class="builder-box">
+                <h4 class="text-white font-black text-xl mb-4 italic uppercase">Patrick Drahi</h4>
+                <div class="text-sm text-blue-400 font-mono mb-4">1963–Present</div>
+                
+                <h4 class="bio-subtitle">ילדות</h4>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">נולד בקזבלנקה להורים מורים למתמטיקה. גדל על ברכי הלוגיקה והניתוח האנליטי. בגיל 15 עבר לצרפת והצטיין בלימודי הנדסה ב-Polytechnique.</p>
+                
+                <h4 class="bio-subtitle">אידיאולוגיה</h4>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">Convergence (התכנסות) - שילוב מוחלט בין תשתית (טלקום) לתוכן (מדיה). מאמין בתקשורת ללא גבולות ובמודל עסקי רזה וטכנולוגי.</p>
+                
+                <h4 class="bio-subtitle">הישגים</h4>
+                <p class="text-sm text-slate-400 leading-relaxed">בנה את אימפריית Altice. הקים את ערוץ החדשות הבינלאומי הראשון מישראל ובשנת 2024 השיק את i24NEWS בעברית.</p>
+            </div>
+        </section>
+
+        <footer class="mt-16 pt-8 border-t border-slate-800 text-center pb-12">
+            <div class="flex justify-center gap-6 mb-6 text-slate-600">
+                <i class="fas fa-satellite-dish text-xl"></i>
+                <i class="fas fa-globe-europe text-xl"></i>
+                <i class="fas fa-tv text-xl"></i>
+            </div>
+            <p class="text-slate-300 text-sm tracking-wide font-bold">האתר נוצר על ידי ג'מיני ורם</p>
+            <p class="text-[10px] text-slate-500 font-mono mt-2 tracking-widest uppercase">Version 2.0 / Optimized for S25 Ultra</p>
         </footer>
 
     </div>
