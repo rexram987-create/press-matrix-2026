@@ -38,9 +38,67 @@ const MEDIA = {
 
 const CATEGORY_FILES = {'US TV Networks':'us_tv_channels.html','US Newspapers':'us_newspapers.html','MENA TV Networks':'mena_tv_channels.html','MENA Newspapers':'mena_newspapers.html','European TV Networks':'eu_tv_channels.html','European Newspapers':'eu_newspapers.html','Digital & Web Press':'digital_press.html'};
 const CATEGORY_HE = {'US TV Networks':'רשתות טלוויזיה בארצות הברית','US Newspapers':'עיתונות בארצות הברית','MENA TV Networks':'ערוצי טלוויזיה במזרח התיכון וצפון אפריקה','MENA Newspapers':'עיתונות במזרח התיכון וצפון אפריקה','European TV Networks':'ערוצי טלוויזיה אירופיים','European Newspapers':'עיתונות אירופית','Digital & Web Press':'סוכנויות ואתרי חדשות דיגיטליים'};
+
 function esc(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
 function mediaHref(slug){return `media/${slug}.html`;}
-function mediaHrefFromMedia(slug){return `${slug}.html`;}
-function renderMediaPage(){const slug=window.MEDIA_SLUG,item=MEDIA[slug],root=document.getElementById('media-root');if(!root)return;if(!item){root.innerHTML='<article class="article"><h1>הדף לא נמצא</h1><p>כלי התקשורת המבוקש לא קיים במאגר.</p></article>';return;}document.title=`${item.name} | Press Matrix 2026`;root.innerHTML=`<nav class="topbar"><a class="back-link" href="../index.html">חזרה למאגר הראשי</a><a class="back-link" href="../${CATEGORY_FILES[item.cat]}">חזרה לקטגוריה</a><span class="small-pill">${esc(item.cat)}</span></nav><header class="hero"><div class="eyebrow">Press Matrix 2026</div><h1>${esc(item.name)}</h1><p>${esc(item.summary)}</p></header><article class="article"><div class="data-grid"><div class="data-box"><strong>אזור</strong><span>${esc(item.region)}</span></div><div class="data-box"><strong>סוג</strong><span>${esc(item.type)}</span></div><div class="data-box"><strong>שנת ייסוד</strong><span>${esc(item.founded)}</span></div><div class="data-box"><strong>מייסד / דמות מרכזית</strong><span>${esc(item.founder)}</span></div><div class="data-box"><strong>אוריינטציה</strong><span>${esc(item.orientation)}</span></div><div class="data-box"><strong>סטטוס</strong><span>${esc(item.status)}</span></div></div><h2 class="section-title">פירוק שם ואטימולוגיה</h2><p>${esc(item.etymology)}</p><h2 class="section-title">רקע היסטורי וסיבת ההקמה</h2><p>${esc(item.context)}</p><h2 class="section-title">הערת מחקר</h2><p class="note">זהו דף עצמאי חדש לכלי התקשורת. אפשר להרחיב בהמשך כל דף בנפרד: ביוגרפיית מייסדים, ציר זמן, תמונות, קישורי מקור, ומפת השפעה אידיאולוגית.</p><h2 class="section-title">מקורות לבדיקה והרחבה</h2><ul>${item.sources.map(s=>`<li><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></li>`).join('')}</ul></article>`;}
-function renderCategoryPage(){const cat=window.CATEGORY,root=document.getElementById('category-root');if(!root)return;const items=Object.entries(MEDIA).filter(([,v])=>v.cat===cat);document.title=`${CATEGORY_HE[cat]||cat} | Press Matrix 2026`;root.innerHTML=`<nav class="topbar"><a class="back-link" href="index.html">חזרה למאגר הראשי</a><span class="small-pill">${items.length} דפים עצמאיים</span></nav><header class="hero"><div class="eyebrow">Press Matrix Category</div><h1>${esc(CATEGORY_HE[cat]||cat)}</h1><p>כל כלי תקשורת בקטגוריה זו פוצל לדף עצמאי, עם פרופיל מחקרי, אטימולוגיה, רקע היסטורי, סטטוס ומקורות ראשוניים להרחבה.</p></header><main class="grid">${items.map(([slug,item])=>`<a class="card" href="${mediaHref(slug)}"><div class="meta">${esc(item.region)} · ${esc(item.type)}</div><h2>${esc(item.name)}</h2><p>${esc(item.summary)}</p><div class="badge-row"><span class="badge">${esc(item.founded)}</span><span class="badge green">${esc(item.status)}</span></div></a>`).join('')}</main><footer class="footer">Press Matrix 2026 · מבנה מפוצל לפי כלי תקשורת</footer>`;}
+function categoryTone(cat){ if(cat.includes('MENA')) return 'rose'; if(cat.includes('European')) return 'amber'; if(cat.includes('Digital')) return 'purple'; return ''; }
+function categoryKind(item){ if(item.cat.includes('TV')) return 'שידור, מסך, אולפן, לוח שידורים, קהל צופים והשפעה בזמן אמת'; if(item.cat.includes('Newspapers')) return 'מערכת עיתון, עורכים, כתבים, קו מערכת, עמודי דעה וארכיון מודפס/דיגיטלי'; return 'סוכנות מידע, אתר דיגיטלי, זרימת נתונים, ניוזלטרים, מסופים והפצה גלובלית'; }
+function influenceArena(item){ if(item.region.includes('ארצות הברית')) return 'הפוליטיקה האמריקאית, יחסי הון-שלטון, בחירות, שיח ציבורי, קיטוב אידיאולוגי והפצת מודלים תקשורתיים לעולם'; if(item.region.includes('קטר')||item.region.includes('סעוד')||item.region.includes('לבנון')||item.region.includes('מצרים')||item.region.includes('איחוד')||item.cat.includes('MENA')) return 'המרחב הערבי, יחסי מדינה-תקשורת, דיפלומטיה אזורית, זהות לאומית, מאבקי נרטיב וסדר יום ציבורי במזרח התיכון'; if(item.cat.includes('European')) return 'המרחב האירופי, שידור ציבורי, עיתונות איכות, תודעה דמוקרטית, שפות לאומיות ויחסי אירופה-עולם'; return 'כלכלת המידע הגלובלית, שווקים, סוכנויות ידיעות, צריכת חדשות דיגיטלית וקבלת החלטות בזמן אמת'; }
+function founderParagraph(item){ return `${esc(item.founder)} מופיע בדף זה לא רק כפרט ביוגרפי, אלא כמפתח להבנת המוסד. בכלי תקשורת, דמות המייסד או הגוף המייסד קובעים בדרך כלל את שפת העבודה, היחס לכוח פוליטי, ההעדפה בין מהירות לעומק, והאופן שבו הארגון מבין את תפקידו מול הציבור. גם כאשר המוסד משתנה עם השנים, נקודת ההקמה ממשיכה להשפיע על המותג, על המבנה הארגוני ועל הזיכרון הציבורי שלו.`; }
+function deepIntro(item){ return `${esc(item.summary)} מעבר לתיאור הקצר, חשוב להבין את ${esc(item.name)} כמוסד תקשורתי בעל שכבות: הוא אינו רק שם מסחרי או גוף חדשות, אלא מערכת של עובדים, טכנולוגיות, קהל יעד, שפה, מסורת עריכתית, בעלות, רגולציה ודימוי ציבורי. לכן הניתוח כאן מתייחס אליו גם כמוצר תקשורתי, גם כמוסד היסטורי, וגם כשחקן המשפיע על האופן שבו הציבור מבין מציאות פוליטית, חברתית וכלכלית.`; }
+function expandedEtymology(item){ return `${esc(item.etymology)} מבחינה מחקרית, שם של כלי תקשורת הוא הצהרת זהות. הוא מגדיר לקורא או לצופה מה המוסד רוצה להיות: קול לאומי, עיתון של עיר, סוכנות ניטרלית, ערוץ בזמן אמת, גוף ציבורי או במה אידיאולוגית. לכן האטימולוגיה אינה קישוט לשוני בלבד; היא דרך להבין את ההבטחה שהמותג נותן לציבור ואת הסמכות שהוא מבקש לקבל.`; }
+function historicalFrame(item){ return `${esc(item.context)} ההקמה בשנת ${esc(item.founded)} צריכה להיקרא בתוך ההקשר הרחב של תקופתה: שינוי טכנולוגי, שינוי פוליטי, מאבק על קהל, ועלייה של צרכים חדשים במידע. כלי תקשורת נוצרים כמעט תמיד כאשר נוצר פער: פער בין מה שהציבור רוצה לדעת לבין מה שהמוסדות הקיימים מסוגלים או מוכנים לספק. במקרה של ${esc(item.name)}, הפער הזה הפך להזדמנות לבניית מותג תקשורתי בעל השפעה.`; }
+function operationModel(item){ return `מודל הפעולה של ${esc(item.name)} נשען על ${categoryKind(item)}. המודל הזה מייצר צורת סמכות מסוימת: טלוויזיה מייצרת נוכחות מיידית ודימוי רגשי; עיתון יוצר ארכיון, פרשנות וסדר יום; סוכנות או אתר דיגיטלי מייצרים זרימת מידע מהירה ורחבה. השאלה המחקרית אינה רק מה פורסם, אלא איך המבנה הטכנולוגי והארגוני מעצב את אופי האמת שהציבור פוגש.`; }
+function influenceMap(item){ return `שדה ההשפעה המרכזי של ${esc(item.name)} הוא ${influenceArena(item)}. ההשפעה הזו אינה חייבת להיות ישירה בלבד. לעיתים היא מתבטאת בבחירת הכותרת, בהעדפת נושאים מסוימים, בסוג המומחים שמוזמנים, בדרך שבה מסגור חזותי או מילולי חוזר שוב ושוב, וביכולת להפוך אירוע נקודתי לסיפור רחב בעל משמעות פוליטית או תרבותית.`; }
+function ideologicalCaution(item){ return `האוריינטציה הכללית המתוארת כאן היא ${esc(item.orientation)}. חשוב לקרוא אותה בזהירות: אוריינטציה אינה אומרת שכל ידיעה מוטה באותה צורה, אלא שהיא מצביעה על נטייה מערכתית, קהל יעד, מסורת עריכתית, יחסי בעלות והקשר פוליטי. במחקר תקשורתי נכון יש להבחין בין עובדות, פרשנות, קו מערכת, בעלות, וקבלת התוכן על ידי הציבור.`; }
+function timeline(item){ return `<ul><li><strong>${esc(item.founded)} — נקודת ההקמה:</strong> הופעת ${esc(item.name)} כמענה לצורך תקשורתי חדש.</li><li><strong>שלב ההתבססות:</strong> בניית אמון, קהל, שפה מערכתית ומעמד ביחס למתחרים.</li><li><strong>שלב ההשפעה:</strong> הפיכת המותג לחלק מן הזיכרון הציבורי וממערכת קבלת ההחלטות.</li><li><strong>העידן הדיגיטלי:</strong> התאמת המוסד לרשת, למובייל, לרשתות חברתיות ולצריכת חדשות מיידית.</li></ul>`; }
+function researchQuestions(item){ return `<ul><li>כיצד המבנה הארגוני והבעלות משפיעים על סדר היום של ${esc(item.name)}?</li><li>מה היחס בין דיווח עובדתי, פרשנות וקו מערכת?</li><li>אילו קהלים רואים בכלי הזה מקור סמכות, ואילו קהלים רואים בו גוף מוטה?</li><li>כיצד השתנה תפקידו מאז ${esc(item.founded)} ועד העידן הדיגיטלי?</li><li>מה ההבדל בין הדימוי הציבורי של המותג לבין עבודת המערכת בפועל?</li></ul>`; }
+function sourceList(item){ return item.sources.map(s=>`<li><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></li>`).join(''); }
+
+function renderMediaPage(){
+  const slug=window.MEDIA_SLUG,item=MEDIA[slug],root=document.getElementById('media-root');
+  if(!root)return;
+  if(!item){root.innerHTML='<article class="article"><h1>הדף לא נמצא</h1><p>כלי התקשורת המבוקש לא קיים במאגר.</p></article>';return;}
+  document.title=`${item.name} | Press Matrix 2026`;
+  const tone = categoryTone(item.cat);
+  root.innerHTML=`
+    <nav class="topbar">
+      <a class="back-link" href="../index.html">חזרה למאגר הראשי</a>
+      <a class="back-link" href="../${CATEGORY_FILES[item.cat]}">חזרה לקטגוריה</a>
+      <span class="small-pill">${esc(item.cat)}</span>
+    </nav>
+    <header class="hero">
+      <div class="eyebrow">Press Matrix 2026 · Dossier</div>
+      <h1>${esc(item.name)}</h1>
+      <p>${esc(item.summary)}</p>
+      <div class="badge-row" style="justify-content:center"><span class="badge ${tone}">${esc(item.type)}</span><span class="badge green">${esc(item.status)}</span><span class="badge">נוסד: ${esc(item.founded)}</span></div>
+    </header>
+    <article class="article">
+      <div class="data-grid">
+        <div class="data-box"><strong>אזור</strong><span>${esc(item.region)}</span></div>
+        <div class="data-box"><strong>סוג</strong><span>${esc(item.type)}</span></div>
+        <div class="data-box"><strong>שנת ייסוד</strong><span>${esc(item.founded)}</span></div>
+        <div class="data-box"><strong>מייסד / דמות מרכזית</strong><span>${esc(item.founder)}</span></div>
+        <div class="data-box"><strong>אוריינטציה</strong><span>${esc(item.orientation)}</span></div>
+        <div class="data-box"><strong>סטטוס</strong><span>${esc(item.status)}</span></div>
+      </div>
+      <h2 class="section-title">פרופיל מחקרי מורחב</h2><p>${deepIntro(item)}</p>
+      <h2 class="section-title">פירוק שם ואטימולוגיה</h2><p>${expandedEtymology(item)}</p>
+      <h2 class="section-title">הרקע ההיסטורי וסיבת ההקמה</h2><p>${historicalFrame(item)}</p>
+      <h2 class="section-title">המייסד והדמות המעצבת</h2><p>${founderParagraph(item)}</p>
+      <h2 class="section-title">מודל פעולה תקשורתי</h2><p>${operationModel(item)}</p>
+      <h2 class="section-title">אוריינטציה ומפת השפעה</h2><p>${ideologicalCaution(item)}</p><p>${influenceMap(item)}</p>
+      <h2 class="section-title">ציר זמן מחקרי</h2>${timeline(item)}
+      <h2 class="section-title">שאלות להמשך מחקר</h2>${researchQuestions(item)}
+      <h2 class="section-title">מקורות לבדיקה והרחבה</h2><ul>${sourceList(item)}</ul>
+      <p class="note">הדף הורחב לאחר הפיצול לדפים עצמאיים. זהו בסיס מחקרי רחב יותר, וניתן להעמיק בהמשך כל גוף תקשורת בנפרד עם פרקים ביוגרפיים מלאים, אירועים היסטוריים, תמונות, וציטוטים ממקורות ראשוניים.</p>
+    </article>`;
+}
+
+function renderCategoryPage(){
+  const cat=window.CATEGORY,root=document.getElementById('category-root');if(!root)return;
+  const items=Object.entries(MEDIA).filter(([,v])=>v.cat===cat);document.title=`${CATEGORY_HE[cat]||cat} | Press Matrix 2026`;
+  const tone = categoryTone(cat);
+  root.innerHTML=`<nav class="topbar"><a class="back-link" href="index.html">חזרה למאגר הראשי</a><span class="small-pill">${items.length} דפים עצמאיים</span></nav><header class="hero"><div class="eyebrow">Press Matrix Category</div><h1>${esc(CATEGORY_HE[cat]||cat)}</h1><p>כל כלי תקשורת בקטגוריה זו קיבל דף עצמאי מורחב, עם פרופיל מחקרי, אטימולוגיה, רקע היסטורי, סטטוס, ציר זמן ושאלות מחקר.</p></header><main class="grid">${items.map(([slug,item])=>`<a class="card" href="${mediaHref(slug)}"><div class="meta">${esc(item.region)} · ${esc(item.type)}</div><h2>${esc(item.name)}</h2><p>${esc(item.summary)}</p><div class="badge-row"><span class="badge ${tone}">${esc(item.founded)}</span><span class="badge green">${esc(item.status)}</span></div></a>`).join('')}</main><footer class="footer">Press Matrix 2026 · מבנה מפוצל ומורחב לפי כלי תקשורת</footer>`;
+}
 document.addEventListener('DOMContentLoaded',()=>{renderMediaPage();renderCategoryPage();});
